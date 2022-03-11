@@ -42,7 +42,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
     const cardTypes = {
         conversationLengths: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of conversations that contain a given number of user utterances.',
+            titleDescription: 'Número de conversas que contêm um determinado número de declarações do usuário.',
             queryParams: {
                 envs, queryName: 'conversationLengths', langs,
             },
@@ -59,7 +59,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         conversationDurations: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of conversations with a given number of seconds elapsed between the first and last message.',
+            titleDescription: 'Número de conversas com um determinado número de segundos decorridos entre a primeira e a última mensagem.',
             queryParams: {
                 envs, queryName: 'conversationDurations', cutoffs: [30, 60, 90, 120, 180], langs,
             },
@@ -76,7 +76,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         intentFrequencies: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of user utterances classified as having a given intent.',
+            titleDescription: 'Número de declarações do usuário classificados como tendo um determinado objetivo.',
             queryParams: {
                 envs, queryName: 'intentFrequencies', langs, intentTypeFilter: 'utterance',
             },
@@ -98,7 +98,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         triggerFrequencies: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of user utterances classified as having a given intent.',
+            titleDescription: 'Número de declarações do usuário classificados como tendo um determinado objetivo.',
             queryParams: {
                 envs, queryName: 'intentFrequencies', langs, intentTypeFilter: 'trigger',
             },
@@ -120,7 +120,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         conversationCounts: {
             chartTypeOptions: ['line', 'bar', 'table'],
-            titleDescription: 'Out of the visits (total number of conversations) in a given temporal window, the conversations that satisfy filters.',
+            titleDescription: 'Das visitas (total de conversas) em uma determinada janela temporal, as conversas que satisfazem os filtros.',
             queryParams: {
                 temporal: true, envs, queryName: 'conversationCounts', langs,
             },
@@ -142,7 +142,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         actionCounts: {
             chartTypeOptions: ['line', 'bar', 'table'],
-            titleDescription: 'Out of all conversational events in a given temporal window, the number of actions occurrences that satisfy filters.',
+            titleDescription: 'De todos os eventos de conversação em uma determinada janela temporal, o número de ocorrências de ações que satisfazem os filtros.',
             queryParams: {
                 temporal: true, envs, queryName: 'actionCounts', langs,
             },
@@ -212,7 +212,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         } = cardTypes[type];
         cardTypes[type].graphParams.columns = [
             { temporal, accessor: x, header: axisTitleX },
-            { accessor: y.absolute, header: y2 ? `Matching ${axisTitleY.toLowerCase()}` : axisTitleY },
+            { accessor: y.absolute, header: y2 ? `Correspondente ${axisTitleY.toLowerCase()}` : axisTitleY },
             ...(y2 ? [{ accessor: y2.absolute, header: `Total ${axisTitleY.toLowerCase()}` }] : []),
             { accessor: y.relative, header: '%' },
         ];

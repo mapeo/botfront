@@ -101,7 +101,7 @@ export default class API extends React.Component {
                     <Form>
                         <Form.Field>
                             <TextArea
-                                placeholder='User says...'
+                                placeholder='Usuário diz...'
                                 minRows={1}
                                 maxRows={999}
                                 value={query}
@@ -111,7 +111,7 @@ export default class API extends React.Component {
                         <br />
                         <Checkbox
                             slider
-                            label='Show Duckling params'
+                            label='Mostrar parâmetros Duckling'
                             onChange={this.handleDucklingOptionsChange}
                         />
                         <br />
@@ -121,7 +121,7 @@ export default class API extends React.Component {
                                 <label>Timezone: </label>
                                 <Dropdown
                                     name='tz'
-                                    placeholder='Select timezone'
+                                    placeholder='Selecione fuso horário'
                                     search
                                     selection
                                     value={tz}

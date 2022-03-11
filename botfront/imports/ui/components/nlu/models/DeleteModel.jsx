@@ -43,7 +43,7 @@ class DeleteModel extends React.Component {
             wrapMeteorCallback(() => {
                 changeWorkingLanguage(fallbackLang);
                 this.setState({ confirmOpen: false });
-            }, 'Model deleted!'),
+            }, 'Modelo deletado!'),
         );
     };
 
@@ -79,10 +79,10 @@ class DeleteModel extends React.Component {
         if (this.cannotDelete()) {
             return (
                 <Message
-                    header='Default language cannot be deleted'
+                    header='O idioma padrão não pode ser deletado'
                     icon='warning'
                     content={
-                        'You can\'t delete the default language, to delete this language change the default language of the project.'
+                        'Você não pode deletar o idioma padrão. Para deletar esse idioma, altere o idioma padão do projeto.'
                     }
                     warning
                 />
@@ -91,9 +91,9 @@ class DeleteModel extends React.Component {
         return (
             <Message
                 negative
-                header={`All the ${language} data of your model will be deleted !`}
+                header={`Todos os ${language} dados de seu modelo serão deletados!`}
                 icon='warning circle'
-                content='Please use the button below to download a backup of your data before proceeding.'
+                content='Por favor, use o botão abaixo para baixar um backup de seus dados antes de continuar.'
             />
         );
     };
@@ -111,8 +111,8 @@ class DeleteModel extends React.Component {
             <Tab.Pane>
                 <Confirm
                     open={confirmOpen}
-                    header={`Delete ${languageName} data from your model? (${examples} examples)`}
-                    content='This cannot be undone!'
+                    header={`Deletar dado ${languageName} de seu modelo? (${examples} examplos)`}
+                    content='Isso não pode ser desfeito!'
                     onCancel={this.onCancel}
                     onConfirm={this.onConfirm}
                 />
@@ -132,7 +132,7 @@ class DeleteModel extends React.Component {
                     </div>
                 )}
                 {backupDownloaded && (
-                    <Message success icon='check circle' content='Backup downloaded' />
+                    <Message success icon='check circle' content='Backup baixado' />
                 )}
                 <br />
                 <br />
@@ -145,7 +145,7 @@ class DeleteModel extends React.Component {
                         disabled={!backupDownloaded || this.cannotDelete()}
                     >
                         <Icon name='trash' />
-                        Delete <strong>{languageName}</strong> data from your model
+                        Deletar dado <strong>{languageName}</strong> de seu modelo
                     </Button>
                 )}
             </Tab.Pane>

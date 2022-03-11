@@ -49,9 +49,9 @@ export default function IntegrationSettings() {
         const capitalizedServiceName = policy.service.charAt(0).toUpperCase() + policy.service.slice(1);
         return (
             <p>
-                Your Botfront project is connected with{' '}
+                Seu projeto Botfront está conectado com{' '}
                 <b style={{ fontSize: 'large' }}>{capitalizedServiceName}</b>.{' '}
-                You can view these settings in your Policies.
+                Você pode visualizar essas configurações em suas Políticas.
             </p>
         );
     };
@@ -59,10 +59,9 @@ export default function IntegrationSettings() {
     return (
         <div>
             <Header as='h3'>
-                Handoff service
+                Serviço Handoff
                 <Header.Subheader>
-                    Connect your bot to a third party service and interact with your
-                    users
+                    Conecte seu bot a um serviço de terceiros e interaja com seus usuários
                 </Header.Subheader>
             </Header>
             {renderCurrentlySetUpService()}
@@ -70,12 +69,12 @@ export default function IntegrationSettings() {
             {links ? (
                 <>
                     <Header as='h4'>
-                    Set up handoff {policy ? 'again' : ''} with
+                    Configurar handoff {policy ? 'again' : ''} com
                     </Header>
                     <p>{renderSlackButton()}</p>
                 </>
             ) : (
-                <i>The administrator has not provided any connectable service.</i>
+                <i>O administrador não forneceu nenhum serviço conectável.</i>
             )}
         </div>
     );

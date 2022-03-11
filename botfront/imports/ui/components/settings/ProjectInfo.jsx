@@ -103,7 +103,7 @@ class ProjectInfo extends React.Component {
                 if (!err) {
                     this.createNLUModels(notInprojectLanguages, _id);
                 }
-            }, 'Changes saved'),
+            }, 'Alterações salvas'),
         );
     };
 
@@ -113,8 +113,8 @@ class ProjectInfo extends React.Component {
             info
             content={(
                 <>
-                    To remove a language from the project, go to{' '}
-                    <strong> NLU &gt; Settings &gt; Delete </strong>.
+                    Para remover um idioma do projeto, vá para{' '}
+                    <strong> NLU &gt; Configurações &gt; Deletar </strong>.
                 </>
             )}
         />
@@ -143,7 +143,7 @@ class ProjectInfo extends React.Component {
                 >
                     <InfoField
                         name='name'
-                        label='Name'
+                        label='Nome'
                         className='project-name'
                         data-cy='project-name'
                     />
@@ -153,11 +153,11 @@ class ProjectInfo extends React.Component {
                         disabled
                     />
                     <Form.Field>
-                        <label>Languages supported</label>
+                        <label>Idiomas suportados</label>
                         <Dropdown
-                            label='Select Languages'
+                            label='Selecionar idiomas'
                             name='lang'
-                            placeholder='Add languages'
+                            placeholder='Adicionar idiomas'
                             multiple
                             search
                             value={value}
@@ -173,6 +173,7 @@ class ProjectInfo extends React.Component {
                     {!!projectLanguages.length && (
                         <SelectField
                             name='defaultLanguage'
+                            label='Idioma padrão'
                             options={projectLanguages}
                             className='project-default-language'
                             data-cy='default-langauge-selection'
@@ -181,8 +182,8 @@ class ProjectInfo extends React.Component {
                    
                     <InfoField
                         name='nluThreshold'
-                        label='NLU threshold'
-                        info='Botfront will display recommendations on incoming utterances based on that threshold'
+                        label='Limite NLU'
+                        info='O Botfront exibirá recomendações sobre as declarações recebidas com base nesse limite'
                         data-cy='change-nlu-threshold'
                     />
                     <br />
@@ -190,22 +191,22 @@ class ProjectInfo extends React.Component {
                         <>
                             <InfoField
                                 name='deploymentEnvironments'
-                                label='Deployment environments'
-                                info='Botfront will enable additional environments for your workflow'
+                                label='Ambientes de implantação'
+                                info='O Botfront habilitará ambientes adicionais para seu fluxo de trabalho'
                                 data-cy='deployment-environments'
                                 disabled={!can('resources:w', projectId)}
                             />
                             <Message
                                 size='tiny'
                                 info
-                                content='If you remove all environments, all stories will be published'
+                                content='Se você remover todos os ambientes, todas as histórias serão publicadas'
                             />
                         </>
                     )}
                     <AutoField
                         step='0.5'
                         name='timezoneOffset'
-                        label='Timezone offset relative to UTC±00:00'
+                        label='Deslocamento de fuso horário em relação a UTC±00:00'
                         data-cy='change-timezone-offset'
                     />
                     <br />
@@ -213,7 +214,7 @@ class ProjectInfo extends React.Component {
                     {hasWritePermission && (
                         <SubmitField
                             className='primary save-project-info-button'
-                            value='Save Changes'
+                            value='Salvar alterações'
                             data-cy='save-changes'
                         />
                     )}

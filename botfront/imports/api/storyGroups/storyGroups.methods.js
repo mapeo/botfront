@@ -108,7 +108,7 @@ export const createDefaultStoryGroup = async (projectId) => {
 
 function handleError(e) {
     if (e.code === 11000) {
-        throw new Meteor.Error(400, 'Group name already exists');
+        throw new Meteor.Error(400, 'Nome do grupo já existe');
     }
     throw new Meteor.Error(e.error, e.message);
 }

@@ -136,7 +136,7 @@ const Intent = React.forwardRef((props, ref) => {
             <Popup
                 size='mini'
                 inverted
-                content='Reset intent (Shift + Backspace)'
+                content='Redefinir objetivo (Shift + Backspace)'
                 trigger={(
                     <Button
                         icon='x'
@@ -157,7 +157,7 @@ const Intent = React.forwardRef((props, ref) => {
 
     const renderInsertNewIntent = () => (
         <Input
-            placeholder='Filter or create'
+            placeholder='Filtrar ou criar'
             fluid
             onChange={handleTypeInput}
             onKeyDown={handleKeyDown}
@@ -221,7 +221,7 @@ const Intent = React.forwardRef((props, ref) => {
                 <Button
                     fluid
                     color='purple'
-                    content='Create new intent'
+                    content='Criar novo objetivo'
                     onClick={() => handleChange(typeInput)}
                     className='create-intent-button'
                 />
@@ -308,7 +308,7 @@ const Intent = React.forwardRef((props, ref) => {
                                 }}
                             />
                         </Label>
-                    )) : <span className='placeholder-text'>Select an intent</span>}
+                    )) : <span className='placeholder-text'>Selecione um objetivo</span>}
                 </Item>
             )}
             open={popupOpen}

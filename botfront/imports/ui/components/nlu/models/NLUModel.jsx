@@ -135,7 +135,7 @@ function NLUModel(props) {
                     content={(
                         <div>
                             <Icon name='warning' />
-                            You need at least two distinct intents to train NLU
+                            Você precisa de pelo menos dois objetivos distintos para treinar NLU
                         </div>
                     )}
                     info
@@ -248,7 +248,7 @@ function NLUModel(props) {
                                 render: () => <Synonyms model={model} />,
                             },
                             {
-                                menuItem: 'Gazeette',
+                                menuItem: 'Gazette',
                                 render: () => <Gazette model={model} />,
                             },
                             {

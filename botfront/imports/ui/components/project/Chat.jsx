@@ -27,7 +27,7 @@ class Chat extends React.Component {
                 initPayload={initialPayLoad}
                 socketUrl={socketUrl}
                 socketPath={path}
-                inputTextFieldHint='Try out your chatbot...'
+                inputTextFieldHint='Experimente o seu chatbot...'
                 hideWhenNotConnected={false}
                 customData={{ language }}
                 embedded
@@ -38,7 +38,7 @@ class Chat extends React.Component {
                     } = message;
                     return (
                         <div className='rw-response'>
-                            You have to define a custom component prop on the rasa webchat to display this message.
+                            Você tem de definir um suporte de componente personalizado no webchat Rasa para exibir essa mensagem.
                             {JSON.stringify(custom)}
                         </div>
                     );

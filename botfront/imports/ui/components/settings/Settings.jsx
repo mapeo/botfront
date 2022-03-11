@@ -43,19 +43,19 @@ class Settings extends React.Component {
             ...(canViewProjects ? [
                 {
                     name: 'info',
-                    menuItem: <Menu.Item icon='info' content='Project Info' key='Project Info' />,
+                    menuItem: <Menu.Item icon='info' content='Informações do projeto' key='Project Info' />,
                     render: () => <Tab.Pane><ProjectInfo /></Tab.Pane>,
                 },
                 {
                     name: 'credentials',
-                    menuItem: <Menu.Item icon='key' content='Credentials' key='Credentials' />,
+                    menuItem: <Menu.Item icon='key' content='Credenciais' key='Credentials' />,
                     render: () => <Tab.Pane><Credentials /></Tab.Pane>,
                 },
             ] : []),
             ...(canViewResources ? [
                 {
                     name: 'instance',
-                    menuItem: <Menu.Item icon='server' content='Instance' key='Instances' />,
+                    menuItem: <Menu.Item icon='server' content='Instâncias' key='Instances' />,
                     render: () => <Tab.Pane><Instances /></Tab.Pane>,
                 },
             ] : []),
@@ -67,7 +67,7 @@ class Settings extends React.Component {
                 },
                 {
                     name: 'appearance',
-                    menuItem: <Menu.Item icon='eye' content='Appearance' key='Appearance' />,
+                    menuItem: <Menu.Item icon='eye' content='Aparência' key='Appearance' />,
                     render: () => <Tab.Pane><Appearance /></Tab.Pane>,
                 },
                 {
@@ -77,25 +77,25 @@ class Settings extends React.Component {
                 },
                 {
                     name: 'default-domain',
-                    menuItem: <Menu.Item icon='globe' content='Default Domain' key='Default Domain' />,
+                    menuItem: <Menu.Item icon='globe' content='Domínio padrão' key='Default Domain' />,
                     render: () => <Tab.Pane><DefaultDomain /></Tab.Pane>,
                 },
                 {
                     name: 'integration',
-                    menuItem: <Menu.Item icon='cogs' content='Integration' key='Integration' />,
+                    menuItem: <Menu.Item icon='cogs' content='Integração' key='Integration' />,
                     render: () => <Tab.Pane><Integration /></Tab.Pane>,
                 },
             ] : []),
             ...(canImport || canExport ? [
                 {
                     name: 'import-export',
-                    menuItem: <Menu.Item icon='download' content='Import/Export' key='Import/Export' />,
+                    menuItem: <Menu.Item icon='download' content='Importação/Exportação' key='Import/Export' />,
                     render: () => <Tab.Pane><ImportExportProject /></Tab.Pane>,
                 }] : []),
 
             ...(canViewGitCredentials ? [{
                 name: 'git-credentials',
-                menuItem: <Menu.Item icon='git' content='Git credentials' key='Git credentials' />,
+                menuItem: <Menu.Item icon='git' content='Credenciais Git' key='Git credentials' />,
                 render: () => <Tab.Pane><GitSettings /></Tab.Pane>,
             }] : []),
                 
@@ -108,7 +108,7 @@ class Settings extends React.Component {
         const { params: { setting } = {} } = this.props;
         return (
             <>
-                <PageMenu title='Settings' icon='setting' />
+                <PageMenu title='Configurações' icon='setting' />
                 <Container>
                     <Tab
                         menu={{ vertical: true, 'data-cy': 'settings-menu' }}

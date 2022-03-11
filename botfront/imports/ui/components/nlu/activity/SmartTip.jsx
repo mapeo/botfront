@@ -58,7 +58,7 @@ export default class SmartTip extends React.Component {
                                 <Accordion>
                                     <Accordion.Title active={accordionOpen} onClick={this.handleAccordionClick}>
                                         <Icon name='dropdown' />
-                                            Other actions
+                                            Outras ações
                                     </Accordion.Title>
                                     <Accordion.Content active={accordionOpen}>
                                         <p>

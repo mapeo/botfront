@@ -30,7 +30,7 @@ function OutOfScope() {
         case 'Oldest':
             return { sortKey: 'createdAt', sortDesc: false };
         default:
-            throw new Error('No such sort type');
+            throw new Error('Nenhum tipo de classificação');
         }
     };
 
@@ -114,7 +114,7 @@ function OutOfScope() {
                 <Popup
                     size={size}
                     inverted
-                    content='Add this utterance to training data'
+                    content='Adicionar este enunciado aos dados de treinamento'
                     trigger={(
                         <IconButton
                             basic
@@ -146,14 +146,14 @@ function OutOfScope() {
 
     const columns = [
         {
-            header: 'Intent', key: 'intent', style: { width: '200px' }, render: renderIntent,
+            header: 'Objetivo', key: 'intent', style: { width: '200px' }, render: renderIntent,
         },
         {
-            header: 'Example', key: 'text', style: { width: '100%' }, render: renderExample,
+            header: 'Exemplo', key: 'text', style: { width: '100%' }, render: renderExample,
         },
         ...(can('nlu-data:w', projectId) ? [
             {
-                header: 'Actions', key: 'actions', style: { width: '110px' }, render: renderActions,
+                header: 'Ações', key: 'actions', style: { width: '110px' }, render: renderActions,
             },
         ] : []),
     ];
@@ -162,14 +162,14 @@ function OutOfScope() {
         <>
             <div className='side-by-side'>
                 <div>
-                    <Button onClick={handleExport} disabled={!(data || []).length}><Icon name='download' />Export</Button>
+                    <Button onClick={handleExport} disabled={!(data || []).length}><Icon name='download' />Exportar</Button>
                 </div>
                 <PrefixDropdown
                     selection={sortType}
                     updateSelection={option => setSortType(option.value)}
                     options={[
-                        { value: 'Newest', text: 'Newest' },
-                        { value: 'Oldest', text: 'Oldest' },
+                        { value: 'Novo', text: 'Newest' },
+                        { value: 'Antigo', text: 'Oldest' },
                     ]}
                     prefix='Sort by'
                 />
@@ -190,7 +190,7 @@ function OutOfScope() {
         <>
             {data && data.length
                 ? render()
-                : <Message success icon='check' header='Congratulations!' content='You are up to date' />
+                : <Message success icon='check' header='Parabéns!' content='Você está atualizado!' />
             }
         </>
     );

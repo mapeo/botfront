@@ -52,8 +52,8 @@ class Appearance extends React.Component {
                     model={{ logoUrl, smallLogoUrl }}
                     onSubmit={this.onSave}
                 >
-                    <AutoField name='logoUrl' label='Logo URL (The logo displayed at the top of the expanded sidebar)' />
-                    <AutoField name='smallLogoUrl' label='Small logo URL (the logo displayed at the top of the collapsed sidebar)' />
+                    <AutoField name='logoUrl' label='Logo URL (logotipo exibido na parte superior da barra lateral expandida)' />
+                    <AutoField name='smallLogoUrl' label='Logo pequeno URL (logotipo exibido na parte superior da barra lateral recolhida)' />
                     <ErrorsField />
                     {showConfirmation && (
                         <ChangesSaved

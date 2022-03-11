@@ -38,7 +38,7 @@ export default class ChitChat extends React.Component {
                 if (e instanceof ReferenceError) {
                     this.setState({ notConfiguredError: e.message });
                 } else {
-                    Alert.error(`Couldn't fetch chit chat intents: ${JSON.stringify(e.reason)}`, {
+                    Alert.error(`Não foi possível buscar os objetivos do chit chat: ${JSON.stringify(e.reason)}`, {
                         position: 'top',
                         timeout: 'none',
                     });
@@ -57,7 +57,7 @@ export default class ChitChat extends React.Component {
 
         Meteor.call('nlu.addChitChatToTrainingData', projectId, language, selectedIntents, wrapMeteorCallback(() => {
             this.setState({ selectedIntents: [] });
-        }, 'imported chitchat examples to training data.'));
+        }, 'exemplos de chitchat importados para o treinamento de dados.'));
     };
 
     open = () => this.setState({ confirmOpen: true });
@@ -74,19 +74,19 @@ export default class ChitChat extends React.Component {
         return (
             <div className='glow-box extra-padding no-margin'>
                 {notConfiguredError && <Message error content={notConfiguredError} />}
-                {chitChatIntents && chitChatIntents.length === 0 && <Message info content="Chitchat intents are not available in your model's language." />}
+                {chitChatIntents && chitChatIntents.length === 0 && <Message info content="Os objetivos do Chitchat não estão disponíveis no idioma do seu modelo." />}
                 {chitChatIntents && chitChatIntents.length > 0 && (
                     <div className='chitchat' style={{ minHeight: 300 }}>
                         {/* minHeight to make sure there is enough space for the dropdown */}
                         <Message info data-cy='chit-chat-message'>
                             <Icon name='lightbulb' size='small' />
-                            Chit chat intents are general conversation pre-trained intents. Select those you want to integrate in your model, add and re-train.
+                            Os objetivos do Chit chat são objetivos gerais de conversação pré-treinadas. Selecione aqueles que você deseja integrar em seu modelo, adicione e treine novamente.
                         </Message>
                         <br />
 
                         <Dropdown
                             data-cy='select-chit-chat'
-                            placeholder='Select chit chat intents'
+                            placeholder='Selecione os objetivos do chit chat'
                             multiple
                             selection
                             fluid
@@ -100,13 +100,13 @@ export default class ChitChat extends React.Component {
                         <Button
                             primary
                             disabled={selectedIntents.length === 0}
-                            content='Add to training data'
+                            content='Adicionar aos treinamentos de dados'
                             onClick={this.open}
                             data-cy='add-chit-chat'
                         />
                         <Confirm
-                            header='Add to training data?'
-                            content={`This will add chitchat examples to your training data matching the following intents: ${selectedIntents.join(' ')}`}
+                            header='Adicionar aos treinamentos de dados?'
+                            content={`Isso adicionará exemplos de chitchat ao seus treinamentos de dados que correspondem aos seguintes objetivos: ${selectedIntents.join(' ')}`}
                             open={confirmOpen}
                             onCancel={this.close}
                             onConfirm={this.addToTrainingData}

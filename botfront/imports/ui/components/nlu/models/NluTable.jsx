@@ -75,9 +75,9 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
                 postion='left'
                 content={(
                     <>
-                        Remove canonical &#x27E8;
+                        Remover aprovado &#x27E8;
                         <Icon name='gem' style={{ margin: 0 }} />
-                        &#x27E9; status to edit
+                        &#x27E9; status para editar
                     </>
                 )}
             />
@@ -183,18 +183,18 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
             );
         }
         if (!canEdit) return null;
-        let tooltip = <div>Mark as canonical</div>;
+        let tooltip = <div>Marque como aprovado</div>;
         if (canonical) {
             tooltip = (
                 <>
-                    <Popup.Header>Canonical Example</Popup.Header>
+                    <Popup.Header>Exemplo aprovado</Popup.Header>
                     <Popup.Content className='popup-canonical'>
-                        This example is canonical for the intent
+                        Este exemplo é aprovado para o objetivo
                         <span className='intent-name'> {datum.intent}</span>
                         {datum.entities && datum.entities.length > 0 ? (
                             <>
-                                &nbsp; and for the following entity - entity value
-                                combinations: <br />
+                                &nbsp; e para a seguinte entidade - combinação de valor da 
+                                entidade: <br />
                                 {datum.entities.map(entity => (
                                     <span>
                                         <strong
@@ -306,9 +306,9 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
         const someOriginallyNotDeleted = selectionWithFullData.some(
             ({ deleted }) => !deleted,
         );
-        const verb = someOriginallyNotDeleted ? 'Delete' : 'Undelete';
+        const verb = someOriginallyNotDeleted ? 'Deletar' : 'Recuperar';
         const fallbackUtterance = getFallbackUtterance(ids);
-        const message = `${verb} ${ids.length} NLU examples?`;
+        const message = `${verb} ${ids.length} exemplos NLU?`;
         const action = () => deleteExamples(ids).then(
             mutationCallback(fallbackUtterance, 'deleteExamples'),
         );
@@ -319,14 +319,14 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
         if (selectionWithFullData.some(d => !d.intent || !d?.metadata?.draft)) {
             return null;
         }
-        const message = `Remove draft status of  ${ids.length} NLU examples`;
+        const message = `Remover status do rascunho de ${ids.length} exemplos NLU`;
         const examplesToUpdate = ids.map(_id => ({ _id, metadata: { draft: false } }));
         const action = () => updateExamples(examplesToUpdate);
         return ids.length > 1 ? setConfirm({ message, action }) : action();
     }
 
     function handleSetIntent(ids, intent) {
-        const message = `Change intent to ${intent} for ${ids.length} NLU examples?`;
+        const message = `Mudar objetivo de ${intent} para ${ids.length} exemplos NLU?`;
         const examplesToUpdate = ids.map(_id => ({ _id, intent }));
         const action = () => updateExamples(examplesToUpdate);
         return ids.length > 1 ? setConfirm({ message, action }) : action();
@@ -432,7 +432,7 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
                                 color={filters.onlyCanonicals ? 'black' : 'grey'}
                             />
                         )}
-                        content='Only show canonicals examples'
+                        content='Mostrar apenas exemplos aprovados'
                         position='top center'
                         inverted
                     />

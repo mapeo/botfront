@@ -27,8 +27,8 @@ export default function ActivityActionsColumn(props) {
         >
             <Icon name='trash' />
             {utterances.length === 1
-                ? 'Delete this utterance'
-                : `Delete ${utterances.length} utterances like this`}
+                ? 'Excluir essa declaração'
+                : `Excluir ${utterances.length} declarações assim`}
         </Button>
     );
 
@@ -45,7 +45,7 @@ export default function ActivityActionsColumn(props) {
             key={`${utterance._id}-delete`}
         >
             <Icon name='trash' />{' '}
-            {mainAction ? 'Delete this utterance' : 'Delete this one only'}
+            {mainAction ? 'Excluir essa declaração' : 'Excluitr apenas essa'}
         </Button>
     );
 
@@ -55,7 +55,7 @@ export default function ActivityActionsColumn(props) {
             size='mini'
             basic
             fluid={mainAction}
-            content='Validate anyway'
+            content='Validar de qualquer maneira'
             onClick={() => handleSetValidated([u], true)}
             key={`${u._id}-validate`}
         />
@@ -123,7 +123,7 @@ export default function ActivityActionsColumn(props) {
         action = (
             <Popup
                 inverted
-                content='Mark this utterance OoS'
+                content='Marcar essa declaração OoS'
                 trigger={(
                     <div>
                         <IconButton
@@ -142,7 +142,7 @@ export default function ActivityActionsColumn(props) {
             <Popup
                 inverted
                 disabled={outdated || !datum.intent}
-                content='Mark this utterance valid'
+                content='Marcar essa declaração como válida'
                 trigger={(
                     <div>
                         <IconButton

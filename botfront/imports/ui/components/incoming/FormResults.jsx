@@ -51,9 +51,9 @@ const FormResults = (props) => {
         const disabled = count < 1;
         const content = disabled
             ? !form.collect_in_botfront
-                ? 'Form not set to receive submissions'
-                : 'No submissions for this form'
-            : `Export ${count} submission${count > 1 ? 's' : ''} to CSV format`;
+                ? 'Formulário não definido para receber envios'
+                : 'Nenhum envio para este formulário'
+            : `Exportar ${count} envio ${count > 1 ? 's' : ''} para formato CSV `;
         return (
             <Segment key={form.name}>
                 <Header>
@@ -87,7 +87,7 @@ const FormResults = (props) => {
             <Loading loading={loading || !counts}>
                 {!forms.length ? (
                     <>
-                        <Message info content='No forms found' />
+                        <Message info content='Nenhum formulário encontrado' />
                         <br />
                     </>
                 ) : (

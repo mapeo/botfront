@@ -166,7 +166,7 @@ function Activity(props) {
     const handleDelete = (utterances) => {
         const ids = utterances.map(u => u._id);
         const fallbackUtterance = getFallbackUtterance(ids);
-        const message = `Delete ${utterances.length} incoming utterances?`;
+        const message = `Deletar ${utterances.length} declaração de entrada?`;
         const action = () => deleteActivity({
             variables: { ids },
             optimisticResponse: {
@@ -178,8 +178,8 @@ function Activity(props) {
     };
 
     const handleSetValidated = (utterances, val = true) => {
-        const message = `Mark ${utterances.length} incoming utterances as ${
-            val ? 'validated' : 'invalidated'
+        const message = `Marque ${utterances.length} declarações de entrada como ${
+            val ? 'validade' : 'invalidada'
         } ?`;
         const action = () => handleUpdate(utterances.map(({ _id }) => ({ _id, validated: val })));
         return utterances.length > 1 ? setConfirm({ message, action }) : action();
@@ -187,7 +187,7 @@ function Activity(props) {
 
     const handleMarkOoS = (utterances, ooS = true) => {
         const fallbackUtterance = getFallbackUtterance(utterances.map(u => u._id));
-        const message = `Mark ${utterances.length} incoming utterances as out of scope?`;
+        const message = `Marque ${utterances.length} declarações de entrada como fora do escopo?`;
         const action = () => handleUpdate(utterances.map(({ _id }) => ({ _id, ooS })))
             .then(mutationCallback(fallbackUtterance, 'upsertActivity'));
         return utterances.length > 1 ? setConfirm({ message, action }) : action();
@@ -195,8 +195,8 @@ function Activity(props) {
 
     const handleSetIntent = (utterances, intent) => {
         const message = intent
-            ? `Set intent of ${utterances.length} incoming utterances to ${intent}?`
-            : `Reset intent of ${utterances.length} incoming utterances?`;
+            ? `Definir objetivo de ${utterances.length} declarações de entrada para ${intent}?`
+            : `Redefinir objetivo de ${utterances.length} declarações de entrada?`;
         const action = () => handleUpdate(
             utterances.map(({ _id }) => ({
                 _id,
@@ -429,14 +429,14 @@ function Activity(props) {
                         data-cy='run-evaluation'
                         onClick={() => setConfirm({
                             message:
-                                'This will evaluate the model using the validated examples as a validation set and overwrite your current evaluation results.',
+                                'Isso avaliará o modelo usando os exemplos validados como um conjunto de validação e substituirá os resultados da avaliação atual.',
                             action: linkRender,
                         })
                         }
                         disabled={!validated.length}
                     >
                         <Icon name='lab' />
-                        Run evaluation
+                        Executar avaliação
                     </Button>
                     <Button
                         color='green'
@@ -445,14 +445,14 @@ function Activity(props) {
                         data-cy='add-to-training-data'
                         onClick={() => setConfirm({
                             message:
-                                'The validated utterances will be added to the training data.',
+                                'As declarações validadas serão adicionadas ao treinamento de dados.',
                             action: () => handleAddToTraining(validated),
                         })
                         }
                         disabled={!validated.length}
                     >
                         <Icon name='add square' />
-                        Add to training data
+                        Adicionar aos treinamentos de dados
                     </Button>
                 </Button.Group>
             </Can>
@@ -460,12 +460,12 @@ function Activity(props) {
                 selection={sortType}
                 updateSelection={option => setSortType(option.value)}
                 options={[
-                    { value: 'Newest', text: 'Newest' },
-                    { value: 'Oldest', text: 'Oldest' },
-                    { value: 'Validated first', text: 'Validated first' },
-                    { value: 'Validated last', text: 'Validated last' },
-                    { value: '% ascending', text: '% ascending' },
-                    { value: '% decending', text: '% decending' },
+                    { value: 'Newest', text: 'Mais recente' },
+                    { value: 'Oldest', text: 'Mais antigo' },
+                    { value: 'Validated first', text: 'Validado primeiro' },
+                    { value: 'Validated last', text: 'Validado por último' },
+                    { value: '% ascending', text: '% ascendente' },
+                    { value: '% decending', text: '% descendente' },
                 ]}
                 prefix='Sort by'
             />
@@ -515,9 +515,9 @@ function Activity(props) {
                 <Message
                     success
                     icon='check'
-                    header='No activity'
+                    header='Nenhuma atividade'
                     data-cy='no-activity'
-                    content='No activity was found for the given criteria.'
+                    content='Nenhuma atividade foi encontrada para os critérios fornecidos.'
                 />
             )}
         </>

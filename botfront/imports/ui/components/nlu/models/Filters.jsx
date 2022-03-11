@@ -103,7 +103,7 @@ export default class Filters extends React.Component {
                 {intents.length > 0 && (
                     <Dropdown
                         style={{ marginRight: '10px' }}
-                        placeholder='Filtrar por intenções'
+                        placeholder='Filtrar por objetivos'
                         size='tiny'
                         onChange={this.handleIntentSelectorChange}
                         multiple
@@ -162,7 +162,7 @@ export default class Filters extends React.Component {
                                     floating
                                     options={[
                                         { text: 'Data', value: 'updatedAt' },
-                                        { text: 'Intenção', value: 'intent' },
+                                        { text: 'Objetivo', value: 'intent' },
                                     ]}
                                 />
                             )}

@@ -93,7 +93,7 @@ class Credentials extends React.Component {
                 }}
             >
                 {environment}
-                <AceField name='credentials' label='Credentials' mode='yaml' data-cy='ace-field' />
+                <AceField name='credentials' label='Credenciais' mode='yaml' data-cy='ace-field' />
                 <ErrorsField />
                 {showConfirmation && (
                     <ChangesSaved
@@ -110,7 +110,7 @@ class Credentials extends React.Component {
                             saving={saving}
                             disabled={!!saving}
                             onSave={() => { this.form.current.submit(); }}
-                            confirmText={webhook && webhook.url ? `Saving will restart the ${selectedEnvironment} rasa instance` : ''}
+                            confirmText={webhook && webhook.url ? `O salvamento reiniciará o ${selectedEnvironment} instância rasa` : ''}
                         />
                     )}
             </AutoForm>
@@ -170,7 +170,7 @@ class Credentials extends React.Component {
             }
             return (
                 <>
-                    <h4 data-cy='credentials-environment-menu'>Development</h4>
+                    <h4 data-cy='credentials-environment-menu'>Desenvolvimento</h4>
                     {this.renderContents()}
                 </>
             );

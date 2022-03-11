@@ -21,7 +21,7 @@ const NluCommandBar = React.forwardRef((props, ref) => {
 
     return (
         <div className='activity-command-bar' data-cy='activity-command-bar'>
-            <span>{selection.length} selected</span>
+            <span>{selection.length} selecionado</span>
             <div className='side-by-side narrow right'>
                 {onSetIntent && onCloseIntentPopup && (
                     <>
@@ -39,9 +39,9 @@ const NluCommandBar = React.forwardRef((props, ref) => {
                             size='mini'
                             inverted
                             content={(() => { // IFFE to avoid a mess with nested ternary condition
-                                if (selectionIncludesCanonical) return 'Cannot change intent as the selection contains canonicals';
-                                if (selectionIncludesDeleted) return 'Cannot change intent as the selection contains deleted examples';
-                                return 'Change intent';
+                                if (selectionIncludesCanonical) return 'Não é possível alterar o objetivo porque a seleção contém canônicos';
+                                if (selectionIncludesDeleted) return 'Não é possível alterar o objetivo, pois a seleção contém exemplos excluídos';
+                                return 'Alterar objetivo';
                             })()}
                             trigger={(
                                 <div>
@@ -66,7 +66,7 @@ const NluCommandBar = React.forwardRef((props, ref) => {
                         size='mini'
                         inverted
                         disabled={!selectionIncludesCanonical}
-                        content='Cannot delete with a selection containing canonicals'
+                        content='Não é possível deletar com uma seleção contendo canônicos'
                         trigger={(
                             <div>
                                 <IconButton
@@ -88,7 +88,7 @@ const NluCommandBar = React.forwardRef((props, ref) => {
                         <Popup
                             size='mini'
                             inverted
-                            content={!selectionIncludesNullIntent ? 'Save' : 'Cannot save as some examples do not have intents'}
+                            content={!selectionIncludesNullIntent ? 'Salvar' : 'Não é possível salvar porque alguns exemplos não têm objetivos'}
                             trigger={(
                                 <div>
                                     <IconButton

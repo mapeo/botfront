@@ -22,13 +22,13 @@ class RegexFeatures extends React.Component {
             <LookupTable
                 data={model.training_data.regex_features}
                 keyAttribute='name'
-                keyHeader='Name'
+                keyHeader='Nome'
                 listHeader='Regex'
                 listAttribute='pattern'
                 onItemChanged={this.onItemChanged}
                 onItemDeleted={this.onItemDeleted}
-                valuePlaceholder='name'
-                listPlaceholder='Enter a regular expression'
+                valuePlaceholder='nome'
+                listPlaceholder='Insira uma expressão regular'
                 multiple={false}
             />
         );

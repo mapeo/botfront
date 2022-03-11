@@ -19,13 +19,13 @@ const ExportProject = ({
 
     const [ExportSuccessful, setExportSuccessful] = useState(undefined);
     const [errorMessage, setErrorMessage] = useState({
-        header: 'Export Failed',
-        text: 'There was an unexpected error during the export.',
+        header: 'Falha na exportação',
+        text: 'Ocorreu um erro inesperado durante a exportação.',
     });
 
     const getLanguageOptions = () => [
         ...(projectLanguages.length > 1
-            ? [{ value: 'all', text: 'All languages' }]
+            ? [{ value: 'all', text: 'Todos os idiomas' }]
             : []),
         ...projectLanguages,
     ].map(({ value, text }) => ({
@@ -72,7 +72,7 @@ const ExportProject = ({
                 data-cy='export-success-message'
                 positive
                 icon='check circle'
-                header='Your project has been successfully exported'
+                header='Seu projeto foi exportado com sucesso'
             />
         );
     }
@@ -95,7 +95,7 @@ const ExportProject = ({
                     key='language'
                     className='export-option'
                     options={getLanguageOptions()}
-                    placeholder='Select a language'
+                    placeholder='Selecione um idioma'
                     selection
                     value={exportLanguage}
                     onChange={(x, { value }) => {
@@ -106,7 +106,7 @@ const ExportProject = ({
                     toggle
                     checked={exportConversations}
                     onChange={() => setExportConversations(!exportConversations)}
-                    label='Export Conversations'
+                    label='Exportar conversas'
                     className='export-option'
                     key='exportConversations'
                 />
@@ -115,7 +115,7 @@ const ExportProject = ({
                     toggle
                     checked={exportIncoming}
                     onChange={() => setExportIncoming(!exportIncoming)}
-                    label='Export Incoming utterances'
+                    label='Exportar declarações de entrada'
                     className='export-option'
                     key='exportIncoming'
                 />
@@ -129,7 +129,7 @@ const ExportProject = ({
                 data-cy='export-button'
             >
                 <Icon name='download' />
-                    Export project for Rasa or Botfront
+                    Exportar projeto para Rasa ou Botfront
             </Button>
             
            

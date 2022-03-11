@@ -66,7 +66,7 @@ class CorePolicy extends React.Component {
                         <NumField
                             data-cy='augmentation-factor'
                             name='augmentationFactor'
-                            label='Augmentation factor'
+                            label='Fator de aumento'
                             disabled={!can('stories:w', projectId)}
                             defaultF
                         />
@@ -79,9 +79,9 @@ class CorePolicy extends React.Component {
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
-                                Click here
+                                Clique aqui
                             </a>
-                            <span> for more information on this setting (if left empty, this will default to 20)</span>
+                            <span> para mais informações sobre esta configuração (se deixado em branco, o padrão será 20)</span>
                         </>
                     )}
                 />
@@ -92,7 +92,7 @@ class CorePolicy extends React.Component {
                         onDismiss={() => this.setState({ saved: false, showConfirmation: false })}
                         content={(
                             <p>
-                                You need to retrain your model
+                                Você precisa preparar novamente seu modelo
                             </p>
                         )}
                     />

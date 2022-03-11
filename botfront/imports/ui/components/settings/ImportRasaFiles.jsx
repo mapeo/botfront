@@ -101,7 +101,7 @@ const ImportRasaFiles = () => {
             } catch (e) {
                 setFilesImporting(false);
                 Alert.error(
-                    'Exporting the project failed, so import was aborted to preserve data',
+                    'A exportação do projeto falhou, então a importação foi abortada para preservar os dados',
                     { timeout: 10000, position: 'top-right' },
                 );
                 return;
@@ -214,7 +214,7 @@ const ImportRasaFiles = () => {
                 )}
                 {filesWithErrors.length > 0 && (
                     <>
-                        <h4>The following files cannot be parsed and will be ignored:</h4>
+                        <h4>Os seguintes arquivos não podem ser analisados ​​e serão ignorados:</h4>
                         {filesWithErrors.map((f) => {
                             const { name } = f;
                             const nameNoDot = name.replace(/\./g, '');
@@ -237,7 +237,7 @@ const ImportRasaFiles = () => {
                 )}
                 {filesWithWarnings.length > 0 && (
                     <>
-                        <h4>The following files have warnings associated with them:</h4>
+                        <h4>Os seguintes arquivos têm avisos associados a eles:</h4>
                         {filesWithWarnings.map((f) => {
                             const { name } = f;
                             const nameNoDot = name.replace(/\./g, '');
@@ -284,7 +284,7 @@ const ImportRasaFiles = () => {
             >
                 {filesImporting ? (
                     <div className='data-import-loader'>
-                        <Loader active>Importing data...</Loader>
+                        <Loader active>Importando dados...</Loader>
                     </div>
                 ) : (
                     <>
@@ -309,12 +309,12 @@ const ImportRasaFiles = () => {
                                     <Button
                                         primary
                                         basic
-                                        content='Open File Browser'
+                                        content='Abrir arquivos no navegador'
                                         size='small'
                                         onClick={() => fileField.current.click()}
                                     />
                                     <span className='small grey'>
-                                        or drop files to upload
+                                        ou solte os arquivos para fazer upload
                                     </span>
                                 </div>
                             </>
@@ -327,12 +327,12 @@ const ImportRasaFiles = () => {
 
     const warnWipe = () => {
         let message = null;
-        if (wipeProject) message = 'Reset project is enabled';
-        if (wipeInvolvedCollections) message = 'Delete existing data is enabled';
+        if (wipeProject) message = 'Redefinir projeto está ativado';
+        if (wipeInvolvedCollections) message = 'Excluir dados existentes está ativado';
         if (message) {
             return (
                 <Message warning>
-                    <Message.Header>Wipe on import</Message.Header>
+                    <Message.Header>Limpar na importação</Message.Header>
                     {message}
                 </Message>
             );
@@ -344,7 +344,7 @@ const ImportRasaFiles = () => {
         <>
             {warnWipe()}
             <Message data-cy='message-summary' info>
-                <Message.Header>Import summary</Message.Header>
+                <Message.Header>Resumo da importação</Message.Header>
                 <Message.List
                     data-cy='summary-list'
                     items={importSummary.map(unpackSummaryEntry)}
@@ -356,7 +356,7 @@ const ImportRasaFiles = () => {
                     className='download-backup'
                     checked={downloadBackup}
                     onChange={() => setDownloadBackup(!downloadBackup)}
-                    label='Download backup before the import'
+                    label='Baixe o backup antes da importação'
                     data-cy='backup-project'
                 />
                 <br />
@@ -375,7 +375,7 @@ const ImportRasaFiles = () => {
         if (importResults && importResults.length !== 0) {
             return (
                 <Message error>
-                    <Message.Header>Import Error</Message.Header>
+                    <Message.Header>Erro de importação</Message.Header>
                     <Message.List className='import-summary-accordion'>
                         {importResults.map(message => (
                             <Message.Item>{message.text}</Message.Item>
@@ -394,25 +394,25 @@ const ImportRasaFiles = () => {
                     content={(
                         <>
                             <p>
-                                Bot responses found in domain files will use the
-                                &apos;language&apos; attribute if it exists; if not, the
-                                fallback import language will be used.
+                                As respostas de bot encontradas em arquivos de domínio usarão o
+                                &apos;idioma&apos; atributo se existir; caso contrário, o
+                                o idioma de importação substituto será usado.
                             </p>
 
                             <p>
-                                Likewise, the language of a NLU file can be specified in
-                                its first line; if it isn&apos;t, the fallback import
-                                language will be used.
+                                Da mesma forma, o idioma de um arquivo NLU pode ser especificado
+                                na primeira linha; caso contrário, o idioma de importação
+                                substituto será usado.
                             </p>
 
-                            <p>For more information, read the docs.</p>
+                            <p>Para mais informações, leia a documentação.</p>
                         </>
                     )}
                     inverted
                     trigger={(
                         <div>
                             <Icon name='question circle' />
-                            <strong>Fallback import language: </strong>
+                            <strong>Idioma de importação substituto: </strong>
                         </div>
                     )}
                 />
@@ -436,11 +436,11 @@ const ImportRasaFiles = () => {
                             }
                             setwipeInvolvedCollections(!wipeInvolvedCollections);
                         }}
-                        label='Delete existing data'
+                        label='Excluir dados existentes'
                         data-cy='wipe-data'
                     />,
-                    `This will clear the existing data for the type of data you are importing.
-                e.g : importing stories with this switch on will remove the previous stories, but keep everything else, NLU, responses, etc`,
+                    `Isso limpará os dados existentes para o tipo de dados que você está importando.
+                e.g : importar históricos com esta opção removerá os históricos anteriores, mas manterá todo o resto, NLU, respostas, etc`,
                 )}
                 {tooltipWrapper(
                     <Checkbox
@@ -452,10 +452,10 @@ const ImportRasaFiles = () => {
                             }
                             setWipeProject(!wipeProject);
                         }}
-                        label='Reset project'
+                        label='Redefinir projeto'
                         data-cy='wipe-project'
                     />,
-                    'this will remove ALL project\'s data - including conversations - before importing',
+                    'isso removerá todos os dados dos projetos - incluindo conversas - antes de importar',
                 )}
             </div>
         </Segment>

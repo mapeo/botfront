@@ -163,7 +163,7 @@ class ChatWidgetForm extends React.Component {
             <>
                 <Message
                     info
-                    content='Paste this snippet in your html.'
+                    content='Cole este trecho em seu html.'
                 />
                 <Form>
                     <Input
@@ -197,7 +197,7 @@ class ChatWidgetForm extends React.Component {
                             }}
                             className='copy-button'
                             icon='copy'
-                            content={copied ? 'Copied' : 'Copy'}
+                            content={copied ? 'Copiado' : 'Copiar'}
                             data-cy='copy-webchat-snippet'
                         />
                     </Input>
@@ -213,7 +213,7 @@ class ChatWidgetForm extends React.Component {
                 <Message
                     info
                     icon='question circle'
-                    content='Those settings are only used for the Webchat Plus channel'
+                    content='Essas configurações são usadas apenas para o canal Webchat Plus'
                 />
                 <AutoForm
                     disabled={!!saving || !can('projects:w', projectId)}
@@ -242,41 +242,41 @@ class ChatWidgetForm extends React.Component {
                     <Divider />
 
                     <Header as='h3'>General</Header>
-                    <AutoField label='Widget tile' name='title' data-cy='widget-title' />
-                    <AutoField label='Widget subtile' name='subtitle' />
+                    <AutoField label='Bloco de widget' name='title' data-cy='widget-title' />
+                    <AutoField label='Subbloco de widget' name='subtitle' />
                     <InfoField
                         required={false}
-                        info='The payload that will be sent when a user opens the chat window. The response to this payload is an introductory message'
+                        info='A carga útil que será enviada quando um usuário abrir a janela de bate-papo. A resposta a esta carga útil é uma mensagem introdutória'
                         Component={IntentField}
-                        label='Initial payload'
+                        label='Carga útili inicial'
                         name='initPayload'
                     />
                     <SelectField
                         data-cy='lang-select'
                         options={this.getlanguageOptions()}
                         name='customData'
-                        label='Language'
+                        label='Idioma'
                     />
                     <ErrorsField />
                     <Divider />
 
                     <Header as='h3'>Colors</Header>
-                    <ColorField label='Main webchat color' name='mainColor' />
+                    <ColorField label='Cor principal do webchat' name='mainColor' />
                     <ColorField
-                        label='Conversation background color'
+                        label='Cor de fundo da conversa'
                         name='conversationBackgroundColor'
                     />
-                    <ColorField label='User message text color' name='userTextColor' />
+                    <ColorField label='Cor do texto da mensagem do usuário' name='userTextColor' />
                     <ColorField
-                        label='User message background color'
+                        label='Cor de fundo da mensagem do usuário'
                         name='userBackgroundColor'
                     />
                     <ColorField
-                        label='Assistant message text color'
+                        label='Cor do texto da mensagem do assistente'
                         name='assistTextColor'
                     />
                     <ColorField
-                        label='Assistant message background color'
+                        label='Cor de fundo da mensagem do assistente'
                         name='assistBackgoundColor'
                     />
 
@@ -291,74 +291,74 @@ class ChatWidgetForm extends React.Component {
                             <Header as='h3' icon>
                                 {' '}
                                 <Icon name='dropdown' />
-                                Advanced
+                                Advançado
                             </Header>
                         </Accordion.Title>
                         <Accordion.Content active={advancedVisible}>
                             <AutoField
-                                label='User input hint'
+                                label='Dica de entrada do usuário'
                                 name='inputTextFieldHint'
                             />
                             <ToggleField
-                                label='Show full screen button'
+                                label='Mostrar botão de tela cheia'
                                 name='showFullScreenButton'
                             />
                             <InfoField
-                                label='Display unread messages count'
+                                label='Exibir contagem de mensagens não lidas'
                                 required={false}
-                                info='If set, the number of unread message will be displayer next to the chat icon'
+                                info='Se definido, o número de mensagens não lidas será exibido ao lado do ícone da conversa'
                                 Component={ToggleField}
                                 name='displayUnreadCount'
                             />
                             <InfoField
-                                label='Hide when not connected'
+                                label='Ocultar quando não estiver conectado'
                                 required={false}
-                                info='If set, the widget will remain hidden if it cannot connect to Botfront'
+                                info='Se definido, o widget permanecerá oculto se não puder se conectar ao Botfront'
                                 Component={ToggleField}
                                 name='hideWhenNotConnected'
                             />
                             <InfoField
-                                label='Disable tooltips'
+                                label='Desativar dicas de ferramentas'
                                 required={false}
-                                info='If set, messages will not appear as a bubble when the widget is closed'
+                                info='Se definido, as mensagens não aparecerão como uma bolha quando o widget for fechado'
                                 Component={ToggleField}
                                 name='disableTooltips'
                             />
                             <InfoField
-                                label='Automatically clear the cache'
+                                label='Limpar o cache automaticamente'
                                 required={false}
-                                info='If set, an user re-connecting after 30 will be start with a new session'
+                                info='Se definido, um usuário que se reconectar após 30 será iniciado com uma nova sessão'
                                 Component={ToggleField}
                                 name='autoClearCache'
                             />
                             <InfoField
                                 required={false}
-                                info='Display a timestamp next to every message'
+                                info='Exibir um carimbo de data/hora ao lado de cada mensagem'
                                 Component={ToggleField}
-                                label='Display message timestamp'
+                                label='Exibir carimbo de data/hora da mensagem'
                                 name='showMessageDate'
                             />
                             <Divider />
                             <AutoField
-                                label='Open launcher image'
+                                label='Abrir imagem do launcher'
                                 name='openLauncherImage'
                             />
-                            <AutoField label='Close launcher image' name='closeImage' />
-                            <AutoField label='Avatar path' name='profileAvatar' />
+                            <AutoField label='Fechar imagem do launcher' name='closeImage' />
+                            <AutoField label='Caminho do avatar' name='profileAvatar' />
                             <Divider />
                             <LongTextField
                                 className='monospaced'
-                                label='Default highlight class name'
+                                label='Nome da classe de destaque padrão'
                                 name='defaultHighlightClassname'
                             />
                             <LongTextField
                                 className='monospaced'
-                                label='Default highlight css'
+                                label='CSS de destaque padrão'
                                 name='defaultHighlightCss'
                             />
                             <LongTextField
                                 className='monospaced'
-                                label='Default highlight css animation'
+                                label='Animação CSS de destaque padrão'
                                 name='defaultHighlightAnimation'
                             />
                         </Accordion.Content>

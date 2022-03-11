@@ -11,7 +11,7 @@ const StoriesContainer = (props) => {
     const { params } = props;
     return (
         <>
-            <PageMenu title='Stories' icon='book' withTraining>
+            <PageMenu title='Históricos' icon='book' withTraining>
                 <Menu.Item>
                     <LanguageDropdown />
                 </Menu.Item>

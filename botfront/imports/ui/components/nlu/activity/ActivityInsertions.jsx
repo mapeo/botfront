@@ -58,7 +58,7 @@ export default function ActivityInsertions() {
 
     return (
         <Tab.Pane>
-            <Message info content='Add utterances below (one per line, 50 max). When you click on Add Utterances, they will be processed and the output will be shown in the New Utterances tab' />
+            <Message info content='Adicione os enunciados abaixo (um por linha, 50 no máximo). Ao clicar em Adicionar Enunciados, eles serão processados ​​e a saída será mostrada na aba Novos Enunciados' />
             <br />
             <Form>
                 <TextArea
@@ -69,7 +69,7 @@ export default function ActivityInsertions() {
                 />
                 <br />
                 <br />
-                <Button loading={loading} onClick={saveExamples} disabled={!text || loading}>Add Utterances</Button>
+                <Button loading={loading} onClick={saveExamples} disabled={!text || loading}>Adicionar Enunciados</Button>
             </Form>
         </Tab.Pane>
     );

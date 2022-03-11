@@ -42,7 +42,7 @@ class GazetteEditor extends React.Component {
             {
                 id: 'mode',
                 accessor: e => e,
-                Header: 'Mode',
+                Header: 'Modo',
                 Cell: (props) => {
                     if (can('nlu-data:w', projectId)) {
                         return (
@@ -59,7 +59,7 @@ class GazetteEditor extends React.Component {
             {
                 id: 'min_score',
                 accessor: e => e,
-                Header: 'Min Score',
+                Header: 'Pontuação mínima',
                 Cell: (props) => {
                     if (can('nlu-data:w', projectId)) {
                         return <MinScoreEdit gazette={props.value} onEdit={this.onItemChanged} />;
@@ -77,15 +77,15 @@ class GazetteEditor extends React.Component {
         return (
             <LookupTable
                 data={model.training_data.fuzzy_gazette}
-                keyHeader='Value'
+                keyHeader='Valor'
                 keyAttribute='value'
                 listHeader='Gazette'
                 listAttribute='gazette'
                 extraColumns={this.extraColumns()}
                 onItemChanged={this.onItemChanged}
                 onItemDeleted={this.onItemDeleted}
-                valuePlaceholder='entity name'
-                listPlaceholder='match1, match2, ...'
+                valuePlaceholder='Nome da entidade'
+                listPlaceholder='combinação1, combinação2, ...'
                 projectId={projectId}
             />
         );

@@ -107,7 +107,7 @@ class TrainButton extends React.Component {
             <Modal
                 open
                 size='small'
-                header='Commit and push'
+                header='Enviar e mover'
                 onClick={e => e.stopPropagation()}
                 content={(
                     <div
@@ -116,7 +116,7 @@ class TrainButton extends React.Component {
                     >
                         <input
                             className='ui input'
-                            placeholder='Commit message'
+                            placeholder='Enviar mensagem'
                             data-cy='commit-message-input'
                             ref={this.commitMessage}
                             autoFocus // eslint-disable-line jsx-a11y/no-autofocus
@@ -130,7 +130,7 @@ class TrainButton extends React.Component {
                         <Button
                             type='submit'
                             onClick={() => this.commitAndPush()}
-                            content='Push to remote'
+                            content='Mover para remoto'
                             loading={gitWorking}
                             disabled={gitWorking}
                         />
@@ -149,7 +149,7 @@ class TrainButton extends React.Component {
             <Modal
                 open
                 size='small'
-                header='Revert to previous'
+                header='Voltar para anterior'
                 onClick={e => e.stopPropagation()}
                 content={(
                     <RevertTable
@@ -183,7 +183,7 @@ class TrainButton extends React.Component {
             : environments.map(env => ({
                 key: env,
                 value: env,
-                text: `Deploy to ${env}`,
+                text: `Utilizar para ${env}`,
             }));
         // explicitly define the dropdown so we don't get the highlighted selection
         return (
@@ -218,7 +218,7 @@ class TrainButton extends React.Component {
                                     this.showModal(opt.value, false);
                                     e.stopPropagation();
                                 }}
-                                content={`Do you really want to deploy your project to ${opt.value}`}
+                                content={`Você realmente deseja implantar seu projeto para ${opt.value}`}
                             />
                         </React.Fragment>
                     ))}
@@ -236,14 +236,14 @@ class TrainButton extends React.Component {
 
         try {
             if (!webhook.url || !webhook.method) {
-                throw new Error('Deployment failed: the webhook parameters are missing');
+                throw new Error('Falha na implantação: os parâmetros do webhook estão ausentes');
             }
             if (!target) {
-                throw new Error('Deployment failed: the deployment target is missing');
+                throw new Error('Falha na implantação: o destino da implantação está ausente');
             }
             Meteor.call('deploy.model', projectId, target, isTest, (err, response) => {
                 if (err || response === undefined || response.status !== 200) {
-                    Alert.error(`Deployment failed: ${err.message}`, {
+                    Alert.error(`Falha na implantação: ${err.message}`, {
                         position: 'top-right',
                         timeout: 120000,
                     });
@@ -271,7 +271,7 @@ class TrainButton extends React.Component {
             const loadModel = target === 'development'; // automaticly load the model only if we are in development
             this.deploy(target);
         } catch (e) {
-            Alert.error('Cannot deploy, training failed', {
+            Alert.error('Não é possível implantar, o treinamento falhou', {
                 position: 'top-right',
                 timeout: 3000,
             });
@@ -290,14 +290,14 @@ class TrainButton extends React.Component {
                     onClick={() => runTestCaseStories(projectId)}
                     data-cy='run-all-tests'
                 >
-                    Run all tests
+                    Executar todos os testes
                 </Dropdown.Item>
                 {!!languageName && (
                     <Dropdown.Item
                         onClick={() => runTestCaseStories(projectId, { language })}
                         data-cy='run-lang-tests'
                     >
-                        Run all {languages[language]?.name} tests
+                        Executar todos {languages[language]?.name} testes
                     </Dropdown.Item>
                 )}
             </>
@@ -314,7 +314,7 @@ class TrainButton extends React.Component {
                     <Button.Group color={partialTrainning ? 'yellow' : 'blue'}>
                         <Button
                             icon={partialTrainning ? 'eye' : 'grid layout'}
-                            content='Train'
+                            content='Preparar'
                             labelPosition='left'
                             disabled={
                                 status === 'training'
@@ -366,13 +366,13 @@ class TrainButton extends React.Component {
                     <Dropdown.Menu direction='left'>
                         <Dropdown.Item
                             icon='cloud upload'
-                            text='Commit and push'
+                            text='Enviar e mover'
                             data-cy='commit-and-push'
                             onClick={() => this.showModal('commit-and-push', true)}
                         />
                         <Dropdown.Item
                             icon='step backward'
-                            text='Revert to previous'
+                            text='Voltar ao anterior'
                             data-cy='revert-to-previous'
                             onClick={() => this.showModal('revert-to-previous', true)}
                         />
@@ -388,7 +388,7 @@ class TrainButton extends React.Component {
                 size='tiny'
                 trigger={<div>{button}</div>}
                 inverted
-                content='Rasa instance not reachable'
+                content='Instância Rasa não acessível'
             />
         );
     };
@@ -423,7 +423,7 @@ class TrainButton extends React.Component {
                                 !enableSharing,
                             )
                             }
-                            label={enableSharing ? 'Sharing enabled' : 'Sharing disabled'}
+                            label={enableSharing ? 'Compartilhamento ativado' : 'Compartilhamento desativado'}
                         />
                         {enableSharing && (
                             <p>
@@ -495,11 +495,11 @@ export default withTracker((props) => {
         selectedStoryGroups = storyGroups.filter(storyGroup => storyGroup.selected);
         partialTrainning = selectedStoryGroups.length > 0;
         if (partialTrainning && selectedStoryGroups.length > 1) {
-            popupContent = `Train NLU and stories from ${selectedStoryGroups.length} focused story groups.`;
+            popupContent = `Preparar NLU e notícias de ${selectedStoryGroups.length} focado em grupo de notícias.`;
         } else if (selectedStoryGroups && selectedStoryGroups.length === 1) {
-            popupContent = 'Train NLU and stories from 1 focused story group.';
+            popupContent = 'Preparar NLU e notícias de 1 focado em grupo de notícia.';
         } else if (status === 'notReachable') {
-            popupContent = 'Rasa instance not reachable';
+            popupContent = 'Instância Rasa não acessível';
         }
     }
 

@@ -151,7 +151,7 @@ class ProjectChat extends React.Component {
                                         className={savedTest ? 'saved-test' : ''}
                                     />
                                 )}
-                                content='Save conversation as a test case'
+                                content='Salvar conversa como um caso de teste'
                                 position='bottom right'
                                 className='redo-chat-popup'
                                 disabled={noChannel}
@@ -169,7 +169,7 @@ class ProjectChat extends React.Component {
                                         data-cy='restart-chat'
                                     />
                                 )}
-                                content='Restart the conversation'
+                                content='Reiniciar a conversa'
                                 position='bottom right'
                                 className='redo-chat-popup'
                                 disabled={noChannel}
@@ -186,7 +186,7 @@ class ProjectChat extends React.Component {
                                         data-cy='close-chat'
                                     />
                                 )}
-                                content='Close the conversation'
+                                content='Encerrar a conversa'
                                 position='bottom right'
                                 className='redo-chat-popup'
                             />
@@ -207,17 +207,17 @@ class ProjectChat extends React.Component {
                     <Message
                         content={(
                             <div>
-                                Go to <Icon name='setting' />
-                                Settings &gt; <Icon name='server' />
-                                Instances to{' '}
+                                Ir para <Icon name='setting' />
+                                Configurações &gt; <Icon name='server' />
+                                Instanciadas para{' '}
                                 <Link
                                     to={`/project/${projectId}/settings`}
                                     onClick={triggerChatPane}
                                     data-cy='settings-link'
                                 >
-                                    create{' '}
+                                    criar{' '}
                                 </Link>
-                                a valid instance of Rasa to enable the chat window.
+                                uma instância válida do Rasa para habilitar a janela de bate-papo.
                             </div>
                         )}
                         className='no-core-message'

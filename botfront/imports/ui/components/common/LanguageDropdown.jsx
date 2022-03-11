@@ -29,7 +29,7 @@ const LanguageDropdown = ({
     return (
         <Dropdown
             className='language-dropdown'
-            placeholder='Select Langugage'
+            placeholder='Selecionar idioma'
             search
             selection
             multiple={multiple}

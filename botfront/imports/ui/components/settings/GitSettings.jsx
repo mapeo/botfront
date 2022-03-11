@@ -91,16 +91,16 @@ class GitSettings extends React.Component {
                     label={(
                         <>
                             <Icon name='git' />
-                    Git repository
+                    Repositório Git
                         </>
                     )}
                     info={(
                         <span className='small'>
-                    Use format{' '}
+                    Usar formato{' '}
                             <span className='monospace break-word'>
                         https://user:token@domain/org/repo.git#branch
                             </span>{' '}
-                    or{' '}
+                    ou{' '}
                             <span className='monospace break-word'>
                         git@domain:org/repo.git#branch
                             </span>
@@ -112,16 +112,16 @@ class GitSettings extends React.Component {
                 />
                 <div className={`ssh-keys field ${(hidden && !isGitSettingsEmpty) ? 'disabled': ''}`} >
                     <Icon name='key' /> SSH keys{' '}
-                    <Info info='These are stored as is, so use caution: use this key only for versioning your bot, and give it only the necessary rights to push and pull to above repo.' />
+                    <Info info='Eles são armazenados como estão, portanto, tenha cuidado: use essa chave apenas para controlar a versão do seu bot e dê a ele apenas os direitos necessários para enviar e enviar para o repositório acima.' />
                 </div>
                 <AutoField
-                    label='Public'
+                    label='Público'
                     name='publicSshKey'
                     className='project-name'
                     data-cy='public-ssh-key'
                 />
                 <LongTextField
-                    label='Private'
+                    label='Privado'
                     name='privateSshKey'
                     className='project-name'
                     data-cy='private-ssh-key'

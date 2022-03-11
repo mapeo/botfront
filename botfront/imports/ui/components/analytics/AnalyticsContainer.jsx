@@ -182,7 +182,7 @@ function AnalyticsContainer(props) {
     const renderAddCard = () => (
         <Dropdown
             className='icon'
-            text='Add card'
+            text='Adicionar card'
             icon='plus'
             floating
             labeled
@@ -213,12 +213,12 @@ function AnalyticsContainer(props) {
                 >
                     <Header as='h3' color='red' textAlign='center'>
                         <Icon name='trash' />
-                        Drop here to delete
+                        Solte aqui para excluir
                     </Header>
                 </div>
             )}
             <div>
-                <PageMenu title='Analytics' icon='chart bar'>
+                <PageMenu title='Análises' icon='chart bar'>
                     <Menu.Item>
                         <EnvSelector
                             value={dashboard.envs[0]} // multi env not supported
@@ -250,7 +250,7 @@ function AnalyticsContainer(props) {
                                 data-cy='export-all'
                             >
                                 <Icon name='download' />
-                                Export to Excel
+                                Exportar para Excel
                             </Button>
                         </Menu.Item>
                         <Menu.Item>{renderAddCard()}</Menu.Item>

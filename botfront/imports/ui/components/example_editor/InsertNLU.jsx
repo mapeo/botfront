@@ -78,7 +78,7 @@ function InsertNlu(props) {
             <div id='playground'>
                 <Form>
                     <TextArea
-                        placeholder='User says...'
+                        placeholder='Usuário diz...'
                         minRows={1}
                         maxRows={999}
                         value={value}
@@ -110,7 +110,7 @@ function InsertNlu(props) {
                                 </>
                             )}
                             <div className='instructions'>
-                                Press [Enter] to add or edit example
+                                Pressione [Enter] para adicionar ou editar exemplo
                                 {value.split('\n').filter(l => l.trim()).length >= 2
                                     && 's'}
                                 .

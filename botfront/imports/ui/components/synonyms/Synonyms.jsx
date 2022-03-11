@@ -21,14 +21,14 @@ class SynonymsEditor extends React.Component {
         return (
             <LookupTable
                 data={model.training_data.entity_synonyms}
-                keyHeader='Value'
+                keyHeader='Valor'
                 keyAttribute='value'
-                listHeader='Synonyms'
+                listHeader='Sinônimos'
                 listAttribute='synonyms'
                 onItemChanged={this.onItemChanged}
                 onItemDeleted={this.onItemDeleted}
-                valuePlaceholder='entity value'
-                listPlaceholder='synonym1, synonym2, ...'
+                valuePlaceholder='valor da entidade'
+                listPlaceholder='sinônimo1, sinônimo2, ...'
                 projectId={projectId}
             />
         );

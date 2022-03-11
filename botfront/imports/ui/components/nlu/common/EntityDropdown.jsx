@@ -47,12 +47,12 @@ function EntityDropdown({
                 button
                 labeled
                 className='icon entity-dropdown'
-                placeholder='Select an entity... '
+                placeholder='Selecione uma entidade... '
                 search
                 selection
                 value={entity && entity.entity}
                 allowAdditions={allowAdditions}
-                additionLabel='Add entity: '
+                additionLabel='Adicionar entidade: '
                 onAddItem={(_, { value }) => onAddItem(value)}
                 onChange={(_, { value }) => onChange(value)}
                 onSearchChange={handleSearchChange}

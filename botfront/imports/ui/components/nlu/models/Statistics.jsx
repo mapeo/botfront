@@ -94,10 +94,10 @@ const Statistics = (props) => {
 
     const columns = [
         {
-            key: 'intent', header: 'Intent', style: { width: '200px', minWidth: '200px', overflow: 'hidden' }, render: renderIntent,
+            key: 'intent', header: 'Objetivo', style: { width: '200px', minWidth: '200px', overflow: 'hidden' }, render: renderIntent,
         },
         {
-            key: 'example', header: 'Example', style: { width: '100%' }, render: renderExample,
+            key: 'example', header: 'Exemplo', style: { width: '100%' }, render: renderExample,
         },
         ...countColumns,
     ];
@@ -110,7 +110,7 @@ const Statistics = (props) => {
                 ? (
                     <div className='glow-box extra-padding'>
                         <div className='side-by-side'>
-                            <h3>Examples per intent</h3>
+                            <h3>Exemplos por objetivos</h3>
                             <Button onClick={downloadData} disabled={!(dataToDisplay || []).length} icon='download' basic />
                         </div>
                         <br />

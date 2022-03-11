@@ -213,12 +213,12 @@ const SearchBar = (props) => {
 
     const renderShortcuts = () => (
         <div className='search-shortcuts'>
-            <Shortcut value='with:highlights' text='Stories with onscreen guidance' />
-            <Shortcut value='with:triggers' text='Stories with triggers' />
-            <Shortcut value='with:custom_style' text='Stories with custom styles' />
-            <Shortcut value='with:observe_events' text='Stories with user interactions callback' />
-            <Shortcut value='status:unpublished' text='Unpublished stories' />
-            <Shortcut value='status:published' text='Published stories' />
+            <Shortcut value='with:highlights' text='Históricos com orientação na tela' />
+            <Shortcut value='with:triggers' text='Históricos com disparos' />
+            <Shortcut value='with:custom_style' text='Históricos com estilos personalizados ' />
+            <Shortcut value='with:observe_events' text='Históricos com retorno de chamada de interações do usuário' />
+            <Shortcut value='status:unpublished' text='Históricos não publicados' />
+            <Shortcut value='status:published' text='Históricos publicados' />
         </div>
     );
 

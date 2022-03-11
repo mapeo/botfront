@@ -21,7 +21,7 @@ const ConversationPopup = (props) => {
             {!convLoading && convData && (
                 <>
                     <div className='header'>
-                        <span>Conversation</span> <Icon name='close' link onClick={onClose} />{' '}
+                        <span>Conversas</span> <Icon name='close' link onClick={onClose} />{' '}
                     </div>
                     <ConversationDialogueViewer
                         conversation={convData.conversation}

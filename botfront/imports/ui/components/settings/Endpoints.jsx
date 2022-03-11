@@ -155,7 +155,7 @@ class Endpoints extends React.Component {
                             saving={saving}
                             disabled={!!saving}
                             onSave={() => { this.form.current.submit(); }}
-                            confirmText={webhook && webhook.url ? `Saving will restart the ${selectedEnvironment} rasa instance` : ''}
+                            confirmText={webhook && webhook.url ? `O salvamento reiniciará ${selectedEnvironment} instância rasa` : ''}
                         />
                     )}
             </AutoForm>
@@ -225,7 +225,7 @@ class Endpoints extends React.Component {
         }
         return (
             <>
-                <h4 data-cy='endpoints-environment-menu'>Development</h4>
+                <h4 data-cy='endpoints-environment-menu'>Desenvolvimento</h4>
                 {this.renderContents()}
             </>
         );

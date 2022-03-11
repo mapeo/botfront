@@ -57,7 +57,7 @@ function Turn({
                 <Comment>
                     <Comment.Avatar src='/images/avatars/mrbot.png' />
                     <Comment.Content>
-                        <Comment.Author as='a'>Bot</Comment.Author>
+                        <Comment.Author as='a'>Robô</Comment.Author>
                         <Comment.Metadata>
                         </Comment.Metadata>
                         <Comment.Text>
@@ -121,13 +121,13 @@ function ConversationDialogueViewer({
                 <Message
                     info
                     icon='warning'
-                    header='No events to show'
+                    header='Nenhum evento para mostrar'
                     content={(() => {
                         if (mode !== 'debug') {
-                            return 'check debug mode for non-dialogue events.';
+                            return 'verifique o modo de depuração para eventos que não sejam de diálogo.';
                         }
 
-                        return 'check JSON mode to view the full tracker object.';
+                        return 'verifique o modo JSON para visualizar o objeto rastreador completo.';
                     })()}
                 />
             )}

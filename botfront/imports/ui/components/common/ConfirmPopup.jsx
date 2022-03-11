@@ -17,7 +17,7 @@ const ConfirmPopup = ({
                 size='tiny'
                 data-cy='confirm-no'
             >
-                Cancel
+                Cancelar
             </Button>
             <Button
                 primary
@@ -27,7 +27,7 @@ const ConfirmPopup = ({
                 size='tiny'
                 data-cy='confirm-yes'
             >
-                Confirm
+                Confirmar
             </Button>
         </div>
     </Segment>

@@ -26,7 +26,7 @@ const ActivityCommandBar = React.forwardRef((props, ref) => {
                 <Popup
                     size='mini'
                     inverted
-                    content='Mark out of scope'
+                    content='Marcar fora do escopo'
                     disabled={someHavingIntent}
                     trigger={(
                         <div>
@@ -46,7 +46,7 @@ const ActivityCommandBar = React.forwardRef((props, ref) => {
                 <Popup
                     size='mini'
                     inverted
-                    content={someNotValidated ? 'Mark valid' : 'Mark invalid'}
+                    content={someNotValidated ? 'Marca válida' : 'Marca inválida'}
                     disabled={someLackingIntent || someOutdated}
                     trigger={(
                         <div>
@@ -75,7 +75,7 @@ const ActivityCommandBar = React.forwardRef((props, ref) => {
                 <Popup
                     size='mini'
                     inverted
-                    content='Change intent'
+                    content='Alterar objetivo'
                     disabled={someOutdated}
                     trigger={(
                         <div>

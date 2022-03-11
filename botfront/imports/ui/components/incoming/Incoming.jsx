@@ -57,10 +57,10 @@ export default function Incoming(props) {
 
     const renderTabs = () => (
         [
-            { value: 'newutterances', text: 'New Utterances' },
-            { value: 'conversations', text: 'Conversations' },
-            { value: 'forms', text: 'Form results' },
-            { value: 'populate', text: 'Populate' },
+            { value: 'newutterances', text: 'Novos enunciados' },
+            { value: 'conversations', text: 'Conversas' },
+            { value: 'forms', text: 'Resultados do formulário' },
+            { value: 'populate', text: 'Povoar' },
         ].map(({ value, text }) => (
             <Menu.Item
                 content={text}

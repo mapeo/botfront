@@ -54,11 +54,10 @@ class DefaultDomain extends React.Component {
                     icon='question circle'
                     content={(
                         <>
-                            You may put <b>actions</b> and <b>slots </b>
-                            in this domain which cannot be inferred from stories
-                            or slots defined in the <b>Stories</b> section. It will
-                            be merged with the generated domain at the time of
-                            training.
+                            Você pode colocar <b>ações</b> e <b>slots </b>
+                            neste domínio que não pode ser inferido de históricos
+                            ou slots definidos na seção de <b>histórico</b>. Ele será
+                            adicionado com o domínio gerado no momento do preparo.
                         </>
                     )}
                 />
@@ -68,14 +67,14 @@ class DefaultDomain extends React.Component {
                     model={defaultDomain}
                     onSubmit={this.onSave}
                 >
-                    <AceField name='content' label='Default Domain' mode='yaml' data-cy='ace-field' />
+                    <AceField name='content' label='Domínio padrão' mode='yaml' data-cy='ace-field' />
                     <ErrorsField />
                     {showConfirmation && (
                         <ChangesSaved
                             onDismiss={() => this.setState({ saved: false, showConfirmation: false })}
                             content={(
                                 <p>
-                                    You need to retrain your model
+                                    Você precisa preparar novamente seu modelo
                                 </p>
                             )}
                         />
