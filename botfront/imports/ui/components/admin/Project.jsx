@@ -57,7 +57,7 @@ class Project extends React.Component {
         const { namespace } = project || {};
         return (
             <>
-                <PageMenu icon='sitemap' title={project._id ? project.name : 'New project'} />
+                <PageMenu icon='sitemap' title={project._id ? project.name : 'Novo projeto'} />
                 <Container>
                     {!loading && (
                         <Segment>
@@ -66,18 +66,18 @@ class Project extends React.Component {
                                 onSubmit={p => this.updateProject(p)}
                                 model={project}
                             >
-                                <AutoField name='name' data-cy='project-name' />
+                                <AutoField name='name' data-cy='project-name' label='Nome' />
                                 <InfoField
                                     name='namespace'
                                     label='Namespace'
                                     data-cy='project-namespace'
-                                    info='The namespace to be used for Kubernetes and Google Cloud. Must be composed of only lower case letters, dashes, and underscores.'
+                                    info='O namespace a ser usado para Kubernetes e Google Cloud deve ser composto apenas de letras minúsculas, traços e sublinhados.'
                                     disabled={!!namespace}
                                 />
-                                <SelectField name='defaultLanguage' label={null} placeholder='Select the default language of your project' />
+                                <SelectField name='defaultLanguage' label={null} placeholder='Selecione o idioma padrão do seu projeto' />
                                 <br />
                                
-                                <AutoField name='disabled' data-cy='disable' />
+                                <AutoField name='disabled' data-cy='disable' label='Desativado' />
                                 <ErrorsField />
                                 <SubmitField data-cy='submit-field' />
                             </AutoForm>
@@ -86,14 +86,14 @@ class Project extends React.Component {
                     {!loading && project._id && (
                         <Can I='global-admin'>
                             <Segment>
-                                <Header content='Delete project' />
-                                {!project.disabled && <Message info content='A project must be disabled to be deletable' />}
+                                <Header content='Deletar projeto' />
+                                {!project.disabled && <Message info content='Um projeto deve ser desativado para ser excluído' />}
                                 <br />
-                                <Button icon='trash' disabled={!project.disabled} negative content='Delete project' onClick={() => this.setState({ confirmOpen: true })} data-cy='delete-project' />
+                                <Button icon='trash' disabled={!project.disabled} negative content='Deletar projeto' onClick={() => this.setState({ confirmOpen: true })} data-cy='delete-project' />
                                 <Confirm
                                     open={confirmOpen}
-                                    header={`Delete project ${project.name}?`}
-                                    content='This cannot be undone!'
+                                    header={`Deletar projeto ${project.name}?`}
+                                    content='Isto não pode ser desfeito!'
                                     onCancel={() => this.setState({ confirmOpen: false })}
                                     onConfirm={() => this.deleteProject()}
                                 />

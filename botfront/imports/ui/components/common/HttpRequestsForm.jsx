@@ -36,7 +36,7 @@ function HttpRequestsForm(props) {
             label: 'URL',
         },
         method: {
-            label: 'HTTP method',
+            label: 'Método HTTP',
             allowedValues: [
                 'GET',
                 'HEAD',

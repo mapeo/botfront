@@ -27,7 +27,7 @@ class UsersList extends React.Component {
 
     getColumns = () => [
         {
-            Header: 'Last Name',
+            Header: 'Sobrenome',
             id: 'lastname',
             accessor: 'profile.lastName',
             filterable: true,
@@ -37,7 +37,7 @@ class UsersList extends React.Component {
             ),
         },
         {
-            Header: 'First Name',
+            Header: 'Nome',
             id: 'firstname',
             accessor: 'profile.firstName',
             filterable: true,
@@ -60,7 +60,7 @@ class UsersList extends React.Component {
             id: 'edit',
             accessor: '_id',
             width: 55,
-            Header: 'Edit',
+            Header: 'Editar',
             Cell: props => (
                 <div className='center'>
                     <Link to={`/admin/user/${props.value}`}>
@@ -78,7 +78,7 @@ class UsersList extends React.Component {
 
         return (
             <div>
-                <PageMenu title='Users' icon='users'>
+                <PageMenu title='Usuários' icon='users'>
                     <Menu.Menu position='right'>
                         {can('users:w', { anyScope: true }) && (
                             <Menu.Item>
@@ -92,7 +92,7 @@ class UsersList extends React.Component {
                                         primary
                                         disabled={loading}
                                         icon='add'
-                                        content='Add user'
+                                        content='Adicionar usuários'
                                         labelPosition='left'
                                     />
                                 </div>

@@ -56,7 +56,7 @@ class Settings extends React.Component {
         <>
             <ErrorsField />
             {can('global-settings:w', { anyScope: true }) && (
-                <SubmitField value='Save' className='primary' data-cy='save-button' />
+                <SubmitField value='Salvar' className='primary' data-cy='save-button' />
             )}
         </>
     )
@@ -68,20 +68,20 @@ class Settings extends React.Component {
                 icon='question circle'
                 content={(
                     <>
-                        If you want to secure your login page with a Catpcha. &nbsp;
+                        Se você deseja proteger sua página de login com Catpcha. &nbsp;
                         <a
                             target='_blank'
                             rel='noopener noreferrer'
                             href='https://developers.google.com/recaptcha'
                         >
-                            Get your keys here
+                            Obtenha suas chaves aqui
                         </a>
-                        . Only v2 is supported.
+                        . Somente v2 é suportado.
                     </>
                 )}
             />
-            <AutoField name='settings.public.reCatpchaSiteKey' />
-            <AutoField name='settings.private.reCatpchaSecretServerKey' />
+            <AutoField name='settings.public.reCatpchaSiteKey' label='Chave do site reCAPTCHA'/>
+            <AutoField name='settings.private.reCatpchaSecretServerKey' label='Chave secreta do servidor reCAPTCHA' />
             {this.renderSubmitButton()}
         </Tab.Pane>
     );
@@ -91,7 +91,7 @@ class Settings extends React.Component {
             <Message
                 info
                 icon='question circle'
-                content='Default NLU pipeline for new NLU models'
+                content='Padrão NLU pipeline para novos modelos NLU'
             />
             <AceField name='settings.public.defaultNLUConfig' label='' convertYaml />
             {this.renderSubmitButton()}
@@ -103,7 +103,7 @@ class Settings extends React.Component {
             <Message
                 info
                 icon='question circle'
-                content='Default policies for new projects'
+                content='Políticas padrão para novos projetos'
             />
             <AceField
                 name='settings.private.defaultPolicies'
@@ -121,15 +121,15 @@ class Settings extends React.Component {
                 icon='question circle'
                 content={(
                     <>
-                        Default Rasa (see{' '}
+                        Padrão Rasa (veja{' '}
                         <a
                             target='_blank'
                             rel='noopener noreferrer'
                             href='https://rasa.com/docs/core/server/#endpoint-configuration'
                         >
-                            Rasa documentation
+                            documentação Rasa
                         </a>
-                        ) &nbsp;endpoints for new projects
+                        ) &nbsp;endpoints para novos projetos
                     </>
                 )}
             />
@@ -149,15 +149,15 @@ class Settings extends React.Component {
                 icon='question circle'
                 content={(
                     <>
-                        Default Rasa (see{' '}
+                        Padrão Rasa (veja{' '}
                         <a
                             target='_blank'
                             rel='noopener noreferrer'
                             href='https://rasa.com/docs/core/connectors/'
                         >
-                            Rasa documentation
+                            documentação Rasa
                         </a>
-                        ) &nbsp;channel credentials for new projects
+                        ) &nbsp;credenciais de canal para novos projetos
                     </>
                 )}
             />
@@ -175,7 +175,7 @@ class Settings extends React.Component {
             <Message
                 info
                 icon='question circle'
-                content={<>Default default domain for new projects</>}
+                content={<>Domínio padrão para novos projetos</>}
             />
             <AceField
                 name='settings.private.defaultDefaultDomain'
@@ -188,7 +188,7 @@ class Settings extends React.Component {
 
     renderIntegrationSettings = () => (
         <Tab.Pane>
-            <Header as='h3'>Links for Handoff setup</Header>
+            <Header as='h3'>Links para configuração de Handoff</Header>
             <AutoField
                 name='settings.private.integrationSettings.slackLink'
                 label='Slack'
@@ -202,11 +202,11 @@ class Settings extends React.Component {
             <Message
                 info
                 icon='question circle'
-                content='Login page background images URLs'
+                content='URLs das imagens de fundo da página de login'
             />
-            <AutoField name='settings.public.backgroundImages' />
-            <AutoField name='settings.public.logoUrl' />
-            <AutoField name='settings.public.smallLogoUrl' />
+            <AutoField name='settings.public.backgroundImages' label='Imagem de fundo'/>
+            <AutoField name='settings.public.logoUrl' label='URL logo'/>
+            <AutoField name='settings.public.smallLogoUrl' label='URL logo pequeno'/>
             {this.renderSubmitButton()}
         </Tab.Pane>
     );
@@ -217,22 +217,22 @@ class Settings extends React.Component {
             <>
                 <Segment>
                     <AutoField name='settings.private.bfApiHost' label='Botfront API host' data-cy='docker-api-host' />
-                    <AutoField name='settings.public.chitChatProjectId' label='Chitchat project Id' info='ID of project containing chitchat NLU training data' />
-                    <AutoField name='settings.public.docUrl' />
+                    <AutoField name='settings.public.chitChatProjectId' label='ID do projeto Chitchat' info='ID of project containing chitchat NLU training data' />
+                    <AutoField name='settings.public.docUrl' label='URL do documento' />
                     {this.renderSubmitButton()}
                 </Segment>
                 {can('global-admin') && (
                     <Segment>
                         <MigrationControl />
-                        <Header>Rebuild search indices</Header>
-                        <span>Only use this option if you&apos;re having issues with stories search.</span>
+                        <Header>Reconstruir índices de pesquisa</Header>
+                        <span>Use essa opção apenas se tiver problemas com histórico de pesquisa.</span>
                         <br />
                         <br />
                         <Confirm
                             data-cy='rebuild-indices-confirm'
                             open={confirmModalOpen}
-                            header='Rebuild search indices for all projects'
-                            content='This is a safe action that runs in the background, but it may take some time.'
+                            header='Reconstruir índices de pesquisa para todos os projetos'
+                            content='Esta é uma ação segura que é executada em segundo plano, mas pode levar algum tempo.'
                             onCancel={() => this.setState({ confirmModalOpen: false })}
                             onConfirm={() => {
                                 Meteor.call('global.rebuildIndexes');
@@ -247,7 +247,7 @@ class Settings extends React.Component {
                             }}
                             data-cy='rebuild-button'
                         >
-                        Rebuild
+                        Reconstruir
                         </Button>
                     </Segment>
                 )}
@@ -259,13 +259,13 @@ class Settings extends React.Component {
     getSettingsPanes = () => {
         const { settings } = this.props;
         const panes = [
-            { name: 'default-nlu-pipeline', menuItem: 'Default NLU Pipeline', render: this.renderDefaultNLUPipeline },
-            { name: 'default-policies', menuItem: 'Default policies', render: this.renderDefaultPolicies },
-            { name: 'default-credentials', menuItem: 'Default credentials', render: this.renderDefaultCredentials },
-            { name: 'default-endpoints', menuItem: 'Default endpoints', render: this.renderDefaultEndpoints },
+            { name: 'default-nlu-pipeline', menuItem: 'NLU Pipeline padrão', render: this.renderDefaultNLUPipeline },
+            { name: 'default-policies', menuItem: 'Políticas padrão', render: this.renderDefaultPolicies },
+            { name: 'default-credentials', menuItem: 'Credenciais padrão', render: this.renderDefaultCredentials },
+            { name: 'default-endpoints', menuItem: 'Endpoints padrão', render: this.renderDefaultEndpoints },
             {
                 name: 'default-default-domain',
-                menuItem: 'Default default domain',
+                menuItem: 'Domínio padrão',
                 render: this.renderDefaultDefaultDomain,
             },
             {
@@ -284,12 +284,12 @@ class Settings extends React.Component {
             },
             {
                 name: 'integration',
-                menuItem: 'Integration',
+                menuItem: 'Integração',
                 render: this.renderIntegrationSettings,
             },
-            { name: 'security', menuItem: 'Security', render: this.renderSecurityPane },
-            { name: 'appearance', menuItem: 'Appearance', render: this.renderAppearance },
-            { name: 'misc', menuItem: 'Misc', render: this.renderMisc },
+            { name: 'security', menuItem: 'Segurança', render: this.renderSecurityPane },
+            { name: 'appearance', menuItem: 'Aparência', render: this.renderAppearance },
+            { name: 'misc', menuItem: 'Diverso', render: this.renderMisc },
         ];
 
         return panes;
@@ -299,7 +299,7 @@ class Settings extends React.Component {
         const { params: { setting } = {} } = this.props;
         return (
             <>
-                <PageMenu icon='setting' title='Global Settings' />
+                <PageMenu icon='setting' title='Configurações globais' />
                 <Container id='admin-settings' data-cy='admin-settings-menu'>
                     <AutoForm schema={new SimpleSchema2Bridge(GlobalSettingsSchema)} model={settings} onSubmit={this.onSave} disabled={saving || !can('global-settings:w', { anyScope: true })}>
                         <Tab

@@ -83,7 +83,7 @@ class SaveButton extends React.PureComponent {
                 data-cy='save-button'
                 style={buttonStyle}
                 icon={saved ? 'check' : null}
-                content={saved ? 'Saved' : saveText}
+                content={saved ? 'Salvo' : saveText}
             />
 
         );
@@ -105,7 +105,7 @@ SaveButton.defaultProps = {
     saved: false,
     disabled: false,
     onSave: () => { },
-    saveText: 'Save',
+    saveText: 'Salvar',
     confirmText: '',
 };
 

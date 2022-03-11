@@ -96,14 +96,14 @@ export default class Filters extends React.Component {
                             startDate={startDate}
                             endDate={endDate}
                             onConfirm={this.handleCalendarChange}
-                            placeholder='Filter by date'
+                            placeholder='Filtrar por data'
                         />
                     </div>
                 )}
                 {intents.length > 0 && (
                     <Dropdown
                         style={{ marginRight: '10px' }}
-                        placeholder='Filter by intents'
+                        placeholder='Filtrar por intenções'
                         size='tiny'
                         onChange={this.handleIntentSelectorChange}
                         multiple
@@ -117,7 +117,7 @@ export default class Filters extends React.Component {
                 {entities.length > 0 && (
                     <Dropdown
                         style={{ marginRight: '10px' }}
-                        placeholder='Filter by entities'
+                        placeholder='Filtrar por entidades'
                         size='tiny'
                         onChange={this.handleEntitiesSelectorChange}
                         value={entitiesFilter}
@@ -131,7 +131,7 @@ export default class Filters extends React.Component {
 
                 <Input
                     icon='search'
-                    placeholder='Search...'
+                    placeholder='Buscar...'
                     onChange={this.handleTextChange}
                     value={query}
                 />
@@ -161,8 +161,8 @@ export default class Filters extends React.Component {
                                     value={sortKey}
                                     floating
                                     options={[
-                                        { text: 'Date', value: 'updatedAt' },
-                                        { text: 'Intent', value: 'intent' },
+                                        { text: 'Data', value: 'updatedAt' },
+                                        { text: 'Intenção', value: 'intent' },
                                     ]}
                                 />
                             )}

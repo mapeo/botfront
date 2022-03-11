@@ -49,14 +49,14 @@ const newProjectSchema = new SimpleSchema(
 
 newProjectSchema.messageBox.messages({
     en: {
-        projectName: 'The name can only contain alphanumeric characters',
+        projectName: 'O nome só pode conter caracteres alfanuméricos',
     },
 });
 
 accountSetupSchema.messageBox.messages({
     en: {
-        passwordMismatch: 'The passwords are not matching. Make sure you enter the same password in both fields',
-        passwordTooSimple: 'Your password should contain at least 9 characters and have uppercase, lowercase, digit and special characters',
+        passwordMismatch: 'As senhas não coincidem. Certifique-se de digitar a mesma senha em ambos os campos',
+        passwordTooSimple: 'Sua senha deve conter pelo menos 9 caracteres e ter caracteres maiúsculos, minúsculos e dígitos especiais',
     },
 });
 

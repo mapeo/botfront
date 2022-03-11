@@ -32,8 +32,8 @@ const changePasswordSchema = new SimpleSchema(
 
 changePasswordSchema.messageBox.messages({
     en: {
-        passwordMismatch: 'The passwords are not matching. Make sure you enter the same password in both fields',
-        passwordTooSimple: 'Your password should contain at least 9 characters and have uppercase, lowercase, digit and special characters',
+        passwordMismatch: 'As senhas não coincidem. Certifique-se de digitar a mesma senha em ambos os campos',
+        passwordTooSimple: 'Sua senha deve conter pelo menos 9 caracteres e ter caracteres maiúsculos, minúsculos e dígitos especiais',
     },
 });
 
@@ -76,7 +76,7 @@ export default class ChangePassword extends React.Component {
                 });
             } else {
                 this.setState(this.getInitialState());
-                Alert.success('Password changed', {
+                Alert.success('Senha alterada com sucesso', {
                     position: 'bottom',
                     timeout: 2000,
                 });
@@ -87,10 +87,10 @@ export default class ChangePassword extends React.Component {
     render () {
         return (
             <AutoForm schema={changePasswordSchemaBridge} onSubmit={this.handleChangePassword}>
-                <Header>Change Password</Header>
-                <AutoField name='password' placeholder='password' type='password' label={null} />
-                <AutoField name='passwordVerify' placeholder='password' type='password' label={null} />
-                <Button data-cy='change-password'>Change</Button>
+                <Header>Alterar senha</Header>
+                <AutoField name='password' placeholder='Senha' type='password' label={null} />
+                <AutoField name='passwordVerify' placeholder='Senha' type='password' label={null} />
+                <Button data-cy='change-password'>Alterar</Button>
                 <ErrorsField />
             </AutoForm>
         );

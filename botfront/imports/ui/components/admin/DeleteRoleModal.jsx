@@ -12,16 +12,16 @@ const DeleteRoleModal = (props) => {
     const [error, setError] = useState(null);
     const handleSubmit = () => {
         if (!fallback) {
-            setError('Please specify a fallback role.');
+            setError('Por favor, especifique um papel substituto.');
         } else {
             onConfirm(fallback);
         }
     };
     return (
         <Modal open>
-            <Modal.Header>{`Delete ${roleName}`}</Modal.Header>
+            <Modal.Header>{`Deletar ${roleName}`}</Modal.Header>
             <Modal.Content data-cy='delete-role-modal'>
-                There might be users with that role, what role do you want them to fallback to ?
+                Pode haver usuários com essa função, para qual papel você deseja que eles retornem?
                 <br />
                 <br />
                 <Dropdown
@@ -31,7 +31,7 @@ const DeleteRoleModal = (props) => {
                     }}
                     options={roles}
                     selection
-                    placeholder='Select a fallback role'
+                    placeholder='Selecione um papel substituto'
                     fluid
                     data-cy='select-fallback-role'
                 />
@@ -42,8 +42,8 @@ const DeleteRoleModal = (props) => {
                     </Message>
                 )}
                 <br />
-                <Button onClick={onCancel}>Cancel</Button>
-                <Button onClick={handleSubmit} negative>Delete</Button>
+                <Button onClick={onCancel}>Cancelar</Button>
+                <Button onClick={handleSubmit} negative>Deletar</Button>
             </Modal.Content>
         </Modal>
     );

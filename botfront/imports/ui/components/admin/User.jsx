@@ -62,7 +62,7 @@ class User extends React.Component {
     renderRoles = () => {
         const { projectOptions } = this.props;
         return (
-            <ListField name='roles' data-cy='user-roles-field'>
+            <ListField name='roles' data-cy='user-roles-field' label='Papéis'>
                 <ListItemField name='$'>
                     <NestField>
                         <Grid columns='equal'>
@@ -70,12 +70,13 @@ class User extends React.Component {
                                 <Grid.Column>
                                     <SelectField
                                         name='project'
-                                        placeholder='Select a project'
+                                        placeholder='Selecione um projeto'
                                         options={projectOptions}
+                                        label='Projeto'
                                     />
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <SelectField name='roles' placeholder='Select roles' />
+                                    <SelectField name='roles' placeholder='Selecionar papel' label='Papel' />
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
@@ -88,8 +89,9 @@ class User extends React.Component {
     renderPreferredLanguage = () => (
         <SelectField
             name='profile.preferredLanguage'
-            placeholder='Select a prefered language'
+            placeholder='Selecione um idioma de sua preferência'
             data-cy='preferred-language'
+            label='Idioma preferido'
             options={[
                 {
                     text: 'English',
@@ -111,7 +113,7 @@ class User extends React.Component {
         const hasWritePermission = can('users:w', { anyScope: true });
         const panes = [
             {
-                menuItem: 'General information',
+                menuItem: 'Informações gerais',
                 render: () => (
                     <Segment>
                         <AutoForm
@@ -127,10 +129,10 @@ class User extends React.Component {
                             }}
                             disabled={!hasWritePermission}
                         >
-                            <AutoField name='emails.0.address' />
-                            <AutoField name='emails.0.verified' />
-                            <AutoField name='profile.firstName' />
-                            <AutoField name='profile.lastName' />
+                            <AutoField name='emails.0.address' label='Email' />
+                            <AutoField name='emails.0.verified' label='Verificado' />
+                            <AutoField name='profile.firstName' label='Nome' />
+                            <AutoField name='profile.lastName' label='Sobrenome' />
                             {this.renderPreferredLanguage()}
                             {this.renderRoles()}
                             <ErrorsField />
@@ -141,7 +143,7 @@ class User extends React.Component {
             },
             ...(hasWritePermission
                 ? [{
-                    menuItem: 'Password change',
+                    menuItem: 'Mudança de senha',
                     render: () => (
                         <Segment>
                             <ChangePassword userId={user._id} />
@@ -154,21 +156,21 @@ class User extends React.Component {
 
         if (hasWritePermission) {
             panes.push({
-                menuItem: 'User deletion',
+                menuItem: 'Exclusão de usuário',
                 render: () => (
                     <Segment>
-                        <Header content='Delete user' />
+                        <Header content='Deletar usuário' />
                         <br />
                         <Button
                             icon='trash'
                             negative
-                            content='Delete user'
+                            content='Deletar usuário'
                             onClick={() => this.setState({ confirmOpen: true })}
                         />
                         <Confirm
                             open={confirmOpen}
-                            header={`Delete user ${this.getUserEmail()}`}
-                            content='This cannot be undone!'
+                            header={`Deletar usuário ${this.getUserEmail()}`}
+                            content='Isso não pode ser desfeito!'
                             onCancel={() => this.setState({ confirmOpen: false })}
                             onConfirm={() => this.removeUser(user._id)}
                         />
@@ -185,7 +187,7 @@ class User extends React.Component {
         const { user, ready } = this.props;
         return (
             <>
-                <PageMenu icon='users' title={!!user ? 'Edit user' : 'New user'} />
+                <PageMenu icon='users' title={!!user ? 'Editar usuário' : 'Novo usuário'} />
                 {ready && (
                     <Container>
                         {!!user ? (
@@ -201,14 +203,14 @@ class User extends React.Component {
                         ) : (
                             <Segment>
                                 <AutoForm schema={UserCreateSchema} onSubmit={this.saveUser}>
-                                    <AutoField name='profile.firstName' />
-                                    <AutoField name='profile.lastName' />
+                                    <AutoField name='profile.firstName' label='Nome'/>
+                                    <AutoField name='profile.lastName' label='Sobrenome'/>
                                     {this.renderPreferredLanguage()}
                                     <AutoField name='email' />
                                     {this.renderRoles()}
-                                    <AutoField name='sendEmail' />
+                                    <AutoField name='sendEmail' label='Enviar e-mail' />
                                     <ErrorsField />
-                                    <SubmitField label='Create user' className='primary' />
+                                    <SubmitField label='Criar usuário' className='primary' />
                                 </AutoForm>
                             </Segment>
                         )}

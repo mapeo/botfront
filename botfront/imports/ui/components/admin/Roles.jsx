@@ -13,17 +13,17 @@ const columns = [
     {
         id: 'name',
         accessor: 'name',
-        Header: 'Name',
+        Header: 'Nome',
         // eslint-disable-next-line react/prop-types
         Cell: props => <Link to={`/admin/role/${props.value}`} data-cy='role-link'>{props.value}</Link>,
     },
-    { id: 'description', accessor: 'description', Header: 'Description' },
+    { id: 'description', accessor: 'description', Header: 'Descrição' },
 ];
 const RolesList = () => {
     const { loading, data } = useQuery(GET_ROLES_DATA, { fetchPolicy: 'cache-and-network' });
     return (
         <div>
-            <PageMenu icon='sitemap' title='Roles'>
+            <PageMenu icon='sitemap' title='Papéis'>
                 {can('roles:w', { anyScope: true }) && (
                     <Menu.Menu position='right'>
                         <Menu.Item>
@@ -31,7 +31,7 @@ const RolesList = () => {
                                 primary
                                 data-cy='create-role'
                                 icon='add'
-                                content='Create Role'
+                                content='Criar papel'
                                 onClick={() => {
                                     browserHistory.push('/admin/role/');
                                 }}

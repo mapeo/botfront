@@ -55,14 +55,14 @@ class ForgotPassword extends React.Component {
                     <SubmitField value='Continue' className='black large basic fluid' disabled={reCatpchaSiteKey && !reCaptcha} />
                     <br />
                     <Link style={{ color: '#000' }} to='/login'>
-                        Back to Sign in
+                        Voltar ao login
                     </Link>
                 </AutoForm>
             </Segment>
         );
     };
 
-    renderSent = () => <Message positive header='Check your email inbox' content='If you have an account with us, you will find the instructions to reset your password in your inbox' />;
+    renderSent = () => <Message positive header='Verifique seu e-mail' content='Se você tiver uma conta conosco, encontrará as instruções para redefinir sua senha em sua caixa de entrada' />;
 
     onCaptcha = (reCaptcha) => {
         Meteor.call(

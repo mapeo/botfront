@@ -97,7 +97,7 @@ class LoginComponent extends React.Component {
                         <AutoForm model={{}} schema={this.loginFormSchemaBridge} onSubmit={this.handleLogin} className='ui large account-form' disabled={loggingIn}>
                             <ErrorsField />
                             <TextField name='email' iconLeft='user' placeholder='Email' type='email' label={null} data-cy='login-field' />
-                            <TextField name='password' iconLeft='lock' placeholder='Password' type='password' label={null} data-cy='password-field' />
+                            <TextField name='password' iconLeft='lock' placeholder='Senha' type='password' label={null} data-cy='password-field' />
                             {reCatpchaSiteKey && (
                                 <div>
                                     <ReCAPTCHA sitekey={reCatpchaSiteKey} onChange={this.onCaptcha} ref={reCaptchaRef} />
@@ -107,7 +107,7 @@ class LoginComponent extends React.Component {
                             <SubmitField value='LOGIN' className='black large basic fluid' disabled={reCatpchaSiteKey && !reCaptcha} data-cy='login-button' />
                             <br />
                             <Link style={{ color: '#000' }} to='/forgot-password'>
-                                Forgot your password?
+                                Esqueceu a senha?
                             </Link>
                         </AutoForm>
                     </Segment>

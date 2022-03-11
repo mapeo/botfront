@@ -26,7 +26,7 @@ class ProjectsList extends React.Component {
             accessor: 'name',
             filterable: true,
             filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'name')),
-            Header: 'Name',
+            Header: 'Nome',
             Cell: props => (
                 <Link to={`/project/${props.original._id}/nlu/models`}>{props.value}</Link>
             ),
@@ -43,7 +43,7 @@ class ProjectsList extends React.Component {
                 id: 'edit',
                 accessor: '_id',
                 width: 55,
-                Header: 'Edit',
+                Header: 'Editar',
                 Cell: props => (
                     <div className='center'>
                         <Link to={`/admin/project/${props.value}`}>
@@ -59,7 +59,7 @@ class ProjectsList extends React.Component {
         const { loading, projects } = this.props;
         return (
             <div>
-                <PageMenu icon='sitemap' title='Projects' headerDataCy='projects-page-header'>
+                <PageMenu icon='sitemap' title='Projetos' headerDataCy='projects-page-header'>
                     <Menu.Menu position='right'>
                         {can('projects:w') && (
                             <Menu.Item>
@@ -73,7 +73,7 @@ class ProjectsList extends React.Component {
                                         primary
                                         disabled={loading}
                                         icon='add'
-                                        content='Add project'
+                                        content='Adicionar projetos'
                                         labelPosition='left'
                                     />
                                 </div>

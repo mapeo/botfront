@@ -66,7 +66,7 @@ class SetupSteps extends React.Component {
                     <Step.Group fluid size='large'>
                         <Step
                             active
-                            title='Create your admin account'
+                            title='Crie sua conta de administrador'
                             onClick={this.handleAccountClick}
                             data-cy='account-step'
                         />

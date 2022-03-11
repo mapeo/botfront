@@ -170,10 +170,10 @@ function NLUModel(props) {
     ));
 
     const topMenuItems = [
-        ['Training Data', 'database', true],
-        ['Evaluation', 'percent', can('nlu-data:x', projectId)],
-        ['Statistics', 'pie graph', true],
-        ['Settings', 'setting', true],
+        ['Treinamento de dados', 'database', true],
+        ['Avaliação', 'percent', can('nlu-data:x', projectId)],
+        ['Estatísticas', 'pie graph', true],
+        ['Configurações', 'setting', true],
     ];
 
     const renderTopMenu = () => (
@@ -208,7 +208,7 @@ function NLUModel(props) {
                         onTabChange={(e, { activeIndex }) => { if (activeIndex === 0) refetch(); }}
                         panes={[
                             {
-                                menuItem: 'Examples',
+                                menuItem: 'Exemplos',
                                 render: () => (
                                     <NluTable
                                         ref={tableRef}
@@ -244,15 +244,15 @@ function NLUModel(props) {
                                 ),
                             },
                             {
-                                menuItem: 'Synonyms',
+                                menuItem: 'Sinônimos',
                                 render: () => <Synonyms model={model} />,
                             },
                             {
-                                menuItem: 'Gazette',
+                                menuItem: 'Gazeette',
                                 render: () => <Gazette model={model} />,
                             },
                             {
-                                menuItem: 'Out Of Scope',
+                                menuItem: 'Fora do escopo',
                                 render: () => <OutOfScope />,
                             },
                             {
@@ -293,7 +293,7 @@ function NLUModel(props) {
                                 ),
                             },
                             ...(can('projects:w', projectId) ? ([{
-                                menuItem: 'Delete',
+                                menuItem: 'Deletar',
                                 render: () => <DeleteModel />,
                             }]) : []),
                         ]}

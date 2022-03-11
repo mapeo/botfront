@@ -14,18 +14,18 @@ class StepAccountComponent extends React.Component {
         const bridge = new SimpleSchema2Bridge(accountSetupSchema);
         return (
             <AutoForm model={data} schema={bridge} onSubmit={onSubmit}>
-                <AutoField name='firstName' placeholder='Your first name' label={null} />
-                <AutoField name='lastName' placeholder='Your last name' label={null} />
-                <AutoField name='email' placeholder='Your email' label={null} />
+                <AutoField name='firstName' placeholder='Nome' label={null} />
+                <AutoField name='lastName' placeholder='Sobrenome' label={null} />
+                <AutoField name='email' placeholder='Email' label={null} />
                 <AutoField
                     name='password'
-                    placeholder='Choose a password'
+                    placeholder='Digite uma senha'
                     label={null}
                     type='password'
                 />
                 <AutoField
                     name='passwordVerify'
-                    placeholder='Confirm your password'
+                    placeholder='Confirme sua senha'
                     label={null}
                     type='password'
                 />
@@ -34,7 +34,7 @@ class StepAccountComponent extends React.Component {
                 <div style={{ textAlign: 'center' }}>
                     <SubmitField
                         data-cy='account-create-button'
-                        value='Create'
+                        value='Criar'
                         className='primary'
                     />
                 </div>

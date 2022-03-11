@@ -111,11 +111,11 @@ const Role = (props) => {
     
     return (
         <>
-            <PageMenu icon='shield alternate' title={roleName || 'New Role'} />
+            <PageMenu icon='shield alternate' title={roleName || 'Novo papel'} />
             <Container>
                 {disabled && (
                     <Message info>
-                        This role is a default role and thus cannot be modified.
+                        Esse papel é um papel padrão, portanto, não pode ser modificada.
                     </Message>
                 )}
                 <Segment>
@@ -137,8 +137,8 @@ const Role = (props) => {
                             onSubmit={handleSubmit}
                             disabled={disabled || !can('roles:w', { anyScope: true })}
                         >
-                            <AutoField name='name' data-cy='role-name-input' />
-                            <AutoField name='description' data-cy='role-description-input' />
+                            <AutoField name='name' data-cy='role-name-input' label='Nome' />
+                            <AutoField name='description' data-cy='role-description-input' label='Descrição' />
                             <SelectField name='children' options={rolesOptions} data-cy='role-children-dropdown' />
                             <ErrorsField />
                             {can('roles:w', { anyScope: true }) && (
@@ -147,7 +147,7 @@ const Role = (props) => {
                                         <Button
                                             data-cy='delete-role'
                                             negative
-                                            content='Delete'
+                                            content='Deletar'
                                             disabled={disabled}
                                             floated='right'
                                             onClick={handleDeletion}

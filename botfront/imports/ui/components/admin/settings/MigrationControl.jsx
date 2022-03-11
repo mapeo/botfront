@@ -22,10 +22,10 @@ const MigrationControl = () => {
         <>
             {migration && can('global-admin') && (
             <>
-                <Header>Migrations Control</Header>
-                <p data-cy='migration-version'>Current version: {migration.version}</p>
-                <p data-cy='migration-latest-version'>Latest version: {migration.latest}</p>
-                <p data-cy='migration-status'>Status: {migration.locked ? 'Locked' : 'OK'}</p>
+                <Header>Controle de migrações</Header>
+                <p data-cy='migration-version'>Versão atual: {migration.version}</p>
+                <p data-cy='migration-latest-version'>Última versão: {migration.latest}</p>
+                <p data-cy='migration-status'>Status: {migration.locked ? 'Bloqueado' : 'OK'}</p>
                 {migration.locked && (
                     <>
                         <Button
@@ -35,12 +35,12 @@ const MigrationControl = () => {
                             }}
                             primary
                         >
-                        Unlock Migration
+                        Desbloquear migração
                         </Button>
                         <Confirm
                             open={confirmModalOpen}
-                            header='Unlock migration control'
-                            content='Are you sure you want to proceed?'
+                            header='Desbloquei o controle de migração'
+                            content='Tem certeza que deseja continuar?'
                             onConfirm={() => {
                                 unlockMigration();
                                 setLocalMigration({ ...migration, locked: !migration.locked });
@@ -52,8 +52,8 @@ const MigrationControl = () => {
                 )}
                 {!migration.locked && displayUnlockMessage && (
                     <Message positive>
-                        <Message.Header>Migration control unlocked</Message.Header>
-                        Restart Botfront to resume migration.
+                        <Message.Header>Controle de migração desbloqueado</Message.Header>
+                        Reinicie o Botfront para retomar a migração.
                     </Message>
                 )}
             </>
