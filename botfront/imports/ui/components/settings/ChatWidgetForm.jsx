@@ -241,7 +241,7 @@ class ChatWidgetForm extends React.Component {
                 >
                     <Divider />
 
-                    <Header as='h3'>General</Header>
+                    <Header as='h3'>Geral</Header>
                     <AutoField label='Bloco de widget' name='title' data-cy='widget-title' />
                     <AutoField label='Subbloco de widget' name='subtitle' />
                     <InfoField
@@ -260,7 +260,7 @@ class ChatWidgetForm extends React.Component {
                     <ErrorsField />
                     <Divider />
 
-                    <Header as='h3'>Colors</Header>
+                    <Header as='h3'>Cores</Header>
                     <ColorField label='Cor principal do webchat' name='mainColor' />
                     <ColorField
                         label='Cor de fundo da conversa'
@@ -291,7 +291,7 @@ class ChatWidgetForm extends React.Component {
                             <Header as='h3' icon>
                                 {' '}
                                 <Icon name='dropdown' />
-                                Advançado
+                                Avançado
                             </Header>
                         </Accordion.Title>
                         <Accordion.Content active={advancedVisible}>
@@ -411,13 +411,13 @@ class ChatWidgetForm extends React.Component {
                 <div data-cy='widget-form'>
                     <Menu pointing secondary>
                         <Menu.Item
-                            name='Configuration'
+                            name='Configuração'
                             active={activeMenu === 'Configuration'}
                             onClick={this.handleMenuClick}
                         />
                         <Menu.Item
                             data-cy='install'
-                            name='Installation'
+                            name='Instalação'
                             active={activeMenu === 'Installation'}
                             onClick={this.handleMenuClick}
                         />

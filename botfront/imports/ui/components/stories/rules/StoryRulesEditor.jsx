@@ -64,7 +64,7 @@ const StoryRulesEditor = (props) => {
         setRules(model);
         Meteor.call('stories.updateRules', projectId, storyId, clearOptionalFields(model), (err) => {
             if (err) {
-                Alert.error(`Error: the rules could not be saved: ${err}`);
+                Alert.error(`Erro: as regras não puderam ser salvas: ${err}`);
                 return;
             }
             setOpen(false);
@@ -74,7 +74,7 @@ const StoryRulesEditor = (props) => {
     const deleteTriggers = () => {
         Meteor.call('stories.deleteRules', projectId, storyId, (err) => {
             if (err) {
-                Alert.error(`Error: the rules could not be deleted: ${err}`);
+                Alert.error(`Erro: as regras não puderam ser salvas: ${err}`);
                 return;
             }
             setOpen(false);
@@ -96,7 +96,7 @@ const StoryRulesEditor = (props) => {
                         open={open}
                     >
                         <Modal.Header>
-                            Triggers
+                            Disparador
                             <Icon name='close' onClick={handleCancelChanges} className='close-rules-editor' link />
                         </Modal.Header>
                         <Modal.Content className={can('triggers:w', projectId) ? '' : 'read-only'}>
@@ -111,7 +111,7 @@ const StoryRulesEditor = (props) => {
                     </Modal>
                 </div>
             )}
-            content='You must remove the links to this story to add triggers'
+            content='Remova os links para esse histórico para adicionar os disparos'
             disabled={!isDestinationStory}
         />
     );

@@ -186,7 +186,7 @@ const StoryGroupTreeNode = (props) => {
                                         {addStoryOrRule('rule')}
                                         <Dropdown.Item
                                             icon='wpforms'
-                                            content='Form'
+                                            content='Formulário'
                                             data-cy='add-form'
                                             className='add-form-item'
                                             {...(!somethingIsMutating

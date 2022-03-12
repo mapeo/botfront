@@ -32,7 +32,7 @@ const UserUtterancePopupContent = (props) => {
                 </Modal.Content>
                 <Modal.Actions>
                     <Button
-                        content='Save'
+                        content='Salvar'
                         color='green'
                         disabled={!payloadValid()}
                         onClick={(e) => {
@@ -43,7 +43,7 @@ const UserUtterancePopupContent = (props) => {
                         data-cy='save-user-utterance'
                     />
                     <Button
-                        content='Cancel'
+                        content='Cancelar'
                         color='red'
                         basic
                         onClick={(e) => { e.preventDefault(); setModalOpen(false); }}
@@ -61,8 +61,8 @@ const UserUtterancePopupContent = (props) => {
                 onClose={() => setMenuOpen(false)}
             >
                 <Dropdown.Menu className='first-column'>
-                    <Dropdown.Item onClick={() => onCreateFromInput()} data-cy='user-line-from-input'>Text</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setModalOpen(true)} data-cy='user-line-from-payload'>Payload</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreateFromInput()} data-cy='user-line-from-input'>Texto</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setModalOpen(true)} data-cy='user-line-from-payload'>Carga útil</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         </>

@@ -247,7 +247,7 @@ function Project(props) {
                                                     data-cy='open-chat'
                                                 />
                                             )}
-                                            content='Try out your chatbot'
+                                            content='Experimente seu chatbot'
                                         />
                                     )}
                                 </div>

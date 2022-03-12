@@ -66,7 +66,7 @@ function QuickReplies({
                     size='mini'
                     inverted
                     position='top center'
-                    content='Add a button'
+                    content='Adicionar botão'
                     trigger={(
                         <Icon
                             className='add-quick-reply'

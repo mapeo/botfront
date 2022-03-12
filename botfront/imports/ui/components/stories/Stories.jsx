@@ -49,22 +49,22 @@ const isDeletionPossible = (node = {}, nodes, tree) => {
     if (['story', 'rule'].includes(node.type)) {
         deletable = !isDestinationOrOrigin(node);
         message = deletable
-            ? `'${node.title}' will be deleted. This action cannot be undone.`
-            : `'${node.title}' cannot be deleted as it is linked to another story.`;
+            ? `'${node.title}' será excluído. Esta ação não pode ser desfeita.`
+            : `'${node.title}' não pode ser excluído porque está ligado a outro histórico.`;
     }
     if (node.type === 'story-group') {
         deletable = !(node.children || []).some(c => isDestinationOrOrigin(tree.items[c]));
         message = deletable
-            ? `The group ${node.title} and all its content in it will be deleted. This action cannot be undone.`
-            : `The group ${node.title} cannot be deleted as it contains links.`;
+            ? `O grupo ${node.title} e todo o seu conteúdo nele será eliminado. Esta ação não pode ser desfeita.`
+            : `O grupo ${node.title} não pode ser apagado porque contém links.`;
     }
     if (node.type === 'form') {
         deletable = true;
-        message = `The form ${node.title} will be deleted. This action cannot be undone.`;
+        message = `O formulário ${node.title} será excluído. Essa ação não pode ser desfeita.`;
     }
     if (node.type === 'test_case') {
         deletable = true;
-        message = `The test ${node.title} will be deleted. This action cannot be undone.`;
+        message = `O teste ${node.title} será excluído. Essa ação não pode ser desfeita.`;
     }
     return [deletable, message];
 };

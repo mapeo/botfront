@@ -15,7 +15,7 @@ const BadLineLabel = (props) => {
                     </div>
                 </div>
             )}
-            header={`Bad line on line ${lineIndex}`}
+            header={`Má ligação on line ${lineIndex}`}
             content={<p>Por favor, fixe esta linha no modo YAML</p>}
         />
     );

@@ -59,7 +59,7 @@ UtteranceInput.propTypes = {
 };
 
 UtteranceInput.defaultProps = {
-    placeholder: 'Say....',
+    placeholder: 'Dizer....',
     size: 'small',
     value: '',
     onValidate: () => {},

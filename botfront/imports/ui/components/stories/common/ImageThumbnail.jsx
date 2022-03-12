@@ -81,16 +81,16 @@ export default function ImageThumbnail(props) {
                     <Button
                         primary
                         basic
-                        content='Upload image'
+                        content='Carregar imagem'
                         size='small'
                         onClick={() => fileField.current.click()}
                     />
-                    <span className='small grey'>or drop an image file to upload</span>
+                    <span className='small grey'>ou solte um arquivo de imagem para carregar</span>
                 </div>
-                <div className='or'> or </div>
+                <div className='or'> ou </div>
             </>
             )}
-            <b>Insert image from URL</b>
+            <b>Insira uma URL da imagem</b>
             <br />
             <div className='side-by-side middle'>
                 <Input
@@ -131,7 +131,7 @@ export default function ImageThumbnail(props) {
                 : (
                     <Dimmer active inverted>
                         <Loader inverted size='small'>
-                            <span className='small grey'>Uploading</span>
+                            <span className='small grey'>Carregando</span>
                         </Loader>
                     </Dimmer>
                 )

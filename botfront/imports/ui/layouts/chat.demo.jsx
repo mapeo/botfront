@@ -105,21 +105,21 @@ const ChatDemo = (props) => {
             </ResponsiveAlternants>
             <ResponsiveAlternants cutoff={1000} as='span' className='large grey'>
                 <>
-                    Try out the&nbsp;
-                    <b>{widgetProps.projectName}</b> assistant!
+                    Experimente o&nbsp;
+                    <b>{widgetProps.projectName}</b> assistente!
                 </>
                 <b>{widgetProps.projectName}</b>
             </ResponsiveAlternants>
             <ResponsiveAlternants cutoff={769}>
                 <Button.Group className='transparent grey'>
-                    <Button basic icon='redo' content='Restart' onClick={handleRestart} />
+                    <Button basic icon='redo' content='Reiniciar' onClick={handleRestart} />
                     <Dropdown
                         button
                         icon={null}
                         value={language}
                         onChange={(_, { value }) => handleChangeLanguage(value)}
                         className='icon basic'
-                        text='Change language'
+                        text='Alterar idioma'
                         options={widgetProps.languages}
                     />
                     {environments.length > 1 && (
@@ -129,7 +129,7 @@ const ChatDemo = (props) => {
                             icon={null}
                             options={environments}
                             className='icon basic'
-                            text='Change environment'
+                            text='Alterar ambiente'
                             onChange={(_, { value }) => handleChangeEnvironment(value)}
                             value={selectedEnv}
                         />
@@ -139,10 +139,10 @@ const ChatDemo = (props) => {
                     <Dropdown.Menu direction='left'>
                         <Dropdown.Item
                             icon='redo'
-                            text='Restart'
+                            text='Reiniciar'
                             onClick={handleRestart}
                         />
-                        <Dropdown.Header content='Change language' />
+                        <Dropdown.Header content='Alterar idioma' />
                         {widgetProps.languages.map(({ text, value }) => (
                             <Dropdown.Item
                                 content={text}
@@ -167,7 +167,7 @@ const ChatDemo = (props) => {
                     initPayload={widgetProps.initPayload}
                     socketUrl={widgetProps.socketUrl}
                     socketPath={widgetProps.socketPath}
-                    inputTextFieldHint='Try out your chatbot...'
+                    inputTextFieldHint='Experimente seu chatbot...'
                     hideWhenNotConnected={false}
                     customData={{ language }}
                     embedded

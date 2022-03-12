@@ -25,7 +25,7 @@ export function useUpload(templateKey) {
                 }));
             };
         } catch (e) {
-            console.log('error while uploading the image, check botfront logs');
+            console.log('erro durante o carregamento da imagem, verifique os registron do botfront');
             resetUploadStatus();
         }
     };

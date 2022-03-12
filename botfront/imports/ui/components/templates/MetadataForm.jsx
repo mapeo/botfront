@@ -42,37 +42,37 @@ export const defaultModel = {
 
 export const schemaData = {
     linkTarget: {
-        label: 'Where should the links open?',
+        label: 'Onde os links devem ser abertos?',
         defaultValue: '_blank',
         allowedValues: ['_blank', '_self'],
         options: [
-            { text: 'Current tab', value: '_self', description: 'Open the link the current tab' },
-            { text: 'New tab', value: '_blank', description: 'Open the link in a new tab' },
+            { text: 'Aba atual', value: '_self', description: 'Abra o link na aba atual' },
+            { text: 'Nova aba', value: '_blank', description: 'Abra o link em uma nova aba' },
         ],
     },
     userInput: {
-        label: 'How should the user input field be rendered?',
+        label: 'Como o campo de entrada de dados do usuário deve ser apresentado?',
         defaultValue: 'show',
         allowedValues: ['show', 'hide', 'disable'],
         options: [
-            { text: 'Show', value: 'show', description: 'Show the input field (default)' },
-            { text: 'Hide', value: 'hide', description: 'The input field will be hidden' },
-            { text: 'Disable', value: 'disable', description: 'The input field will be shaded grey and non-interactable' },
+            { text: 'Exibir', value: 'show', description: 'Exibir o campo de entrada (padrão)' },
+            { text: 'Ocultar', value: 'hide', description: 'O campo de entrada será ocultado' },
+            { text: 'Desabilitar', value: 'disable', description: 'O campo de entrada será cinzento sombreado e não terá interação' },
         ],
     },
     forceOpen: {
-        label: 'Force the chat widget to open? (The message will appear as a tooltip if the widget is closed)',
+        label: 'Forçar o widget do chat a abrir? (A mensagem aparecerá como uma dica de ferramenta se o widget estiver fechado)',
         defaultValue: false,
     },
     forceClose: {
-        label: 'Force the chat widget to close? (The message will appear as a tooltip)',
+        label: 'Forçar o widget do chat a fechar? (A mensagem aparecerá como uma dica de ferramenta)',
         defaultValue: false,
     },
 };
 
 export const panes = [
     {
-        menuItem: 'General',
+        menuItem: 'Geral',
         render: () => (
             <>
                 <ButtonSelectField name='linkTarget' data-cy='links-target' />

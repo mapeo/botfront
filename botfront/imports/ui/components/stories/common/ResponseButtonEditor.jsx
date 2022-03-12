@@ -37,7 +37,7 @@ function ResponseButtonEditor({
                                 label='Button title'
                                 data-cy='enter-button-title'
                                 autoFocus
-                                placeholder='Button title'
+                                placeholder='Título do botão'
                                 onChange={(_event, { value }) => {
                                     const updatedVal = { title: value, type };
                                     if (type === 'web_url') updatedVal.url = url;
@@ -50,7 +50,7 @@ function ResponseButtonEditor({
                     )}
                     <Grid.Column width={noButtonTitle ? 6 : 4}>
                         <Form.Select
-                            label={noButtonTitle ? 'Type' : 'Button type'}
+                            label={noButtonTitle ? 'Tipo' : 'Tipo do botão'}
                             onChange={(event, { value }) => {
                                 const updatedVal = { title, type: value };
                                 updatedVal.payload = '';
@@ -94,14 +94,14 @@ function ResponseButtonEditor({
                                 basic
                                 color='red'
                                 icon='trash'
-                                content='Delete button'
+                                content='Excluir botão'
                                 type='button'
                                 onClick={onDelete}
                             />
                         )}
                         <Button
                             primary
-                            content='Save'
+                            content='Salvar'
                             data-cy='save-button'
                             disabled={!valid}
                             onClick={onClose}

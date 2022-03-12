@@ -30,10 +30,10 @@ export default function UploadDropzone(props) {
             rejectedFiles = [];
         }
 
-        if (!acceptedFiles.length && !rejectedFiles.length) return handleError('Sorry, could not read you file');
-        if (rejectedFiles.length) return handleError(`${rejectedFiles[0].name} is not of type: ${accept}`);
-        if (acceptedFiles.length > 1) return handleError('Please upload only one file');
-        if (acceptedFiles[0].size > maxSizeInMb * 1000000) return handleError(`Your file should not exceed ${maxSizeInMb}Mb.`);
+        if (!acceptedFiles.length && !rejectedFiles.length) return handleError('Desculpe, não consegui ler o seu arquivo');
+        if (rejectedFiles.length) return handleError(`${rejectedFiles[0].name} não é do tipo: ${accept}`);
+        if (acceptedFiles.length > 1) return handleError('Por favor, carregue apenas um arquivo');
+        if (acceptedFiles[0].size > maxSizeInMb * 1000000) return handleError(`Seu arquivo não deve exceder ${maxSizeInMb}Mb.`);
 
         const file = acceptedFiles[0];
 
@@ -47,8 +47,8 @@ export default function UploadDropzone(props) {
             }
         };
 
-        reader.onabort = () => handleError('file reading was aborted');
-        reader.onerror = () => handleError('file reading has failed');
+        reader.onabort = () => handleError('a leitura do arquivo foi cancelada');
+        reader.onerror = () => handleError('a leitura do arquivo falhou');
         return binary ? reader.readAsBinaryString(file) : reader.readAsText(file);
     };
 
@@ -76,17 +76,17 @@ export default function UploadDropzone(props) {
                         <Button
                             primary
                             basic
-                            content='Upload file'
+                            content='Carregar arquivo'
                             size='small'
                             onClick={() => fileField.current.click()}
                         />
-                        <span className='small grey'>or drop a file to upload</span>
+                        <span className='small grey'>ou solte um arquvi para carregar</span>
                     </div>
                 </Segment>
             ) : (
                 <Message
                     positive
-                    header='Success!'
+                    header='Successo!'
                     icon='check circle'
                     content={successMessage}
                 />
@@ -107,7 +107,7 @@ UploadDropzone.propTypes = {
 };
 
 UploadDropzone.defaultProps = {
-    successMessage: 'Your file is ready',
+    successMessage: 'Seu arquivo está pronto!',
     success: false,
     loading: false,
     binary: true,

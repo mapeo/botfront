@@ -52,10 +52,10 @@ const CrashReportButton = (props) => {
         const firstTwoLinesOfStack = err.stack ? err.stack.split('\n').slice(0, 2).join('\n    in ') : 'stack not available';
         if (text) {
             return (
-                `Version: ${version}\n`
-                + `${path ? `Path: ${path}\n` : ''}`
+                `Versão: ${version}\n`
+                + `${path ? `Caminho: ${path}\n` : ''}`
                 + 'Info:\n'
-                + `${err.toString()}\n    in ${firstTwoLinesOfStack}`
+                + `${err.toString()}\n    em ${firstTwoLinesOfStack}`
                 + `${info.componentStack || ''}`
             );
         }
@@ -100,11 +100,11 @@ const CrashReportButton = (props) => {
     return (
         <Button.Group fluid basic>
             <Button
-                content='Report issue'
+                content='Reportar problema'
                 onClick={sendCrashReport}
             />
             <Button
-                content='Copy to clipboard'
+                content='Cópia para área de transferência'
                 onClick={copyToClipboard}
             />
         </Button.Group>

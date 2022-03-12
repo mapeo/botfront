@@ -45,7 +45,7 @@ export default function PageMenu(props) {
                                         basic
                                         content={(
                                             <div>
-                                                {`Trained ${moment(endTime).fromNow()}`}
+                                                {`Preparado ${moment(endTime).fromNow()}`}
                                             </div>
                                         )}
                                         style={{
@@ -73,7 +73,7 @@ export default function PageMenu(props) {
                                         color='red'
                                         content={(
                                             <div>
-                                                {`Training failed ${moment(
+                                                {`Falha no preparo ${moment(
                                                     endTime,
                                                 ).fromNow()}`}
                                             </div>

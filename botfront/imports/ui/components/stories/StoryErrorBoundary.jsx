@@ -20,17 +20,17 @@ class StoryErrorBoundary extends React.Component {
                 <div className='story-error-wrapper'>
                     <Message
                         icon='warning'
-                        header='Sorry, something went wrong with the story'
+                        header='Desculpe, algo ocorreu errado com o histórico'
                         content={(
                             <>
                                 <p>
-                                    Please try to refresh the page. If the problem
-                                    persists, try editing the story in text mode.
+                                    Por favor, tente atualizar a página. Se o problema
+                                    persistir, tente editar o histórico em modo texto.
                                 </p>
                                 <p>
                                     {reported
-                                        ? 'We\'re working on it!'
-                                        : 'Help the Botfront project by reporting the issue.'}
+                                        ? 'Nós estamos trabalhando nisso!'
+                                        : 'Ajude o projeto Botfront relatando o problema.'}
                                 </p>
                                 <p>
                                     <CrashReportButton

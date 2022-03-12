@@ -21,7 +21,7 @@ const CanonicalPopup = React.forwardRef((props, ref) => {
     const renderPopupContent = () => (
         <div className='side-by-side middle'>
             {(!canonicalExample || !canonicalExample.text)
-                ? <p>There are no examples associated with this intent.</p>
+                ? <p>Não há exemplos associados a este objetivo.</p>
                 : (
                     <>
                         <Icon

@@ -133,7 +133,7 @@ class StoryGroupNavigation extends React.Component {
                 <Popup
                     size='mini'
                     inverted
-                    content={<span>Form names must end with <i>_form</i> and have no special characters.</span>}
+                    content={<span>Nomes de formulários devem terminar com <i>_form</i> e não ter caractere especial.</span>}
                     disabled={addMode !== 'form' || formNameIsValid(newItemName)}
                     position='bottom center'
                     open

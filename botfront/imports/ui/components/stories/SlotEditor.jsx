@@ -53,7 +53,7 @@ function SlotEditor(props) {
                 {type !== 'unfeaturized' && (
                     <AutoField
                         name='initialValue'
-                        placeholder='Leave empty for no initial value'
+                        placeholder='Deixar vazio para nenhum valor inicial'
                     />
                 )}
                 {type === 'float' && (
@@ -75,7 +75,7 @@ function SlotEditor(props) {
                 { canEditSlots && (
                     <SaveButton
                         saved={saved}
-                        saveText={newSlot ? 'Add Slot' : 'Save'}
+                        saveText={newSlot ? 'Adicionar Slot' : 'Salvar'}
                     />
                 )}
                 {hover && canEditSlots && (
@@ -92,7 +92,7 @@ function SlotEditor(props) {
                             )}
                             content={(
                                 <ConfirmPopup
-                                    title='Delete Slot ?'
+                                    title='Excluir Slot?'
                                     onYes={() => onDelete(slot)}
                                     onNo={() => setDeletePopup(false)}
                                 />
@@ -102,7 +102,7 @@ function SlotEditor(props) {
                             onOpen={() => setDeletePopup(true)}
                             disabled={!deletable}
                         />
-                        {!deletable && <span className='grey'>This slot cannot be deleted as it is used in forms.</span>}
+                        {!deletable && <span className='grey'>Esse slot não pode ser excluído porque é utilizado em formulário.</span>}
                     </>
                 )}
             </AutoForm>

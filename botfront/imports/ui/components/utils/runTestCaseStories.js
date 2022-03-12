@@ -8,13 +8,13 @@ export const runTestCaseStories = (projectId, options = {}) => {
         }
         const { passing, failing } = response;
         if (!failing) {
-            Alert.success(`Test run complete. ${passing} test${passing !== 1 ? 's' : ''} passing`, {
+            Alert.success(`Teste completo. ${passing} passagem no teste${passing !== 1 ? 's' : ''}`, {
                 position: 'top-right',
                 timeout: 10 * 1000,
             });
         } else {
             Alert.error(`
-                    Test run complete. ${passing} test${passing !== 1 ? 's' : ''} passing, ${failing} test${failing !== 1 ? 's' : ''} failing`,
+                    Teste completo. ${passing} passagem no teste${passing !== 1 ? 's' : ''}, ${failing} teste${failing !== 1 ? 's' : ''} falha`,
             {
                 position: 'top-right',
                 timeout: 10 * 1000,

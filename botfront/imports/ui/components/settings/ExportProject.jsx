@@ -41,7 +41,7 @@ const ExportProject = ({
         const options = { conversations: exportConversations, incoming: exportIncoming };
         Meteor.call('exportRasa', projectId, exportLanguage, options, (err, rasaDataZip) => {
             if (err) {
-                setErrorMessage({ header: 'Export Failed!', text: err.message });
+                setErrorMessage({ header: 'Exportação falhou!', text: err.message });
                 setExportSuccessful(false);
                 setLoading(false);
             } else {

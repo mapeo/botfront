@@ -60,7 +60,7 @@ export default function CarouselEditor(props) {
                     <Popup
                         size='mini'
                         inverted
-                        content='Add a slide'
+                        content='Adicionar um slide'
                         trigger={(
                             <Icon name='add' size='huge' color='grey' link onClick={createSlide} data-cy='add-slide' />
                         )}

@@ -21,6 +21,6 @@ ChangesSaved.propTypes = {
 
 ChangesSaved.defaultProps = {
     content: <></>,
-    title: 'Your changes have been saved.',
+    title: 'Suas alterações foram salvas.',
     onDismiss: null,
 };

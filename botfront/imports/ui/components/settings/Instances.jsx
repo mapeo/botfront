@@ -51,8 +51,8 @@ class Instances extends React.Component {
 
     onSave = (updatedInstance) => {
         Meteor.call('instance.update', updatedInstance, wrapMeteorCallback((err) => {
-            if (err) Alert.error(`Error: ${err.reason}`, { position: 'top-right', timeout: 'none' });
-        }, 'Changes Saved'));
+            if (err) Alert.error(`Erro: ${err.reason}`, { position: 'top-right', timeout: 'none' });
+        }, 'Alterações salvas'));
     }
 
 

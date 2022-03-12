@@ -178,7 +178,7 @@ const StoryTopMenu = ({
                 className='overwrite-expected-button'
                 basic
                 color='green'
-                content='Definir actual como esperado'
+                content='Definir atual como esperado'
                 icon='check'
                 labelPosition='right'
                 size='mini'

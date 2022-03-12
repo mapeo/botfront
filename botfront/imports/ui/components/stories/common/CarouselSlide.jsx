@@ -46,7 +46,7 @@ export default function CarouselSlide(props) {
             {(defaultAction || { type: 'web_url' }).type !== 'web_url' && (
                 <Message
                     warning
-                    content='Facebook Messenger only supports default actions with a Web URL payload. Carousels that have slides with Postback default actions will not render.'
+                    content='O Facebook Messenger só suporta ações padrões com uma carga útil de URL Web. Os carrosséis que têm slides com ações padrões Postback não renderizarão.'
                 />
             )}
             <ResponseButtonEditor
@@ -87,7 +87,7 @@ export default function CarouselSlide(props) {
                 <Modal
                     open
                     size='tiny'
-                    header='Change default action'
+                    header='Altere ação padrão'
                     onClose={() => {
                         setValue();
                         setModalOpen(false);
@@ -97,14 +97,14 @@ export default function CarouselSlide(props) {
             )}
             <Header as='h3'>
                 <TextareaAutosize
-                    placeholder='Title'
+                    placeholder='Título'
                     value={newValue.title}
                     onChange={event => setNewValue({ title: event.target.value })}
                     onBlur={() => setValue()}
                 />
                 <Header.Subheader>
                     <TextareaAutosize
-                        placeholder='Description'
+                        placeholder='Descrição'
                         value={newValue.subtitle}
                         onChange={event => setNewValue({ subtitle: event.target.value })}
                         onBlur={() => setValue()}

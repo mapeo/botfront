@@ -78,7 +78,7 @@ const PayloadEditor = (props) => {
                         })}
                     >
                         <Icon name='plus' />
-                        Add entity
+                        Adicionar entidade
                     </DashedButton>
                 </div>
             ) : (

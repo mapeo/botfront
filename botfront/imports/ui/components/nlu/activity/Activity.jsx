@@ -179,7 +179,7 @@ function Activity(props) {
 
     const handleSetValidated = (utterances, val = true) => {
         const message = `Marque ${utterances.length} declarações de entrada como ${
-            val ? 'validade' : 'invalidada'
+            val ? 'validada' : 'invalidada'
         } ?`;
         const action = () => handleUpdate(utterances.map(({ _id }) => ({ _id, validated: val })));
         return utterances.length > 1 ? setConfirm({ message, action }) : action();

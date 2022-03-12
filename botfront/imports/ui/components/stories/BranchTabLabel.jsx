@@ -117,9 +117,9 @@ class BranchTabLabel extends React.Component {
         if (isLinked) {
             return (
                 <ToolTipPopup
-                    header='This story cannot be deleted'
+                    header='Esse histórico não pode ser excluído'
                     toolTipText={[
-                        'A story that is linked to another story cannot be deleted',
+                        'Um histórico que está ligado a outro histórico não pode ser excluído',
                     ]}
                     trigger={this.renderDeleteButton()}
                 />
@@ -128,9 +128,9 @@ class BranchTabLabel extends React.Component {
         if (siblings.length < 3 && isParentLinked) {
             return (
                 <ToolTipPopup
-                    header='This story cannot be deleted'
+                    header='Esse histórico não pode ser excluído'
                     toolTipText={[
-                        'A story that has a only one sibling branch which is linked cannot be deleted',
+                        'Um histórico que tem uma branch irmã que está conectada não pode ser deletada',
                     ]}
                     trigger={this.renderDeleteButton()}
                 />
@@ -141,7 +141,7 @@ class BranchTabLabel extends React.Component {
                 trigger={this.renderDeleteButton()}
                 content={(
                     <ConfirmPopup
-                        title='Delete branch?'
+                        title='Deletar branch?'
                         {...confirmMessage}
                         onYes={() => {
                             this.setState({ deletePopupOpened: false });

@@ -52,12 +52,12 @@ export const useFileReader = (params) => {
             const addFileNameCheck = addInstruction.map((f) => {
                 if (!f.name.match(/\.(ya?ml|json|md)/)) {
                     return addDataToFile(f, {
-                        errors: [{ text: 'File is not .zip, .json, .md or .yaml.' }],
+                        errors: [{ text: 'Arquivo não é .zip, .json, .md or .yaml.' }],
                     });
                 }
                 if (f.size > 50 * 1000 * 1000) { // 50Mo
                     return addDataToFile(f, {
-                        errors: [{ text: 'File is too heavy (more than 50Mo)' }],
+                        errors: [{ text: 'O arquivo é muito pesado (mais de 50Mb)' }],
                     });
                 }
                 return f;

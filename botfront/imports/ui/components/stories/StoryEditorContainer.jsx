@@ -286,7 +286,7 @@ const StoryEditorContainer = ({
             return 0;
         });
         const newBranchNum = Math.max(0, ...branchNums) + offset;
-        return `New Branch ${newBranchNum + 1}`;
+        return `Nova Branch ${newBranchNum + 1}`;
     };
 
     const handleCreateBranch = (path, newLevel = true) => {

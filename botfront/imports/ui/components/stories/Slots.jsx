@@ -131,7 +131,7 @@ class Slots extends React.Component {
                                         data-cy='add-slot'
                                     >
                                         <Dropdown.Menu>
-                                            <Dropdown.Header content='Choose a slot type' />
+                                            <Dropdown.Header content='Escolha um tipo de slot' />
                                             {this.getSlotOptions().map(
                                                 option => (
                                                     <Dropdown.Item
@@ -148,7 +148,7 @@ class Slots extends React.Component {
                                     </Dropdown>
                                 </Button.Group>
                             )}
-                            content='Add slot'
+                            content='Adicionar slot'
                         />
                     </Container>
                 )}

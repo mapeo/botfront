@@ -252,25 +252,25 @@ const NLUModalContent = React.forwardRef((props, forwardedRef) => {
         let title;
         let message;
         if (deleted) {
-            text = 'deleted';
+            text = 'excluído';
             color = undefined;
-            title = 'Deleted Example';
-            message = 'You just deleted this user utterance and it will be removed from the training set when you save';
+            title = 'Exemplo excluído';
+            message = 'Você acaba de apagar esta declaração de usuário e ela será removida do conjunto de preparo quando salvo';
         } else if (!checkPayloadsMatch({ intent, entities: cellEntities })) {
-            text = 'invalid';
+            text = 'inválido';
             color = 'red';
-            title = 'Invalid Example';
-            message = 'The intent and entities associated with this utterance do not correspond to the currently selected payload. Either adjust intent and entities or delete this utterance';
+            title = 'Exemplo inválido';
+            message = 'A intenção e as entidades associadas com esta declaração não correspondem ao payload selecionado. Ou ajustar o objetivo e entidades ou deletar essa declaração';
         } else if (isNew) {
-            text = 'new';
+            text = 'novo';
             color = 'yellow';
-            title = 'New example';
-            message = 'You just added this utterance and it is not yet added to the training set';
+            title = 'Novo exemplo';
+            message = 'Você acrescentou esta declaração e ainda não foi acrescentada à sessão de preparo.';
         } else if (edited) {
-            text = 'edited';
+            text = 'editado';
             color = 'olive';
-            title = 'Edited example';
-            message = 'You edited this utterance and the changes are not yet saved in the training set';
+            title = 'Exemplo editado';
+            message = 'Você editou esta declaração e as alterações ainda não foram guardadas no conjunto de preparo';
         }
         return text ? (
             <Popup
@@ -292,7 +292,7 @@ const NLUModalContent = React.forwardRef((props, forwardedRef) => {
         );
     };
 
-    if (loadingExamples) return <div>Loading</div>;
+    if (loadingExamples) return <div>Carregando</div>;
     return (
         <Container>
             <br />
@@ -323,23 +323,23 @@ const NLUModalContent = React.forwardRef((props, forwardedRef) => {
                                         disabled={hasInvalidExamples}
                                         data-cy='save-nlu'
                                     >
-                                    Save and exit
+                                    Salvar e sair
                                     </Button>
                                 </span>
                             )}
-                            header='Cannot save changes'
-                            content='You must fix invalid utterances prior to saving'
+                            header='Não é possível guardar as alterações'
+                            content='Você deve corrigir as afirmações inválidas antes de guardá-las'
                         />
                 
                         <Popup
                             trigger={(
                                 <Button onClick={handleCancel} data-cy='cancel-nlu-changes' ref={cancelButtonRef}>
-                                Cancel
+                                Cancelar
                                 </Button>
                             )}
                             content={(
                                 <ConfirmPopup
-                                    description='Are you sure? All the data you entered above will be discarded!'
+                                    description='Você tem certeza? Todos os dados que introduziu acima serão descartados!'
                                     onYes={closeModal}
                                     onNo={() => setCancelPopupOpen(false)}
                                 />
@@ -353,7 +353,7 @@ const NLUModalContent = React.forwardRef((props, forwardedRef) => {
                     </>
                 ) : (
                     <Button onClick={closeModal} data-cy='close-nlu-modal'>
-                    Close
+                    Fechar
                     </Button>
                 )}
             </div>

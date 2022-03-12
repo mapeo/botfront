@@ -152,7 +152,7 @@ const RevertTable = ({ useGitWorkingState }) => {
                     onClick={() => revertToCommit(row?.datum.sha)}
                 >
                     <Icon name='undo' />
-                    Revert
+                    Reverter
                 </Button>
             ),
         },

@@ -8,20 +8,20 @@ const ButtonTypeToggle = (props) => {
 
     const renderPopupContent = () => {
         if (responseType === 'TextWithButtonsPayload') {
-            return 'the button will disappear when a new message is added to the conversation';
+            return 'o botão desaparecerá quando uma nova mensagem for adicionada à conversa';
         }
         if (responseType === 'QuickRepliesPayload') {
-            return 'the button will remain visible and clickable';
+            return 'o botão permanecerá visível e clicável';
         }
         return <></>;
     };
 
     const renderPopupHeader = () => {
         if (responseType === 'TextWithButtonsPayload') {
-            return 'Disable persistence';
+            return 'Desativar persistência';
         }
         if (responseType === 'QuickRepliesPayload') {
-            return 'Enable persistence';
+            return 'Ativar persistência';
         }
         return <></>;
     };

@@ -101,14 +101,14 @@ class StoryFooter extends React.Component {
             return (
                 <Menu.Item className='footer-option-button' onClick={this.handlerContinueClick}>
                     <Icon name='arrow alternate circle right outline' color='blue' />
-                    Connect
+                    Conectar
                 </Menu.Item>
             );
         }
         return (
             <Menu.Item className='footer-option-button' onClick={this.handlerContinueClick}>
                 <Icon className='long' name='arrow alternate circle right outline' color='blue' />
-                Continue To Linked Story
+                Continue conectado ao histórico
             </Menu.Item>
         );
     }
@@ -148,7 +148,7 @@ class StoryFooter extends React.Component {
                 <Checkbox
                     disabled={!can('stories:w', projectId)}
                     toggle
-                    label='wait for user input'
+                    label='aguarde a entrada do usuário'
                     className='story-box-toggle'
                     checked={waitInput}
                     onChange={() => updateStory({ _id, wait_for_user_input: !waitInput })}
@@ -181,7 +181,7 @@ class StoryFooter extends React.Component {
                 />
                 Link&nbsp;to:
                 <Dropdown
-                    placeholder='Select story'
+                    placeholder='Selecione o histórico'
                     value={destinationStory ? destinationStory._id : ''}
                     fluid
                     search

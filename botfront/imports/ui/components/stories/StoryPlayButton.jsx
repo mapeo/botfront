@@ -45,7 +45,7 @@ const StoryPlayButton = (props) => {
     };
 
     const runTestCase = () => {
-        if (!storyId) throw new Error('a storyId is required to run a single test');
+        if (!storyId) throw new Error('um Id do histórico é necessário para realizar um único teste');
         runTestCaseStories(projectId, { ids: [storyId] });
     };
 
