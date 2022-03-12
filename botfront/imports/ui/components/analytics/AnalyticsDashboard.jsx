@@ -43,6 +43,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         conversationLengths: {
             chartTypeOptions: ['bar', 'pie', 'table'],
             titleDescription: 'Número de conversas que contêm um determinado número de declarações do usuário.',
+            cardName: 'Extensão da conversa',
             queryParams: {
                 envs, queryName: 'conversationLengths', langs,
             },
@@ -60,6 +61,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         conversationDurations: {
             chartTypeOptions: ['bar', 'pie', 'table'],
             titleDescription: 'Número de conversas com um determinado número de segundos decorridos entre a primeira e a última mensagem.',
+            cardName: 'Duração da conversa',
             queryParams: {
                 envs, queryName: 'conversationDurations', cutoffs: [30, 60, 90, 120, 180], langs,
             },
@@ -77,6 +79,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         intentFrequencies: {
             chartTypeOptions: ['bar', 'pie', 'table'],
             titleDescription: 'Número de declarações do usuário classificados como tendo um determinado objetivo.',
+            cardName: 'Top 10 objetivos',
             queryParams: {
                 envs, queryName: 'intentFrequencies', langs, intentTypeFilter: 'utterance',
             },

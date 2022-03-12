@@ -97,9 +97,8 @@ const SequenceEditor = (props) => {
                     style={{ margin: '10px' }}
                     content={(
                         <>
-                            The <b className='monospace'>custom</b> key must be an <b className='monospace'>object</b> and will be dispatched by rasa as is.
-                            Content under other top-level keys may be formatted according to rules
-                            specific to the output channel.
+                            A chave <b className='monospace'>personalizada</b> deve ser um <b className='monospace'>objeto</b> e será enviada pela rasa como está.
+                            Conteúdo sob outras chaves de nível superior devem ser formatadas de acordo com regras específicas para o canal de saída.
                         </>
                     )}
                 />

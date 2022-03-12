@@ -9,14 +9,14 @@ const BadLineLabel = (props) => {
             on='click'
             trigger={(
                 <div className='label-container black'>
-                    <div>bad line</div>
+                    <div>má ligação</div>
                     <div>
                         {lineMd}
                     </div>
                 </div>
             )}
             header={`Bad line on line ${lineIndex}`}
-            content={<p>Please fix this line in YAML mode</p>}
+            content={<p>Por favor, fixe esta linha no modo YAML</p>}
         />
     );
 };

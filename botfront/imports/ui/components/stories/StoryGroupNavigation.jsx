@@ -90,7 +90,7 @@ class StoryGroupNavigation extends React.Component {
                             style={{ textAlign: 'center' }}
                             onClick={() => this.setState({ addMode: true })}
                         />,
-                        'Create group',
+                        'Criar grupo',
                     )}
                     {tooltipWrapper(
                         <Button
@@ -98,15 +98,15 @@ class StoryGroupNavigation extends React.Component {
                             onClick={() => modals.setSlotsModal(true)}
                             data-cy='slots-modal'
                         />,
-                        'Manage slots',
+                        'Administrar slots',
                     )}
                     {tooltipWrapper(
                         <Button
-                            content='Policies'
+                            content='Políticas'
                             onClick={() => modals.setPoliciesModal(true)}
                             data-cy='policies-modal'
                         />,
-                        'Edit Policies',
+                        'Editar Políticas',
                     )}
                     {tooltipWrapper(
                         <Button
@@ -116,7 +116,7 @@ class StoryGroupNavigation extends React.Component {
                         >
                             <Icon name={storyMode === 'visual' ? 'code' : 'commenting'} />
                         </Button>,
-                        storyMode === 'visual' ? 'Switch to YAML edit mode' : 'Switch to visual edit mode',
+                        storyMode === 'visual' ? 'Mudar para modo de edição YAML' : 'Mudar para o modo de edição visual',
                     )}
                 </Button.Group>
             </div>
@@ -139,7 +139,7 @@ class StoryGroupNavigation extends React.Component {
                     open
                     trigger={(
                         <Input
-                            placeholder='Choose a group name'
+                            placeholder='Escolha um nome de grupo'
                             onChange={this.handleChangeNewItemName}
                             value={newItemName}
                             onKeyDown={this.handleKeyDownInput}

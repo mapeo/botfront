@@ -128,7 +128,7 @@ const StoryTopMenu = ({
                 onClose={() => setConfirmPopupOpen(false)}
                 content={(
                     <ConfirmPopup
-                        title='Conditions will be deleted!'
+                        title='As condições serão excluídas!'
                         onYes={() => {
                             setConfirmPopupOpen(false);
                             updateStory({ _id, conversation_start: !convStart, condition: [] });
@@ -140,7 +140,7 @@ const StoryTopMenu = ({
                     <Checkbox
                         toggle
                         disabled={!can('stories:w', projectId)}
-                        label='conversation start'
+                        label='iniciar conversa'
                         className='story-box-toggle'
                         checked={convStart}
                         data-cy='toggle-conversation-start'
@@ -178,7 +178,7 @@ const StoryTopMenu = ({
                 className='overwrite-expected-button'
                 basic
                 color='green'
-                content='Set actual as expected'
+                content='Definir actual como esperado'
                 icon='check'
                 labelPosition='right'
                 size='mini'
@@ -189,7 +189,7 @@ const StoryTopMenu = ({
                 className='remove-test-button'
                 basic
                 color='red'
-                content='Remove test case'
+                content='Remover caso de teste'
                 icon='trash'
                 labelPosition='right'
                 size='mini'
@@ -200,11 +200,11 @@ const StoryTopMenu = ({
 
     const renderConfirmOverwrite = () => (
         <Confirm
-            header='Warning'
+            header='Alerta'
             className='warning'
-            content='The current expected results will be overwritten. This action cannot be undone.'
-            cancelButton='Cancel'
-            confirmButton='Overwrite'
+            content='Os resultados atuais esperados serão sobrescritos. Esta ação não pode ser desfeita.'
+            cancelButton='Cancelar'
+            confirmButton='Sobrescrever'
             open={confirmOverwriteOpen && testCaseFailing}
             onCancel={() => setConfirmOverwriteOpen(false)}
             onConfirm={() => {
@@ -227,7 +227,7 @@ const StoryTopMenu = ({
                     ) : (
                         <StoryPrefix fragment={fragment} />
                     )}
-                    {status === 'unpublished' && <Label content='Unpublished' /> }
+                    {status === 'unpublished' && <Label content='Não publicado' /> }
                     <input
                         data-cy='story-title'
                         disabled={!can('stories:w', projectId)}
@@ -284,8 +284,8 @@ const StoryTopMenu = ({
                             data-cy='connected-to'
                         >
                             <Icon name='info circle' />
-                            There are one or more stories linked to this story. You can
-                            only delete it after unlinking all stories.
+                            Há um ou mais históricos ligados a esse histórico. Você pode
+                            apenas deletá-lo após desvincular todos os históricos.
                         </Message>
                     )}
                 >
@@ -301,7 +301,7 @@ const StoryTopMenu = ({
                     onClick={() => setTriggerEditorOpen(true)}
                 >
                     <Icon name='info circle' />
-                    This story will be triggered automatically when the conditions set with the stopwatch icon are met.
+                    Esse histórico será acionado automaticamente quando as condições definidas com o ícone do cronómetro forem cumpridas.
                 </Message>
             )}
             {type === 'rule' && !convStart && (
@@ -323,7 +323,7 @@ const StoryTopMenu = ({
                     data-cy='connected-to'
                 >
                     <span className='test-failure-message'>
-                        The most recent run of this test failed.
+                        A execução mais recente deste teste falhou.
                     </span>
                 </Message>
             )}

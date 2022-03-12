@@ -61,7 +61,7 @@ export default class ChangePassword extends React.Component {
         const { userId } = this.props;
         const { password, passwordVerify } = formData;
         if (password !== passwordVerify) {
-            Alert.error('Passwords don\'t match', {
+            Alert.error('Senha não corresponde', {
                 position: 'bottom',
                 timeout: 2000,
             });
@@ -70,7 +70,7 @@ export default class ChangePassword extends React.Component {
 
         Meteor.call('user.changePassword', userId, password, (err) => {
             if (err) {
-                Alert.error(`Error: ${err.reason}`, {
+                Alert.error(`Erro: ${err.reason}`, {
                     position: 'bottom',
                     timeout: 'none',
                 });

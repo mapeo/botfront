@@ -47,11 +47,11 @@ const AddStoryLine = React.forwardRef((props, ref) => {
 
     const renderLoopNameMenu = activate => (
         <Dropdown.Menu data-cy='loop-selection-menu'>
-            <Dropdown.Header>By name</Dropdown.Header>
+            <Dropdown.Header>Por nome</Dropdown.Header>
             <Dropdown.Item>
                 <Input
                     autoFocus
-                    placeholder='Type in loop action name...'
+                    placeholder='Digite o nome da ação em laço...'
                     data-cy='enter-loop-name'
                     onClick={e => e.stopPropagation()}
                     value={actionName}
@@ -61,7 +61,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
             {!!forms.length && (
                 <>
                     <Dropdown.Divider />
-                    <Dropdown.Header>Or select a form</Dropdown.Header>
+                    <Dropdown.Header>Ou selecione um formulário</Dropdown.Header>
                     {forms.map(f => (
                         <Dropdown.Item
                             key={`formname-${f.name}`}
@@ -81,7 +81,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                     <Dropdown
                         open={loopMenuOpen === 'activate'}
                         onOpen={() => setLoopMenuOpen('activate')}
-                        text='Activate loop'
+                        text='Loop ativo'
                         fluid
                         data-cy='activate-loop'
                         closeOnBlur={false}
@@ -95,7 +95,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                 <Dropdown
                     open={loopMenuOpen === 'active'}
                     onOpen={() => setLoopMenuOpen('active')}
-                    text='Active loop'
+                    text='Activar loop'
                     fluid
                     data-cy='active-loop'
                     closeOnBlur={false}
@@ -105,7 +105,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                 </Dropdown>
             </Dropdown.Item>
             <Dropdown.Item
-                content='No active loop'
+                content='Sem loop ativo'
                 onClick={() => handleCreateLoopLines()}
                 data-cy='no-active-loop'
             />
@@ -124,7 +124,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                 <UserUtterancePopupContent
                     trigger={(
                         <DashedButton color='blue' size={size} data-cy='add-user-line'>
-                            User
+                            Usuário
                         </DashedButton>
                     )}
                     onCreateFromInput={onCreateUtteranceFromInput}
@@ -152,7 +152,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                     onSelect={a => onCreateGenericLine({ action: a })}
                     trigger={(
                         <DashedButton color='pink' size={size} data-cy='add-action-line'>
-                            Action
+                            Ação
                         </DashedButton>
                     )}
                     trackOpenMenu={trackOpenMenu}

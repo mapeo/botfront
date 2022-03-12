@@ -38,9 +38,9 @@ function DatePicker({
 
     const getCustomRangeText = () => {
         if ((customRange.startDate || startDate) || (customRange.endDate || endDate)) {
-            return `Custom: ${getDateString(customRange.startDate || startDate, customRange.endDate || endDate)}`;
+            return `Personalizar: ${getDateString(customRange.startDate || startDate, customRange.endDate || endDate)}`;
         }
-        return 'Pick a range';
+        return 'Escolha um intervalo';
     };
     const DateOptions = [
         {
@@ -51,19 +51,19 @@ function DatePicker({
         },
         {
             key: 'seven',
-            text: 'Last 7 days',
+            text: 'Últimos 7 dias',
             value: 1,
             data: { startDate: moment().subtract(6, 'days').startOf('day'), endDate: moment().endOf('day') },
         },
         {
             key: 'thirty',
-            text: 'Last 30 days',
+            text: 'Últimos 30 dias',
             value: 2,
             data: { startDate: moment().subtract(29, 'days').startOf('day'), endDate: moment().endOf('day') },
         },
         {
             key: 'ninety',
-            text: 'Last 90 days',
+            text: 'Últimos 90 dias',
             value: 3,
             data: { startDate: moment().subtract(89, 'days').startOf('day'), endDate: moment().endOf('day') },
         },
@@ -107,7 +107,7 @@ function DatePicker({
             style={{ height: '450px' }}
             trigger={(
                 <Button icon labelPosition='left' onClick={() => handlePopupState()} className='date-picker-button'>
-                    {startDate ? getDateString(startDate, endDate, 'DD/MM/YYYY') : placeholder || 'Pick a range'}
+                    {startDate ? getDateString(startDate, endDate, 'DD/MM/YYYY') : placeholder || 'Escolha um intervalo'}
                     <Icon name='calendar alternate' />
                 </Button>
             )}
@@ -115,7 +115,7 @@ function DatePicker({
 
             <Form>
                 <Form.Dropdown
-                    label='Date range'
+                    label='Intervalo de datas'
                     value={selectedRangeType}
                     fluid
                     selection
@@ -143,13 +143,13 @@ function DatePicker({
 
             <Menu secondary>
                 <Menu.Item>
-                    <Button content='Cancel' onClick={() => handlePopupState()} />
+                    <Button content='Cancelar' onClick={() => handlePopupState()} />
                 </Menu.Item>
 
                 <Menu.Menu position='right'>
                     <Menu.Item>
                         <Button.Group primary>
-                            <Button data-cy='apply-new-dates' content='Apply' onClick={() => sendNewDates()} />
+                            <Button data-cy='apply-new-dates' content='Aplicar' onClick={() => sendNewDates()} />
                             {onConfirmForAll && (
                                 <Dropdown
                                     className='button icon'
@@ -157,7 +157,7 @@ function DatePicker({
                                     options={[{
                                         key: 'apply-new-dates-to-all',
                                         'data-cy': 'apply-new-dates-to-all',
-                                        text: 'Apply to all cards',
+                                        text: 'Aplicar a todos os cards',
                                         onClick: () => sendNewDates(true),
                                     }]}
                                     trigger={<React.Fragment />}

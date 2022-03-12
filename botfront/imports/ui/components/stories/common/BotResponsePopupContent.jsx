@@ -55,25 +55,25 @@ const BotResponsePopupContent = (props) => {
                     { !disableExisting
                         && (
                             <>
-                                <Dropdown.Header>Select from existing</Dropdown.Header>
+                                <Dropdown.Header>Selecione entre os existentes</Dropdown.Header>
                                 <Dropdown.Item onClick={() => setModalOpen(true)}>
-                                    <Search fluid placeholder='Search responses...' />
+                                    <Search fluid placeholder='Procurar respostas...' />
                                 </Dropdown.Item>
                                 <Dropdown.Divider />
-                                <Dropdown.Header>Or use a template</Dropdown.Header>
+                                <Dropdown.Header>Ou use um modelo</Dropdown.Header>
                             </>
                         )
                     }
-                    <Dropdown.Item onClick={() => onCreate('TextPayload')} data-cy='from-text-template'>Text</Dropdown.Item>
-                    <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('QuickRepliesPayload')} data-cy='from-qr-template'>Buttons and quick replies</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreate('TextPayload')} data-cy='from-text-template'>Texto</Dropdown.Item>
+                    <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('QuickRepliesPayload')} data-cy='from-qr-template'>Botões e respostas rápidas</Dropdown.Item>
                     <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('CarouselPayload')} data-cy='from-carousel-template'>Carousel</Dropdown.Item>
-                    <Dropdown.Item onClick={() => onCreate('ImagePayload')} data-cy='from-image-template'>Image</Dropdown.Item>
-                    <Dropdown.Item onClick={() => onCreate('CustomPayload')} data-cy='from-custom-template'>Custom</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreate('ImagePayload')} data-cy='from-image-template'>Imagem</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreate('CustomPayload')} data-cy='from-custom-template'>Personalizar</Dropdown.Item>
                     {!limitedSelection
                         && (
                         <>
-                            <Dropdown.Item onClick={() => onCreate('VideoPayload')} data-cy='from-video-template'>Video</Dropdown.Item>
-                            <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('ButtonPayload')} data-cy='from-button-template'>Button template</Dropdown.Item>
+                            <Dropdown.Item onClick={() => onCreate('VideoPayload')} data-cy='from-video-template'>Vídeo</Dropdown.Item>
+                            <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('ButtonPayload')} data-cy='from-button-template'>Botão de modelo </Dropdown.Item>
                         </>
                         )
                     }

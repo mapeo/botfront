@@ -8,7 +8,7 @@ export default function ActionLabel({ value, onChange }) {
             trigger={(
                 <div className='label-container pink'>
                     <div>
-                        action
+                        ação
                     </div>
                     <div>
                         {value}

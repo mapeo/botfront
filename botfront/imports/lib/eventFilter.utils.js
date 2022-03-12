@@ -9,8 +9,8 @@ export const validateEventFilters = (filters, operator) => {
                 if (previousExcluded && step.excluded) isNewSequenceValid = false;
                 previousExcluded = step.excluded;
             });
-            if (!isNewSequenceValid) errors.push('You cannot have two exclusion next to each other when using in order');
-            if (intentsAndAction.length > 0 && intentsAndAction[0].excluded) errors.push('You cannot start with an exclusion when using in order');
+            if (!isNewSequenceValid) errors.push('Não é possível ter duas exclusões uma ao lado da outra quando se utiliza em ordem');
+            if (intentsAndAction.length > 0 && intentsAndAction[0].excluded) errors.push('Não se pode começar com uma exclusão quando se utiliza em ordem');
         } else {
             const uniq = intentsAndAction
                 .map(elm => ({
@@ -25,7 +25,7 @@ export const validateEventFilters = (filters, operator) => {
         
             const duplicates = Object.keys(uniq).filter(a => uniq[a] > 1);
             if (duplicates.length > 0) {
-                errors = errors.concat(duplicates.map(elm => `${elm} is duplicated`));
+                errors = errors.concat(duplicates.map(elm => `${elm} está duplicada`));
             }
         }
     }

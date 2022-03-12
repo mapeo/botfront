@@ -3,12 +3,12 @@ import 'react-s-alert/dist/s-alert-default.css';
 
 export const displayError = (error) => {
     if (error.error === 'warning') {
-        Alert.warning(`Warning: ${error.reason || error.error || error.message}`, {
+        Alert.warning(`Alerta: ${error.reason || error.error || error.message}`, {
             position: 'top-right',
             timeout: 5 * 1000,
         });
     } else {
-        Alert.error(`Error: ${error.reason || error.error || error.message}`, {
+        Alert.error(`Erro: ${error.reason || error.error || error.message}`, {
             position: 'top-right',
             timeout: 'none',
         });

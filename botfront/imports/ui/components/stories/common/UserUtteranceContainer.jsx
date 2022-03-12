@@ -95,7 +95,7 @@ const UtteranceContainer = (props) => {
             if (stateValue.intent === USER_LINE_EDIT_MODE) {
                 return (
                     <UtteranceInput
-                        placeholder='User says...'
+                        placeholder='Usuário diz...'
                         fluid
                         value={input}
                         onChange={u => setInput(u)}
@@ -111,7 +111,7 @@ const UtteranceContainer = (props) => {
                         primary
                         onClick={saveInput}
                         disabled={stateValue.intent === OOS_LABEL}
-                        content='Save'
+                        content='Salvar'
                         size='small'
                         data-cy='save-new-user-input'
                     />

@@ -209,7 +209,7 @@ const BotResponsesContainer = (props) => {
                             data-cy='import-from-lang'
                             className='import-from-lang'
                             options={otherLanguages}
-                            text='Copy from'
+                            text='Copiar de'
                             onChange={(_, selection) => {
                                 importRespFromLang({
                                     variables: {
@@ -246,10 +246,10 @@ const BotResponsesContainer = (props) => {
                                 trigger={<span><IconButton onMouseDown={() => {}} icon='trash' /></span>}
                                 content={(
                                     <ConfirmPopup
-                                        title='Delete response?'
+                                        title='Deletar resposta?'
                                         description={responseLocations.length > 1
-                                            ? 'Remove this response from the current fragment'
-                                            : 'Remove this response from the current fragment and delete it'
+                                            ? 'Remover esta resposta do fragmento atual'
+                                            : 'Remover esta resposta do fragmento atual e exclui-la'
                                         }
                                         onYes={() => {
                                             setDeletePopupOpen(false);

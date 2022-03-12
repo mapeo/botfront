@@ -31,7 +31,7 @@ class Templates extends React.Component {
 
     renderAddResponse = () => (
         <Dropdown
-            text='Add bot response'
+            text='Adicionar respostas do bot'
             icon='plus'
             floating
             labeled
@@ -41,12 +41,12 @@ class Templates extends React.Component {
         >
             <Dropdown.Menu>
                 <Dropdown.Item
-                    text='Text'
+                    text='Texto'
                     onClick={() => this.setState({ newResponse: { open: true, type: 'TextPayload' } })}
                     data-cy='add-text-response'
                 />
                 <Dropdown.Item
-                    text='Buttons and quick replies'
+                    text='Botões e respostas rápidas'
                     onClick={() => this.setState({ newResponse: { open: true, type: 'QuickRepliesPayload' } })}
                     data-cy='add-quickreply-response'
                 />
@@ -56,12 +56,12 @@ class Templates extends React.Component {
                     data-cy='add-carousel-response'
                 />
                 <Dropdown.Item
-                    text='Image'
+                    text='Imagem'
                     onClick={() => this.setState({ newResponse: { open: true, type: 'ImagePayload' } })}
                     data-cy='add-image-response'
                 />
                 <Dropdown.Item
-                    text='Custom'
+                    text='Personalizado'
                     onClick={() => this.setState({ newResponse: { open: true, type: 'CustomPayload' } })}
                     data-cy='add-custom-response'
                 />
@@ -70,7 +70,7 @@ class Templates extends React.Component {
     );
 
     renderMenu = projectId => (
-        <PageMenu title='Bot responses' icon='comment alternate'>
+        <PageMenu title='Respostas do bot' icon='comment alternate'>
             <Can I='responses:w' projectId={projectId}>
                 <Menu.Menu position='right'>
                     <Menu.Item>{this.renderAddResponse()}</Menu.Item>

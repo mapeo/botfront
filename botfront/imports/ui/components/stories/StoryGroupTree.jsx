@@ -335,7 +335,7 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
             <Confirm
                 open={!!deletionModalVisible}
                 className='warning'
-                header='Warning!'
+                header='Alerta!'
                 confirmButton='Delete'
                 content={deletionModalMessage}
                 onCancel={() => setDeletionModalVisible(false)}
@@ -398,7 +398,7 @@ StoryGroupTree.propTypes = {
 
 StoryGroupTree.defaultProps = {
     storyMenuSelection: [],
-    isDeletionPossible: () => [true, 'Delete?'],
+    isDeletionPossible: () => [true, 'Deletar?'],
 };
 
 export default StoryGroupTree;

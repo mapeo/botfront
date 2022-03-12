@@ -57,7 +57,7 @@ const ListAddTemplate = ({
                 className={`icon ${indexClassName} sequence-add-message`}
             >
                 <Dropdown.Menu>
-                    <Dropdown.Header content='Choose a message template' className='sequence-add-message-menu-header' />
+                    <Dropdown.Header content='Escolha uma mensagem modelo' className='sequence-add-message-menu-header' />
                     {messageTypesOptions.map(option => <Dropdown.Item key={option.value} onClick={handleChange} {...option} />)}
                 </Dropdown.Menu>
             </Dropdown>

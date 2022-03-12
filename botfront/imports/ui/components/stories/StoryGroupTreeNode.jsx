@@ -171,7 +171,7 @@ const StoryGroupTreeNode = (props) => {
                                         }
                                         : {})}
                                 />,
-                                'Focus story group',
+                                'Foco no histórico do grupo',
                             )}
                             {tooltipWrapper(
                                 <Dropdown
@@ -204,7 +204,7 @@ const StoryGroupTreeNode = (props) => {
                                         />
                                     </Dropdown.Menu>
                                 </Dropdown>,
-                                'Add story or form',
+                                'Add histórico ou formulário',
                             )}
                         </>
                     )}
@@ -228,8 +228,7 @@ const StoryGroupTreeNode = (props) => {
                 <Popup
                     content={(
                         <p>
-                            This story is unpublished and is only trained in the
-                            development environment
+                            Esse histórico é inédito e é apenas preparado no ambiente de desenvolvimento
                         </p>
                     )}
                     trigger={(
@@ -291,7 +290,7 @@ const StoryGroupTreeNode = (props) => {
                     {isBeingRenamed ? (
                         <>
                             <Popup
-                                content='Form names must end with _form and may not contain any special characters'
+                                content='Os nomes dos formulários devem terminar com _form e não podem conter qualquer caractere especial'
                                 trigger={(
                                     <Input
                                         onChange={(_, { value }) => setNewTitle(value)}

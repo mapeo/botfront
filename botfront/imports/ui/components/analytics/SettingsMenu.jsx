@@ -44,30 +44,30 @@ const SettingsMenu = (props) => {
         const valueText = `(${values.length})`;
         switch (setting) {
         case 'includeActions':
-            return { text: 'Included actions', valueText, values };
+            return { text: 'Ações incluídas', valueText, values };
         case 'excludeActions':
-            return { text: 'Excluded actions', valueText, values };
+            return { text: 'Ações excluídas', valueText, values };
         case 'includeIntents':
-            return { text: 'Included intents', valueText, values };
+            return { text: 'Objetivos incluídos', valueText, values };
         case 'excludeIntents':
-            return { text: 'Excluded intents', valueText, values };
+            return { text: 'Objetivos excluídos', valueText, values };
         case 'selectedSequence':
-            return { text: 'Selected sequence', valueText, values };
+            return { text: 'Sequência selecionada', valueText, values };
         case 'conversationLength':
             return {
-                text: 'Minimum number of utterances',
+                text: 'Número mínimo de declarações',
                 valueText: settings[setting] ? `: ${settings[setting]}` : '',
                 values,
             };
         case 'limit':
             return {
-                text: 'Display limit',
+                text: 'Limite de exibições',
                 valueText: settings[setting] ? `: ${settings[setting]}` : '',
                 values: settings[setting],
             };
         case 'eventFilter':
             return {
-                text: 'Filter conversation events',
+                text: 'Filtrar eventos de conversas',
                 valueText,
                 values: { selection: settings[setting] || [], operator: settings.eventFilterOperator || 'or' },
             };
@@ -118,41 +118,41 @@ const SettingsMenu = (props) => {
             basic
         >
             <Dropdown.Menu>
-                <Dropdown.Header content='Appearance' onClick={e => e.stopPropagation()} />
+                <Dropdown.Header content='Aparência' onClick={e => e.stopPropagation()} />
                 <Dropdown.Item
-                    text={settings.wide ? 'Shrink to half width' : 'Expand to full width'}
+                    text={settings.wide ? 'Encolher para metade da largura' : 'Expandir para largura total'}
                     data-cy='toggle-wide'
                     onClick={() => onChangeSettings({ wide: !settings.wide })}
                 />
                 <React.Fragment key='edit-description'>
                     <SettingsPortal
-                        text='Edit description'
+                        text='Editar descrição'
                         onClose={() => setSettingsOpen(false)}
                         open={settingsOpen === 'description'}
                         values={titleDescription}
                         onChange={newVal => onChangeSettings({ description: newVal })}
                     />
                     <Dropdown.Item
-                        text='Edit description'
+                        text='Editar descrição'
                         data-cy='edit-description'
                         onClick={() => setSettingsOpen('description')}
                     />
                 </React.Fragment>
                 {denominatorLine && (
                     <Dropdown.Item
-                        text={settings.showDenominator ? 'Hide total conversations' : 'Show total conversations'}
+                        text={settings.showDenominator ? 'Ocultar o total de conversas' : 'Mostrar total de conversas'}
                         data-cy='toggle-denominator'
                         onClick={() => onChangeSettings({ showDenominator: !settings.showDenominator })}
                     />
                 )}
-                {displayTypeHeader && <Dropdown.Header content='Types of conversations' onClick={e => e.stopPropagation()} /> }
-                {displayConfigs.includes('userInitiatedConversations') && renderCheckOption('User initiated conversations', 'userInitiatedConversations', settings.userInitiatedConversations)}
-                {displayConfigs.includes('triggerConversations') && renderCheckOption('Triggered conversations', 'triggerConversations', settings.triggerConversations)}
-                {displayFiltersHeader && <Dropdown.Header content='Filters' onClick={e => e.stopPropagation()} />}
+                {displayTypeHeader && <Dropdown.Header content='Tipo de conversas' onClick={e => e.stopPropagation()} /> }
+                {displayConfigs.includes('userInitiatedConversations') && renderCheckOption('Conversas iniciadas pelo usuário', 'userInitiatedConversations', settings.userInitiatedConversations)}
+                {displayConfigs.includes('triggerConversations') && renderCheckOption('Conversas acionadas', 'triggerConversations', settings.triggerConversations)}
+                {displayFiltersHeader && <Dropdown.Header content='Filtros' onClick={e => e.stopPropagation()} />}
                 {(displayConfigs || []).map(renderExtraOptionsLink)}
                 <Dropdown.Header content='Extras' onClick={e => e.stopPropagation()} />
                 <Popup
-                    content='There is no data in this card to download'
+                    content='Não há dados neste cartão para download'
                     inverted
                     disabled={canExport}
                     trigger={(
@@ -161,7 +161,7 @@ const SettingsMenu = (props) => {
                             className={!canExport ? 'disabled-popup-item' : ''}
                             data-cy='export-card'
                         >
-                            Export this card (.csv)
+                            Exportar esse card (.csv)
                         </Dropdown.Item>
                     )}
                 />

@@ -68,7 +68,7 @@ const BotResponseContainer = (props) => {
     const renderText = () => (
         <TextareaAutosize
             ref={focusGrabber}
-            placeholder='Type a message'
+            placeholder='Digite uma mensagem'
             role='button'
             tabIndex={0}
             value={input}
@@ -105,7 +105,7 @@ const BotResponseContainer = (props) => {
             onClick={() => editCustom()}
             data-cy='edit-custom-response'
         >
-            Custom Format Response
+            Resposta em formato personalizado
         </Button>
     );
 

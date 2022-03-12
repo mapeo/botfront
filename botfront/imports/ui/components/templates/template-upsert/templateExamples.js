@@ -1,28 +1,28 @@
 export const examples = [
-    { text: 'simple text message' },
+    { text: 'mensagem de texto simples' },
     {
-        text: 'text above the buttons',
-        buttons: [{ title: 'Button title 1', payload: '/payload1' }, { title: 'Button title 2', payload: '/payload2' }],
+        text: 'texto acima dos botões',
+        buttons: [{ title: 'Botão título 1', payload: '/payload1' }, { title: 'Botão título 2', payload: '/payload2' }],
     },
     {
-        text: 'optional text above image (replace by "" to leave blank)',
+        text: 'texto opcional acima da imagem (substituir por "" para deixar em branco)',
         image: 'http://url.to.image',
     },
     {
         template_type: 'button',
-        text: 'your text',
-        buttons: [{ title: 'Button title 1', type: 'postback', payload: '/payload1' }, { title: 'Button title 2', type: 'web_url', url: 'http://...' }],
+        text: 'seu texto',
+        buttons: [{ title: 'Botão título 1', type: 'postback', payload: '/payload1' }, { title: 'Botão título 2', type: 'web_url', url: 'http://...' }],
     },
     {
         template_type: 'generic',
         elements: [
             {
-                title: 'Title of carousel block 1',
-                buttons: [{ title: 'Button title 1', type: 'postback', payload: '/payload1' }, { title: 'Button title 2', type: 'web_url', url: 'http://...' }],
+                title: 'Título de bloco carousel 1',
+                buttons: [{ title: 'Botão título 1', type: 'postback', payload: '/payload1' }, { title: 'Botão título 2', type: 'web_url', url: 'http://...' }],
             },
             {
-                title: 'Title of carousel block 2',
-                buttons: [{ title: 'Button title 1', type: 'postback', payload: '/payload1' }, { title: 'Button title 2', type: 'web_url', url: 'http://...' }],
+                title: 'Título de bloco carousel 2',
+                buttons: [{ title: 'Botão título 1', type: 'postback', payload: '/payload1' }, { title: 'Botão título 2', type: 'web_url', url: 'http://...' }],
             },
         ],
     },
@@ -31,12 +31,12 @@ export const examples = [
         top_element_style: 'compact',
         elements: [
             {
-                title: 'Title of list block 1',
-                buttons: [{ title: 'Button title 1', type: 'postback', payload: '/payload1' }, { title: 'Button title 2', type: 'web_url', url: 'http://...' }],
+                title: 'Tútlo de bloco de lista 1',
+                buttons: [{ title: 'Botão título 1', type: 'postback', payload: '/payload1' }, { title: 'Botão título 2', type: 'web_url', url: 'http://...' }],
             },
             {
-                title: 'Title of list block 2',
-                buttons: [{ title: 'Button title 1', type: 'postback', payload: '/payload1' }, { title: 'Button title 2', type: 'web_url', url: 'http://...' }],
+                title: 'Tútlo de bloco de lista 2',
+                buttons: [{ title: 'Botão título 1', type: 'postback', payload: '/payload1' }, { title: 'Botão título 2', type: 'web_url', url: 'http://...' }],
             },
         ],
     },

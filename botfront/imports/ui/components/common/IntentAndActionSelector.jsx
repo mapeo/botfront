@@ -21,13 +21,13 @@ const IntentAndActionSelector = ({
     const getOperatorOptions = () => {
         const allOptions = [
             {
-                key: 'and', value: 'and', text: 'And',
+                key: 'and', value: 'and', text: 'e',
             },
             {
-                key: 'or', value: 'or', text: 'Or',
+                key: 'or', value: 'or', text: 'ou',
             },
             {
-                key: 'inOrder', value: 'inOrder', text: 'In order',
+                key: 'inOrder', value: 'inOrder', text: 'Em ordem',
             },
         ];
         return allOptions.filter(({ key }) => allowedOperators.includes(key));

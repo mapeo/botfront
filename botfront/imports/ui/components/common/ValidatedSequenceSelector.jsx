@@ -24,8 +24,8 @@ function ValidatedSequenceSelector({
             if (previousExcluded && step.excluded) isNewSequenceValid = false;
             previousExcluded = step.excluded;
         });
-        if (!isNewSequenceValid) errors.push('You cannot have two exclusion next to each other');
-        if (newSequence.length > 0 && newSequence[0].excluded) errors.push('The sequence cannot start with an exclusion');
+        if (!isNewSequenceValid) errors.push('Não se pode ter duas exclusões uma ao lado da outra');
+        if (newSequence.length > 0 && newSequence[0].excluded) errors.push('A sequência não pode começar com uma exclusão');
 
         return errors;
     }

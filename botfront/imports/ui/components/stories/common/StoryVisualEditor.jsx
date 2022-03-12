@@ -203,9 +203,9 @@ export default class StoryVisualEditor extends React.Component {
 
     determineLoopLineLabelAndValue = (line, isSequence = false) => {
         const value = line.active_loop;
-        let label = 'active loop';
-        if (isSequence) label = 'activate loop';
-        if (!value) label = 'no active loop';
+        let label = 'loop ativo';
+        if (isSequence) label = 'ativar loop';
+        if (!value) label = 'nenhum loop ativo';
         return { value, label };
     };
 

@@ -28,7 +28,7 @@ const BotResponseName = (props) => {
         const newName = e.target.value;
         if (!/^utter_/.test(newName)) {
             e.preventDefault();
-            setRenameError('Response names must start with utter_ and not contain spaces or /');
+            setRenameError('Os nomes de resposta devem começar com utter_ e não conter espaços ou /');
             setSaving(false);
             return;
         }
@@ -90,7 +90,7 @@ const BotResponseName = (props) => {
                     )}
                     content={(
                         <>
-                            <Header as='h4'>This response is used in {responseLocations.length} fragments</Header>
+                            <Header as='h4'>Esta resposta é utilizada em fragmentos {responseLocations.length}</Header>
                             <List data-cy='response-locations-list' className='link-list'>
                                 {responseLocations.map(({ title, _id }) => (
                                     <List.Item

@@ -61,7 +61,7 @@ const SettingsPortal = (props) => {
     
     const renderIntentAndActionSelector = () => (
         <>
-            {errors && errors.length > 0 && <Message negative header='Errors' list={errors} />}
+            {errors && errors.length > 0 && <Message negative header='Erros' list={errors} />}
             <IntentAndActionSelector
                 data-cy='settings-portal-sequence-selector'
                 sequence={newValue.selection}

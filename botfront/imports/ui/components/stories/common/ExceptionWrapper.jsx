@@ -20,7 +20,7 @@ const ExceptionWrapper = (props) => {
                 <Popup
                     wide
                     position='left center'
-                    header={`Error${errors.length > 1 ? 's' : ''}`}
+                    header={`Erro${errors.length > 1 ? 's' : ''}`}
                     content={renderPopupContent(errors)}
                     trigger={
                         <Icon name='times circle' color='red' className='error-indicator' />
@@ -31,7 +31,7 @@ const ExceptionWrapper = (props) => {
                 <Popup
                     wide
                     position='left center'
-                    header={`Warning${warnings.length > 1 ? 's' : ''}`}
+                    header={`Alerta${warnings.length > 1 ? 's' : ''}`}
                     content={renderPopupContent(warnings)}
                     trigger={(
                         <Icon name='exclamation circle' color='yellow' className='warning-indicator' />

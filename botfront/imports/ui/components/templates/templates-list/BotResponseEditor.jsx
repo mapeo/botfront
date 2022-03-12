@@ -261,13 +261,13 @@ const BotResponseEditor = (props) => {
                             saveResponseName={handleChangeKey}
                             errorMessage={renameError}
                             responseName={responseKey}
-                            disabledMessage='Responses in forms cannot be renamed.'
+                            disabledMessage='Respostas no formulário não podem ser renomaeadas.'
                         />
                     </div>
                     <div className='response-editor-topbar-section'>
                         <Menu pointing secondary activeIndex={activeTab}>
-                            <MenuItem onClick={() => { setActiveTab(0); }} active={activeTab === 0} className='response-variations' data-cy='variations-tab'>Variations</MenuItem>
-                            <MenuItem onClick={() => { setActiveTab(1); }} active={activeTab === 1} className='metadata' data-cy='metadata-tab'>Behaviour</MenuItem>
+                            <MenuItem onClick={() => { setActiveTab(0); }} active={activeTab === 0} className='response-variations' data-cy='variations-tab'>Variações</MenuItem>
+                            <MenuItem onClick={() => { setActiveTab(1); }} active={activeTab === 1} className='metadata' data-cy='metadata-tab'>Comportamento</MenuItem>
                         </Menu>
                     </div>
                     <div className='response-editor-topbar-section' />

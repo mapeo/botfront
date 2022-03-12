@@ -67,12 +67,12 @@ const StoryPlayButton = (props) => {
             )}
             content={type === 'test_case' ? (
                 <>
-                    Run this test
+                    Realizar teste
                 </>
             ) : (
                 <>
-                    To start a conversation from the story editor, the story must start
-                    with a user utterance.
+                    Para iniciar uma conversa a partir do editor de histórico, o histórico deve começar
+                    com uma declaração do usuário.
                 </>
             )}
             disabled={disabled}
