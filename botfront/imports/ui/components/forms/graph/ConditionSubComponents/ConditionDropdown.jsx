@@ -37,7 +37,7 @@ ConditionDropdown.propTypes = {
 
 ConditionDropdown.defaultProps = {
     selectedPath: null,
-    placeholder: 'select an option',
+    placeholder: 'selecione uma opção',
 };
 
 export default ConditionDropdown;

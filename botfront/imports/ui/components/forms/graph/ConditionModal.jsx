@@ -98,7 +98,7 @@ export default function ConditionModal(props) {
     );
     return (
         <Modal open onClose={() => onClose(QbUtils.getTree(tree))} className='slot-condition-modal' data-cy='condition-modal'>
-            <Modal.Header>Conditions needed to get to the next response</Modal.Header>
+            <Modal.Header>Condições necessárias para chegar à próxima resposta</Modal.Header>
             <Modal.Content>
                 Use the space below to create your condition.
                 {render()}
@@ -107,8 +107,8 @@ export default function ConditionModal(props) {
                         content={(
                             <ConfirmPopup
                                 negative
-                                title='Are you sure?'
-                                description='All the conditions for this slot will be permanently deleted.'
+                                title='Você tem certeza?'
+                                description='Todas as condições para este slot serão permanentemente eliminadas.'
                                 onYes={() => {
                                     setConfirmDeleteOpen(false);
                                     deleteAll();
@@ -125,7 +125,7 @@ export default function ConditionModal(props) {
                                 onClick={() => setConfirmDeleteOpen(true)}
                             >
                                 <Icon name='trash' />
-                                Delete all Conditions
+                                Excluir todas as condições
                             </Button>
                         )}
                     />

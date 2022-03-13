@@ -75,7 +75,7 @@ const CreateForm = (props) => {
 
     return (
         <div>
-            <Header className='graph-sidebar-header' secondary size='small'>Form settings</Header>
+            <Header className='graph-sidebar-header' secondary size='small'>Configurações do formulário</Header>
             <AutoForm autosave model={getFormattedModel()} schema={new GraphQLBridge(schema, validator, {})} onSubmit={handleSubmit} disabled={!can('stories:w', projectId)}>
                 <Container>
                     <LongTextField name='description' className='create-form-field' data-cy='form-description-field' />
@@ -83,7 +83,7 @@ const CreateForm = (props) => {
                     // we force it to boolean so that the value is never null
                     // This way, it's always a controlled component.
                         checked={!!(allowContextualQuestions !== null ? allowContextualQuestions : allowContextualQuestionsDB)}
-                        label='Allow contextual side questions'
+                        label='Permitir perguntas secundárias contextuais'
                         toggle
                         onChange={handleToggleContextualQuestions}
                         className='contextual-side-questions'
@@ -92,7 +92,7 @@ const CreateForm = (props) => {
                     <Popup
                         size='small'
                         inverted
-                        content='This will enable contextual side questions in all forms and may increase training time. This setting also requires TEDPolicy in your policies'
+                        content='Isto irá permitir perguntas contextuais em todas as formas e pode aumentar o tempo de preparo. Esta configuração também requer a TEDPolicy nas suas políticas'
                         trigger={<Icon name='question' circular inverted color='grey' className='side-question-tooltips' />}
                     />
                     <ToggleField name='collect_in_botfront' data-cy='form-collection-togglefield' />

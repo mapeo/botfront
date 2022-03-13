@@ -167,7 +167,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         conversationsFunnel: {
             chartTypeOptions: ['bar'],
-            titleDescription: 'Conversations matching sequence',
+            titleDescription: 'Sequência de correspondência de conversas',
             queryParams: {
                 envs, queryName: 'conversationsFunnel', langs,
             },

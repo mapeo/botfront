@@ -165,7 +165,7 @@ export class ExampleTextEditor extends React.Component {
             <Form className='example-editor-container' data-cy='example-editor-container'>
                 <TextArea
                     id='example-text-area'
-                    placeholder='User says...'
+                    placeholder='Usuário diz...'
                     minRows={1}
                     maxRows={999}
                     value={text}

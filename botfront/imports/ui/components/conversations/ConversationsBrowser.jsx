@@ -35,7 +35,7 @@ function ConversationsBrowser(props) {
 
     useEffect(() => {
         if (data && !data.delete.success) {
-            Alert.warning('Something went wrong, the conversation was not deleted', {
+            Alert.warning('Algo deu errado, a conversa não foi apagada', {
                 position: 'top-right',
                 timeout: 5000,
             });
@@ -143,7 +143,7 @@ function ConversationsBrowser(props) {
     const renderNoMessages = () => (
         <Grid.Row>
             <Message data-cy='no-conv' info>
-                No conversation to load
+                Nenhuma conversa para carregar
             </Message>
         </Grid.Row>
     );

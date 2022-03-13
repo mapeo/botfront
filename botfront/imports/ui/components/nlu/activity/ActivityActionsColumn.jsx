@@ -45,7 +45,7 @@ export default function ActivityActionsColumn(props) {
             key={`${utterance._id}-delete`}
         >
             <Icon name='trash' />{' '}
-            {mainAction ? 'Excluir essa declaração' : 'Excluitr apenas essa'}
+            {mainAction ? 'Excluir essa declaração' : 'Excluir apenas essa'}
         </Button>
     );
 

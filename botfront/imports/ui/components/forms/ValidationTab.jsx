@@ -12,35 +12,35 @@ import { can } from '../../../lib/scopes';
 import StrictNumberInput from '../common/StrictNumberInput';
 
 const validationOptions = [
-    { key: 'is_in', value: 'is_in', text: 'be in' },
-    { key: 'is_exactly', value: 'is_exactly', text: 'be exactly' },
-    { key: 'contains', value: 'contains', text: 'contain' },
-    { key: 'longer', value: 'longer', text: 'have a character count greater than' },
+    { key: 'is_in', value: 'is_in', text: 'estar em' },
+    { key: 'is_exactly', value: 'is_exactly', text: 'ser exatamente' },
+    { key: 'contains', value: 'contains', text: 'contém' },
+    { key: 'longer', value: 'longer', text: 'ter uma contagem de caracteres maior do que' },
     {
         key: 'longer_or_equal',
         value: 'longer_or_equal',
-        text: 'have a character count greater or equal to',
+        text: 'ter uma contagem de caracteres maior ou igual a',
     },
-    { key: 'shorter', value: 'shorter', text: 'have a character count less than' },
+    { key: 'shorter', value: 'shorter', text: 'ter uma contagem de caracteres inferior a' },
     {
         key: 'shorter_or_equal',
         value: 'shorter_or_equal',
-        text: 'have a character count less or equal to',
+        text: 'ter uma contagem de caracteres menor ou igual a',
     },
     {
         key: 'word',
         value: 'word',
-        text: 'be a single word, with no whitespace or special characters',
+        text: 'ser uma única palavra, sem espaço em branco ou caracteres especiais',
     },
-    { key: 'starts_with', value: 'starts_with', text: 'start with' },
-    { key: 'ends_with', value: 'ends_with', text: 'end with' },
-    { key: 'matches', value: 'matches', text: 'match a regex expression' },
-    { key: 'eq', value: 'eq', text: 'be equal to' },
-    { key: 'gt', value: 'gt', text: 'be greater than' },
-    { key: 'gte', value: 'gte', text: 'be greater than or equal to ' },
-    { key: 'lt', value: 'lt', text: 'be less than' },
-    { key: 'lte', value: 'lte', text: 'be less than or equal to' },
-    { key: 'email', value: 'email', text: 'be an email' },
+    { key: 'starts_with', value: 'starts_with', text: 'começar com' },
+    { key: 'ends_with', value: 'ends_with', text: 'terminar com' },
+    { key: 'matches', value: 'matches', text: 'corresponder a uma expressão regex' },
+    { key: 'eq', value: 'eq', text: 'ser igual a' },
+    { key: 'gt', value: 'gt', text: 'ser maior que' },
+    { key: 'gte', value: 'gte', text: 'ser maior ou igual a' },
+    { key: 'lt', value: 'lt', text: 'ser menor que' },
+    { key: 'lte', value: 'lte', text: 'ser menor ou igual a' },
+    { key: 'email', value: 'email', text: 'ser um email' },
 ];
 
 const ValidationTab = (props) => {
@@ -77,7 +77,7 @@ const ValidationTab = (props) => {
         if (operator === 'is_in') {
             return (
                 <Dropdown
-                    placeholder='Add values'
+                    placeholder='Adicionar valores'
                     allowAdditions
                     multiple
                     disabled={!canEdit}
@@ -147,14 +147,14 @@ const ValidationTab = (props) => {
             <Checkbox
                 disabled={!canEdit}
                 toggle
-                label='Validate the slot'
+                label='Validar o slot'
                 checked={!!validation}
                 onChange={() => handleChange(validation ? null : initialValue)}
             />
             {!!validation && (
                 <>
                     <div className='validation-criteria'>
-                        <span>The value of the slot must </span>
+                        <span>O valor do slot deve</span>
                         <br />
                         <Select
                             options={validationOptions}
@@ -173,8 +173,7 @@ const ValidationTab = (props) => {
                     </div>
                     <div className='response-form first'>
                         <Header size='small'>
-                            If the collected value is invalid, utter the following
-                            message:
+                            Se o valor recolhido for inválido, emita a seguinte mensagem:
                         </Header>
                         <BotResponsesContainer
                             deletable={false}
@@ -200,7 +199,7 @@ const ValidationTab = (props) => {
             )}
             <div className='response-form'>
                 <Checkbox
-                    label='Display a message when the slot is set and valid'
+                    label='Mostrar uma mensagem quando o slot é definido e válido'
                     checked={utterOnNewValidSlot}
                     disabled={!canEdit}
                     onChange={onToggleUtterValidSlot}

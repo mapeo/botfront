@@ -11,7 +11,7 @@ const StartNode = (props) => {
     const { shiftKey } = useContext(GraphContext);
     return (
         <>
-            <span className='start-node-text' data-cy='start-node'>Start of your form</span>
+            <span className='start-node-text' data-cy='start-node'>Início do seu formulário</span>
             <Icon name='setting' />
             <Handle
                 type='source'

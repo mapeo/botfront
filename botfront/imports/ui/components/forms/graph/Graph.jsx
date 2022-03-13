@@ -109,7 +109,7 @@ const SlotsGraph = (props) => {
 
     const handleRemoveSlot = (id) => {
         // eslint-disable-next-line no-alert
-        if (!window.confirm('Are you sure you want to delete this slot ?')) return;
+        if (!window.confirm('Tem certeza que quer excluir esse slot?')) return;
         setElements((els) => {
             const newElements = els.filter((elm) => {
                 if (
@@ -409,26 +409,24 @@ const SlotsGraph = (props) => {
                 }
             >
                 <Popup.Content>
-                    Some tips to help you.
+                    Algumas dicas para ajudar você.
                     <br /> <br />
-                    <b>Add a question:</b> Click on the <code>+</code> icon below the nodes.
+                    <b>Adicionar uma pergunta:</b> Clique no ícone <code>+</code> abaixo dos nódulos.
                     <br /> <br />
-                    <b>Link to an existing question:</b> Enable <code>edge edition mode</code> and drag
-                    from the blue square that appears to the question node you want to link. <br />{' '}
-                    A backlink made this way will be displayed in orange.
+                    <b>Link para uma pergunta existente:</b> Ative o <code>modo de edição de borda</code> e arrasto a partir do quadrado azul que aparece ao nódulo de interrogação que pretende ligar. <br />{' '}
+                    Um backlink feito desta forma será exibido em laranja.
                     <br />
                     <br />
-                    Note: You can&#39;t link to a question that was already answered in
-                    your flow.
+                    Nota: Você não pode ligar a uma pergunta que já foi respondida no seu fluxo.
                     <br />
                     <br />
-                    <b>Delete a link:</b> Enable <code>edge edition mode</code> and delete the red buttons that will appear on links.
+                    <b>Excluir uma ligação:</b> Ative o <code>modo edição de bordas</code> e exclua os botões vermelhos que aparecem nas ligações.
                 </Popup.Content>
             </Popup>
             <Checkbox
                 toggle
                 // eslint-disable-next-line jsx-a11y/label-has-for
-                label={(<label data-cy='shift-mode'>Edge edition mode <span className='shortcut'>(Shift key)</span></label>)}
+                label={(<label data-cy='shift-mode'>Modo edição de borda <span className='shortcut'>(Shift key)</span></label>)}
                 checked={shiftKey}
                 onChange={() => setShiftKey(sk => !sk)}
                 className='shift-mode-toggle'
@@ -456,7 +454,7 @@ const SlotsGraph = (props) => {
                                 onClick={() => handleRemoveSlot(selectedNode.id)}
                             >
                                 <Icon name='trash' />
-                            Remove this slot
+                            Remover esse slot
                             </Button>
                         </>
                     )}

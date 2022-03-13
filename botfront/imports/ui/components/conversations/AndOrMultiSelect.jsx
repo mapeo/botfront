@@ -32,8 +32,8 @@ const AndOrMultiselect = ({
                     onChange(value);
                 }}
                 value={values}
-                additionLabel='Add: '
-                {...(allowAdditions ? { noResultsMessage: 'Type to add filters' } : {})}
+                additionLabel='Adicionar: '
+                {...(allowAdditions ? { noResultsMessage: 'Digite para adicionar filtro' } : {})}
                 allowAdditions={allowAdditions}
                 onAddItem={(_, { value }) => addItem(value)}
                 options={options}
@@ -48,10 +48,10 @@ const AndOrMultiselect = ({
                 value={operatorValue}
                 options={[
                     {
-                        key: 'and', value: 'and', text: 'And',
+                        key: 'and', value: 'and', text: 'E',
                     },
                     {
-                        key: 'or', value: 'or', text: 'Or',
+                        key: 'or', value: 'or', text: 'Ou',
                     }]}
             />
         </Segment>

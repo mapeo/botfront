@@ -110,8 +110,8 @@ const ConversationFilters = ({
                 <Icon name='dropdown' />
                 <span className='toggle-filters'>
                     {activeAccordion
-                        ? `Hide Filters ${numberOfActiveFilterString}`
-                        : `Show Filters ${numberOfActiveFilterString}`}
+                        ? `Ocultar filtros ${numberOfActiveFilterString}`
+                        : `Mostrar filtros ${numberOfActiveFilterString}`}
                 </span>
                 {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
                 <span
@@ -121,17 +121,17 @@ const ConversationFilters = ({
                     tabIndex='0'
                     className='reset-button'
                 >
-                    <Icon name='redo' size='small' /> Reset
+                    <Icon name='redo' size='small' /> Reiniciar
                 </span>
             </Accordion.Title>
             <Accordion.Content active={activeAccordion}>
-                {filtersErrors.length > 0 ? (<Message negative header='Errors' list={filtersErrors} />) : null}
+                {filtersErrors.length > 0 ? (<Message negative header='Erros' list={filtersErrors} />) : null}
                 <div className='conversation-filter-container'>
                     <Button.Group color='teal' className='filter-buttons'>
                         <Button
                             data-cy='apply-filters'
                             onClick={() => applyFilters()}
-                            content='Apply'
+                            content='Aplicar'
                         />
                         <Dropdown
                             className='button icon'
@@ -139,7 +139,7 @@ const ConversationFilters = ({
                             trigger={<React.Fragment />}
                         >
                             <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => onDownloadConversations({ format: 'json' })} icon='download' text='Download results (JSON)' />
+                                <Dropdown.Item onClick={() => onDownloadConversations({ format: 'json' })} icon='download' text='Baixar resultados (JSON)' />
                             </Dropdown.Menu>
                         </Dropdown>
                     </Button.Group>
@@ -149,8 +149,8 @@ const ConversationFilters = ({
                             onChange={(name, value) => setFilter(name, value)
                             }
                             options={[
-                                { text: 'User initiated', value: 'userInitiatedConversations' },
-                                { text: 'Triggered', value: 'triggeredConversations' },
+                                { text: 'Usuário iniciado', value: 'userInitiatedConversations' },
+                                { text: 'Disparado', value: 'triggeredConversations' },
                             ]}
                             value={newFilters}
                         />
@@ -185,7 +185,7 @@ const ConversationFilters = ({
                     >
                         <Segment.Group horizontal>
                             <Segment className='x-than-filter'>
-                                <Label> Length</Label>
+                                <Label> Tamanho</Label>
                             </Segment>
                             <Dropdown
                                 className='filter-dropdown'
@@ -224,10 +224,10 @@ const ConversationFilters = ({
                         <Segment.Group horizontal>
                             <Popup
                                 inverted
-                                content='time elapsed between the first and last message in seconds'
+                                content='tempo decorrido entre a primeira e a última mensagem em segundos'
                                 trigger={(
                                     <Segment className='x-than-filter'>
-                                        <Label> Duration</Label>
+                                        <Label> Duração</Label>
                                     </Segment>
                                 )}
                             />
@@ -276,7 +276,7 @@ const ConversationFilters = ({
                             className='conversation-filter'
                         >
                             <Segment className='x-than-filter'>
-                                <Label> Confidence &le;</Label>
+                                <Label> Confiança &le;</Label>
                             </Segment>
                             <Segment className='number-filter'>
                                 <Input
@@ -307,7 +307,7 @@ const ConversationFilters = ({
                             className='conversation-filter'
                         >
                             <Segment className='uid-label'>
-                                <Label>User ID</Label>
+                                <Label>ID do usuário</Label>
                             </Segment>
                             <Segment className='id-filter'>
                                 <Input
@@ -316,7 +316,7 @@ const ConversationFilters = ({
                                         'userId',
                                         value.trim(),
                                     )}
-                                    placeholder='unique identifier'
+                                    placeholder='identificador único'
                                 />
                             </Segment>
                         </Segment.Group>

@@ -24,7 +24,7 @@ function EnvSelector(props) {
     if (availableEnvs.length < 2) return null;
     return (
         <span className='environment-selector'>
-            Data source:{'\u00A0'}
+            Fonte de dado:{'\u00A0'}
             <Dropdown
                 data-cy='env-selector'
                 inline

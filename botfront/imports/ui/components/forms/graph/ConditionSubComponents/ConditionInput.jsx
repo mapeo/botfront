@@ -42,7 +42,7 @@ ConditionInput.propTypes = {
 
 ConditionInput.defaultProps = {
     value: '',
-    placeholder: 'Enter a value',
+    placeholder: 'Insira um valor',
     inputType: 'text',
     min: null,
     max: null,

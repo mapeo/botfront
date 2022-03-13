@@ -17,88 +17,88 @@ export const QbConfig = {
     fields: {},
     operators: {
         is_exactly: {
-            label: 'is exactly',
+            label: 'é exatamente',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         is_in: {
-            label: 'is one of',
+            label: 'é um dos',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         contains: {
-            label: 'contains',
+            label: 'contém',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         longer: {
-            label: 'has a character count greater than',
+            label: 'tem uma contagem de caracteres maior do que',
             reversedOp: '',
             formatOp: (_, __, value) => (value >= 0 ? value : 0),
         },
         longer_or_equal: {
-            label: 'has a character count greater than or equal to',
+            label: 'tem uma contagem de caracteres maior ou igual a',
             reversedOp: '',
             formatOp: (_, __, value) => (value >= 0 ? value : 0),
         },
         shorter: {
-            label: 'has a character count less than',
+            label: 'tem uma contagem de caracteres menor a',
             reversedOp: '',
             formatOp: (_, __, value) => (value >= 0 ? value : 0),
         },
         shorter_or_equal: {
-            label: 'has a character count less than or equal to',
+            label: 'tem uma contagem de caracteres menor ou igual a',
             reversedOp: '',
             formatOp: (_, __, value) => (value >= 0 ? value : 0),
         },
         word: {
-            label: 'is a single word, with no whitespace or special characters',
+            label: 'é uma única palavra, sem espaço em branco ou caracteres especiais',
             reversedOp: '',
             formatOp: () => (true),
         },
         starts_with: {
-            label: 'starts with',
+            label: 'inicia com',
             reversedOp: '',
             formatOp: (_, __, value) => value,
 
         },
         ends_with: {
-            label: 'ends with',
+            label: 'termina com',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         matches: {
-            label: 'matches a regex expression',
+            label: 'corresponde a uma expressão regex',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         eq: {
-            label: 'is equal to',
+            label: 'é igual a',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         gt: {
-            label: 'is greater than',
+            label: 'é maior do que',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         gte: {
-            label: 'is greater than or equal to',
+            label: 'é maior ou igual a',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         lt: {
-            label: 'is less than',
+            label: 'é menor que',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         lte: {
-            label: 'is less than or equal to',
+            label: 'é menor ou igual a',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
         email: {
-            label: 'is an email',
+            label: 'é um email',
             reversedOp: '',
             formatOp: (_, __, value) => value,
         },
@@ -113,12 +113,12 @@ export const QbConfig = {
         custom_number: {
             ...BasicConfig.widgets.number,
             type: 'custom_text',
-            factory: settings => <ConditionInput {...settings} inputType='number' className='custom-number' placeholder='Number' />,
+            factory: settings => <ConditionInput {...settings} inputType='number' className='custom-number' placeholder='Número' />,
         },
         positive_number: {
             ...BasicConfig.widgets.number,
             type: 'custom_text',
-            factory: settings => <ConditionInput {...settings} inputType='number' min={0} className='custom-number' placeholder='Number' />,
+            factory: settings => <ConditionInput {...settings} inputType='number' min={0} className='custom-number' placeholder='Número' />,
         },
         custom_multiselect: {
             ...BasicConfig.widgets.multiselect,

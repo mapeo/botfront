@@ -21,7 +21,7 @@ const renderCheckboxes = ({
     disable,
 }) => (
     <Dropdown
-        placeholder='Selecione idioma'
+        placeholder='Selecionar idioma'
         id={id}
         name={name}
         fluid

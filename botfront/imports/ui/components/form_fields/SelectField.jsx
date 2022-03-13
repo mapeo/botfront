@@ -31,8 +31,8 @@ const renderCheckboxes = ({
                     on='click'
                     content={(
                         <ConfirmPopup
-                            title={`Remove ${text} from this form?`}
-                            description='This will delete all the slot settings associated with this form'
+                            title={`Remover ${text} deste formulário?`}
+                            description='Isto irá apagar todas as configurações de slot associadas a este formulário'
                             onYes={() => {
                                 setPopupOpen(null);
                                 if (!Array.isArray()) onChange([labelValue]);

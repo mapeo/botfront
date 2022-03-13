@@ -29,7 +29,7 @@ export default function UserUtteredEventViewer({ event, author }) {
                             </Comment.Author>
                         )}
                         inverted
-                        content='No user id is associated with this utterance'
+                        content='Nenhuma ID de usuário está associada com esta declaração'
                     />
                 )}
                 onConfirm={() => {
@@ -37,8 +37,8 @@ export default function UserUtteredEventViewer({ event, author }) {
                     setOpen(false);
                 }}
                 onCancel={() => setOpen(false)}
-                header='Change Filters'
-                content='Show all conversations with this user'
+                header='Mudar filtros'
+                content='Mostrar todas as conversas com este usuário'
                 confirmButton='Apply filter'
                 data-cy='filter-by-user-id-modal'
             />

@@ -43,7 +43,7 @@ const ExtractionTab = (props) => {
                     color='blue'
                     onClick={handleAddCondition}
                 >
-                Add condition
+                Adicionar condição
                 </Button>
             )}
         </>

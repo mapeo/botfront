@@ -105,7 +105,7 @@ const ExtractionItem = (props) => {
                 data-cy='category-value-dropdown'
                 className='extraction-dropdown'
                 selection
-                placeholder='select a category'
+                placeholder='selecionar uma categoria'
                 options={categories.map(category => ({ value: category, text: category }))}
                 value={value}
                 onChange={handleChangeValue}
@@ -120,8 +120,8 @@ const ExtractionItem = (props) => {
             className='extraction-dropdown'
             selection
             options={[
-                { value: true, text: 'true' },
-                { value: false, text: 'false' },
+                { value: true, text: 'verdadeiro' },
+                { value: false, text: 'falso' },
             ]}
             value={value}
             onChange={handleChangeValue}
@@ -133,7 +133,7 @@ const ExtractionItem = (props) => {
             disabled={!canEdit}
             data-cy='slot-value-input'
             className='extraction-field'
-            placeholder='enter a value'
+            placeholder='informe um valor'
             type={inputType}
             value={value || ''}
             onChange={handleChangeValue}
@@ -160,12 +160,12 @@ const ExtractionItem = (props) => {
                 disabled={!canEdit}
                 data-cy='intent-condition-dropdown'
                 clearable={type !== 'from_intent'}
-                placeholder='add an intent condition'
+                placeholder='adicionar uma condição de objetivo'
                 className='extraction-dropdown condition-dropdown'
                 selection
                 options={[
-                    { value: 'include', text: 'if the intent is one of' },
-                    { value: 'exclude', text: 'if the intent is NOT one of' },
+                    { value: 'include', text: 'se o objetivo for de' },
+                    { value: 'exclude', text: 'se o objetivo NÃO for de' },
                 ]}
                 value={intentCondition}
                 onChange={handleIntentConditionChange}
@@ -192,7 +192,7 @@ const ExtractionItem = (props) => {
     const renderValueFromIntent = () => (
         <div className='value-from-intent'>
             {renderIntentSelect()}
-            <span>Then the value is</span>
+            <span>Então o valor é</span>
             {renderSlotValue()}
         </div>
     );
@@ -205,7 +205,7 @@ const ExtractionItem = (props) => {
             </div>
             <div className={`extraction-line ${type || 'from_text'}`}>
                 <span className='slot-value-from'>
-                    Get the slot value
+                    Obtenha o valor do slot
                 </span>
                 <Dropdown
                     disabled={!canEdit}
@@ -213,9 +213,9 @@ const ExtractionItem = (props) => {
                     className='extraction-dropdown'
                     inline
                     options={[
-                        { value: 'from_text', text: 'from the user message' },
-                        { value: 'from_intent', text: 'conditionally on the intent' },
-                        { value: 'from_entity', text: 'from the entity' },
+                        { value: 'from_text', text: 'a partir da mensagem do usuário' },
+                        { value: 'from_intent', text: 'condicionalmente sobre o objetivo' },
+                        { value: 'from_entity', text: 'a partir da entidade' },
                     ]}
                     value={type || 'from_text'}
                     onChange={handleValueSourceChange}

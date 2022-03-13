@@ -16,11 +16,11 @@ const ChangeResponseType = (props) => {
     const { upsertResponse } = useContext(ProjectContext);
 
     const options = [
-        { value: 'TextPayload', text: 'text' },
-        { value: 'QuickRepliesPayload', text: 'quick reply' },
-        { value: 'TextWithButtonsPayload', text: 'buttons' },
-        { value: 'CarouselPayload', text: 'carousel' },
-        { value: 'CustomPayload', text: 'custom' },
+        { value: 'TextPayload', text: 'texto' },
+        { value: 'QuickRepliesPayload', text: 'resposta rápida' },
+        { value: 'TextWithButtonsPayload', text: 'botões' },
+        { value: 'CarouselPayload', text: 'carrosel' },
+        { value: 'CustomPayload', text: 'personalizado' },
     ];
     
     const handleChangeResponseType = () => {
@@ -41,7 +41,7 @@ const ChangeResponseType = (props) => {
                 data-cy='change-response-type'
                 icon=''
                 className='change-response-type'
-                text='Change response type'
+                text='Alterar tipo de resposta'
                 onChange={handleSelectType}
             >
                 <Dropdown.Menu>
@@ -57,8 +57,8 @@ const ChangeResponseType = (props) => {
             </Dropdown>
             <Confirm
                 open={!!selectedType}
-                header='Warning!'
-                content='Are you sure you want to change the response type? The current response will be deleted.'
+                header='Alerta!'
+                content='Tem certeza de que quer alterar o tipo de resposta? A resposta atual será eliminada.'
                 onConfirm={handleChangeResponseType}
                 onCancel={() => setSelectedType(null)}
                 confirmButton={

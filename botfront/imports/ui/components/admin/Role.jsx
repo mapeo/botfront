@@ -139,7 +139,7 @@ const Role = (props) => {
                         >
                             <AutoField name='name' data-cy='role-name-input' label='Nome' />
                             <AutoField name='description' data-cy='role-description-input' label='Descrição' />
-                            <SelectField name='children' options={rolesOptions} data-cy='role-children-dropdown' />
+                            <SelectField name='children' options={rolesOptions} data-cy='role-children-dropdown' label='Filhos' />
                             <ErrorsField />
                             {can('roles:w', { anyScope: true }) && (
                                 <><SaveButton disabled={disabled} saved={saved} />

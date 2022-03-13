@@ -115,8 +115,8 @@ const FormEditorContainer = (props) => {
         <Segment.Group className='story-card' key={`form-editor-${language}`}>
             <FormTopMenu
                 menuItems={[
-                    { value: 'extraction', text: 'Extraction' },
-                    { value: 'validation', text: 'Validation' },
+                    { value: 'extraction', text: 'Extração' },
+                    { value: 'validation', text: 'Validação' },
                 ]}
                 activeItem={activeTab}
                 setActiveItem={setActiveTab}

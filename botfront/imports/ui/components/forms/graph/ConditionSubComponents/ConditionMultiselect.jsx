@@ -40,7 +40,7 @@ ConditionMultiSelect.propTypes = {
 };
 
 ConditionMultiSelect.defaultProps = {
-    placeholder: 'select an option',
+    placeholder: 'selecione uma opção',
     value: [],
 };
 

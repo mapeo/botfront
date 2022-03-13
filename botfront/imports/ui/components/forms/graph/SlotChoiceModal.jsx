@@ -107,7 +107,7 @@ const SlotChoiceModal = (props) => {
             onClose={() => onSlotChoice(null)}
         >
             <Input
-                placeholder='Choose a slot name'
+                placeholder='Escolha o nome do slot'
                 data-cy='slot-name'
                 size='small'
                 ref={focusOnRef}
@@ -120,7 +120,7 @@ const SlotChoiceModal = (props) => {
             <Icon name='ban' color='red' size='large' className={nameIsValid ? 'not-here' : 'here'} />
             <SlotPopupContent
                 trigger={(
-                    <span data-cy='existing-slot' className='existing-slot'>Or use an existing one</span>
+                    <span data-cy='existing-slot' className='existing-slot'>Ou utilize um existente</span>
                 )}
                 onSelect={slot => chooseAddQuestion(slot)}
                 chooseSlotWithoutValue
@@ -148,7 +148,7 @@ const SlotChoiceModal = (props) => {
                         handleOpen();
                     }}
                 >
-                    Add a question
+                    Adicionar uma pergunta
                 </Dropdown.Item>
                 <Dropdown.Item
                     data-cy='set-slot'
@@ -157,7 +157,7 @@ const SlotChoiceModal = (props) => {
                         handleOpen();
                     }}
                 >
-                    Set a slot
+                    Definir um slot
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
@@ -187,9 +187,9 @@ const SlotChoiceModal = (props) => {
                 disabled={letUserAddEdge}
                 className='add-condition-warning'
             >
-                All the children of this question must have conditions before creating a new branch.
+                Todas os filhos desta questão devem ter condições antes de criarem um novo ramo.
                 <br /> <br />
-                Hover the green circle on the edge and click &quot;IF&quot; to add a condition.
+                Mova o círculo verde sobre a borda e clique &quot;SE&quot; for adicionar uma condição.
             </Popup>
             {open === node.id && ddStep === 'add-question' && renderAddQuestion()}
             {open === node.id && ddStep === 'set-slot' && renderSetSlot()}

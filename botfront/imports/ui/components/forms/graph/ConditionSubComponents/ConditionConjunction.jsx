@@ -12,7 +12,7 @@ const ConditionConjunction = (props) => {
             <ToggleButtonGroup
                 className='condition-conjunction-buttons'
                 options={[
-                    { value: 'NOT', text: 'Not' },
+                    { value: 'NOT', text: 'Não' },
                 ]}
                 onChange={() => setNot(!not)}
                 value={{
@@ -23,8 +23,8 @@ const ConditionConjunction = (props) => {
             <ToggleButtonGroup
                 className='condition-conjunction-buttons'
                 options={[
-                    { value: 'AND', text: 'And' },
-                    { value: 'OR', text: 'Or' },
+                    { value: 'AND', text: 'E' },
+                    { value: 'OR', text: 'Ou' },
                 ]}
                 onChange={conjunction => setConjunction(conjunction)}
                 optionsAreExclusive

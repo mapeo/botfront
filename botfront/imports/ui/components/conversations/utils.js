@@ -95,8 +95,8 @@ export function formatConversationInMd(conversation, tzOffset = null) {
             convLen > 1 ? ` - ${turns[convLen - 1].userSays.timestamp}` : ''
         }`;
     }
-    const header = `# Conversation ${_id}${time ? ` (${time})` : ''}${
-        userId ? `\n## User ${userId}` : ''
+    const header = `# Conversa ${_id}${time ? ` (${time})` : ''}${
+        userId ? `\n## Usuário ${userId}` : ''
     }`;
     const body = turns
         .map(({ userSays, botResponses }) => {

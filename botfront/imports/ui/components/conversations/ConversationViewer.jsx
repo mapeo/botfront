@@ -103,7 +103,7 @@ function ConversationViewer (props) {
 
     useEffect(() => {
         if (data && !data.markAsRead.success) {
-            Alert.warning('Something went wrong, the conversation was not marked as read', {
+            Alert.warning('Algo deu errado, a conversa não foi marcada como lida', {
                 position: 'top-right',
                 timeout: 5000,
             });
