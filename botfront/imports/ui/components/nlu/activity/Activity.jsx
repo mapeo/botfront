@@ -467,7 +467,7 @@ function Activity(props) {
                     { value: '% ascending', text: '% ascendente' },
                     { value: '% decending', text: '% descendente' },
                 ]}
-                prefix='Sort by'
+                prefix='Ordenar por'
             />
             <Filters
                 intents={intents}
