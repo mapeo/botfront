@@ -14,17 +14,17 @@ export default class KeyMetrics extends React.PureComponent {
             {
                 label: 'F1-Score',
                 value: f1,
-                help: 'A general measure of the quality of your model based on precision and accuracy',
+                help: 'Uma medida geral da qualidade do seu modelo com base na precisão e exatidão',
             },
             {
-                label: 'Precision',
+                label: 'Precisão',
                 value: precision,
-                help: 'On 100 predictions for label, how many were actually labeled as such in test set',
+                help: 'Em 100 previsões de etiqueta, quantas foram realmente rotuladas como tal no conjunto de teste',
             },
             {
-                label: 'Accuracy',
+                label: 'Exatidão',
                 value: accuracy,
-                help: 'On 100 instances of label in test set, how many were actually predicted',
+                help: 'Em 100 casos de etiqueta em conjunto de teste, quantos foram realmente previstos',
             },
         ];
 

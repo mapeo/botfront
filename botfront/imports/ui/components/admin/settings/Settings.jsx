@@ -48,7 +48,7 @@ class Settings extends React.Component {
             wrapMeteorCallback((...args) => {
                 this.setState({ saving: false });
                 callback(...args);
-            }, 'Settings saved'),
+            }, 'Configurações salvas'),
         );
     };
 

@@ -3,7 +3,7 @@ import chai, { expect } from 'chai';
 import EntityReport from './EntityReport';
 
 const example_perfect = {
-    text: 'this is an example',
+    text: 'isto é um exemplo',
     intent: 'test',
     entities: [{
         start: 0,
@@ -21,7 +21,7 @@ const example_perfect = {
 };
 
 const example_overlap = {
-    text: 'this is an example',
+    text: 'isto é um exemplo',
     intent: 'test',
     entities: [{
         start: 0,
@@ -39,7 +39,7 @@ const example_overlap = {
 };
 
 const example_mismatch = {
-    text: 'this is an example',
+    text: 'isto é um exemplo',
     intent: 'test',
     entities: [{
         start: 0,
@@ -57,7 +57,7 @@ const example_mismatch = {
 };
 
 const example_not_found = {
-    text: 'this is an example',
+    text: 'isto é um exemplo',
     intent: 'test',
     entities: [{
         start: 0,
@@ -75,7 +75,7 @@ const example_not_found = {
 };
 
 const example_surprise = {
-    text: 'this is an example',
+    text: 'isto é um exemplo',
     intent: 'test',
     entities: [],
     predicted: 'test',
@@ -88,22 +88,22 @@ const example_surprise = {
 };
 
 if (!Meteor.isServer) {
-    describe('error matching for entity and prediction', function () {
+    describe('correspondência de erros para entidade e previsão', function () {
         const entity1 = { start: 1, end: 5 };
         const entity2 = { start: 0, end: 3 };
 
-        it('overlap returns number of characters overlapping', function () {
+        it('sobreposição retorna número de caracteres sobrepostos', function () {
             const overlap = EntityReport.getOverlap(entity1, entity2);
             expect(overlap).to.be.equal(2);
         });
 
-        it('overlap is symmetric', function () {
+        it('a sobreposição é simétrica', function () {
             const overlap1 = EntityReport.getOverlap(entity1, entity2);
             const overlap2 = EntityReport.getOverlap(entity2, entity1);
             expect(overlap1).to.be.equal(overlap2);
         });
 
-        it('error code matches the correct type of error', function () {
+        it('o código de erro corresponde ao tipo correto de erro', function () {
             const perfect_code = EntityReport.getErrorCode(example_perfect.entities[0], example_perfect.predicted_entities[0]);
             const overlap_code = EntityReport.getErrorCode(example_overlap.entities[0], example_overlap.predicted_entities[0]);
             const mismatch_code = EntityReport.getErrorCode(example_mismatch.entities[0], example_mismatch.predicted_entities[0]);
@@ -116,20 +116,20 @@ if (!Meteor.isServer) {
             expect(surprise_code).to.be.equal(3);
         });
 
-        it('not_found_error_code for null result', function () {
+        it('not_found_error_code para resultado nulo', function () {
             const null_code = EntityReport.getErrorCode(example_perfect.entities[0], null);
             const not_found_code = EntityReport.getErrorCode(example_not_found.entities[0], example_not_found.predicted_entities[0]);
             expect(not_found_code).to.be.equal(null_code);
         });
     });
 
-    describe('finding closest entities', function() {
-        it('should select closest from list of possibilities', function () {
+    describe('encontrando entidades mais próximas', function() {
+        it('deve selecionar o mais próximo da lista de possibilidades', function () {
             const closest = EntityReport.findClosestEntity(example_perfect.entities[0], example_mismatch.predicted_entities.concat(example_not_found.predicted_entities));
             expect(closest).to.be.equal(example_mismatch.predicted_entities[0]);
         });
 
-        it('should return null if no overlap', function () {
+        it('deve retornar nulo se não houver sobreposição', function () {
             const closest = EntityReport.findClosestEntity(example_perfect.entities[0], example_not_found.predicted_entities);
             expect(closest).to.be.equal(null);
         });

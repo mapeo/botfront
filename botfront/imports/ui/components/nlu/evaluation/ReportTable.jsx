@@ -31,7 +31,7 @@ export default function ReportTable(props) {
                     F1-Score{' '}
                     <Popup
                         trigger={<Icon name='question circle' color='grey' />}
-                        content='A general measure of the quality of your model based on precision and accuracy'
+                        content='Uma medida geral da qualidade do seu modelo com base na precisão e exatidão'
                     />
                 </div>
             ),
@@ -42,10 +42,10 @@ export default function ReportTable(props) {
             accessor: 'precision',
             Header: () => (
                 <div>
-                    Precision{' '}
+                    Precisão{' '}
                     <Popup
                         trigger={<Icon name='question circle' color='grey' />}
-                        content='On 100 predictions for label, how many were actually labeled as such in test set'
+                        content='Em 100 previsões de etiqueta, quantas foram realmente rotuladas como tal no conjunto de teste'
                     />
                 </div>
             ),
@@ -56,10 +56,10 @@ export default function ReportTable(props) {
             accessor: 'recall',
             Header: () => (
                 <div>
-                    Recall{' '}
+                    Chamada{' '}
                     <Popup
                         trigger={<Icon name='question circle' color='grey' />}
-                        content='On 100 instances of label in test set, how many were actually predicted'
+                        content='Em 100 casos de etiqueta em conjunto de teste, quantos foram realmente previstos'
                     />
                 </div>
             ),
@@ -70,10 +70,10 @@ export default function ReportTable(props) {
             accessor: 'support',
             Header: () => (
                 <div>
-                    Support{' '}
+                    Suporte{' '}
                     <Popup
                         trigger={<Icon name='question circle' color='grey' />}
-                        content='The number of examples for that label'
+                        content='O número de exemplos para essa etiqueta'
                     />
                 </div>
             ),

@@ -15,7 +15,7 @@ export default function PredictionTable(props) {
     const getPredictionsColumns = () => [
         {
             accessor: 'text',
-            Header: 'Text',
+            Header: 'Texto',
             Cell: p => (
                 <div>
                     <Icon name='quote left' size='small' />
@@ -27,7 +27,7 @@ export default function PredictionTable(props) {
         {
             id: labelType,
             accessor: r => r[labelType],
-            Header: `Correct ${labelType}`,
+            Header: `Correto ${labelType}`,
             filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: [labelType] }),
             Cell: p => (
                 <div>
@@ -40,7 +40,7 @@ export default function PredictionTable(props) {
         {
             id: 'predicted',
             accessor: r => r.predicted,
-            Header: 'Predicted intent',
+            Header: 'Objetivo previsto',
             filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['predicted'] }),
             Cell: p => (
                 <div>

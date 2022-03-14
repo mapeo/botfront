@@ -9,13 +9,13 @@ export default class IntentReport extends React.Component {
     getPanes() {
         const { report, predictions } = this.props;
         const tabs = [{
-            menuItem: 'Detailed Report',
+            menuItem: 'Relatório detalhado',
             render: () => <ReportTable report={report} labelType='intent' />,
         }];
         if (predictions && predictions.length) {
             tabs.push(
                 {
-                    menuItem: 'Misclassifications',
+                    menuItem: 'Classificações incorretas',
                     render: () => <PredictionTable predictions={predictions} labelType='intent' />,
                 },
             );

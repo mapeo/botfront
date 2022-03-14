@@ -140,50 +140,52 @@ function ResponseMetadataForm({
         ...schemaData,
         'domHighlight.style': {
             initialValue: 'default',
+            label: 'Estilo',
             allowedValues: ['default', 'class', 'custom'],
             options: [
                 {
-                    text: 'Default style',
+                    text: 'Estilo padrão',
                     value: 'default',
-                    description: 'Use the default highlight appearance',
+                    description: 'Usar a aparência de destaque predefinida',
                 },
                 {
-                    text: 'Existing class',
+                    text: 'Classe existente',
                     value: 'class',
-                    description: 'Specify a CSS class to apply to the element when it is highlighted',
+                    description: 'Especificar uma classe CSS para aplicar ao elemento quando este é destacado',
                 },
                 {
-                    text: 'Custom style',
+                    text: 'Estilo personalizado',
                     value: 'custom',
-                    description: 'Create a custom style for this highlight',
+                    description: 'Criar um estilo personalizado para este destaque',
                 },
             ],
         },
         'domHighlight.tooltipPlacement': {
-            label: 'where should the tooltip be placed in relation to the highlighted element',
+            label: 'onde deve ser colocada a dica de contexto em relação ao elemento destacado',
             initialValue: 'auto',
             allowedValues: ['left', 'right', 'top', 'bottom', 'auto'],
             options: [
                 { text: 'auto', value: 'auto' },
-                { text: 'left', value: 'left' },
-                { text: 'right', value: 'right' },
-                { text: 'top', value: 'top' },
-                { text: 'bottom', value: 'bottom' },
+                { text: 'esquerda', value: 'left' },
+                { text: 'direita', value: 'right' },
+                { text: 'topo', value: 'top' },
+                { text: 'base', value: 'bottom' },
             ],
         },
         'customCss.style': {
             initialValue: 'class',
+            label: 'Estilo',
             allowedValues: ['class', 'custom'],
             options: [
                 {
-                    text: 'Existing class',
+                    text: 'Classe existente',
                     value: 'class',
-                    description: 'Apply a CSS class to this response',
+                    description: 'Aplicar uma classe CSS a esta resposta',
                 },
                 {
-                    text: 'Custom style',
+                    text: 'Estilo personalizado',
                     value: 'custom',
-                    description: 'Create a custom style for this response',
+                    description: 'Criar um estilo personalizado para esta resposta',
                 },
             ],
         },
@@ -191,23 +193,23 @@ function ResponseMetadataForm({
     const readOnlyClass = editable ? '' : 'read-only';
     const panesAdvanced = [
         {
-            menuItem: 'General',
+            menuItem: 'Geral',
             render: () => (
                 <div className={readOnlyClass}> {panes[0].render()}
-                    <ToggleField name='domHighlight.enabled' className='toggle' label='Highlight element on page' />
+                    <ToggleField name='domHighlight.enabled' className='toggle' label='Elemento de destaque na página' />
                     <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.enabled}>
                         <>
-                            <InfoField name='domHighlight.selector' label='CSS selector' info='The CSS selector of the DOM element to highlight' />
+                            <InfoField name='domHighlight.selector' label='Seletor de CSS' info='O seletor de CSS do elemento DOM a destacar' />
                             <ButtonSelectField name='domHighlight.style' />
                             
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.style === 'class'}>
-                                <AutoField name='domHighlight.css' label='Class name' />
+                                <AutoField name='domHighlight.css' label='Nome da classe' />
                             </DisplayIf>
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.style === 'custom'}>
-                                <LongTextField className='monospaced' name='domHighlight.css' label='Custom css' />
+                                <LongTextField className='monospaced' name='domHighlight.css' label='CSS personalizado' />
                             </DisplayIf>
                             <ButtonSelectField name='domHighlight.tooltipPlacement' />
-                            <ToggleField name='domHighlight.tooltipCloseEnabled' className='toggle' label='Send intent on tooltip close' />
+                            <ToggleField name='domHighlight.tooltipCloseEnabled' className='toggle' label='Enviar objetivo na dica de contexto e fechar' />
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.tooltipCloseEnabled}>
                                 <IntentField  name='domHighlight.tooltipClose' />
                             </DisplayIf>
@@ -217,26 +219,26 @@ function ResponseMetadataForm({
             ),
         },
         {
-            menuItem: 'Observe',
+            menuItem: 'Observar',
             render: () => (
                 <div className={readOnlyClass}>
-                    <ToggleField name='pageChangeCallbacks.enabled' className='toggle' label='Observe page changes' />
+                    <ToggleField name='pageChangeCallbacks.enabled' className='toggle' label='Observar mudanças de página' />
                     <DisplayIf condition={context => context.model.pageChangeCallbacks && context.model.pageChangeCallbacks.enabled}>
                         <>
                             <Message
                                 info
                                 content={(
                                     <>
-                                        In each <strong>Page change</strong> you can defined a <strong>URL</strong> to be matched against the next URL visited by the user.<br />
-                                        The <strong>Callback intent</strong> will be sent by the chat widget if this page is visited.<br />
-                                        <strong>Only the paths will be compared</strong>, and the host will be ignored.
-                                        Which means that if you specify an url like http://localhost:5005/aaa/bbb it will also work for  https://yoursite.com/aaa/bbb<br />
-                                        If none of the pages are visited, the <strong>Error intent</strong> will be triggered.
+                                        Em cada <strong>mudança de página</strong> você pode definir um <strong>URL</strong> para ser comparado com o próximo URL visitado pelo usuário.<br />
+                                        O <strong>objetivo do Callback</strong> será enviada pelo widget do chat se esta página for visitada.<br />
+                                        <strong>Apenas os caminhos serão comparados</strong>, e o anfitrião será ignorado.
+                                        O que significa que você especificar uma URL como http://localhost:5005/aaa/bbb também funcionará para https://yoursite.com/aaa/bbb<br />
+                                        Se nenhuma das páginas forem visitadas, o <strong>erro de objetivo</strong> será desencadeado.
                                     </>
                                 )}
                             />
 
-                            <ListField name='pageChangeCallbacks.pageChanges'>
+                            <ListField name='pageChangeCallbacks.pageChanges' label='Alterações de páginas'>
                                 <ListItemField name='$'>
                                     <NestField name=''>
                                         <BoolField name='regex' options={pageEventOptions} />
@@ -245,26 +247,26 @@ function ResponseMetadataForm({
                                     </NestField>
                                 </ListItemField>
                             </ListField>
-                            <IntentField name='pageChangeCallbacks.errorIntent' label='Error intent' />
+                            <IntentField name='pageChangeCallbacks.errorIntent' label='Erro de objetivo' />
                         </>
                     </DisplayIf>
-                    <ToggleField name='pageEventCallbacks.enabled' className='toggle' label='Observe interactions' />
+                    <ToggleField name='pageEventCallbacks.enabled' className='toggle' label='Observar as interações' />
                     <DisplayIf condition={context => context.model.pageEventCallbacks && context.model.pageEventCallbacks.enabled}>
                         <>
                             <Message
                                 info
                                 content={(
                                     <>
-                                        In each <strong>Page Event</strong> you can defined a <strong>event</strong> to be added to the elements matching the selector<br />
-                                        The <strong>payload</strong> will be sent by the chat widget as the event is triggered<br />
+                                        Em cada <strong>evento de página</strong> você pode definir um <strong>evento</strong> para ser adicionado aos elementos correspondentes ao seletor<br />
+                                        A <strong>carga útil</strong> será enviada pelo chat widget a medida que o evento é desencadeado<br />
                                     </>
                                 )}
                             />
-                            <ListField name='pageEventCallbacks.pageEvents'>
+                            <ListField name='pageEventCallbacks.pageEvents' label='Eventos de página'>
                                 <ListItemField name='$'>
                                     <NestField name=''>
-                                        <SelectField name='event' options={pageEventOptions} />
-                                        <AutoField name='selector' />
+                                        <SelectField name='event' options={pageEventOptions} label='Evento'/>
+                                        <AutoField name='selector' label='Seletor'/>
                                         <IntentField name='payload' label='Callback intent' />
                                     </NestField>
                                 </ListItemField>
@@ -275,10 +277,10 @@ function ResponseMetadataForm({
             ),
         },
         {
-            menuItem: 'Message appearance',
+            menuItem: 'Aparência da mensagem',
             render: () => (
                 <div className={readOnlyClass}>
-                    <ToggleField name='customCss.enabled' className='toggle' label='Enable custom message style' />
+                    <ToggleField name='customCss.enabled' className='toggle' label='Habilitar estilo de mensagem personalizado' />
                     <DisplayIf condition={context => context.model.customCss && context.model.customCss.enabled}>
                         <>
                             <ButtonSelectField name='customCss.style' data-cy='style-dropdown' />
@@ -341,7 +343,7 @@ function ResponseMetadataForm({
         const errors = [];
         if (pageChangeCallbacks && pageChangeCallbacks.enabled) {
             if (!pageChangeCallbacks || !pageChangeCallbacks.pageChanges || pageChangeCallbacks.pageChanges.length < 1) {
-                errors.push({ name: 'pageChangeCallback.pageChanges', message: 'If you enable page changes you should at least have one' });
+                errors.push({ name: 'pageChangeCallback.pageChanges', message: 'Se você ativar alterações de página, deve ter pelo menos uma' });
             }
         }
 
@@ -355,7 +357,7 @@ function ResponseMetadataForm({
             }
 
             if (!pageChangeCallbacks.errorIntent || pageChangeCallbacks.length < 1) {
-                errors.push({ name: 'pageChangeCallback.pageChanges.errorIntent', message: 'You are listening to page changes but the Error Intent is missing.' });
+                errors.push({ name: 'pageChangeCallback.pageChanges.errorIntent', message: 'Está a ouvir as mudanças de página, mas falta a intenção de erro.' });
             }
         }
         return errors;
@@ -365,7 +367,7 @@ function ResponseMetadataForm({
         const errors = [];
         if (pageEventCallbacks && pageEventCallbacks.enabled) {
             if (!pageEventCallbacks || !pageEventCallbacks.pageEvents || pageEventCallbacks.pageEvents.length < 1) {
-                errors.push({ name: 'pageEventCallback.pageEvents', message: 'If you enable page Events you should at least have one' });
+                errors.push({ name: 'pageEventCallback.pageEvents', message: 'Se ativar eventos de página deve ter pelo menos uma' });
             }
         }
 
@@ -375,7 +377,7 @@ function ResponseMetadataForm({
                 if (!i.event || !i.event.length < 0 || !i.payload || !i.payload.length < 0 || !i.selector || !i.selector.length < 0) { missing.push(i); }
             });
             if (missing.length) {
-                errors.push({ name: 'pageEventCallback.pageEvents', message: 'One of your Page Events listener has a selector, an event or a payload missing' });
+                errors.push({ name: 'pageEventCallback.pageEvents', message: 'Um dos seus interlocutores do evento de página tem um seletor, um evento ou uma carga útil em falta' });
             }
         }
         return errors;
@@ -394,7 +396,7 @@ function ResponseMetadataForm({
                 !model.domHighlight.selector || !model.domHighlight.selector.length
             )
         ) {
-            errors.push({ name: 'domHighlight', message: 'When enabling highlighting of elements on page, selector must be set.' });
+            errors.push({ name: 'domHighlight', message: 'Ao ativar o realce dos elementos na página, o seletor deve ser definido.' });
         }
 
         if (errors.length) {

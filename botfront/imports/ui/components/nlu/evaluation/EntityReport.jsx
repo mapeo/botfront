@@ -89,16 +89,16 @@ export default class EntityReport extends React.Component {
 
         this.errorTypes = ['Overlap', 'Mismatch', 'Not Found', 'Surprise'];
         this.errorInfo = [
-            'Correct classification but slightly incorrect token boundary',
-            'Overlapping token boundary but conflicting classification',
-            'Either the entity was missed entirely or it appeared in a non-overlapping position in the text',
-            'An entity was predicted where there was supposed to be none',
+            'Classificação correta, mas limite do token levemente incorreto',
+            'Sobreposição de limite do token, mas classificação conflituosa',
+            'Ou a entidade não foi vista por completo ou apareceu numa posição não sobreposta no texto',
+            'Foi prevista uma entidade onde não deveria existir',
         ];
         this.errorMessages = [
-            'Incorrect token boundary for entity',
-            'Incorrect classification for entity',
-            'No corresponding entity in prediction',
-            'Predicted entity not present in test utterance',
+            'Limite do token incorreto para a entidade',
+            'Classificação incorreta para entidade',
+            'Nenhuma entidade correspondente na previsão',
+            'Entidade prevista não presente no enunciado de teste',
         ];
     }
 
@@ -106,13 +106,13 @@ export default class EntityReport extends React.Component {
         const { report, predictions } = this.props;
         const tabs = [
             {
-                menuItem: 'Detailed Report',
+                menuItem: 'Relatório detalhado',
                 render: () => <ReportTable report={report} labelType='entity' />,
             },
         ];
         if (predictions && predictions.length) {
             tabs.push({
-                menuItem: 'Misclassifications',
+                menuItem: 'Classificações incorretas',
                 render: this.renderPredictionsTable,
             });
         }
@@ -203,7 +203,7 @@ export default class EntityReport extends React.Component {
             {
                 id: 'example',
                 accessor: e => e,
-                Header: 'Example',
+                Header: 'Exemplo',
                 Cell: e => (
                     <ExampleTextComparison
                         example={e.value.example}
@@ -217,7 +217,7 @@ export default class EntityReport extends React.Component {
             {
                 id: 'error',
                 accessor: 'errorCode',
-                Header: 'Error Type',
+                Header: 'Tipo de erro',
                 Cell: errorCode => (
                     <div>
                         <p style={{ display: 'inline', color: 'red' }}>
@@ -238,7 +238,7 @@ export default class EntityReport extends React.Component {
             {
                 id: 'entity',
                 accessor: 'entity',
-                Header: 'Entity',
+                Header: 'Entidade',
                 Cell: e => <p>{e.value}</p>,
             },
         ];

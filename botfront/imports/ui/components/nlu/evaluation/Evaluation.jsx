@@ -65,13 +65,13 @@ class Evaluation extends React.Component {
         const menuItems = [];
         if (intentEvaluation) {
             menuItems.push({
-                menuItem: 'Intents',
+                menuItem: 'Objetivos',
                 render: () => <IntentReport {...intentEvaluation} />,
             });
         }
         if (entityEvaluation && Object.keys(entityEvaluation).length > 0) {
             menuItems.push({
-                menuItem: 'Entities',
+                menuItem: 'Entidades',
                 render: () => <EntityReport {...entityEvaluation} />,
             });
         }
@@ -88,7 +88,7 @@ class Evaluation extends React.Component {
         Meteor.call('rasa.evaluate.nlu', projectId, workingLanguage, data, (err) => {
             this.setState({ evaluating: false });
             if (err) {
-                Alert.error(`Error: ${JSON.stringify(err.reason)}`, {
+                Alert.error(`Erro: ${JSON.stringify(err.reason)}`, {
                     position: 'top-right',
                     timeout: 'none',
                 });
@@ -123,8 +123,8 @@ class Evaluation extends React.Component {
         } else {
             const message = (
                 <Message warning>
-                    <Message.Header>No validated examples</Message.Header>
-                    <p>See the activity section to manage incoming traffic to this model</p>
+                    <Message.Header>Sem exemplos validados</Message.Header>
+                    <p>Ver a seção de atividades para gerir o tráfego de entrada para este modelo</p>
                 </Message>
             );
             this.setState({ errorMessage: message, loading: false });
@@ -146,7 +146,7 @@ class Evaluation extends React.Component {
             const parsed = JSON.parse(data);
             if (loading) this.setState({ data: parsed, loading: false });
         } catch (e) {
-            Alert.error('Error: you must upload a JSON file with the same format as an export', {
+            Alert.error('Erro: é necessário carregar um arquivo JSON com o mesmo formato que uma exportação', {
                 position: 'top',
                 timeout: 'none',
             });
@@ -185,7 +185,7 @@ class Evaluation extends React.Component {
                         <>
                             <div id='test_set_buttons'>
                                 <InputButtons
-                                    labels={['Use training set', 'Upload test set', 'Use validated examples']}
+                                    labels={['Use o conjunto de formação', 'Carregue o conjunto de teste', 'Use exemplos validados']}
                                     operations={[this.useTrainingSet.bind(this), this.useTestSet.bind(this), this.useValidatedSet.bind(this)]}
                                     defaultSelection={defaultSelection}
                                     onDefaultLoad={defaultSelection === 2 ? this.evaluate : () => {}}
@@ -197,7 +197,7 @@ class Evaluation extends React.Component {
                                 <div>
                                     <Button type='submit' basic fluid color='green' loading={evaluating} onClick={this.evaluate} data-cy='start-evaluation'>
                                         <Icon name='percent' />
-                                    Start evaluation
+                                    Iniciar avaliação
                                     </Button>
                                     <br />
                                 </div>
