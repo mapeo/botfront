@@ -136,7 +136,7 @@ export default class API extends React.Component {
                                 <Input
                                     name='reftime'
                                     value={reftime}
-                                    placeholder='Ref. time'
+                                    placeholder='Hora referencial'
                                     onChange={this.handleChange}
                                 />
                             </Form.Field>

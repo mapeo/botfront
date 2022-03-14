@@ -100,7 +100,7 @@ export default function ConditionModal(props) {
         <Modal open onClose={() => onClose(QbUtils.getTree(tree))} className='slot-condition-modal' data-cy='condition-modal'>
             <Modal.Header>Condições necessárias para chegar à próxima resposta</Modal.Header>
             <Modal.Content>
-                Use the space below to create your condition.
+                Utilize o espaço abaixo para criar a sua condição.
                 {render()}
                 <div className='condition-bottom-options'>
                     <Popup

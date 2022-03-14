@@ -154,7 +154,7 @@ export default class Filters extends React.Component {
                                 <Dropdown
                                     onClick={() => this.setState({ sortDropdownOpen: !sortDropdownOpen })}
                                     onClose={() => this.setState({ sortDropdownOpen: false })}
-                                    placeholder='Choose sort'
+                                    placeholder='Escolher ordenação'
                                     size='tiny'
                                     open={sortDropdownOpen}
                                     onChange={this.handleSortKeyChange}

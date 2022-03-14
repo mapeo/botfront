@@ -94,12 +94,12 @@ class User extends React.Component {
             label='Idioma preferido'
             options={[
                 {
-                    text: 'English',
+                    text: 'Inglês',
                     value: 'en',
                     key: 'en',
                 },
                 {
-                    text: 'French',
+                    text: 'Francês',
                     value: 'fr',
                     key: 'fr',
                 },

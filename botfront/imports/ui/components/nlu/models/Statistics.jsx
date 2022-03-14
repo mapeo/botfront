@@ -51,12 +51,12 @@ const Statistics = (props) => {
 
     const renderCards = () => {
         const cards = [
-            { label: 'Examples', value: examples },
-            { label: 'Intents', value: intents.length },
-            { label: 'Entities', value: entities.length },
-            { label: 'Synonyms', value: synonyms },
+            { label: 'Examplos', value: examples },
+            { label: 'Objetivos', value: intents.length },
+            { label: 'Entidades', value: entities.length },
+            { label: 'Sinônimos', value: synonyms },
             { label: 'Gazettes', value: gazettes },
-            { label: 'Stories', value: storyCount },
+            { label: 'Históricos', value: storyCount },
         ];
 
         return cards.map(d => (

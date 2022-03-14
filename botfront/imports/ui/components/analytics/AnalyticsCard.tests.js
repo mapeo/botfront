@@ -4,7 +4,7 @@ import { applyTimezoneOffset } from '../../../lib/graphs';
 
 
 if (Meteor.isClient) {
-    describe('DatePicker timezone offset', () => {
+    describe('Seletor de data fuso horário compensado', () => {
         it('deve aplicar corretamente uma compensação positiva', () => {
             const date = moment.utc('2013-02-08 23:59');
             const offset = 3;

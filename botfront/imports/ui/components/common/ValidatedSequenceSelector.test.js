@@ -40,7 +40,7 @@ if (Meteor.isClient) {
             );
         });
 
-        it('possible to add new step to the sequence', () => {
+        it('possível acrescentar um novo passo à sequência', () => {
             sequenceSelector.find('div.event-selector-dropdown')
                 .simulate('click')
                 .find('div.sequence-addition')
@@ -56,7 +56,7 @@ if (Meteor.isClient) {
             ]);
         });
 
-        it('possible to exclude step from the sequence', () => {
+        it('possível excluir etapa da sequência', () => {
             sequenceSelector.find('div.event-selector-dropdown')
                 .simulate('click')
                 .find('div.sequence-addition')
@@ -74,7 +74,7 @@ if (Meteor.isClient) {
             ]);
         });
 
-        it('add step not in the options', () => {
+        it('não adionar etapas nas opções', () => {
             sequenceSelector.find('div.search > input')
                 .first()
                 .simulate('focus')
@@ -90,7 +90,7 @@ if (Meteor.isClient) {
             ]);
         });
 
-        it('displays error when two exluded step are next to each other', () => {
+        it('mostra erro quando duas etapas excluídas estão um ao lado do outro', () => {
             // bad sequence
             sequence = [
                 { excluded: false, name: 'action_test', type: 'action' },
@@ -118,10 +118,10 @@ if (Meteor.isClient) {
                 .find('[data-cy="sequence-option-0"]')
                 .first()
                 .simulate('click');
-            expect(sequenceSelectorWithError.find('div.negative div.item').text()).to.equal(' You cannot have two exclusion next to each other ');
+            expect(sequenceSelectorWithError.find('div.negative div.item').text()).to.equal(' Não se pode ter duas exclusões uma ao lado da outra ');
         });
 
-        it('displays error when sequence start with exluded step', () => {
+        it('mostra erro quando a sequência começa com a etapa excluída', () => {
             // bad sequence
             sequence = [
                 { excluded: true, name: 'action_test', type: 'action' },
@@ -148,7 +148,7 @@ if (Meteor.isClient) {
                 .find('[data-cy="sequence-option-0"]')
                 .first()
                 .simulate('click');
-            expect(sequenceSelectorWithError.find('div.negative div.item').text()).to.equal(' The sequence cannot start with an exclusion ');
+            expect(sequenceSelectorWithError.find('div.negative div.item').text()).to.equal(' A sequência não pode começar com uma exclusão ');
         });
     });
 }

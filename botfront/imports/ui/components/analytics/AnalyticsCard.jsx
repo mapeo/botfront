@@ -242,7 +242,7 @@ function AnalyticsCard(props) {
         if (chartOption === 'table') {
             return chartOption;
         }
-        return `chart ${chartOption}`;
+        return `gráfico ${chartOption}`;
     };
 
     const handleExportClick = async () => {

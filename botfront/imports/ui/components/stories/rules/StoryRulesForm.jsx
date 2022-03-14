@@ -206,17 +206,17 @@ function StoryRulesForm({
     ];
 
     const fieldErrorMessages = {
-        text: 'you enabled Display a user message but you did not specify a message',
-        url: 'you enabled browsing history but no URLs are set',
-        numberOfVisits: 'you enabled number of website visits but did not enter a value',
-        numberOfPageVisits: 'you enabled number of page visits but did not enter a value',
-        timeOnPage: 'you enabled time on page but did not enter a value',
-        device: 'A device type must be selected when the "restrict to specific screen sizes" field is enabled',
-        queryString: 'you enabled query string parameters but did not set any key-value pairs',
-        eventListeners: 'you enabled event listener triggers but did not set any selector-event pairs',
-        trigger: 'At least one trigger condition must be added',
-        triggerLimit: 'You selected "Choose a limit" but did not specify a maximum number of tigger activations',
-        timeLimit: 'you enabled minimum interval but did not enter a value',
+        text: 'você habilitou a exibição de uma mensagem de usuário, mas não especificou a mensagem',
+        url: 'você habilitou o histórico de navegação, mas não definiu URLs',
+        numberOfVisits: 'você habilitou um número de visitas ao website, mas não introduziu um valor',
+        numberOfPageVisits: 'você ativou um número de visitas de página mas não introduziu um valor',
+        timeOnPage: 'você ativou o tempo na página, mas não introduziu um valor',
+        device: 'Um tipo de dispositivo deve ser selecionado quando o campo "restringir a tamanhos de tela específicos" estiver activado',
+        queryString: 'você ativou os parâmetros da cadeia de consulta, mas não definiu nenhum par de valores-chave',
+        eventListeners: 'você ativou os ativadores de eventos, mas não definiu nenhum par seletor de eventos',
+        trigger: 'Pelo menos uma condição de disparo deve ser adicionada',
+        triggerLimit: 'Você selecionou "Escolher um limite", mas não especificou um número máximo de ativações de disparos',
+        timeLimit: 'Você ativou um intervalo mínimo, mas não introduziu um valor',
     };
 
     const createPathElem = (key) => {
@@ -271,7 +271,7 @@ function StoryRulesForm({
             if (!rule.trigger || !hasTrigger(rule.trigger)) {
                 errors = [
                     ...errors,
-                    { name: 'trigger', type: 'required', message: `Ruleset ${ruleIndex + 1}: ${fieldErrorMessages.trigger}` },
+                    { name: 'trigger', type: 'required', message: `Regras ${ruleIndex + 1}: ${fieldErrorMessages.trigger}` },
                 ];
             }
             optionalFields.forEach((fieldName) => {
@@ -288,7 +288,7 @@ function StoryRulesForm({
                         {
                             name: fieldName.replace(/\$/, ruleIndex),
                             type: 'required',
-                            message: `Ruleset ${ruleIndex + 1}: ${fieldErrorMessages[key]}`,
+                            message: `Regras ${ruleIndex + 1}: ${fieldErrorMessages[key]}`,
                         },
                     ];
                     return;
@@ -301,7 +301,7 @@ function StoryRulesForm({
 
     const replaceRegexErrors = (error) => {
         if (/failed regular expression validation/.test(error.message)) {
-            return { ...error, message: error.message.replace(/failed regular expression validation/, 'can not contain spaces') };
+            return { ...error, message: error.message.replace(/failed regular expression validation/, 'não pode conter espaços') };
         }
         return error;
     };
@@ -316,7 +316,7 @@ function StoryRulesForm({
     };
 
     const handleValidate = (model, incomingErrors, callback) => {
-        const newError = incomingErrors || new Error('Fields are invalid');
+        const newError = incomingErrors || new Error('Campos são inválidos');
         let errors = incomingErrors
             ? filterRepeatErrors(incomingErrors.details)
             : [];
@@ -325,7 +325,7 @@ function StoryRulesForm({
         } catch (e) {
             errors = [...errors];
             // eslint-disable-next-line no-console
-            console.log('something went wrong while validating the rules');
+            console.log('algo deu errado ao validar as regras');
         }
         newError.details = errors;
         if (!newError.details.length) {
@@ -343,17 +343,17 @@ function StoryRulesForm({
         <div className='story-trigger-form-container' data-cy='story-rules-editor'>
             <RulesForm disabled={!can('triggers:w', projectId)} model={activeModel} schema={new SimpleSchema2Bridge(rootSchema)} onSubmit={onSave} onValidate={handleValidate}>
                 <ListAddField name='rules.$' className='add-trigger-field' />
-                <ListField name='rules' label=''>
+                <ListField name='rules' label='Regras'>
                     <ListItemField name='$'>
                         <NestField name=''>
-                            <AutoField name='trigger' label='Conditions'>
+                            <AutoField name='trigger' label='Condições'>
                                 <ButtonSelectField
                                     name='when'
-                                    label='When should this event be triggered?'
+                                    label='Quando esse evento deve ser acionados?'
                                     options={[
-                                        { value: 'always', description: 'Always' },
-                                        { value: 'init', description: 'Only if no conversation has started' },
-                                        { value: 'limited', description: 'Limit the number of times the rule will trigger' },
+                                        { value: 'always', description: 'Sempre' },
+                                        { value: 'init', description: 'Só se nenhuma conversa tiver começado' },
+                                        { value: 'limited', description: 'Limitar o número de vezes que a regra irá desencadear' },
                                     ]}
                                 />
 

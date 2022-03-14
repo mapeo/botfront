@@ -72,7 +72,7 @@ export default class NLUPipeline extends React.Component {
                             }
                             content={(
                                 <p>
-                                    You need to <b>re-train</b> your model to deploy them
+                                    Você precisa <b>preparar novamente</b> seu modelo para enviá-lo.
                                 </p>
                             )}
                         />

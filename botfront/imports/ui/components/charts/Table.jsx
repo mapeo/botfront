@@ -70,13 +70,13 @@ Table.propTypes = {
 };
 Table.defaultProps = {
     numberColumns: [
-        'hits',
-        'count',
-        'proportion',
-        'visits',
-        'engagement',
-        'length',
-        'frequency',
+        'acessos',
+        'contagem',
+        'proporção',
+        'visitas',
+        'engajamento',
+        'tamanho',
+        'frequência',
     ],
     customSorts: {
         date: (a, b) => {
