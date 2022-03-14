@@ -285,10 +285,10 @@ function ResponseMetadataForm({
                         <>
                             <ButtonSelectField name='customCss.style' data-cy='style-dropdown' />
                             <DisplayIf condition={context => context.model.customCss && context.model.customCss.style === 'custom'}>
-                                <LongTextField className='monospaced' name='customCss.css' label='Custom CSS' data-cy='custom-message-css' />
+                                <LongTextField className='monospaced' name='customCss.css' label='CSS personalizado' data-cy='custom-message-css' />
                             </DisplayIf>
                             <DisplayIf condition={context => context.model.customCss && context.model.customCss.style === 'class'}>
-                                <AutoField name='customCss.css' label='Custom class' data-cy='custom-message-css' />
+                                <AutoField name='customCss.css' label='Classe personalizada' data-cy='custom-message-css' />
                             </DisplayIf>
                         </>
                     </DisplayIf>
@@ -353,7 +353,7 @@ function ResponseMetadataForm({
                 if (!i.url || !i.url.length < 0 || !i.callbackIntent || !i.callbackIntent.length < 0) { missing.push(i); }
             });
             if (missing.length) {
-                errors.push({ name: 'pageChangeCallback.pageChanges', message: 'One of your Page Changes listener has a URL or an Intent Callback missing' });
+                errors.push({ name: 'pageChangeCallback.pageChanges', message: 'Uma de suas alterações de páginas tem um URL ou um objetivo de retorno faltando' });
             }
 
             if (!pageChangeCallbacks.errorIntent || pageChangeCallbacks.length < 1) {
@@ -387,7 +387,7 @@ function ResponseMetadataForm({
         const errors = [...getPageChangeErrors(model), ...getPageEventErrors(model)];
 
         if (model.customCss && model.customCss.enabled && !model.customCss.css) {
-            errors.push({ name: 'customCss', message: 'You enabled Custom CSS but you did not set the css property' });
+            errors.push({ name: 'customCss', message: 'Você ativou o CSS personalizado, mas não definiu a propriedade CSS' });
         }
 
         if (model.domHighlight

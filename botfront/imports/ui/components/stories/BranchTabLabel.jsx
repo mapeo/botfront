@@ -109,8 +109,8 @@ class BranchTabLabel extends React.Component {
             const strandedBranchName = siblings.filter(s => s.title !== value)[0]?.title;
             confirmMessage.content = (
                 <>
-                    The content of <strong>{strandedBranchName}</strong> will be added to
-                    the previous story.
+                    O conteúdo <strong>{strandedBranchName}</strong> será adicionada
+                    ao histórico anterior.
                 </>
             );
         }
