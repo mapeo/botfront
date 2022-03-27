@@ -16,7 +16,7 @@ import { cleanDucklingFromExamples } from '../../../../lib/utils';
 import { NLUModels } from '../../../../api/nlu_model/nlu_model.collection';
 import InsertNlu from '../../example_editor/InsertNLU';
 import Evaluation from '../evaluation/Evaluation';
-import ChitChat from './ChitChat';
+import TranslatedChitChat from './ChitChat';
 import Synonyms from '../../synonyms/Synonyms';
 import Gazette from '../../synonyms/Gazette';
 import RegexFeatures from '../../synonyms/RegexFeatures';
@@ -26,7 +26,7 @@ import OutOfScope from './OutOfScope';
 import DeleteModel from './DeleteModel';
 import { clearTypenameField } from '../../../../lib/client.safe.utils';
 import LanguageDropdown from '../../common/LanguageDropdown';
-import API from './API';
+import TranslatedApi from './API';
 import { setWorkingLanguage } from '../../../store/actions/actions';
 import NluTable from './NluTable';
 import { ProjectContext } from '../../../layouts/context';
@@ -38,12 +38,14 @@ import {
     useInsertExamples,
 } from './hooks';
 import { can } from '../../../../lib/scopes';
+import { useTranslation, withTranslation } from 'react-i18next';
 
 function NLUModel(props) {
     const { changeWorkingLanguage } = props;
     const {
         project, instance, intents, entities,
     } = useContext(ProjectContext);
+    const { t } = useTranslation();
     const {
         location: { state: incomingState },
         params: { language: langFromParams, project_id: projectId } = {},
@@ -127,7 +129,7 @@ function NLUModel(props) {
 
     const handleMenuItemClick = (e, { name }) => setActiveItem(name);
 
-    const renderWarningMessageIntents = () => {
+    const renderWarningMessageIntents = ({ t } = useTranslation()) => {
         if (!loadingExamples && intents.length < 2) {
             return (
                 <Message
@@ -135,7 +137,7 @@ function NLUModel(props) {
                     content={(
                         <div>
                             <Icon name='warning' />
-                            You need at least two distinct intents to train NLU
+                            {t('warningNLU')}
                         </div>
                     )}
                     info
@@ -208,7 +210,7 @@ function NLUModel(props) {
                         onTabChange={(e, { activeIndex }) => { if (activeIndex === 0) refetch(); }}
                         panes={[
                             {
-                                menuItem: 'Examples',
+                                menuItem: t('examples'),
                                 render: () => (
                                     <NluTable
                                         ref={tableRef}
@@ -244,7 +246,7 @@ function NLUModel(props) {
                                 ),
                             },
                             {
-                                menuItem: 'Synonyms',
+                                menuItem: t('synonyms'),
                                 render: () => <Synonyms model={model} />,
                             },
                             {
@@ -252,7 +254,7 @@ function NLUModel(props) {
                                 render: () => <Gazette model={model} />,
                             },
                             {
-                                menuItem: 'Out Of Scope',
+                                menuItem: t('os'),
                                 render: () => <OutOfScope />,
                             },
                             {
@@ -261,12 +263,12 @@ function NLUModel(props) {
                             },
                             {
                                 menuItem: 'API',
-                                render: () => <API model={model} instance={instance} />,
+                                render: () => <TranslatedApi model={model} instance={instance} />,
                             },
                             ...(can('nlu-data:w', projectId)
                                 ? [{
                                     menuItem: 'Chit Chat',
-                                    render: () => <ChitChat model={model} />,
+                                    render: () => <TranslatedChitChat model={model} />,
                                 }] : []),
                         ]}
                     />
@@ -293,7 +295,7 @@ function NLUModel(props) {
                                 ),
                             },
                             ...(can('projects:w', projectId) ? ([{
-                                menuItem: 'Delete',
+                                menuItem: t('del'),
                                 render: () => <DeleteModel />,
                             }]) : []),
                         ]}
@@ -322,5 +324,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     changeWorkingLanguage: setWorkingLanguage,
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(NLUModel);

@@ -10,6 +10,7 @@ import ReactTable from 'react-table-v6';
 import { Link, browserHistory } from 'react-router';
 import PageMenu from '../utils/PageMenu';
 import { can } from '../../../lib/scopes';
+import { withTranslation } from 'react-i18next';
 
 class UsersList extends React.Component {
     renderListItems = ({ users } = this.props) => users.map(user => (
@@ -25,60 +26,63 @@ class UsersList extends React.Component {
         return false;
     }
 
-    getColumns = () => [
-        {
-            Header: 'Last Name',
-            id: 'lastname',
-            accessor: 'profile.lastName',
-            filterable: true,
-            filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'lastname')),
-            Cell: props => (
-                <Link to={`/admin/user/${props.original._id}`}>{props.value}</Link>
-            ),
-        },
-        {
-            Header: 'First Name',
-            id: 'firstname',
-            accessor: 'profile.firstName',
-            filterable: true,
-            filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'firstname')),
-            Cell: props => (
-                <Link to={`/admin/user/${props.original._id}`}>{props.value}</Link>
-            ),
-        },
-        {
-            Header: 'Email',
-            id: 'email',
-            accessor: 'emails[0].address',
-            filterable: true,
-            filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'email')),
-            Cell: props => (
-                <Link to={`/admin/user/${props.original._id}`}>{props.value}</Link>
-            ),
-        },
-        {
-            id: 'edit',
-            accessor: '_id',
-            width: 55,
-            Header: 'Edit',
-            Cell: props => (
-                <div className='center'>
-                    <Link to={`/admin/user/${props.value}`}>
-                        <Icon name='edit' color='grey' link size='small' data-cy='edit-user' />
-                    </Link>
-                </div>
-            ),
-        },
-    ];
+    getColumns = () => {
+        const { t } = this.props;
+        return [
+            {
+                Header: t('sobrenome'),
+                id: 'lastname',
+                accessor: 'profile.lastName',
+                filterable: true,
+                filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'lastname')),
+                Cell: props => (
+                    <Link to={`/admin/user/${props.original._id}`}>{props.value}</Link>
+                ),
+            },
+            {
+                Header: t('nome'),
+                id: 'firstname',
+                accessor: 'profile.firstName',
+                filterable: true,
+                filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'firstname')),
+                Cell: props => (
+                    <Link to={`/admin/user/${props.original._id}`}>{props.value}</Link>
+                ),
+            },
+            {
+                Header: 'Email',
+                id: 'email',
+                accessor: 'emails[0].address',
+                filterable: true,
+                filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'email')),
+                Cell: props => (
+                    <Link to={`/admin/user/${props.original._id}`}>{props.value}</Link>
+                ),
+            },
+            {
+                id: 'edit',
+                accessor: '_id',
+                width: 55,
+                Header: t('edit'),
+                Cell: props => (
+                    <div className='center'>
+                        <Link to={`/admin/user/${props.value}`}>
+                            <Icon name='edit' color='grey' link size='small' data-cy='edit-user' />
+                        </Link>
+                    </div>
+                ),
+            },
+        ];
+    };
 
 
     render() {
-        const { loading, users } = this.props;
+        const { loading, users, t } = this.props;
        
 
         return (
             <div>
-                <PageMenu title='Users' icon='users'>
+                <PageMenu title={t('users')} icon='users'>
                     <Menu.Menu position='right'>
                         {can('users:w', { anyScope: true }) && (
                             <Menu.Item>
@@ -92,7 +96,7 @@ class UsersList extends React.Component {
                                         primary
                                         disabled={loading}
                                         icon='add'
-                                        content='Add user'
+                                        content={t('addu')}
                                         labelPosition='left'
                                     />
                                 </div>
@@ -124,6 +128,8 @@ UsersList.propTypes = {
     loading: PropTypes.bool.isRequired,
 };
 
+const TranslatedUserList = withTranslation()(UsersList)
+
 export default withTracker(() => {
     const usersHandle = Meteor.subscribe('userData');
     const users = Meteor.users.find({}).fetch();
@@ -133,4 +139,4 @@ export default withTracker(() => {
         users: users || {},
         loading,
     };
-})(UsersList);
+})(TranslatedUserList);

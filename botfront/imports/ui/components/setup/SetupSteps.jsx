@@ -3,9 +3,10 @@ import { Container, Segment, Step } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import { useTranslation, withTranslation } from 'react-i18next';
 
-import StepAccount from './StepAccount';
 import { wrapMeteorCallback } from '../utils/Errors';
+import Translated from './StepAccount';
 
 class SetupSteps extends React.Component {
     constructor(props) {
@@ -60,26 +61,29 @@ class SetupSteps extends React.Component {
 
     render() {
         const { loading } = this.state;
+        const { t } = this.props;
         return (
             <Container>
                 <Segment disabled={loading}>
                     <Step.Group fluid size='large'>
                         <Step
                             active
-                            title='Create your admin account'
+                            title={t('createa')}
                             onClick={this.handleAccountClick}
                             data-cy='account-step'
                         />
                     </Step.Group>
-                    <StepAccount onSubmit={this.handleAccountSubmit} loading={loading} />
+                    <Translated onSubmit={this.handleAccountSubmit} loading={loading} />
                 </Segment>
             </Container>
         );
     }
 }
 
+
 SetupSteps.propTypes = {
     router: PropTypes.object.isRequired,
 };
 
-export default SetupSteps;
+const TranslatedSetupSteps = withTranslation()(SetupSteps)
+export default TranslatedSetupSteps;

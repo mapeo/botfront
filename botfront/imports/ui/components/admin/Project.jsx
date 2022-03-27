@@ -16,6 +16,7 @@ import { wrapMeteorCallback } from '../utils/Errors';
 import PageMenu from '../utils/PageMenu';
 import Can from '../roles/Can';
 import SelectField from '../nlu/common/SelectLanguage';
+import { withTranslation } from 'react-i18next';
 
 class Project extends React.Component {
     constructor(props) {
@@ -52,12 +53,12 @@ class Project extends React.Component {
     };
 
     render() {
-        const { project, loading } = this.props;
+        const { project, loading, t } = this.props;
         const { confirmOpen } = this.state;
         const { namespace } = project || {};
         return (
             <>
-                <PageMenu icon='sitemap' title={project._id ? project.name : 'New project'} />
+                <PageMenu icon='sitemap' title={project._id ? project.name : t('newpro')} />
                 <Container>
                     {!loading && (
                         <Segment>
@@ -66,18 +67,18 @@ class Project extends React.Component {
                                 onSubmit={p => this.updateProject(p)}
                                 model={project}
                             >
-                                <AutoField name='name' data-cy='project-name' />
+                                <AutoField name='name' data-cy='project-name' label = {t('nome')}/>
                                 <InfoField
                                     name='namespace'
                                     label='Namespace'
                                     data-cy='project-namespace'
-                                    info='The namespace to be used for Kubernetes and Google Cloud. Must be composed of only lower case letters, dashes, and underscores.'
+                                    info={t('namespaceinfo')}
                                     disabled={!!namespace}
                                 />
-                                <SelectField name='defaultLanguage' label={null} placeholder='Select the default language of your project' />
+                                <SelectField name='defaultLanguage' label={null} placeholder={t('seleclng')} />
                                 <br />
                                
-                                <AutoField name='disabled' data-cy='disable' />
+                                <AutoField name='disabled' data-cy='disable' label = {t('disabled')}/>
                                 <ErrorsField />
                                 <SubmitField data-cy='submit-field' />
                             </AutoForm>
@@ -86,14 +87,14 @@ class Project extends React.Component {
                     {!loading && project._id && (
                         <Can I='global-admin'>
                             <Segment>
-                                <Header content='Delete project' />
-                                {!project.disabled && <Message info content='A project must be disabled to be deletable' />}
+                                <Header content={t('delpro')} />
+                                {!project.disabled && <Message info content={t('delmes')} />}
                                 <br />
-                                <Button icon='trash' disabled={!project.disabled} negative content='Delete project' onClick={() => this.setState({ confirmOpen: true })} data-cy='delete-project' />
+                                <Button icon='trash' disabled={!project.disabled} negative content={t('delpro')} onClick={() => this.setState({ confirmOpen: true })} data-cy='delete-project' />
                                 <Confirm
                                     open={confirmOpen}
-                                    header={`Delete project ${project.name}?`}
-                                    content='This cannot be undone!'
+                                    header={`${t('delpro')} ${project.name}?`}
+                                    content={t('undone')}
                                     onCancel={() => this.setState({ confirmOpen: false })}
                                     onConfirm={() => this.deleteProject()}
                                 />
@@ -140,4 +141,5 @@ const ProjectContainer = withTracker(({ params }) => {
     };
 })(Project);
 
-export default ProjectContainer;
+const TranslatedProjectContainer = withTranslation()(ProjectContainer)
+export default TranslatedProjectContainer;

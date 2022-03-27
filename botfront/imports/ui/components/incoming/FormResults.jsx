@@ -8,10 +8,13 @@ import { saveAs } from 'file-saver';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_FORMS } from '../stories/graphql/queries';
 import { Loading } from '../utils/Utils';
+import { useTranslation } from 'react-i18next';
 
 const FormResults = (props) => {
     const { projectId, environment } = props;
     const environments = [environment];
+
+    const { t } = useTranslation();
 
     const [counts, setCounts] = useState(null);
 
@@ -87,7 +90,7 @@ const FormResults = (props) => {
             <Loading loading={loading || !counts}>
                 {!forms.length ? (
                     <>
-                        <Message info content='No forms found' />
+                        <Message info content={t('formmes')} />
                         <br />
                     </>
                 ) : (

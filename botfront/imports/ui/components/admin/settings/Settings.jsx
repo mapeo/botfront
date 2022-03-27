@@ -19,6 +19,7 @@ import PageMenu from '../../utils/PageMenu';
 import HttpRequestsForm from '../../common/HttpRequestsForm';
 import { can } from '../../../../lib/scopes';
 import MigrationControl from './MigrationControl';
+import { useTranslation, withTranslation } from 'react-i18next';
 
 class Settings extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class Settings extends React.Component {
         router.push({ pathname: `${pathname.split('/settings')[0]}/settings/${this.getSettingsPanes()[index].name}` });
     };
 
-    onSave = (settings, callback = () => {}) => {
+    onSave = (settings, callback = () => { }) => {
         this.setState({ saving: true });
         Meteor.call(
             'settings.save',
@@ -52,187 +53,215 @@ class Settings extends React.Component {
         );
     };
 
-    renderSubmitButton = () => (
-        <>
-            <ErrorsField />
-            {can('global-settings:w', { anyScope: true }) && (
-                <SubmitField value='Save' className='primary' data-cy='save-button' />
-            )}
-        </>
-    )
-
-    renderSecurityPane = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content={(
-                    <>
-                        If you want to secure your login page with a Catpcha. &nbsp;
-                        <a
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            href='https://developers.google.com/recaptcha'
-                        >
-                            Get your keys here
-                        </a>
-                        . Only v2 is supported.
-                    </>
+    renderSubmitButton = () => {
+        const { t } = this.props;
+        return (
+            <>
+                <ErrorsField />
+                {can('global-settings:w', { anyScope: true }) && (
+                    <SubmitField value={t('save')} className='primary' data-cy='save-button' />
                 )}
-            />
-            <AutoField name='settings.public.reCatpchaSiteKey' />
-            <AutoField name='settings.private.reCatpchaSecretServerKey' />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+            </>
+        )
+    }
 
-    renderDefaultNLUPipeline = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content='Default NLU pipeline for new NLU models'
-            />
-            <AceField name='settings.public.defaultNLUConfig' label='' convertYaml />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+    renderSecurityPane = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={(
+                        <>
+                            {t('secinfo1')} &nbsp;
+                            <a
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href='https://developers.google.com/recaptcha'
+                            >
+                                {t('secinfo2')}
+                            </a>
+                            . {t('secinfo3')}
+                        </>
+                    )}
+                />
+                <AutoField name='settings.public.reCatpchaSiteKey' />
+                <AutoField name='settings.private.reCatpchaSecretServerKey' />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
-    renderDefaultPolicies = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content='Default policies for new projects'
-            />
-            <AceField
-                name='settings.private.defaultPolicies'
-                label=''
-                convertYaml
-            />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+    renderDefaultNLUPipeline = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={t('defnlucontent')}
+                />
+                <AceField name='settings.public.defaultNLUConfig' label='' convertYaml />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
-    renderDefaultEndpoints = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content={(
-                    <>
-                        Default Rasa (see{' '}
-                        <a
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            href='https://rasa.com/docs/core/server/#endpoint-configuration'
-                        >
-                            Rasa documentation
-                        </a>
-                        ) &nbsp;endpoints for new projects
-                    </>
-                )}
-            />
-            <AceField
-                name='settings.private.defaultEndpoints'
-                label=''
-                convertYaml
-            />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+    renderDefaultPolicies = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={t('dpcontent')}
+                />
+                <AceField
+                    name='settings.private.defaultPolicies'
+                    label=''
+                    convertYaml
+                />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
-    renderDefaultCredentials = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content={(
-                    <>
-                        Default Rasa (see{' '}
-                        <a
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            href='https://rasa.com/docs/core/connectors/'
-                        >
-                            Rasa documentation
-                        </a>
-                        ) &nbsp;channel credentials for new projects
-                    </>
-                )}
-            />
-            <AceField
-                name='settings.private.defaultCredentials'
-                label=''
-                convertYaml
-            />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+    renderDefaultEndpoints = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={(
+                        <>
+                            {t('deinfo1')}{' '}
+                            <a
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href='https://rasa.com/docs/core/server/#endpoint-configuration'
+                            >
+                                {t('deinfo2')}
+                            </a>
+                            ) &nbsp;{t('deinfo3')}
+                        </>
+                    )}
+                />
+                <AceField
+                    name='settings.private.defaultEndpoints'
+                    label=''
+                    convertYaml
+                />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
-    renderDefaultDefaultDomain = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content={<>Default default domain for new projects</>}
-            />
-            <AceField
-                name='settings.private.defaultDefaultDomain'
-                label=''
-                convertYaml
-            />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+    renderDefaultCredentials = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={(
+                        <>
+                            {t('deinfo1')}{' '}
+                            <a
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href='https://rasa.com/docs/core/connectors/'
+                            >
+                                {t('deinfo2')}
+                            </a>
+                            ) &nbsp;{t('dcinfo')}
+                        </>
+                    )}
+                />
+                <AceField
+                    name='settings.private.defaultCredentials'
+                    label=''
+                    convertYaml
+                />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
-    renderIntegrationSettings = () => (
-        <Tab.Pane>
-            <Header as='h3'>Links for Handoff setup</Header>
-            <AutoField
-                name='settings.private.integrationSettings.slackLink'
-                label='Slack'
-            />
-            {this.renderSubmitButton()}
-        </Tab.Pane>// //
-    );
+    renderDefaultDefaultDomain = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={t('dddcontent')}
+                />
+                <AceField
+                    name='settings.private.defaultDefaultDomain'
+                    label=''
+                    convertYaml
+                />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
-    renderAppearance = () => (
-        <Tab.Pane>
-            <Message
-                info
-                icon='question circle'
-                content='Login page background images URLs'
-            />
-            <AutoField name='settings.public.backgroundImages' />
-            <AutoField name='settings.public.logoUrl' />
-            <AutoField name='settings.public.smallLogoUrl' />
-            {this.renderSubmitButton()}
-        </Tab.Pane>
-    );
+    renderIntegrationSettings = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Header as='h3'>{t('inteheader')}</Header>
+                <AutoField
+                    name='settings.private.integrationSettings.slackLink'
+                    label='Slack'
+                />
+                {this.renderSubmitButton()}
+            </Tab.Pane>// //
+        );
+    }
+
+    renderAppearance = () => {
+        const { t } = this.props;
+        return (
+            <Tab.Pane>
+                <Message
+                    info
+                    icon='question circle'
+                    content={t('appeacontent')}
+                />
+                <AutoField name='settings.public.backgroundImages' />
+                <AutoField name='settings.public.logoUrl' />
+                <AutoField name='settings.public.smallLogoUrl' />
+                {this.renderSubmitButton()}
+            </Tab.Pane>
+        );
+    }
 
     renderMisc = () => {
         const { confirmModalOpen } = this.state;
+        const { t } = this.props;
         return (
             <>
                 <Segment>
-                    <AutoField name='settings.private.bfApiHost' label='Botfront API host' data-cy='docker-api-host' />
-                    <AutoField name='settings.public.chitChatProjectId' label='Chitchat project Id' info='ID of project containing chitchat NLU training data' />
+                    <AutoField name='settings.private.bfApiHost' label={t('misclabel1')} data-cy='docker-api-host' />
+                    <AutoField name='settings.public.chitChatProjectId' label={t('misclabel2')} info='ID of project containing chitchat NLU training data' />
                     <AutoField name='settings.public.docUrl' />
                     {this.renderSubmitButton()}
                 </Segment>
                 {can('global-admin') && (
                     <Segment>
                         <MigrationControl />
-                        <Header>Rebuild search indices</Header>
-                        <span>Only use this option if you&apos;re having issues with stories search.</span>
+                        <Header>{t('mischeader')}</Header>
+                        <span>{t('miscspan')}</span>
                         <br />
                         <br />
                         <Confirm
                             data-cy='rebuild-indices-confirm'
                             open={confirmModalOpen}
-                            header='Rebuild search indices for all projects'
-                            content='This is a safe action that runs in the background, but it may take some time.'
+                            header={t('miscmodalh')}
+                            content={t('miscmodalm')}
                             onCancel={() => this.setState({ confirmModalOpen: false })}
                             onConfirm={() => {
                                 Meteor.call('global.rebuildIndexes');
@@ -247,7 +276,7 @@ class Settings extends React.Component {
                             }}
                             data-cy='rebuild-button'
                         >
-                        Rebuild
+                            {t('miscbuttonR')}
                         </Button>
                     </Segment>
                 )}
@@ -257,20 +286,20 @@ class Settings extends React.Component {
 
 
     getSettingsPanes = () => {
-        const { settings } = this.props;
+        const { settings, t } = this.props;
         const panes = [
-            { name: 'default-nlu-pipeline', menuItem: 'Default NLU Pipeline', render: this.renderDefaultNLUPipeline },
-            { name: 'default-policies', menuItem: 'Default policies', render: this.renderDefaultPolicies },
-            { name: 'default-credentials', menuItem: 'Default credentials', render: this.renderDefaultCredentials },
-            { name: 'default-endpoints', menuItem: 'Default endpoints', render: this.renderDefaultEndpoints },
+            { name: 'default-nlu-pipeline', menuItem: t('defnlu'), render: this.renderDefaultNLUPipeline },
+            { name: 'default-policies', menuItem: t('dp'), render: this.renderDefaultPolicies },
+            { name: 'default-credentials', menuItem: t('dc'), render: this.renderDefaultCredentials },
+            { name: 'default-endpoints', menuItem: t('de'), render: this.renderDefaultEndpoints },
             {
                 name: 'default-default-domain',
-                menuItem: 'Default default domain',
+                menuItem: t('ddd'),
                 render: this.renderDefaultDefaultDomain,
             },
             {
                 name: 'webhooks',
-                menuItem: 'Webhooks',
+                menuItem: t('wh'),
                 render: () => (
                     <Tab.Pane>
                         <HttpRequestsForm
@@ -284,22 +313,22 @@ class Settings extends React.Component {
             },
             {
                 name: 'integration',
-                menuItem: 'Integration',
+                menuItem: t('inte'),
                 render: this.renderIntegrationSettings,
             },
-            { name: 'security', menuItem: 'Security', render: this.renderSecurityPane },
-            { name: 'appearance', menuItem: 'Appearance', render: this.renderAppearance },
-            { name: 'misc', menuItem: 'Misc', render: this.renderMisc },
+            { name: 'security', menuItem: t('sec'), render: this.renderSecurityPane },
+            { name: 'appearance', menuItem: t('appea'), render: this.renderAppearance },
+            { name: 'misc', menuItem: t('misc'), render: this.renderMisc },
         ];
 
         return panes;
     };
 
     renderSettings = (saving, settings) => {
-        const { params: { setting } = {} } = this.props;
+        const { t, params: { setting } = {} } = this.props;
         return (
             <>
-                <PageMenu icon='setting' title='Global Settings' />
+                <PageMenu icon='setting' title={t('gs')} />
                 <Container id='admin-settings' data-cy='admin-settings-menu'>
                     <AutoForm schema={new SimpleSchema2Bridge(GlobalSettingsSchema)} model={settings} onSubmit={this.onSave} disabled={saving || !can('global-settings:w', { anyScope: true })}>
                         <Tab
@@ -355,4 +384,5 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(SettingsContainer);
+const TranslatedSettings = withTranslation()(SettingsContainer)
+export default connect(mapStateToProps)(TranslatedSettings);

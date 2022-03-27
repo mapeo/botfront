@@ -10,8 +10,9 @@ import { ProjectContext } from '../../../layouts/context';
 import 'react-s-alert/dist/s-alert-default.css';
 
 import { wrapMeteorCallback } from '../../utils/Errors';
+import { withTranslation } from 'react-i18next';
 
-export default class ChitChat extends React.Component {
+class ChitChat extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -71,16 +72,18 @@ export default class ChitChat extends React.Component {
             notConfiguredError, chitChatIntents, confirmOpen, selectedIntents,
         } = this.state;
         
+        const { t } = this.props;
+
         return (
             <div className='glow-box extra-padding no-margin'>
                 {notConfiguredError && <Message error content={notConfiguredError} />}
-                {chitChatIntents && chitChatIntents.length === 0 && <Message info content="Chitchat intents are not available in your model's language." />}
+                {chitChatIntents && chitChatIntents.length === 0 && <Message info content={t('ccmes')} />}
                 {chitChatIntents && chitChatIntents.length > 0 && (
                     <div className='chitchat' style={{ minHeight: 300 }}>
                         {/* minHeight to make sure there is enough space for the dropdown */}
                         <Message info data-cy='chit-chat-message'>
                             <Icon name='lightbulb' size='small' />
-                            Chit chat intents are general conversation pre-trained intents. Select those you want to integrate in your model, add and re-train.
+                            {t('ccmes1')}
                         </Message>
                         <br />
 
@@ -123,3 +126,7 @@ export default class ChitChat extends React.Component {
 ChitChat.propTypes = {
     model: PropTypes.object.isRequired,
 };
+
+const TranslatedChitChat = withTranslation()(ChitChat)
+
+export default TranslatedChitChat;

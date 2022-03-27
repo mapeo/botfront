@@ -13,6 +13,7 @@ import ConversationFilters from './ConversationFilters';
 import { updateIncomingPath } from '../incoming/incoming.utils';
 import { ConversationBrowserContext } from './context';
 import { wrapMeteorCallback } from '../utils/Errors';
+import { useTranslation } from 'react-i18next';
 
 function ConversationsBrowser(props) {
     const {
@@ -27,6 +28,8 @@ function ConversationsBrowser(props) {
         handleDownloadConversations,
         projectId,
     } = props;
+    
+    const { t } = useTranslation();
 
     const [deleteConv, { data }] = useMutation(DELETE_CONV);
     const [optimisticRemoveReadMarker, setOptimisticRemoveReadMarker] = useState(
@@ -143,7 +146,7 @@ function ConversationsBrowser(props) {
     const renderNoMessages = () => (
         <Grid.Row>
             <Message data-cy='no-conv' info>
-                No conversation to load
+                {t('convomes')}
             </Message>
         </Grid.Row>
     );

@@ -26,6 +26,7 @@ import { wrapMeteorCallback } from '../utils/Errors';
 import SelectField from '../form_fields/SelectField';
 import ChangePassword from './ChangePassword';
 import PageMenu from '../utils/PageMenu';
+import { withTranslation } from 'react-i18next';
 
 class User extends React.Component {
     constructor(props) {
@@ -60,9 +61,9 @@ class User extends React.Component {
     }
 
     renderRoles = () => {
-        const { projectOptions } = this.props;
+        const { projectOptions, t } = this.props;
         return (
-            <ListField name='roles' data-cy='user-roles-field'>
+            <ListField name='roles' data-cy='user-roles-field' label={t('roles')}>
                 <ListItemField name='$'>
                     <NestField>
                         <Grid columns='equal'>
@@ -70,12 +71,13 @@ class User extends React.Component {
                                 <Grid.Column>
                                     <SelectField
                                         name='project'
-                                        placeholder='Select a project'
+                                        placeholder={t('selecpro')}
+                                        label={t('project')}
                                         options={projectOptions}
                                     />
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <SelectField name='roles' placeholder='Select roles' />
+                                    <SelectField name='roles' placeholder={t('selecrole')} label={t('roles')}/>
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
@@ -85,33 +87,36 @@ class User extends React.Component {
         );
     };
 
-    renderPreferredLanguage = () => (
+    renderPreferredLanguage = () => {
+        const { t } = this.props;
+        return (
         <SelectField
             name='profile.preferredLanguage'
-            placeholder='Select a prefered language'
+            placeholder={t('selecprelng')}
             data-cy='preferred-language'
+            label = {t('selecprelabel')}
             options={[
                 {
-                    text: 'English',
+                    text: t('eng'),
                     value: 'en',
                     key: 'en',
                 },
                 {
-                    text: 'French',
+                    text: t('fren'),
                     value: 'fr',
                     key: 'fr',
                 },
             ]}
         />
-    )
+    )}
 
     getPanes = () => {
         const { confirmOpen } = this.state;
-        const { user } = this.props;
+        const { user, t } = this.props;
         const hasWritePermission = can('users:w', { anyScope: true });
         const panes = [
             {
-                menuItem: 'General information',
+                menuItem: t('gi'),
                 render: () => (
                     <Segment>
                         <AutoForm
@@ -127,10 +132,10 @@ class User extends React.Component {
                             }}
                             disabled={!hasWritePermission}
                         >
-                            <AutoField name='emails.0.address' />
-                            <AutoField name='emails.0.verified' />
-                            <AutoField name='profile.firstName' />
-                            <AutoField name='profile.lastName' />
+                            <AutoField name='emails.0.address' label = {t('addr')} />
+                            <AutoField name='emails.0.verified' label = {t('verified')}/>
+                            <AutoField name='profile.firstName' label = {t('nome')} />
+                            <AutoField name='profile.lastName' label = {t('sobrenome')} />
                             {this.renderPreferredLanguage()}
                             {this.renderRoles()}
                             <ErrorsField />
@@ -141,7 +146,7 @@ class User extends React.Component {
             },
             ...(hasWritePermission
                 ? [{
-                    menuItem: 'Password change',
+                    menuItem: t('pc'),
                     render: () => (
                         <Segment>
                             <ChangePassword userId={user._id} />
@@ -154,21 +159,21 @@ class User extends React.Component {
 
         if (hasWritePermission) {
             panes.push({
-                menuItem: 'User deletion',
+                menuItem: t('ud'),
                 render: () => (
                     <Segment>
-                        <Header content='Delete user' />
+                        <Header content={t('deluser')} />
                         <br />
                         <Button
                             icon='trash'
                             negative
-                            content='Delete user'
+                            content={t('deluser')}
                             onClick={() => this.setState({ confirmOpen: true })}
                         />
                         <Confirm
                             open={confirmOpen}
-                            header={`Delete user ${this.getUserEmail()}`}
-                            content='This cannot be undone!'
+                            header={`${t('deluser')} ${this.getUserEmail()}`}
+                            content={t('undone')}
                             onCancel={() => this.setState({ confirmOpen: false })}
                             onConfirm={() => this.removeUser(user._id)}
                         />
@@ -182,10 +187,10 @@ class User extends React.Component {
 
     render() {
         // noinspection JSAnnotator
-        const { user, ready } = this.props;
+        const { user, ready, t } = this.props;
         return (
             <>
-                <PageMenu icon='users' title={!!user ? 'Edit user' : 'New user'} />
+                <PageMenu icon='users' title={!!user ? t('edituser') : t('newuser')} />
                 {ready && (
                     <Container>
                         {!!user ? (
@@ -201,14 +206,14 @@ class User extends React.Component {
                         ) : (
                             <Segment>
                                 <AutoForm schema={UserCreateSchema} onSubmit={this.saveUser}>
-                                    <AutoField name='profile.firstName' />
-                                    <AutoField name='profile.lastName' />
+                                    <AutoField name='profile.firstName' label = {t('nome')} />
+                                    <AutoField name='profile.lastName' label = {t('sobrenome')} />
                                     {this.renderPreferredLanguage()}
                                     <AutoField name='email' />
                                     {this.renderRoles()}
-                                    <AutoField name='sendEmail' />
+                                    <AutoField name='sendEmail' label = {t('sendemail')} />
                                     <ErrorsField />
-                                    <SubmitField label='Create user' className='primary' />
+                                    <SubmitField label={t('createu')} className='primary' />
                                 </AutoForm>
                             </Segment>
                         )}
@@ -271,4 +276,6 @@ const UserContainer = withTracker(({ params }) => {
     };
 })(User);
 
-export default UserContainer;
+const TranslatedUserContainer = withTranslation()(UserContainer)
+
+export default TranslatedUserContainer;

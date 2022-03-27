@@ -2,7 +2,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import Alert from 'react-s-alert';
-import AdminSidebar from '../components/admin/Sidebar';
+import TranslatedSideBar from '../components/admin/Sidebar';
 
 export default class AdminLayout extends React.Component {
     componentDidMount() {
@@ -39,7 +39,7 @@ export default class AdminLayout extends React.Component {
         return (
             <div style={style}>
                 <div style={menuStyle}>
-                    <AdminSidebar handleLogout={this.handleLogout} />
+                    <TranslatedSideBar handleLogout={this.handleLogout} />
                 </div>
                 <div style={contentStyle}>{children}</div>
                 <Alert stack={{ limit: 3 }} />

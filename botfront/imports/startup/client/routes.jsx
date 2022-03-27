@@ -20,7 +20,7 @@ import ConfigurationContainer from '../../ui/components/settings/Settings';
 import ResetPassword from '../../ui/components/account/ResetPassword.jsx';
 import NLUModelComponent from '../../ui/components/nlu/models/NLUModel';
 import ConnectHandoff from '../../ui/components/project/ConnectHandoff';
-import SetupSteps from '../../ui/components/setup/SetupSteps';
+import TranslatedSetupSteps from '../../ui/components/setup/SetupSteps';
 import Welcome from '../../ui/components/setup/Welcome';
 import Login from '../../ui/components/account/Login';
 import Incoming from '../../ui/components/incoming/Incoming';
@@ -29,6 +29,7 @@ import { can, areScopeReady } from '../../lib/scopes';
 import AccountLayout from '../../ui/layouts/account';
 import NotFound from '../../ui/components/NotFound';
 import ErrorCatcher from '../../ui/components/ErrorCatcher';
+import '../../../i18next/index';
 
 import SetupLayout from '../../ui/layouts/setup';
 import Project from '../../ui/layouts/project';
@@ -36,10 +37,11 @@ import ChatDemo from '../../ui/layouts/chat.demo';
 import Index from '../../ui/components/index';
 import store from '../../ui/store/store';
 
-import ProjectsListContainer from '../../ui/components/admin/Projects';
+import TranslatedProjects from '../../ui/components/admin/Projects';
 import ProjectContainer from '../../ui/components/admin/Project';
 import UsersListContainer from '../../ui/components/admin/Users';
 import UserContainer from '../../ui/components/admin/User';
+import TranslatedUserContainer from '../../ui/components/admin/User';
 import RoleContainer from '../../ui/components/admin/Role';
 import RolesList from '../../ui/components/admin/Roles';
 import AdminLayout from '../../ui/layouts/admin';
@@ -132,7 +134,7 @@ class Routes extends React.PureComponent {
                             <Router history={browserHistory}>
                                 <Route exact path='/setup' component={withErrorCatcher(SetupLayout)} onEnter={validateCanSetup()}>
                                     <Route path='/setup/welcome' component={Welcome} name='Welcome' />
-                                    <Route path='/setup/account' component={SetupSteps} name='Account' />
+                                    <Route path='/setup/account' component={TranslatedSetupSteps} name='Account' />
                                 </Route>
                                 <Route exact path='/' component={withErrorCatcher(AccountLayout)}>
                                     <IndexRoute component={Index} />
@@ -190,7 +192,7 @@ class Routes extends React.PureComponent {
                                     <Route path='*' component={NotFound} />
                                 </Route>
                                 <Route exact path='/admin' component={AdminLayout} onEnter={authenticateAdminPage()}>
-                                    <Route path='/admin/projects' component={ProjectsListContainer} name='Projects' onEnter={authenticate('projects:r', { scope: 'anyScope' })} />
+                                    <Route path='/admin/projects' component={TranslatedProjects} name='Projects' onEnter={authenticate('projects:r', { scope: 'anyScope' })} />
                                     <Route path='/admin/project/:project_id' component={ProjectContainer} name='Project' onEnter={authenticate('projects:w', { scope: 'GLOBAL' })} />
                                     <Route path='/admin/project/add' component={ProjectContainer} name='Project' onEnter={authenticate('projects:w', { scope: 'GLOBAL' })} />
                                     <Route path='/admin/users' component={UsersListContainer} name='Users' onEnter={authenticate('users:r', { scope: 'anyScope' })} />

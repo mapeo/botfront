@@ -16,6 +16,7 @@ import { DELETE_BOT_RESPONSE } from '../mutations';
 import { ProjectContext } from '../../../layouts/context';
 
 import Can from '../../roles/Can';
+import { withTranslation } from 'react-i18next';
 
 class Templates extends React.Component {
     constructor(props) {
@@ -204,4 +205,6 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(TemplatesContainer);
+const TranslatedTemplatesContainer = withTranslation()(TemplatesContainer)
+
+export default connect(mapStateToProps)(TranslatedTemplatesContainer);

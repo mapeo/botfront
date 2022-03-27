@@ -8,6 +8,7 @@ import React from 'react';
 import { GET_ROLES_DATA } from '../utils/queries';
 import PageMenu from '../utils/PageMenu';
 import { can } from '../../../lib/scopes';
+import { useTranslation } from 'react-i18next';
 
 const columns = [
     {
@@ -21,9 +22,10 @@ const columns = [
 ];
 const RolesList = () => {
     const { loading, data } = useQuery(GET_ROLES_DATA, { fetchPolicy: 'cache-and-network' });
+    const { t } = useTranslation();
     return (
         <div>
-            <PageMenu icon='sitemap' title='Roles'>
+            <PageMenu icon='sitemap' title={t('roles')}>
                 {can('roles:w', { anyScope: true }) && (
                     <Menu.Menu position='right'>
                         <Menu.Item>
@@ -31,7 +33,7 @@ const RolesList = () => {
                                 primary
                                 data-cy='create-role'
                                 icon='add'
-                                content='Create Role'
+                                content={t('cr')}
                                 onClick={() => {
                                     browserHistory.push('/admin/role/');
                                 }}

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import React, { useContext } from 'react';
 import { setWorkingDeploymentEnvironment } from '../../store/actions/actions';
 import { ProjectContext } from '../../layouts/context';
+import { useTranslation } from 'react-i18next';
 
 function EnvSelector(props) {
     const {
@@ -15,6 +16,7 @@ function EnvSelector(props) {
         defaultValue,
         value,
     } = props;
+    const { t } = useTranslation();
     const {
         project: { deploymentEnvironments = [] },
     } = useContext(ProjectContext);
@@ -24,7 +26,7 @@ function EnvSelector(props) {
     if (availableEnvs.length < 2) return null;
     return (
         <span className='environment-selector'>
-            Data source:{'\u00A0'}
+            {t('ds')}:{'\u00A0'}
             <Dropdown
                 data-cy='env-selector'
                 inline

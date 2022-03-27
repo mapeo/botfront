@@ -15,6 +15,7 @@ import { Instances as InstancesCollection } from '../../../api/instances/instanc
 import { wrapMeteorCallback } from '../utils/Errors';
 import { can } from '../../../lib/scopes';
 import restartRasa from './restartRasa';
+import { withTranslation } from 'react-i18next';
 
 
 class Instances extends React.Component {
@@ -80,7 +81,7 @@ class Instances extends React.Component {
 
     render() {
         const {
-            ready, projectId,
+            ready, t, projectId,
         } = this.props;
      
         const {
@@ -100,8 +101,8 @@ class Instances extends React.Component {
                         <HiddenField name='projectId' value={projectId} />
                         <AutoField name='host' />
                         <div className='token-generate'>
-                            <AutoField action='Search' id='token' data-cy='token-field' name='token' label='Token' />
-                            <Button content='Generate' onClick={(e) => { e.preventDefault(); this.openConfirm(); }} />
+                            <AutoField action='Search' id='token' data-cy='token-field' name='token' label={t('token')} />
+                            <Button content={t('generate')} onClick={(e) => { e.preventDefault(); this.openConfirm(); }} />
                             <Button
                                 positive={copied}
                                 onClick={(e) => {
@@ -110,7 +111,7 @@ class Instances extends React.Component {
                                 }}
                                 className='copy-button'
                                 icon='copy'
-                                content={copied ? 'Copied' : 'Copy'}
+                                content={copied ? t('copied') : t('copy')}
                             />
                             <Confirm
                                 open={confirmOpen}
@@ -125,14 +126,14 @@ class Instances extends React.Component {
                         {hasWritePermission && (
                             <SubmitField
                                 className='primary save-instance-info-button'
-                                value='Save Changes'
+                                value={t('savechanges')}
                                 data-cy='save-instance'
                             />
                         )}
                         {hasWritePermission
                             && webhook
                             && webhook.url
-                            && <Button content='Restart rasa' onClick={(e) => { e.preventDefault(); restartRasa(projectId, webhook, 'development'); }} />}
+                            && <Button content={t('rs')} onClick={(e) => { e.preventDefault(); restartRasa(projectId, webhook, 'development'); }} />}
                     </AutoForm>
                 )}
             </>
@@ -167,4 +168,5 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(InstancesContainer);
+const TranslatedInstancesContainer = withTranslation()(InstancesContainer)
+export default connect(mapStateToProps)(TranslatedInstancesContainer);

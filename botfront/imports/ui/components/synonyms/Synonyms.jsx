@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import LookupTable from './LookupTable';
 import { wrapMeteorCallback } from '../utils/Errors';
+import { withTranslation } from 'react-i18next';
 
 class SynonymsEditor extends React.Component {
     onItemChanged = (synonym, callback) => {
@@ -17,18 +18,18 @@ class SynonymsEditor extends React.Component {
     };
 
     render() {
-        const { model, projectId } = this.props;
+        const { model, projectId, t } = this.props;
         return (
             <LookupTable
                 data={model.training_data.entity_synonyms}
-                keyHeader='Value'
+                keyHeader={t('value')}
                 keyAttribute='value'
-                listHeader='Synonyms'
+                listHeader={t('synonyms')}
                 listAttribute='synonyms'
                 onItemChanged={this.onItemChanged}
                 onItemDeleted={this.onItemDeleted}
-                valuePlaceholder='entity value'
-                listPlaceholder='synonym1, synonym2, ...'
+                valuePlaceholder={t('ev')}
+                listPlaceholder={t('synon12')}
                 projectId={projectId}
             />
         );
@@ -40,6 +41,8 @@ SynonymsEditor.propTypes = {
     projectId: PropTypes.string.isRequired,
 };
 
+const TranslatedSynonymsEditor = withTranslation()(SynonymsEditor)
+
 export default withTracker(props => ({
     model: props.model,
-}))(SynonymsEditor);
+}))(TranslatedSynonymsEditor);

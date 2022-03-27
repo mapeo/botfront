@@ -7,6 +7,7 @@ import LookupTable from './LookupTable';
 import InlineSearch from '../utils/InlineSearch';
 import MinScoreEdit from './MinScoreEdit';
 import { can } from '../../../lib/scopes';
+import { withTranslation } from 'react-i18next';
 
 function ModeEdit({ gazette, onEdit }) {
     function onUpdateText(value, callback) {
@@ -37,12 +38,12 @@ class GazetteEditor extends React.Component {
     };
 
     extraColumns() {
-        const { projectId } = this.props;
+        const { projectId, t } = this.props;
         return [
             {
                 id: 'mode',
                 accessor: e => e,
-                Header: 'Mode',
+                Header: t('mode'),
                 Cell: (props) => {
                     if (can('nlu-data:w', projectId)) {
                         return (
@@ -59,7 +60,7 @@ class GazetteEditor extends React.Component {
             {
                 id: 'min_score',
                 accessor: e => e,
-                Header: 'Min Score',
+                Header: t('mins'),
                 Cell: (props) => {
                     if (can('nlu-data:w', projectId)) {
                         return <MinScoreEdit gazette={props.value} onEdit={this.onItemChanged} />;
@@ -73,19 +74,19 @@ class GazetteEditor extends React.Component {
     }
 
     render() {
-        const { projectId, model } = this.props;
+        const { projectId, model, t } = this.props;
         return (
             <LookupTable
                 data={model.training_data.fuzzy_gazette}
-                keyHeader='Value'
+                keyHeader={t('value')}
                 keyAttribute='value'
                 listHeader='Gazette'
                 listAttribute='gazette'
                 extraColumns={this.extraColumns()}
                 onItemChanged={this.onItemChanged}
                 onItemDeleted={this.onItemDeleted}
-                valuePlaceholder='entity name'
-                listPlaceholder='match1, match2, ...'
+                valuePlaceholder={t('en')}
+                listPlaceholder={t('match')}
                 projectId={projectId}
             />
         );
@@ -97,6 +98,8 @@ GazetteEditor.propTypes = {
     projectId: PropTypes.string.isRequired,
 };
 
+const TranslatedGazetteEditor = withTranslation()(GazetteEditor)
+
 export default withTracker(props => ({
     model: props.model,
-}))(GazetteEditor);
+}))(TranslatedGazetteEditor);

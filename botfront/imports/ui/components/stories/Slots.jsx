@@ -10,6 +10,7 @@ import SlotEditor from './SlotEditor';
 import { can } from '../../../lib/scopes';
 import { slotSchemas } from '../../../api/slots/slots.schema';
 import { ConversationOptionsContext } from './Context';
+import { withTranslation } from 'react-i18next';
 
 class Slots extends React.Component {
     constructor(props) {
@@ -165,5 +166,6 @@ Slots.propTypes = {
 Slots.defaultProps = {
     slots: [],
 };
+
 
 export default Slots;

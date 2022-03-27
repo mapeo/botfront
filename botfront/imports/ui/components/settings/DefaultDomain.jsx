@@ -13,6 +13,7 @@ import { wrapMeteorCallback } from '../utils/Errors';
 import ChangesSaved from '../utils/ChangesSaved';
 import SaveButton from '../utils/SaveButton';
 import AceField from '../utils/AceField';
+import { withTranslation } from 'react-i18next';
 
 class DefaultDomain extends React.Component {
     constructor(props) {
@@ -44,7 +45,7 @@ class DefaultDomain extends React.Component {
     };
 
     renderDefaultDomain = () => {
-        const { defaultDomain, projectId } = this.props;
+        const { defaultDomain, projectId, t } = this.props;
         const { saved, showConfirmation, saving } = this.state;
         const hasWritePermission = can('projects:w', projectId);
         return (
@@ -54,11 +55,7 @@ class DefaultDomain extends React.Component {
                     icon='question circle'
                     content={(
                         <>
-                            You may put <b>actions</b> and <b>slots </b>
-                            in this domain which cannot be inferred from stories
-                            or slots defined in the <b>Stories</b> section. It will
-                            be merged with the generated domain at the time of
-                            training.
+                            {t('domaininfo')}
                         </>
                     )}
                 />
@@ -68,14 +65,14 @@ class DefaultDomain extends React.Component {
                     model={defaultDomain}
                     onSubmit={this.onSave}
                 >
-                    <AceField name='content' label='Default Domain' mode='yaml' data-cy='ace-field' />
+                    <AceField name='content' label={t('dd')} mode='yaml' data-cy='ace-field' />
                     <ErrorsField />
                     {showConfirmation && (
                         <ChangesSaved
                             onDismiss={() => this.setState({ saved: false, showConfirmation: false })}
                             content={(
                                 <p>
-                                    You need to retrain your model
+                                    {t('domaininfo1')}
                                 </p>
                             )}
                         />
@@ -115,4 +112,6 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(DefaultDomainContainer);
+const TranslatedDefaultDomainContainer = withTranslation()(DefaultDomainContainer)
+
+export default connect(mapStateToProps)(TranslatedDefaultDomainContainer);

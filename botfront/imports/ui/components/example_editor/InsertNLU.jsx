@@ -6,6 +6,7 @@ import TextArea from 'react-textarea-autosize';
 import { debounce } from 'lodash';
 import UserUtteranceViewer from '../nlu/common/UserUtteranceViewer';
 import { ProjectContext } from '../../layouts/context';
+import { useTranslation } from 'react-i18next';
 
 function InsertNlu(props) {
     const { onSave, defaultIntent, skipDraft } = props;
@@ -74,11 +75,13 @@ function InsertNlu(props) {
     }
 
     function render() {
+        const { t } = useTranslation();
+
         return (
             <div id='playground'>
                 <Form>
                     <TextArea
-                        placeholder='User says...'
+                        placeholder={t('us')}
                         minRows={1}
                         maxRows={999}
                         value={value}

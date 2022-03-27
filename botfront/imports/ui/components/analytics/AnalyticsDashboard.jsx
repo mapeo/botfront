@@ -19,6 +19,7 @@ import {
     calculateTemporalBuckets, applyTimezoneOffset, generateXLSX, downloadXLSX,
 } from '../../../lib/graphs';
 import { clearTypenameField } from '../../../lib/client.safe.utils';
+import { useTranslation } from 'react-i18next';
 
 
 const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
@@ -31,6 +32,8 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
     const { projectLanguages } = useContext(ProjectContext);
     const apolloClient = useApolloClient();
 
+    const { t } = useTranslation();
+
     const {
         project: {
             _id: projectId, timezoneOffset: projectTimezoneOffset = 0,
@@ -42,7 +45,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
     const cardTypes = {
         conversationLengths: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of conversations that contain a given number of user utterances.',
+            titleDescription: t('carddes1'),
             queryParams: {
                 envs, queryName: 'conversationLengths', langs,
             },
@@ -59,7 +62,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         conversationDurations: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of conversations with a given number of seconds elapsed between the first and last message.',
+            titleDescription: t('carddes2'),
             queryParams: {
                 envs, queryName: 'conversationDurations', cutoffs: [30, 60, 90, 120, 180], langs,
             },
@@ -76,7 +79,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         intentFrequencies: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of user utterances classified as having a given intent.',
+            titleDescription: t('carddes3'),
             queryParams: {
                 envs, queryName: 'intentFrequencies', langs, intentTypeFilter: 'utterance',
             },
@@ -98,7 +101,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         triggerFrequencies: {
             chartTypeOptions: ['bar', 'pie', 'table'],
-            titleDescription: 'The number of user utterances classified as having a given intent.',
+            titleDescription: t('carddes3'),
             queryParams: {
                 envs, queryName: 'intentFrequencies', langs, intentTypeFilter: 'trigger',
             },
@@ -120,7 +123,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         conversationCounts: {
             chartTypeOptions: ['line', 'bar', 'table'],
-            titleDescription: 'Out of the visits (total number of conversations) in a given temporal window, the conversations that satisfy filters.',
+            titleDescription: t('carddes4'),
             queryParams: {
                 temporal: true, envs, queryName: 'conversationCounts', langs,
             },
@@ -142,7 +145,7 @@ const AnalyticsDashboard = ({ dashboard, onUpdateDashboard }, ref) => {
         },
         actionCounts: {
             chartTypeOptions: ['line', 'bar', 'table'],
-            titleDescription: 'Out of all conversational events in a given temporal window, the number of actions occurrences that satisfy filters.',
+            titleDescription: t('carddes5'),
             queryParams: {
                 temporal: true, envs, queryName: 'actionCounts', langs,
             },

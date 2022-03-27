@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import LanguageDropdown from '../common/LanguageDropdown';
 import SearchBar from './search/SearchBar';
 import PageMenu from '../utils/PageMenu';
+import { useTranslation } from 'react-i18next';
 
 const Stories = React.lazy(() => import('./Stories'));
 
 const StoriesContainer = (props) => {
     const { params } = props;
+    const { t } = useTranslation();
     return (
         <>
-            <PageMenu title='Stories' icon='book' withTraining>
+            <PageMenu title={t('stories')} icon='book' withTraining>
                 <Menu.Item>
                     <LanguageDropdown />
                 </Menu.Item>

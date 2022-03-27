@@ -22,6 +22,7 @@ import UploadDropzone from '../../utils/UploadDropzone';
 import { Loading } from '../../utils/Utils';
 import { can } from '../../../../lib/scopes';
 import 'react-select/dist/react-select.css';
+import { withTranslation } from 'react-i18next';
 
 
 class Evaluation extends React.Component {
@@ -106,7 +107,7 @@ class Evaluation extends React.Component {
 
     async useValidatedSet() {
         this.changeExampleSet('validation', true);
-        const { projectId, workingLanguage: language } = this.props;
+        const { projectId, workingLanguage: language, t } = this.props;
         const { data: { getActivity: { activity: examples } } } = await apolloClient.query({
             query: activityQuery,
             variables: {
@@ -123,8 +124,8 @@ class Evaluation extends React.Component {
         } else {
             const message = (
                 <Message warning>
-                    <Message.Header>No validated examples</Message.Header>
-                    <p>See the activity section to manage incoming traffic to this model</p>
+                    <Message.Header>{t('evalumes')}</Message.Header>
+                    <p>{t('evalumes1')}</p>
                 </Message>
             );
             this.setState({ errorMessage: message, loading: false });
@@ -159,6 +160,7 @@ class Evaluation extends React.Component {
             evaluation,
             loading: reportLoading,
             projectId,
+            t,
         } = this.props;
 
         const {
@@ -182,27 +184,27 @@ class Evaluation extends React.Component {
                     <br />
                     <Form>
                         {can('nlu-data:x', projectId) && (
-                        <>
-                            <div id='test_set_buttons'>
-                                <InputButtons
-                                    labels={['Use training set', 'Upload test set', 'Use validated examples']}
-                                    operations={[this.useTrainingSet.bind(this), this.useTestSet.bind(this), this.useValidatedSet.bind(this)]}
-                                    defaultSelection={defaultSelection}
-                                    onDefaultLoad={defaultSelection === 2 ? this.evaluate : () => {}}
-                                    selectedIndex={selectedIndex}
-                                />
-                            </div>
-                            {exampleSet === 'test' && <UploadDropzone success={!!data} onDropped={this.loadData} binary={false} />}
-                            {!dataLoading && !errorMessage && (
-                                <div>
-                                    <Button type='submit' basic fluid color='green' loading={evaluating} onClick={this.evaluate} data-cy='start-evaluation'>
-                                        <Icon name='percent' />
-                                    Start evaluation
-                                    </Button>
-                                    <br />
+                            <>
+                                <div id='test_set_buttons'>
+                                    <InputButtons
+                                        labels={[t('uts'), t('upts'), t('uve')]}
+                                        operations={[this.useTrainingSet.bind(this), this.useTestSet.bind(this), this.useValidatedSet.bind(this)]}
+                                        defaultSelection={defaultSelection}
+                                        onDefaultLoad={defaultSelection === 2 ? this.evaluate : () => { }}
+                                        selectedIndex={selectedIndex}
+                                    />
                                 </div>
-                            )}
-                        </>
+                                {exampleSet === 'test' && <UploadDropzone success={!!data} onDropped={this.loadData} binary={false} />}
+                                {!dataLoading && !errorMessage && (
+                                    <div>
+                                        <Button type='submit' basic fluid color='green' loading={evaluating} onClick={this.evaluate} data-cy='start-evaluation'>
+                                            <Icon name='percent' />
+                                            {t('se')}
+                                        </Button>
+                                        <br />
+                                    </div>
+                                )}
+                            </>
                         )}
                         {!!evaluation && !evaluating && (
                             <Tab menu={{ pointing: true, secondary: true }} panes={this.getPrimaryPanes()} />
@@ -251,4 +253,6 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(EvaluationContainer);
+const TranslatedEvaluationContainer = withTranslation()(EvaluationContainer)
+
+export default connect(mapStateToProps)(TranslatedEvaluationContainer);

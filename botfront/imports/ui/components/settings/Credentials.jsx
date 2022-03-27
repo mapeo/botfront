@@ -16,6 +16,7 @@ import AceField from '../utils/AceField';
 import { can } from '../../../lib/scopes';
 import { ENVIRONMENT_OPTIONS } from '../constants.json';
 import restartRasa from './restartRasa';
+import { withTranslation } from 'react-i18next';
 
 class Credentials extends React.Component {
     constructor(props) {
@@ -75,6 +76,7 @@ class Credentials extends React.Component {
             saved, showConfirmation, selectedEnvironment, webhook,
         } = this.state;
         const hasWritePermission = can('projects:w', projectId);
+        const { t } = this.props;
         return (
             <AutoForm
                 key={selectedEnvironment}
@@ -93,7 +95,7 @@ class Credentials extends React.Component {
                 }}
             >
                 {environment}
-                <AceField name='credentials' label='Credentials' mode='yaml' data-cy='ace-field' />
+                <AceField name='credentials' label={t('cred')} mode='yaml' data-cy='ace-field' />
                 <ErrorsField />
                 {showConfirmation && (
                     <ChangesSaved
@@ -110,7 +112,7 @@ class Credentials extends React.Component {
                             saving={saving}
                             disabled={!!saving}
                             onSave={() => { this.form.current.submit(); }}
-                            confirmText={webhook && webhook.url ? `Saving will restart the ${selectedEnvironment} rasa instance` : ''}
+                            confirmText={webhook && webhook.url ? `${t('credmes1')} ${selectedEnvironment} ${t('credmes2')}` : ''}
                         />
                     )}
             </AutoForm>
@@ -154,7 +156,7 @@ class Credentials extends React.Component {
     };
 
     render() {
-        const { ready } = this.props;
+        const { ready, t } = this.props;
         const { projectSettings } = this.props;
         if (ready) {
             const isMultipleTabs = projectSettings.deploymentEnvironments && projectSettings.deploymentEnvironments.length > 0;
@@ -170,7 +172,7 @@ class Credentials extends React.Component {
             }
             return (
                 <>
-                    <h4 data-cy='credentials-environment-menu'>Development</h4>
+                    <h4 data-cy='credentials-environment-menu'>{t('dev')}</h4>
                     {this.renderContents()}
                 </>
             );
@@ -224,4 +226,5 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(CredentialsContainer);
+const TranslatedCredentialsContainer = withTranslation()(CredentialsContainer)
+export default connect(mapStateToProps)(TranslatedCredentialsContainer);

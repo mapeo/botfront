@@ -20,6 +20,7 @@ import { clearTypenameField } from '../../../../lib/client.safe.utils';
 
 import PrefixDropdown from '../../common/PrefixDropdown';
 import IconButton from '../../common/IconButton';
+import { useTranslation } from 'react-i18next';
 
 function OutOfScope() {
     const [sortType, setSortType] = useState('Newest');
@@ -33,6 +34,8 @@ function OutOfScope() {
             throw new Error('No such sort type');
         }
     };
+
+    const { t } = useTranslation();
 
     const {
         project: { _id: projectId }, language,
@@ -190,7 +193,7 @@ function OutOfScope() {
         <>
             {data && data.length
                 ? render()
-                : <Message success icon='check' header='Congratulations!' content='You are up to date' />
+                : <Message success icon='check' header={t('congrats')} content={t('update')} />
             }
         </>
     );

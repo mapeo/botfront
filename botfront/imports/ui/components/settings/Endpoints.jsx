@@ -18,6 +18,7 @@ import { can } from '../../../lib/scopes';
 import { ENVIRONMENT_OPTIONS } from '../constants.json';
 import restartRasa from './restartRasa';
 import HttpRequestsForm from '../common/HttpRequestsForm';
+import { withTranslation } from 'react-i18next';
 
 class Endpoints extends React.Component {
     constructor(props) {
@@ -211,7 +212,7 @@ class Endpoints extends React.Component {
     }
 
     render() {
-        const { projectSettings } = this.props;
+        const { projectSettings, t } = this.props;
         const isMultipleTabs = projectSettings.deploymentEnvironments && projectSettings.deploymentEnvironments.length > 0;
         if (isMultipleTabs) {
             return (
@@ -225,7 +226,7 @@ class Endpoints extends React.Component {
         }
         return (
             <>
-                <h4 data-cy='endpoints-environment-menu'>Development</h4>
+                <h4 data-cy='endpoints-environment-menu'>{t('dev')}</h4>
                 {this.renderContents()}
             </>
         );
@@ -276,4 +277,5 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(EndpointsContainer);
+const TranslatedEndpointsContainer = withTranslation()(EndpointsContainer)
+export default connect(mapStateToProps)(TranslatedEndpointsContainer);

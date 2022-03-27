@@ -19,6 +19,7 @@ import { ProjectContext } from '../../layouts/context';
 import { findName } from '../../../lib/utils';
 import { GET_INTENTS_IN_CONVERSATIONS } from '../conversations/queries';
 import { AnalyticsContext } from './AnalyticsContext';
+import { useTranslation } from 'react-i18next';
 
 const Dashboard = React.lazy(() => import('./AnalyticsDashboard'));
 
@@ -29,6 +30,8 @@ function AnalyticsContainer(props) {
         workingLanguage,
         changeWorkingDashboard,
     } = props;
+
+    const { t } = useTranslation();
 
     const dashboardRef = useRef(null);
     const [sequenceOptions, setSequenceOptions] = useState([]);
@@ -170,19 +173,19 @@ function AnalyticsContainer(props) {
     });
 
     const cardTypes = [
-        ['conversationLengths', 'Conversation Length'],
-        ['conversationDurations', 'Conversation Duration'],
-        ['intentFrequencies', 'Top Intents'],
-        ['triggerFrequencies', 'Top Triggers'],
-        ['conversationCounts', 'Conversations over time'],
-        ['actionCounts', 'Action occurrences over time'],
-        ['conversationsFunnel', 'Conversations Funnel'],
+        ['conversationLengths', t('cl')],
+        ['conversationDurations', t('cd')],
+        ['intentFrequencies', t('ti')],
+        ['triggerFrequencies', t('tt')],
+        ['conversationCounts', t('cot')],
+        ['actionCounts', t('aoot')],
+        ['conversationsFunnel', t('cf')],
     ];
 
     const renderAddCard = () => (
         <Dropdown
             className='icon'
-            text='Add card'
+            text={t('addcard')}
             icon='plus'
             floating
             labeled
@@ -213,12 +216,12 @@ function AnalyticsContainer(props) {
                 >
                     <Header as='h3' color='red' textAlign='center'>
                         <Icon name='trash' />
-                        Drop here to delete
+                        {t('dhd')}
                     </Header>
                 </div>
             )}
             <div>
-                <PageMenu title='Analytics' icon='chart bar'>
+                <PageMenu title={t('analytics')} icon='chart bar'>
                     <Menu.Item>
                         <EnvSelector
                             value={dashboard.envs[0]} // multi env not supported
@@ -250,7 +253,7 @@ function AnalyticsContainer(props) {
                                 data-cy='export-all'
                             >
                                 <Icon name='download' />
-                                Export to Excel
+                                {t('ete')}
                             </Button>
                         </Menu.Item>
                         <Menu.Item>{renderAddCard()}</Menu.Item>

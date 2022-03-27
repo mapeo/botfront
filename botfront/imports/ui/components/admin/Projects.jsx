@@ -13,6 +13,7 @@ import { Projects } from '../../../api/project/project.collection';
 import PageMenu from '../utils/PageMenu';
 import { can } from '../../../lib/scopes';
 import { wrapMeteorCallback } from '../utils/Errors';
+import { useTranslation, withTranslation } from 'react-i18next';
 
 class ProjectsList extends React.Component {
     filterItem = (filter, rows, filterKey) => {
@@ -20,46 +21,49 @@ class ProjectsList extends React.Component {
         return false;
     }
 
-    getColumns = () => [
-        {
-            id: 'name',
-            accessor: 'name',
-            filterable: true,
-            filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'name')),
-            Header: 'Name',
-            Cell: props => (
-                <Link to={`/project/${props.original._id}/nlu/models`}>{props.value}</Link>
-            ),
-        },
-        {
-            id: 'id',
-            accessor: '_id',
-            filterable: true,
-            filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'id')),
-            Header: 'ID',
-        },
-        ...(can('projects:w')
-            ? [{
-                id: 'edit',
-                accessor: '_id',
-                width: 55,
-                Header: 'Edit',
+    getColumns = () => {
+        const { t } = this.props;
+        return [
+            {
+                id: 'name',
+                accessor: 'name',
+                filterable: true,
+                filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'name')),
+                Header: t('nome'),
                 Cell: props => (
-                    <div className='center'>
-                        <Link to={`/admin/project/${props.value}`}>
-                            <Icon name='edit' color='grey' link size='small' data-cy='edit-projects' />
-                        </Link>
-                    </div>
+                    <Link to={`/project/${props.original._id}/nlu/models`}>{props.value}</Link>
                 ),
-            }]
-            : []),
-    ];
+            },
+            {
+                id: 'id',
+                accessor: '_id',
+                filterable: true,
+                filterMethod: (filter, rows) => (this.filterItem(filter, rows, 'id')),
+                Header: 'ID',
+            },
+            ...(can('projects:w')
+                ? [{
+                    id: 'edit',
+                    accessor: '_id',
+                    width: 55,
+                    Header: t('edit'),
+                    Cell: props => (
+                        <div className='center'>
+                            <Link to={`/admin/project/${props.value}`}>
+                                <Icon name='edit' color='grey' link size='small' data-cy='edit-projects' />
+                            </Link>
+                        </div>
+                    ),
+                }]
+                : []),
+        ];
+    };
 
     render() {
-        const { loading, projects } = this.props;
+        const { loading, projects, t } = this.props;
         return (
             <div>
-                <PageMenu icon='sitemap' title='Projects' headerDataCy='projects-page-header'>
+                <PageMenu icon='sitemap' title={t('project')} headerDataCy='projects-page-header'>
                     <Menu.Menu position='right'>
                         {can('projects:w') && (
                             <Menu.Item>
@@ -73,7 +77,7 @@ class ProjectsList extends React.Component {
                                         primary
                                         disabled={loading}
                                         icon='add'
-                                        content='Add project'
+                                        content={t('addp')}
                                         labelPosition='left'
                                     />
                                 </div>
@@ -114,4 +118,6 @@ const ProjectsListContainer = withTracker(() => {
     };
 })(ProjectsList);
 
-export default ProjectsListContainer;
+const TranslatedProjects = withTranslation()(ProjectsListContainer)
+
+export default TranslatedProjects;

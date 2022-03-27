@@ -4,6 +4,9 @@ import {
 } from 'semantic-ui-react';
 import { useMethod } from '../../utils/hooks.js';
 import { can } from '../../../../lib/scopes';
+import { useTranslation } from 'react-i18next';
+
+
 
 const MigrationControl = () => {
     const { data: migrationDb, call: getMigrationStatus } = useMethod('settings.getMigrationStatus');
@@ -12,6 +15,8 @@ const MigrationControl = () => {
     useEffect(() => {
         getMigrationStatus();
     }, []);
+
+    const { t } = useTranslation();
 
     const [LocalMigration, setLocalMigration] = useState(null);
     const [displayUnlockMessage, setDisplayUnlockMessage] = useState(false);
@@ -22,10 +27,10 @@ const MigrationControl = () => {
         <>
             {migration && can('global-admin') && (
             <>
-                <Header>Migrations Control</Header>
-                <p data-cy='migration-version'>Current version: {migration.version}</p>
-                <p data-cy='migration-latest-version'>Latest version: {migration.latest}</p>
-                <p data-cy='migration-status'>Status: {migration.locked ? 'Locked' : 'OK'}</p>
+                <Header>{t('mg')}</Header>
+                <p data-cy='migration-version'>{t('currentversion')}: {migration.version}</p>
+                <p data-cy='migration-latest-version'>{t('lv')}: {migration.latest}</p>
+                <p data-cy='migration-status'>Status: {migration.locked ? t('locked') : 'OK'}</p>
                 {migration.locked && (
                     <>
                         <Button
@@ -35,12 +40,12 @@ const MigrationControl = () => {
                             }}
                             primary
                         >
-                        Unlock Migration
+                        {t('um')}
                         </Button>
                         <Confirm
                             open={confirmModalOpen}
-                            header='Unlock migration control'
-                            content='Are you sure you want to proceed?'
+                            header={t('umc')}
+                            content={t('umcmes')}
                             onConfirm={() => {
                                 unlockMigration();
                                 setLocalMigration({ ...migration, locked: !migration.locked });
@@ -52,8 +57,8 @@ const MigrationControl = () => {
                 )}
                 {!migration.locked && displayUnlockMessage && (
                     <Message positive>
-                        <Message.Header>Migration control unlocked</Message.Header>
-                        Restart Botfront to resume migration.
+                        <Message.Header>{t('mcu')}</Message.Header>
+                        {t('rbrm')}
                     </Message>
                 )}
             </>

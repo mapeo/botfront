@@ -13,6 +13,7 @@ import ConversationsBrowserContainer from '../conversations/ConversationsBrowser
 import FormResults from './FormResults';
 import { updateIncomingPath } from './incoming.utils';
 import { ProjectContext } from '../../layouts/context';
+import { useTranslation } from 'react-i18next';
 
 export default function Incoming(props) {
     const { router } = props;
@@ -55,22 +56,23 @@ export default function Incoming(props) {
         }
     };
 
-    const renderTabs = () => (
-        [
-            { value: 'newutterances', text: 'New Utterances' },
-            { value: 'conversations', text: 'Conversations' },
-            { value: 'forms', text: 'Form results' },
-            { value: 'populate', text: 'Populate' },
-        ].map(({ value, text }) => (
-            <Menu.Item
-                content={text}
-                key={value}
-                data-cy={value}
-                active={value === activeTab}
-                onClick={() => handleTabClick(value)}
-            />
-        ))
-    );
+    const renderTabs = ({t} = useTranslation()) => {
+        return (
+            [
+                { value: 'newutterances', text: t('nu') },
+                { value: 'conversations', text: t('convo') },
+                { value: 'forms', text: t('fr') },
+                { value: 'populate', text: t('populate') },
+            ].map(({ value, text }) => (
+                <Menu.Item
+                    content={text}
+                    key={value}
+                    data-cy={value}
+                    active={value === activeTab}
+                    onClick={() => handleTabClick(value)} />
+            ))
+        );
+    };
 
     return (
         <>

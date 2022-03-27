@@ -18,6 +18,7 @@ import IntentAndActionSelector from '../common/IntentAndActionSelector';
 import ToggleButtonGroup from '../common/ToggleButtonGroup';
 import { validateEventFilters } from '../../../lib/eventFilter.utils';
 import { ProjectContext } from '../../layouts/context';
+import { useTranslation } from 'react-i18next';
 
 const ConversationFilters = ({
     activeFilters,
@@ -26,6 +27,8 @@ const ConversationFilters = ({
 }) => {
     const [filtersErrors, setFiltersErrors] = useState(activeFilters);
     const { slots, dialogueActions } = useContext(ProjectContext);
+
+    const { t } = useTranslation();
 
     const actionOptions = useMemo(() => dialogueActions.map(
         action => ({
@@ -110,8 +113,8 @@ const ConversationFilters = ({
                 <Icon name='dropdown' />
                 <span className='toggle-filters'>
                     {activeAccordion
-                        ? `Hide Filters ${numberOfActiveFilterString}`
-                        : `Show Filters ${numberOfActiveFilterString}`}
+                        ? `${t('hf')} ${numberOfActiveFilterString}`
+                        : `${t('sf')} ${numberOfActiveFilterString}`}
                 </span>
                 {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
                 <span
@@ -121,7 +124,7 @@ const ConversationFilters = ({
                     tabIndex='0'
                     className='reset-button'
                 >
-                    <Icon name='redo' size='small' /> Reset
+                    <Icon name='redo' size='small' /> {t('reset')}
                 </span>
             </Accordion.Title>
             <Accordion.Content active={activeAccordion}>
@@ -131,7 +134,7 @@ const ConversationFilters = ({
                         <Button
                             data-cy='apply-filters'
                             onClick={() => applyFilters()}
-                            content='Apply'
+                            content={t('apply')}
                         />
                         <Dropdown
                             className='button icon'
@@ -139,7 +142,7 @@ const ConversationFilters = ({
                             trigger={<React.Fragment />}
                         >
                             <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => onDownloadConversations({ format: 'json' })} icon='download' text='Download results (JSON)' />
+                                <Dropdown.Item onClick={() => onDownloadConversations({ format: 'json' })} icon='download' text={t('drj')} />
                             </Dropdown.Menu>
                         </Dropdown>
                     </Button.Group>
@@ -149,8 +152,8 @@ const ConversationFilters = ({
                             onChange={(name, value) => setFilter(name, value)
                             }
                             options={[
-                                { text: 'User initiated', value: 'userInitiatedConversations' },
-                                { text: 'Triggered', value: 'triggeredConversations' },
+                                { text: t('userini'), value: 'userInitiatedConversations' },
+                                { text: t('triggered'), value: 'triggeredConversations' },
                             ]}
                             value={newFilters}
                         />
@@ -185,7 +188,7 @@ const ConversationFilters = ({
                     >
                         <Segment.Group horizontal>
                             <Segment className='x-than-filter'>
-                                <Label> Length</Label>
+                                <Label> {t('length')}</Label>
                             </Segment>
                             <Dropdown
                                 className='filter-dropdown'
@@ -224,10 +227,10 @@ const ConversationFilters = ({
                         <Segment.Group horizontal>
                             <Popup
                                 inverted
-                                content='time elapsed between the first and last message in seconds'
+                                content={t('timemes')}
                                 trigger={(
                                     <Segment className='x-than-filter'>
-                                        <Label> Duration</Label>
+                                        <Label> {t('duration')}</Label>
                                     </Segment>
                                 )}
                             />
@@ -276,7 +279,7 @@ const ConversationFilters = ({
                             className='conversation-filter'
                         >
                             <Segment className='x-than-filter'>
-                                <Label> Confidence &le;</Label>
+                                <Label> {t('confidence')} &le;</Label>
                             </Segment>
                             <Segment className='number-filter'>
                                 <Input
@@ -307,7 +310,7 @@ const ConversationFilters = ({
                             className='conversation-filter'
                         >
                             <Segment className='uid-label'>
-                                <Label>User ID</Label>
+                                <Label>{t('userid')}</Label>
                             </Segment>
                             <Segment className='id-filter'>
                                 <Input
@@ -316,7 +319,7 @@ const ConversationFilters = ({
                                         'userId',
                                         value.trim(),
                                     )}
-                                    placeholder='unique identifier'
+                                    placeholder={t('useridplaceholder')}
                                 />
                             </Segment>
                         </Segment.Group>

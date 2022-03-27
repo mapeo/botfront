@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import ImportRasaFiles from './ImportRasaFiles.jsx';
 import ExportProject from './ExportProject.jsx';
 import { can } from '../../../lib/scopes';
+import { withTranslation } from 'react-i18next';
 
 class ImportExportProject extends React.Component {
     constructor (props) {
@@ -36,7 +37,7 @@ class ImportExportProject extends React.Component {
 
     getMenuPanes = () => {
         const { loading } = this.state;
-        const { projectId } = this.props;
+        const { projectId, t } = this.props;
         const panes = [];
         if (can('import:x', projectId)) {
             panes.push({
@@ -76,4 +77,6 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(ImportExportProject);
+
+const TranslatedImportExportProject = withTranslation()(ImportExportProject)
+export default connect(mapStateToProps)(TranslatedImportExportProject);

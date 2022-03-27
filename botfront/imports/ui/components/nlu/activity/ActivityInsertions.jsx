@@ -10,6 +10,7 @@ import { upsertActivity as upsertActivityMutation } from './mutations';
 import apolloClient from '../../../../startup/client/apollo';
 import { ProjectContext } from '../../../layouts/context';
 import { cleanDucklingFromExamples } from '../../../../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export async function populateActivity(instance, examples, projectId, language, callback) {
     return Meteor.call('rasa.parse', instance, examples, async (err, activity) => {
@@ -40,6 +41,7 @@ export default function ActivityInsertions() {
         instance,
     } = useContext(ProjectContext);
     const MAX_LINES = 50;
+    const { t } = useTranslation();
     const [text, setText] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -58,7 +60,7 @@ export default function ActivityInsertions() {
 
     return (
         <Tab.Pane>
-            <Message info content='Add utterances below (one per line, 50 max). When you click on Add Utterances, they will be processed and the output will be shown in the New Utterances tab' />
+            <Message info content={t('popinfo')} />
             <br />
             <Form>
                 <TextArea
@@ -69,7 +71,7 @@ export default function ActivityInsertions() {
                 />
                 <br />
                 <br />
-                <Button loading={loading} onClick={saveExamples} disabled={!text || loading}>Add Utterances</Button>
+                <Button loading={loading} onClick={saveExamples} disabled={!text || loading}>{t('addut')}</Button>
             </Form>
         </Tab.Pane>
     );

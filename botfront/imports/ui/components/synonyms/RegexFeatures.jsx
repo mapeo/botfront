@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import LookupTable from './LookupTable';
 import { wrapMeteorCallback } from '../utils/Errors';
+import { withTranslation } from 'react-i18next';
 
 class RegexFeatures extends React.Component {
     onItemChanged = (regexFeature, callback) => {
@@ -17,18 +18,18 @@ class RegexFeatures extends React.Component {
     };
 
     render() {
-        const { model } = this.props;
+        const { model, t } = this.props;
         return (
             <LookupTable
                 data={model.training_data.regex_features}
-                keyAttribute='name'
-                keyHeader='Name'
+                keyAttribute={t('nome')}
+                keyHeader={t('nome')}
                 listHeader='Regex'
                 listAttribute='pattern'
                 onItemChanged={this.onItemChanged}
                 onItemDeleted={this.onItemDeleted}
                 valuePlaceholder='name'
-                listPlaceholder='Enter a regular expression'
+                listPlaceholder={t('ere')}
                 multiple={false}
             />
         );
@@ -39,6 +40,8 @@ RegexFeatures.propTypes = {
     model: PropTypes.object.isRequired,
 };
 
+const TranslatedRegexFeatures = withTranslation()(RegexFeatures)
+
 export default withTracker(props => ({
     model: props.model,
-}))(RegexFeatures);
+}))(TranslatedRegexFeatures);

@@ -26,6 +26,7 @@ import { unZipFile } from '../../../lib/importers/common';
 import { importFilesMutation } from './graphql';
 import { tooltipWrapper } from '../utils/Utils';
 import 'react-s-alert/dist/s-alert-default.css';
+import { useTranslation } from 'react-i18next';
 
 const ImportRasaFiles = () => {
     const {
@@ -33,6 +34,7 @@ const ImportRasaFiles = () => {
         project: { _id: projectId, name: projectName },
         language,
     } = useContext(ProjectContext);
+    const { t } = useTranslation();
     const [importFiles] = useMutation(importFilesMutation);
     const [fallbackImportLanguage, setFallbackImportLanguage] = useState(language);
     const [importResults, setImportResults] = useState([]);

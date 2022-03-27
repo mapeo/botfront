@@ -20,6 +20,7 @@ import SelectField from '../form_fields/SelectField';
 import { can } from '../../../lib/scopes';
 import { languages } from '../../../lib/languages';
 import { Info } from '../common/Info';
+import { withTranslation } from 'react-i18next';
 
 class ProjectInfo extends React.Component {
     constructor(props) {
@@ -128,6 +129,7 @@ class ProjectInfo extends React.Component {
             project: { _id: projectId },
         } = this.context;
         const { saving, value, model } = this.state;
+        const { t } = this.props;
         const hasWritePermission = can('projects:w', projectId);
         if (model.deploymentEnvironments) {
             model.deploymentEnvironments = model.deploymentEnvironments.filter(env => env !== 'staging');
@@ -143,7 +145,7 @@ class ProjectInfo extends React.Component {
                 >
                     <InfoField
                         name='name'
-                        label='Name'
+                        label={t('nome')}
                         className='project-name'
                         data-cy='project-name'
                     />
@@ -153,7 +155,7 @@ class ProjectInfo extends React.Component {
                         disabled
                     />
                     <Form.Field>
-                        <label>Languages supported</label>
+                        <label>{t('lngsupported')}</label>
                         <Dropdown
                             label='Select Languages'
                             name='lang'
@@ -172,6 +174,7 @@ class ProjectInfo extends React.Component {
                     </Form.Field>
                     {!!projectLanguages.length && (
                         <SelectField
+                            label={t('deflng')}
                             name='defaultLanguage'
                             options={projectLanguages}
                             className='project-default-language'
@@ -181,8 +184,8 @@ class ProjectInfo extends React.Component {
                    
                     <InfoField
                         name='nluThreshold'
-                        label='NLU threshold'
-                        info='Botfront will display recommendations on incoming utterances based on that threshold'
+                        label={t('NLUth')}
+                        info={t('NLUthinfo')}
                         data-cy='change-nlu-threshold'
                     />
                     <br />
@@ -190,22 +193,22 @@ class ProjectInfo extends React.Component {
                         <>
                             <InfoField
                                 name='deploymentEnvironments'
-                                label='Deployment environments'
-                                info='Botfront will enable additional environments for your workflow'
+                                label={t('depenv')}
+                                info={t('depenvinfo')}
                                 data-cy='deployment-environments'
                                 disabled={!can('resources:w', projectId)}
                             />
                             <Message
                                 size='tiny'
                                 info
-                                content='If you remove all environments, all stories will be published'
+                                content={t('depenvimes')}
                             />
                         </>
                     )}
                     <AutoField
                         step='0.5'
                         name='timezoneOffset'
-                        label='Timezone offset relative to UTC±00:00'
+                        label={t('timezone')}
                         data-cy='change-timezone-offset'
                     />
                     <br />
@@ -213,7 +216,7 @@ class ProjectInfo extends React.Component {
                     {hasWritePermission && (
                         <SubmitField
                             className='primary save-project-info-button'
-                            value='Save Changes'
+                            value={t('savechanges')}
                             data-cy='save-changes'
                         />
                     )}
@@ -225,4 +228,5 @@ class ProjectInfo extends React.Component {
 
 ProjectInfo.propTypes = {};
 
-export default ProjectInfo;
+const TranslatedPorjectInfo = withTranslation()(ProjectInfo)
+export default TranslatedPorjectInfo;

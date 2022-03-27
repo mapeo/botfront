@@ -29,29 +29,31 @@ import ActivityCommandBar from './ActivityCommandBar';
 import CanonicalPopup from '../common/CanonicalPopup';
 import ConversationSidePanel from './ConversationSidePanel';
 import ConversationIcon from './ConversationIcon';
+import { useTranslation } from 'react-i18next';
 
 function Activity(props) {
     const [sortType, setSortType] = useState('Newest');
+    const { t } = useTranslation();
     const {
         intents,
         entities,
     } = useContext(ProjectContext);
     const getSortFunction = () => {
         switch (sortType) {
-        case 'Newest':
-            return { sortKey: 'createdAt', sortDesc: true };
-        case 'Oldest':
-            return { sortKey: 'createdAt', sortDesc: false };
-        case 'Validated first':
-            return { sortKey: 'validated', sortDesc: true };
-        case 'Validated last':
-            return { sortKey: 'validated', sortDesc: false };
-        case '% ascending':
-            return { sortKey: 'confidence', sortDesc: false };
-        case '% decending':
-            return { sortKey: 'confidence', sortDesc: true };
-        default:
-            throw new Error('No such sort type');
+            case 'Newest':
+                return { sortKey: 'createdAt', sortDesc: true };
+            case 'Oldest':
+                return { sortKey: 'createdAt', sortDesc: false };
+            case 'Validated first':
+                return { sortKey: 'validated', sortDesc: true };
+            case 'Validated last':
+                return { sortKey: 'validated', sortDesc: false };
+            case '% ascending':
+                return { sortKey: 'confidence', sortDesc: false };
+            case '% decending':
+                return { sortKey: 'confidence', sortDesc: true };
+            default:
+                throw new Error('No such sort type');
         }
     };
 
@@ -93,7 +95,7 @@ function Activity(props) {
     const activityCommandBarRef = useRef();
     const tableRef = useRef();
     const canEdit = useMemo(() => can('incoming:w', projectId), [projectId]);
-    
+
     // always refetch on first page load and sortType change
     useEffect(() => {
         if (refetch) refetch();
@@ -145,12 +147,12 @@ function Activity(props) {
                 .filter(d1 => newData.map(d2 => d2._id).includes(d1._id))
                 .map(d1 => ({ ...d1, ...newData.find(d2 => d2._id === d1._id) })),
         );
-        
+
         const toInsert = dataUpdated.map((utterance) => {
             if (possiblyValidated.includes(utterance._id) && utterance.intent && utterance.validated !== undefined) return { ...utterance, validated: true };
             return utterance;
         });
-       
+
         return upsertActivity({
             variables: { data: toInsert },
             optimisticResponse: {
@@ -178,9 +180,8 @@ function Activity(props) {
     };
 
     const handleSetValidated = (utterances, val = true) => {
-        const message = `Mark ${utterances.length} incoming utterances as ${
-            val ? 'validated' : 'invalidated'
-        } ?`;
+        const message = `Mark ${utterances.length} incoming utterances as ${val ? 'validated' : 'invalidated'
+            } ?`;
         const action = () => handleUpdate(utterances.map(({ _id }) => ({ _id, validated: val })));
         return utterances.length > 1 ? setConfirm({ message, action }) : action();
     };
@@ -323,7 +324,7 @@ function Activity(props) {
             }}
         />
     );
-        
+
     const columns = [
         { key: '_id', selectionKey: true, hidden: true },
         {
@@ -398,86 +399,89 @@ function Activity(props) {
         }
     });
 
-    const renderTopBar = () => (
-        <div className='side-by-side wrap' style={{ marginBottom: '10px' }}>
-            {!!confirm && (
-                <Confirm
-                    open
-                    className='with-shortcuts'
-                    cancelButton='No'
-                    confirmButton='Yes'
-                    content={confirm.message}
-                    onCancel={() => {
-                        setConfirm(null);
-                        return tableRef?.current?.focusTable();
-                    }}
-                    onConfirm={() => {
-                        confirm.action();
-                        setConfirm(null);
-                        return tableRef?.current?.focusTable();
-                    }}
+    const renderTopBar = () => {
+        const { t } = useTranslation();
+        return (
+            <div className='side-by-side wrap' style={{ marginBottom: '10px' }}>
+                {!!confirm && (
+                    <Confirm
+                        open
+                        className='with-shortcuts'
+                        cancelButton='No'
+                        confirmButton='Yes'
+                        content={confirm.message}
+                        onCancel={() => {
+                            setConfirm(null);
+                            return tableRef?.current?.focusTable();
+                        }}
+                        onConfirm={() => {
+                            confirm.action();
+                            setConfirm(null);
+                            return tableRef?.current?.focusTable();
+                        }}
+                    />
+                )}
+                <Can I='nlu-data:w'>
+                    <Button.Group>
+                        <Button
+                            className='white'
+                            basic
+                            color='green'
+                            icon
+                            labelPosition='left'
+                            data-cy='run-evaluation'
+                            onClick={() => setConfirm({
+                                message:
+                                    t('remes'),
+                                action: linkRender,
+                            })
+                            }
+                            disabled={!validated.length}
+                        >
+                            <Icon name='lab' />
+                            {t('re')}
+                        </Button>
+                        <Button
+                            color='green'
+                            icon
+                            labelPosition='right'
+                            data-cy='add-to-training-data'
+                            onClick={() => setConfirm({
+                                message:
+                                    t('atdmes'),
+                                action: () => handleAddToTraining(validated),
+                            })
+                            }
+                            disabled={!validated.length}
+                        >
+                            <Icon name='add square' />
+                            {t('atd')}
+                        </Button>
+                    </Button.Group>
+                </Can>
+                <PrefixDropdown
+                    selection={sortType}
+                    updateSelection={option => setSortType(option.value)}
+                    options={[
+                        { value: 'Newest', text: t('newest') },
+                        { value: 'Oldest', text: t('oldest') },
+                        { value: 'Validated first', text: t('vf') },
+                        { value: 'Validated last', text: t('vl') },
+                        { value: '% ascending', text: t('%a') },
+                        { value: '% decending', text: ('%d') },
+                    ]}
+                    prefix={t('sb')}
                 />
-            )}
-            <Can I='nlu-data:w'>
-                <Button.Group>
-                    <Button
-                        className='white'
-                        basic
-                        color='green'
-                        icon
-                        labelPosition='left'
-                        data-cy='run-evaluation'
-                        onClick={() => setConfirm({
-                            message:
-                                'This will evaluate the model using the validated examples as a validation set and overwrite your current evaluation results.',
-                            action: linkRender,
-                        })
-                        }
-                        disabled={!validated.length}
-                    >
-                        <Icon name='lab' />
-                        Run evaluation
-                    </Button>
-                    <Button
-                        color='green'
-                        icon
-                        labelPosition='right'
-                        data-cy='add-to-training-data'
-                        onClick={() => setConfirm({
-                            message:
-                                'The validated utterances will be added to the training data.',
-                            action: () => handleAddToTraining(validated),
-                        })
-                        }
-                        disabled={!validated.length}
-                    >
-                        <Icon name='add square' />
-                        Add to training data
-                    </Button>
-                </Button.Group>
-            </Can>
-            <PrefixDropdown
-                selection={sortType}
-                updateSelection={option => setSortType(option.value)}
-                options={[
-                    { value: 'Newest', text: 'Newest' },
-                    { value: 'Oldest', text: 'Oldest' },
-                    { value: 'Validated first', text: 'Validated first' },
-                    { value: 'Validated last', text: 'Validated last' },
-                    { value: '% ascending', text: '% ascending' },
-                    { value: '% decending', text: '% decending' },
-                ]}
-                prefix='Sort by'
-            />
-            <Filters
-                intents={intents}
-                entities={entities}
-                filter={filter}
-                onChange={f => setFilter(f)}
-                className='left wrap'
-            />
-        </div>
-    );
+                <Filters
+                    intents={intents}
+                    entities={entities}
+                    filter={filter}
+                    onChange={f => setFilter(f)}
+                    className='left wrap'
+                />
+            </div>
+        );
+    }
 
     return (
         <>
@@ -490,7 +494,7 @@ function Activity(props) {
                         columns={columns}
                         data={data}
                         hasNextPage={hasNextPage}
-                        loadMore={loading ? () => {} : loadMore}
+                        loadMore={loading ? () => { } : loadMore}
                         onScroll={handleScroll}
                         selection={selection}
                         onChangeSelection={(newSelection) => {
@@ -515,9 +519,9 @@ function Activity(props) {
                 <Message
                     success
                     icon='check'
-                    header='No activity'
+                    header={t('na')}
                     data-cy='no-activity'
-                    content='No activity was found for the given criteria.'
+                    content={t('names')}
                 />
             )}
         </>

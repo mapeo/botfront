@@ -10,8 +10,9 @@ import ReactJson from 'react-json-view';
 import { debounce } from 'lodash';
 import queryString from 'query-string';
 import { ProjectContext } from '../../../layouts/context';
+import { withTranslation } from 'react-i18next';
 
-export default class API extends React.Component {
+class API extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -93,6 +94,8 @@ export default class API extends React.Component {
         } = this.state;
         const tzOptions = moment.tz.names().map(n => ({ value: n, text: n }));
 
+        const { t } = this.props;
+
         const codeString = this.getCodeString();
         return (
             <div className='glow-box extra-padding no-margin'>
@@ -101,7 +104,7 @@ export default class API extends React.Component {
                     <Form>
                         <Form.Field>
                             <TextArea
-                                placeholder='User says...'
+                                placeholder={t('us')}
                                 minRows={1}
                                 maxRows={999}
                                 value={query}
@@ -111,17 +114,17 @@ export default class API extends React.Component {
                         <br />
                         <Checkbox
                             slider
-                            label='Show Duckling params'
+                            label={t('sdp')}
                             onChange={this.handleDucklingOptionsChange}
                         />
                         <br />
                         <br />
                         {tz && (
                             <Form.Field>
-                                <label>Timezone: </label>
+                                <label>{t('time')}: </label>
                                 <Dropdown
                                     name='tz'
-                                    placeholder='Select timezone'
+                                    placeholder={t('timeselec')}
                                     search
                                     selection
                                     value={tz}
@@ -132,11 +135,11 @@ export default class API extends React.Component {
                         )}
                         {reftime !== 0 && (
                             <Form.Field>
-                                <label>Ref. time:</label>
+                                <label>{t('reftime')}:</label>
                                 <Input
                                     name='reftime'
                                     value={reftime}
-                                    placeholder='Ref. time'
+                                    placeholder={t('reftime')}
                                     onChange={this.handleChange}
                                 />
                             </Form.Field>
@@ -155,3 +158,7 @@ export default class API extends React.Component {
         );
     }
 }
+
+const TranslatedApi = withTranslation()(API);
+
+export default TranslatedApi;

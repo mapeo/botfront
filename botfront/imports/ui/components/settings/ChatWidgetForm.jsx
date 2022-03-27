@@ -33,6 +33,7 @@ import ChangesSaved from '../utils/ChangesSaved';
 import IntentField from '../form_fields/IntentField';
 import { ProjectContext } from '../../layouts/context';
 import InfoField from '../utils/InfoField';
+import { withTranslation } from 'react-i18next';
 
 const ColorField = React.lazy(() => import('../form_fields/ColorField'));
 class ChatWidgetForm extends React.Component {
@@ -159,11 +160,12 @@ class ChatWidgetForm extends React.Component {
         const {
             project: { deploymentEnvironments: availableEnvs = [] },
         } = this.context;
+        const { t } = this.props;
         return (
             <>
                 <Message
                     info
-                    content='Paste this snippet in your html.'
+                    content={t('cwmes')}
                 />
                 <Form>
                     <Input
@@ -197,7 +199,7 @@ class ChatWidgetForm extends React.Component {
                             }}
                             className='copy-button'
                             icon='copy'
-                            content={copied ? 'Copied' : 'Copy'}
+                            content={copied ? t('copied') : t('copy')}
                             data-cy='copy-webchat-snippet'
                         />
                     </Input>
@@ -208,12 +210,13 @@ class ChatWidgetForm extends React.Component {
 
     renderWidgetSettings = (saving, settings, projectId) => {
         const { saved, advancedVisible, showConfirmation } = this.state;
+        const { t } = this.props;
         return (
             <>
                 <Message
                     info
                     icon='question circle'
-                    content='Those settings are only used for the Webchat Plus channel'
+                    content={t('cwmesconf')}
                 />
                 <AutoForm
                     disabled={!!saving || !can('projects:w', projectId)}
@@ -241,42 +244,42 @@ class ChatWidgetForm extends React.Component {
                 >
                     <Divider />
 
-                    <Header as='h3'>General</Header>
-                    <AutoField label='Widget tile' name='title' data-cy='widget-title' />
-                    <AutoField label='Widget subtile' name='subtitle' />
+                    <Header as='h3'>{t('gen')}</Header>
+                    <AutoField label={t('wt')} name='title' data-cy='widget-title' />
+                    <AutoField label={t('wsub')} name='subtitle' />
                     <InfoField
                         required={false}
-                        info='The payload that will be sent when a user opens the chat window. The response to this payload is an introductory message'
+                        info={t('initpayinfo')}
                         Component={IntentField}
-                        label='Initial payload'
+                        label={t('initpay')}
                         name='initPayload'
                     />
                     <SelectField
                         data-cy='lang-select'
                         options={this.getlanguageOptions()}
                         name='customData'
-                        label='Language'
+                        label={t('lang')}
                     />
                     <ErrorsField />
                     <Divider />
 
-                    <Header as='h3'>Colors</Header>
-                    <ColorField label='Main webchat color' name='mainColor' />
+                    <Header as='h3'>{t('colors')}</Header>
+                    <ColorField label={t('mwc')} name='mainColor' />
                     <ColorField
-                        label='Conversation background color'
+                        label={t('cbc')}
                         name='conversationBackgroundColor'
                     />
-                    <ColorField label='User message text color' name='userTextColor' />
+                    <ColorField label={t('umtx')} name='userTextColor' />
                     <ColorField
-                        label='User message background color'
+                        label={t('umbc')}
                         name='userBackgroundColor'
                     />
                     <ColorField
-                        label='Assistant message text color'
+                        label={t('amtc')}
                         name='assistTextColor'
                     />
                     <ColorField
-                        label='Assistant message background color'
+                        label={t('ambc')}
                         name='assistBackgoundColor'
                     />
 
@@ -291,74 +294,74 @@ class ChatWidgetForm extends React.Component {
                             <Header as='h3' icon>
                                 {' '}
                                 <Icon name='dropdown' />
-                                Advanced
+                                {t('adv')}
                             </Header>
                         </Accordion.Title>
                         <Accordion.Content active={advancedVisible}>
                             <AutoField
-                                label='User input hint'
+                                label={t('uih')}
                                 name='inputTextFieldHint'
                             />
                             <ToggleField
-                                label='Show full screen button'
+                                label={t('sfsb')}
                                 name='showFullScreenButton'
                             />
                             <InfoField
-                                label='Display unread messages count'
+                                label={t('dumc')}
                                 required={false}
-                                info='If set, the number of unread message will be displayer next to the chat icon'
+                                info={t('dumcinfo')}
                                 Component={ToggleField}
                                 name='displayUnreadCount'
                             />
                             <InfoField
-                                label='Hide when not connected'
+                                label={t('hwnc')}
                                 required={false}
-                                info='If set, the widget will remain hidden if it cannot connect to Botfront'
+                                info={t('hwncinfo')}
                                 Component={ToggleField}
                                 name='hideWhenNotConnected'
                             />
                             <InfoField
-                                label='Disable tooltips'
+                                label={t('dt')}
                                 required={false}
-                                info='If set, messages will not appear as a bubble when the widget is closed'
+                                info={t('dtinfo')}
                                 Component={ToggleField}
                                 name='disableTooltips'
                             />
                             <InfoField
-                                label='Automatically clear the cache'
+                                label={t('acc')}
                                 required={false}
-                                info='If set, an user re-connecting after 30 will be start with a new session'
+                                info={t('accinfo')}
                                 Component={ToggleField}
                                 name='autoClearCache'
                             />
                             <InfoField
                                 required={false}
-                                info='Display a timestamp next to every message'
+                                info={t('dtnem')}
                                 Component={ToggleField}
-                                label='Display message timestamp'
+                                label={t('dtneminfo')}
                                 name='showMessageDate'
                             />
                             <Divider />
                             <AutoField
-                                label='Open launcher image'
+                                label={t('oli')}
                                 name='openLauncherImage'
                             />
-                            <AutoField label='Close launcher image' name='closeImage' />
-                            <AutoField label='Avatar path' name='profileAvatar' />
+                            <AutoField label={t('cli')} name='closeImage' />
+                            <AutoField label={t('ap')} name='profileAvatar' />
                             <Divider />
                             <LongTextField
                                 className='monospaced'
-                                label='Default highlight class name'
+                                label={t('dhcn')}
                                 name='defaultHighlightClassname'
                             />
                             <LongTextField
                                 className='monospaced'
-                                label='Default highlight css'
+                                label={t('dhc')}
                                 name='defaultHighlightCss'
                             />
                             <LongTextField
                                 className='monospaced'
-                                label='Default highlight css animation'
+                                label={t('dhca')}
                                 name='defaultHighlightAnimation'
                             />
                         </Accordion.Content>
@@ -404,20 +407,20 @@ class ChatWidgetForm extends React.Component {
     static contextType = ProjectContext;
 
     render() {
-        const { ready } = this.props;
+        const { ready, t } = this.props;
         const { activeMenu } = this.state;
         if (ready) {
             return (
                 <div data-cy='widget-form'>
                     <Menu pointing secondary>
                         <Menu.Item
-                            name='Configuration'
+                            name={t('config')}
                             active={activeMenu === 'Configuration'}
                             onClick={this.handleMenuClick}
                         />
                         <Menu.Item
                             data-cy='install'
-                            name='Installation'
+                            name={t('installation')}
                             active={activeMenu === 'Installation'}
                             onClick={this.handleMenuClick}
                         />
@@ -464,4 +467,5 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(widgetSettingsContainer);
+const TranslatedwidgetSettingsContainer = withTranslation()(widgetSettingsContainer)
+export default connect(mapStateToProps)(TranslatedwidgetSettingsContainer);

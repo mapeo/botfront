@@ -12,6 +12,7 @@ import { setStoriesCurrent } from '../../../store/actions/actions';
 import { StoryGroups } from '../../../../api/storyGroups/storyGroups.collection';
 
 import { SEARCH_FRAGMENTS } from './queries';
+import { useTranslation } from 'react-i18next';
 
 const SearchBar = (props) => {
     const {
@@ -23,6 +24,8 @@ const SearchBar = (props) => {
         setActiveStories,
         activeStories,
     } = props;
+
+    
 
     const [queryString, setQueryString] = useState('');
     const [open, setOpen] = useState(false);
@@ -213,7 +216,6 @@ const SearchBar = (props) => {
 
     const renderShortcuts = () => (
         <div className='search-shortcuts'>
-            <Shortcut value='with:highlights' text='Stories with onscreen guidance' />
             <Shortcut value='with:triggers' text='Stories with triggers' />
             <Shortcut value='with:custom_style' text='Stories with custom styles' />
             <Shortcut value='with:observe_events' text='Stories with user interactions callback' />

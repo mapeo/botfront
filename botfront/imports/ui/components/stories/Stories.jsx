@@ -294,6 +294,8 @@ function Stories(props) {
         if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
         if (key === 'ArrowLeft') treeRef.current.focusMenu();
     });
+
+
     return (
         <Loading loading={!ready}>
             <ConversationOptionsContext.Provider
