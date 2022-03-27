@@ -12,7 +12,7 @@ import { useActivity, useDeleteActivity, useUpsertActivity } from './hooks';
 
 import { populateActivity } from './ActivityInsertions';
 import { getSmartTips } from '../../../../lib/smart_tips';
-import Filters from '../models/Filters';
+import TranslatedFilters from '../models/Filters';
 
 import DataTable from '../../common/DataTable';
 import ActivityActionsColumn from './ActivityActionsColumn';
@@ -472,7 +472,7 @@ function Activity(props) {
                     ]}
                     prefix={t('sb')}
                 />
-                <Filters
+                <TranslatedFilters
                     intents={intents}
                     entities={entities}
                     filter={filter}

@@ -6,6 +6,7 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Loading } from './Utils';
+import { useTranslation } from 'react-i18next';
 
 export default function UploadDropzone(props) {
     const {
@@ -13,7 +14,7 @@ export default function UploadDropzone(props) {
     } = props;
     const [processing, setProcessing] = useState(false);
     const fileField = useRef();
-
+    const { t } = useTranslation();
     const handleError = (string) => {
         setProcessing(false);
         return onError(string);
@@ -76,17 +77,17 @@ export default function UploadDropzone(props) {
                         <Button
                             primary
                             basic
-                            content='Upload file'
+                            content={t('uf')}
                             size='small'
                             onClick={() => fileField.current.click()}
                         />
-                        <span className='small grey'>or drop a file to upload</span>
+                        <span className='small grey'>{t('dfu')}</span>
                     </div>
                 </Segment>
             ) : (
                 <Message
                     positive
-                    header='Success!'
+                    header={t('success')}
                     icon='check circle'
                     content={successMessage}
                 />

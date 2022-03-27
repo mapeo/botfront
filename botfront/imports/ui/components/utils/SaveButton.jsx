@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Confirm } from 'semantic-ui-react';
+import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const buttonStyle = {
     transitionProperty: 'background-color',
@@ -45,7 +47,7 @@ class SaveButton extends React.PureComponent {
 
     render() {
         const {
-            saving, saved, disabled, saveText, onSave, confirmText,
+            saving, saved, t, disabled, saveText, onSave, confirmText,
         } = this.props;
         const {
             confirmOpen,
@@ -61,7 +63,7 @@ class SaveButton extends React.PureComponent {
                         data-cy='save-button'
                         style={buttonStyle}
                         icon={saved ? 'check' : null}
-                        content={saved ? 'Saved' : saveText}
+                        content={saved ? t('saved') : saveText}
                     />
 
                     <Confirm
@@ -83,7 +85,7 @@ class SaveButton extends React.PureComponent {
                 data-cy='save-button'
                 style={buttonStyle}
                 icon={saved ? 'check' : null}
-                content={saved ? 'Saved' : saveText}
+                content={saved ? t('saved') : saveText}
             />
 
         );
@@ -105,8 +107,10 @@ SaveButton.defaultProps = {
     saved: false,
     disabled: false,
     onSave: () => { },
-    saveText: 'Save',
+    saveText:'Save',
     confirmText: '',
 };
 
-export default SaveButton;
+const TranslatedSaveButton = withTranslation()(SaveButton)
+
+export default TranslatedSaveButton;

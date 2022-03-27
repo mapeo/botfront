@@ -5,7 +5,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import PropTypes from 'prop-types';
 import { slotSchemas } from '../../../api/slots/slots.schema';
 import ConfirmPopup from '../common/ConfirmPopup';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 
 function SlotEditor(props) {
     const {
@@ -73,7 +73,7 @@ function SlotEditor(props) {
                 <br />
                 <ErrorsField data-cy='errors-field' />
                 { canEditSlots && (
-                    <SaveButton
+                    <TranslatedSaveButton
                         saved={saved}
                         saveText={newSlot ? 'Add Slot' : 'Save'}
                     />

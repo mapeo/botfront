@@ -8,7 +8,7 @@ import { logosSchema } from '../../../api/project/project.schema';
 import { Projects } from '../../../api/project/project.collection';
 import { wrapMeteorCallback } from '../utils/Errors';
 import ChangesSaved from '../utils/ChangesSaved';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import { can } from '../../../lib/scopes';
 import { withTranslation } from 'react-i18next';
 
@@ -61,7 +61,7 @@ class Appearance extends React.Component {
                             onDismiss={() => this.setState({ saved: false, showConfirmation: false })}
                         />
                     )}
-                    {hasWritePermission && <SaveButton saved={saved} saving={saving} />}
+                    {hasWritePermission && <TranslatedSaveButton saved={saved} saving={saving} />}
                 </AutoForm>
             </>
         );

@@ -7,7 +7,7 @@ import {
 import PropTypes from 'prop-types';
 import DataTable from '../../common/DataTable';
 import 'react-s-alert/dist/s-alert-default.css';
-import Filters from './Filters';
+import TranslatedFilters from './Filters';
 import { ProjectContext } from '../../../layouts/context';
 import NluCommandBar from './NluCommandBar';
 import IconButton from '../../common/IconButton';
@@ -405,7 +405,7 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
             )}
             {filters && (
                 <div className='side-by-side middle'>
-                    <Filters
+                    <TranslatedFilters
                         intents={intents}
                         entities={entities}
                         filter={filters}

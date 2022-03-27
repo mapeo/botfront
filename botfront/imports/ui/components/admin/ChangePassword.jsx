@@ -10,6 +10,7 @@ import {
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import { passwordComplexityRegex } from '../../../api/user/user.methods';
+import { withTranslation } from 'react-i18next';
 
 const changePasswordSchema = new SimpleSchema(
     {
@@ -39,7 +40,7 @@ changePasswordSchema.messageBox.messages({
 
 const changePasswordSchemaBridge = new SimpleSchema2Bridge(changePasswordSchema);
 
-export default class ChangePassword extends React.Component {
+class ChangePassword extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.getInitialState();
@@ -84,13 +85,16 @@ export default class ChangePassword extends React.Component {
         });
     };
 
-    render () {
+    render() {
+
+        const { t } = this.props;
+
         return (
             <AutoForm schema={changePasswordSchemaBridge} onSubmit={this.handleChangePassword}>
-                <Header>Change Password</Header>
-                <AutoField name='password' placeholder='password' type='password' label={null} />
-                <AutoField name='passwordVerify' placeholder='password' type='password' label={null} />
-                <Button data-cy='change-password'>Change</Button>
+                <Header>{t('pc')}</Header>
+                <AutoField name='password' placeholder={t('password')} type='password' label={null} />
+                <AutoField name='passwordVerify' placeholder={t('password')} type='password' label={null} />
+                <Button data-cy='change-password'>{t('change')}</Button>
                 <ErrorsField />
             </AutoForm>
         );
@@ -100,3 +104,7 @@ export default class ChangePassword extends React.Component {
 ChangePassword.propTypes = {
     userId: PropTypes.string.isRequired,
 };
+
+const TranslatedChangePassword = withTranslation()(ChangePassword)
+
+export default TranslatedChangePassword;

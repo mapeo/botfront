@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import SaveButton from '../../imports/ui/components/utils/SaveButton';
+import TranslatedSaveButton from '../../imports/ui/components/utils/SaveButton';
 
 export default {
     title: '_basic/SaveButton',
@@ -8,8 +8,8 @@ export default {
     decorators: [withKnobs],
 };
 
-export const Basic = () => <SaveButton />;
+export const Basic = () => <TranslatedSaveButton />;
 export const CustomText = () => (
-    <SaveButton saveText={text('Button text', 'Click to save')} />
+    <TranslatedSaveButton saveText={text('Button text', 'Click to save')} />
 );
 export const WithProps = () => <SaveButton saving={boolean('Saving', false)} saved={boolean('Saved', false)} />;

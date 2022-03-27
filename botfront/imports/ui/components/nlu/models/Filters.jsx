@@ -8,13 +8,14 @@ import DatePicker from '../../common/DatePicker';
 import { ProjectContext } from '../../../layouts/context';
 import { applyTimezoneOffset } from '../../../../lib/graphs';
 import getColor from '../../../../lib/getColors';
+import { withTranslation } from 'react-i18next';
 
 const SORT_KEY_MAP = {
     updatedAt: 'numeric',
     intent: 'alphabet',
 };
 
-export default class Filters extends React.Component {
+class Filters extends React.Component {
     state = {
         sortDropdownOpen: false,
     };
@@ -75,6 +76,7 @@ export default class Filters extends React.Component {
             },
             intents,
             entities,
+            t,
             className,
         } = this.props;
         const { startDate, endDate } = dateRange || {};
@@ -96,14 +98,14 @@ export default class Filters extends React.Component {
                             startDate={startDate}
                             endDate={endDate}
                             onConfirm={this.handleCalendarChange}
-                            placeholder='Filter by date'
+                            placeholder={t('fd')}
                         />
                     </div>
                 )}
                 {intents.length > 0 && (
                     <Dropdown
                         style={{ marginRight: '10px' }}
-                        placeholder='Filter by intents'
+                        placeholder={t('fi')}
                         size='tiny'
                         onChange={this.handleIntentSelectorChange}
                         multiple
@@ -117,7 +119,7 @@ export default class Filters extends React.Component {
                 {entities.length > 0 && (
                     <Dropdown
                         style={{ marginRight: '10px' }}
-                        placeholder='Filter by entities'
+                        placeholder={t('fe')}
                         size='tiny'
                         onChange={this.handleEntitiesSelectorChange}
                         value={entitiesFilter}
@@ -131,7 +133,7 @@ export default class Filters extends React.Component {
 
                 <Input
                     icon='search'
-                    placeholder='Search...'
+                    placeholder={t('search')}
                     onChange={this.handleTextChange}
                     value={query}
                 />
@@ -154,15 +156,15 @@ export default class Filters extends React.Component {
                                 <Dropdown
                                     onClick={() => this.setState({ sortDropdownOpen: !sortDropdownOpen })}
                                     onClose={() => this.setState({ sortDropdownOpen: false })}
-                                    placeholder='Choose sort'
+                                    placeholder={t('cs')}
                                     size='tiny'
                                     open={sortDropdownOpen}
                                     onChange={this.handleSortKeyChange}
                                     value={sortKey}
                                     floating
                                     options={[
-                                        { text: 'Date', value: 'updatedAt' },
-                                        { text: 'Intent', value: 'intent' },
+                                        { text: t('date'), value: 'updatedAt' },
+                                        { text: t('intent'), value: 'intent' },
                                     ]}
                                 />
                             )}
@@ -187,3 +189,7 @@ Filters.propTypes = {
     filter: PropTypes.object,
     className: PropTypes.string,
 };
+
+const TranslatedFilters = withTranslation()(Filters)
+
+export default TranslatedFilters;

@@ -27,7 +27,7 @@ import { Credentials as CredentialsCollection } from '../../../api/credentials';
 import { chatWidgetSettingsSchema } from '../../../api/project/project.schema';
 import { wrapMeteorCallback } from '../utils/Errors';
 import 'react-s-alert/dist/s-alert-default.css';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import { can } from '../../../lib/scopes';
 import ChangesSaved from '../utils/ChangesSaved';
 import IntentField from '../form_fields/IntentField';
@@ -373,7 +373,7 @@ class ChatWidgetForm extends React.Component {
                             }
                         />
                     )}
-                    <SaveButton
+                    <TranslatedSaveButton
                         saved={saved}
                         saving={saving}
                         disabled={!!saving || !can('projects:w', projectId)}

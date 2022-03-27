@@ -3,11 +3,13 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const DeleteRoleModal = (props) => {
     const {
         roleName, onConfirm, onCancel, roles,
     } = props;
+    const { t } = useTranslation();
     const [fallback, setFallback] = useState(null);
     const [error, setError] = useState(null);
     const handleSubmit = () => {
@@ -19,9 +21,9 @@ const DeleteRoleModal = (props) => {
     };
     return (
         <Modal open>
-            <Modal.Header>{`Delete ${roleName}`}</Modal.Header>
+            <Modal.Header>{`${t('del')} ${roleName}`}</Modal.Header>
             <Modal.Content data-cy='delete-role-modal'>
-                There might be users with that role, what role do you want them to fallback to ?
+                {t('roledel')}
                 <br />
                 <br />
                 <Dropdown
@@ -31,7 +33,7 @@ const DeleteRoleModal = (props) => {
                     }}
                     options={roles}
                     selection
-                    placeholder='Select a fallback role'
+                    placeholder={t('roledelplace')}
                     fluid
                     data-cy='select-fallback-role'
                 />
@@ -42,8 +44,8 @@ const DeleteRoleModal = (props) => {
                     </Message>
                 )}
                 <br />
-                <Button onClick={onCancel}>Cancel</Button>
-                <Button onClick={handleSubmit} negative>Delete</Button>
+                <Button onClick={onCancel}>{t('cancel')}</Button>
+                <Button onClick={handleSubmit} negative>{t('del')}</Button>
             </Modal.Content>
         </Modal>
     );

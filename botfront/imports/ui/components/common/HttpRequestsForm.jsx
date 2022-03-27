@@ -7,7 +7,7 @@ import {
 } from 'uniforms-semantic';
 import { Divider } from 'semantic-ui-react';
 import SelectField from '../form_fields/SelectField';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import { wrapMeteorCallback } from '../utils/Errors';
 
 function HttpRequestsForm(props) {
@@ -85,7 +85,7 @@ function HttpRequestsForm(props) {
                 {!disableMethodField && <SelectField name='method' />}
                 <div className='side-by-side left'>
                     {editable && (
-                        <SaveButton saved={k === saved} saving={k === saving} />
+                        <TranslatedSaveButton saved={k === saved} saving={k === saving} />
                     )}
                 </div>
             </AutoForm>

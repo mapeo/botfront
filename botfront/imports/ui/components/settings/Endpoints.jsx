@@ -12,7 +12,7 @@ import { Projects as ProjectsCollection } from '../../../api/project/project.col
 import { EndpointsSchema } from '../../../api/endpoints/endpoints.schema';
 import { wrapMeteorCallback } from '../utils/Errors';
 import ChangesSaved from '../utils/ChangesSaved';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import AceField from '../utils/AceField';
 import { can } from '../../../lib/scopes';
 import { ENVIRONMENT_OPTIONS } from '../constants.json';
@@ -151,7 +151,7 @@ class Endpoints extends React.Component {
                 )}
                 {hasWritePermission
                     && (
-                        <SaveButton
+                        <TranslatedSaveButton
                             saved={saved}
                             saving={saving}
                             disabled={!!saving}

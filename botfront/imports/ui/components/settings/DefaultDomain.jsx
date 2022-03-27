@@ -11,7 +11,7 @@ import { DefaultDomainSchema } from '../../../api/project/project.schema';
 import { Projects } from '../../../api/project/project.collection';
 import { wrapMeteorCallback } from '../utils/Errors';
 import ChangesSaved from '../utils/ChangesSaved';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import AceField from '../utils/AceField';
 import { withTranslation } from 'react-i18next';
 
@@ -77,7 +77,7 @@ class DefaultDomain extends React.Component {
                             )}
                         />
                     )}
-                    {hasWritePermission && <SaveButton saved={saved} saving={saving} />}
+                    {hasWritePermission && <TranslatedSaveButton saved={saved} saving={saving} />}
                 </AutoForm>
             </>
         );

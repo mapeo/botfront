@@ -12,9 +12,10 @@ import { rolesDataSimpleSchema as rolesDataSchema } from '../../../api/graphql/r
 import { GET_ROLES_DATA, UPSERT_ROLES_DATA, DELETE_ROLE_DATA } from '../utils/queries';
 import SelectField from '../form_fields/SelectField';
 import DeleteRoleModal from './DeleteRoleModal';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import PageMenu from '../utils/PageMenu';
 import { can } from '../../../lib/scopes';
+import { useTranslation } from 'react-i18next';
 
 const children = new SimpleSchema({
     children: [String],
@@ -24,6 +25,7 @@ const rolesDataSchemaWithChildren = children.extend(rolesDataSchema);
 
 const Role = (props) => {
     const { params } = props;
+    const { t } = useTranslation();
     const { role_name: roleName } = params;
     const [roleData, setRoleData] = useState(null);
     const [saved, setSaved] = useState(false);
@@ -111,11 +113,11 @@ const Role = (props) => {
     
     return (
         <>
-            <PageMenu icon='shield alternate' title={roleName || 'New Role'} />
+            <PageMenu icon='shield alternate' title={roleName || t('newrole')} />
             <Container>
                 {disabled && (
                     <Message info>
-                        This role is a default role and thus cannot be modified.
+                        {t('rolesinfo')}
                     </Message>
                 )}
                 <Segment>
@@ -137,17 +139,17 @@ const Role = (props) => {
                             onSubmit={handleSubmit}
                             disabled={disabled || !can('roles:w', { anyScope: true })}
                         >
-                            <AutoField name='name' data-cy='role-name-input' />
-                            <AutoField name='description' data-cy='role-description-input' />
-                            <SelectField name='children' options={rolesOptions} data-cy='role-children-dropdown' />
+                            <AutoField name='name' data-cy='role-name-input' label = {t('nome')}/>
+                            <AutoField name='description' data-cy='role-description-input' label= {t('description')}/>
+                            <SelectField name='children' options={rolesOptions} data-cy='role-children-dropdown' label= {t('children')}/>
                             <ErrorsField />
                             {can('roles:w', { anyScope: true }) && (
-                                <><SaveButton disabled={disabled} saved={saved} />
+                                <><TranslatedSaveButton disabled={disabled} saved={saved} />
                                     { roleData && roleData.name && (
                                         <Button
                                             data-cy='delete-role'
                                             negative
-                                            content='Delete'
+                                            content={t('del')}
                                             disabled={disabled}
                                             floated='right'
                                             onClick={handleDeletion}

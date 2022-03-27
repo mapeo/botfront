@@ -11,7 +11,7 @@ import { CredentialsSchema, Credentials as CredentialsCollection } from '../../.
 import { Projects as ProjectsCollection } from '../../../api/project/project.collection';
 import { wrapMeteorCallback } from '../utils/Errors';
 import ChangesSaved from '../utils/ChangesSaved';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import AceField from '../utils/AceField';
 import { can } from '../../../lib/scopes';
 import { ENVIRONMENT_OPTIONS } from '../constants.json';
@@ -107,7 +107,7 @@ class Credentials extends React.Component {
                 )}
                 {hasWritePermission
                     && (
-                        <SaveButton
+                        <TranslatedSaveButton
                             saved={saved}
                             saving={saving}
                             disabled={!!saving}

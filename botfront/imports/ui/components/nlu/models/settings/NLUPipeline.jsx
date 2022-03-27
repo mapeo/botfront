@@ -12,7 +12,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { wrapMeteorCallback } from '../../../utils/Errors';
 import ChangesSaved from '../../../utils/ChangesSaved';
 import AceField from '../../../utils/AceField';
-import SaveButton from '../../../utils/SaveButton';
+import TranslatedSaveButton from '../../../utils/SaveButton';
 import { Can, can } from '../../../../../lib/scopes';
 
 export default class NLUPipeline extends React.Component {
@@ -78,7 +78,7 @@ export default class NLUPipeline extends React.Component {
                         />
                     )}
                     <Can I='nlu-data:x' projectId={projectId}>
-                        <SaveButton saved={saved} />
+                        <TranslatedSaveButton saved={saved} />
                     </Can>
                 </AutoForm>
             </Tab.Pane>

@@ -17,7 +17,7 @@ import { wrapMeteorCallback } from '../utils/Errors';
 import { can } from '../../../lib/scopes';
 import InfoField from '../utils/InfoField';
 import { Info } from '../common/Info';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import { Button } from 'semantic-ui-react'
 
 class GitSettings extends React.Component {
@@ -128,7 +128,7 @@ class GitSettings extends React.Component {
                 />
                 { !hidden && <ErrorsField /> }
               
-                {hasWritePermission && (!hidden || isGitSettingsEmpty) && <SaveButton saved={saved} saving={saving} />}
+                {hasWritePermission && (!hidden || isGitSettingsEmpty) && <TranslatedSaveButton saved={saved} saving={saving} />}
                 {!isGitSettingsEmpty  ? <Button  
             className='reveal-hide'
             data-cy='reveal-button' 

@@ -24,7 +24,7 @@ import { Projects } from '../../../api/project/project.collection';
 import { can, getUserScopes } from '../../../lib/scopes';
 import { wrapMeteorCallback } from '../utils/Errors';
 import SelectField from '../form_fields/SelectField';
-import ChangePassword from './ChangePassword';
+import TranslatedChangePassword from './ChangePassword';
 import PageMenu from '../utils/PageMenu';
 import { withTranslation } from 'react-i18next';
 
@@ -149,7 +149,7 @@ class User extends React.Component {
                     menuItem: t('pc'),
                     render: () => (
                         <Segment>
-                            <ChangePassword userId={user._id} />
+                            <TranslatedChangePassword userId={user._id} />
                         </Segment>
                     ),
                 }]

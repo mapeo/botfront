@@ -11,7 +11,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { CorePolicySchema, CorePolicies as CorePolicyCollection } from '../../../api/core_policies';
 import { wrapMeteorCallback } from '../utils/Errors';
 import ChangesSaved from '../utils/ChangesSaved';
-import SaveButton from '../utils/SaveButton';
+import TranslatedSaveButton from '../utils/SaveButton';
 import AceField from '../utils/AceField';
 import { Can, can } from '../../../lib/scopes';
 
@@ -98,7 +98,7 @@ class CorePolicy extends React.Component {
                     />
                 )}
                 <Can I='stories:w' projectId={projectId}>
-                    <SaveButton saved={saved} saving={saving} />
+                    <TranslatedSaveButton saved={saved} saving={saving} />
                 </Can>
             </AutoForm>
         );
