@@ -468,7 +468,7 @@ function Activity(props) {
                         { value: 'Validated first', text: t('vf') },
                         { value: 'Validated last', text: t('vl') },
                         { value: '% ascending', text: t('%a') },
-                        { value: '% decending', text: ('%d') },
+                        { value: '% decending', text: t('%d') },
                     ]}
                     prefix={t('sb')}
                 />
