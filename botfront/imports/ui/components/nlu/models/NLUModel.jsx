@@ -192,7 +192,7 @@ function NLUModel(props) {
 
     return (
         <>
-            {renderTopMenu}
+            {renderTopMenu()}
             <Container data-cy='nlu-page'>
                 {['Training Data', 'Evaluation'].includes(activeItem) && (
                     <>
