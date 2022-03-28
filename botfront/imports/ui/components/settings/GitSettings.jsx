@@ -19,6 +19,7 @@ import InfoField from '../utils/InfoField';
 import { Info } from '../common/Info';
 import TranslatedSaveButton from '../utils/SaveButton';
 import { Button } from 'semantic-ui-react'
+import { withTranslation } from 'react-i18next';
 
 class GitSettings extends React.Component {
     constructor(props) {
@@ -26,14 +27,14 @@ class GitSettings extends React.Component {
         this.state = { saving: false, saved: false, hidden: true };
     }
 
-    
+
 
     componentWillUnmount() {
         clearTimeout(this.successTimeout);
     }
 
     hideCreds = (hidden = true) => {
-        this.setState({hidden})
+        this.setState({ hidden })
     }
 
     onSave = (gitSettings) => {
@@ -50,34 +51,34 @@ class GitSettings extends React.Component {
                         this.setState({ saved: false });
                         this.hideCreds(true)
                     }, 2 * 1000);
-                    
+
                 }
                 this.setState({ saving: false });
-                
+
             }),
         );
     };
 
-    gitSettingsEmpty = (gitSettings) => { 
+    gitSettingsEmpty = (gitSettings) => {
         if (!gitSettings) return true
         return Object.values(gitSettings).every(val => !val)
     }
-   
+
 
     renderGitSettings = () => {
-        const { gitSettings, projectId } = this.props;
+        const { gitSettings, projectId, t } = this.props;
         const { saving, saved, hidden } = this.state;
         const bridge = new SimpleSchema2Bridge(GitSettingsSchema);
         const hasWritePermission = can('git-credentials:w', projectId);
-        const obfuscation = { 
-        //we use this obfuscation because it matches the  validation regex, thus no error are shown when obfuscating
-        gitString: 'https://******:******@******.******#******', 
-        publicSshKey: '**********************', 
-        privateSshKey:'**********************'
-    }
+        const obfuscation = {
+            //we use this obfuscation because it matches the  validation regex, thus no error are shown when obfuscating
+            gitString: 'https://******:******@******.******#******',
+            publicSshKey: '**********************',
+            privateSshKey: '**********************'
+        }
         const isGitSettingsEmpty = this.gitSettingsEmpty(gitSettings)
         return (
-            
+
             <AutoForm
                 className='git-settings-form'
                 schema={bridge}
@@ -91,55 +92,55 @@ class GitSettings extends React.Component {
                     label={(
                         <>
                             <Icon name='git' />
-                    Git repository
+                            {t('gr')}
                         </>
                     )}
                     info={(
                         <span className='small'>
-                    Use format{' '}
+                            {t('usef')}{' '}
                             <span className='monospace break-word'>
-                        https://user:token@domain/org/repo.git#branch
+                                https://user:token@domain/org/repo.git#branch
                             </span>{' '}
-                    or{' '}
+                            {t('or')}{' '}
                             <span className='monospace break-word'>
-                        git@domain:org/repo.git#branch
+                                git@domain:org/repo.git#branch
                             </span>
-                    .
+                            .
                         </span>
                     )}
                     className='project-name'
                     data-cy='git-string'
                 />
-                <div className={`ssh-keys field ${(hidden && !isGitSettingsEmpty) ? 'disabled': ''}`} >
-                    <Icon name='key' /> SSH keys{' '}
-                    <Info info='These are stored as is, so use caution: use this key only for versioning your bot, and give it only the necessary rights to push and pull to above repo.' />
+                <div className={`ssh-keys field ${(hidden && !isGitSettingsEmpty) ? 'disabled' : ''}`} >
+                    <Icon name='key' /> {t('sk')}{' '}
+                    <Info info={t('skinfo')} />
                 </div>
                 <AutoField
-                    label='Public'
+                    label={t('public')}
                     name='publicSshKey'
                     className='project-name'
                     data-cy='public-ssh-key'
                 />
                 <LongTextField
-                    label='Private'
+                    label={t('private')}
                     name='privateSshKey'
                     className='project-name'
                     data-cy='private-ssh-key'
                 />
-                { !hidden && <ErrorsField /> }
-              
+                {!hidden && <ErrorsField />}
+
                 {hasWritePermission && (!hidden || isGitSettingsEmpty) && <TranslatedSaveButton saved={saved} saving={saving} />}
-                {!isGitSettingsEmpty  ? <Button  
-            className='reveal-hide'
-            data-cy='reveal-button' 
-            floated='right'
-            onClick={(e)=>{ e.preventDefault(); this.hideCreds(!hidden)}}> 
-                {hidden ? 'Reveal ': 'Hide' }
-            </Button>
-            : <></>}
-                
+                {!isGitSettingsEmpty ? <Button
+                    className='reveal-hide'
+                    data-cy='reveal-button'
+                    floated='right'
+                    onClick={(e) => { e.preventDefault(); this.hideCreds(!hidden) }}>
+                    {hidden ? 'Reveal ' : 'Hide'}
+                </Button>
+                    : <></>}
+
             </AutoForm>
-            
+
         );
     };
 
@@ -172,4 +173,6 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(GitSettingsContainer);
+const TranslatedGitSettingsContainer = withTranslation()(GitSettingsContainer)
+
+export default connect(mapStateToProps)(TranslatedGitSettingsContainer);

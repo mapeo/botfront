@@ -41,7 +41,7 @@ class ImportExportProject extends React.Component {
         const panes = [];
         if (can('import:x', projectId)) {
             panes.push({
-                menuItem: this.renderMenuItem('Import'),
+                menuItem: this.renderMenuItem(t('import')),
                 render: () => (
                     <Tab.Pane loading={loading} key='Import' data-cy='import-project-tab'>
                         <ImportRasaFiles />
@@ -51,7 +51,7 @@ class ImportExportProject extends React.Component {
         }
         if (can('export:x', projectId)) {
             panes.push({
-                menuItem: this.renderMenuItem('Export'),
+                menuItem: this.renderMenuItem(t('export')),
                 render: () => (
                     <Tab.Pane loading={loading} key='Export' data-cy='export-project-tab'>
                         <ExportProject setLoading={this.setLoading} />

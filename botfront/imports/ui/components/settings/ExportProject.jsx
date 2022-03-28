@@ -7,12 +7,14 @@ import {
 } from 'semantic-ui-react';
 import JSZIP from 'jszip';
 import { ProjectContext } from '../../layouts/context';
+import { useTranslation } from 'react-i18next';
 
 const ExportProject = ({
     setLoading,
 }) => {
     const { projectLanguages, language, project: { _id: projectId, name: projectName } } = useContext(ProjectContext);
 
+    const {  t } = useTranslation();
     const [exportLanguage, setExportLanguage] = useState(projectLanguages.length > 1 ? 'all' : language);
     const [exportConversations, setExportConversations] = useState(false);
     const [exportIncoming, setExportIncoming] = useState(false);
@@ -23,16 +25,19 @@ const ExportProject = ({
         text: 'There was an unexpected error during the export.',
     });
 
-    const getLanguageOptions = () => [
-        ...(projectLanguages.length > 1
-            ? [{ value: 'all', text: 'All languages' }]
-            : []),
-        ...projectLanguages,
-    ].map(({ value, text }) => ({
-        key: value,
-        text,
-        value,
-    }));
+    const getLanguageOptions = () => {
+        const { t } = useTranslation();
+        return [
+            ...(projectLanguages.length > 1
+                ? [{ value: 'all', text: t('al') }]
+                : []),
+            ...projectLanguages,
+        ].map(({ value, text }) => ({
+            key: value,
+            text,
+            value,
+        }));
+    };
 
 
     const exportForRasa = () => {
@@ -106,7 +111,7 @@ const ExportProject = ({
                     toggle
                     checked={exportConversations}
                     onChange={() => setExportConversations(!exportConversations)}
-                    label='Export Conversations'
+                    label={t('ec')}
                     className='export-option'
                     key='exportConversations'
                 />
@@ -115,7 +120,7 @@ const ExportProject = ({
                     toggle
                     checked={exportIncoming}
                     onChange={() => setExportIncoming(!exportIncoming)}
-                    label='Export Incoming utterances'
+                    label={t('eiu')}
                     className='export-option'
                     key='exportIncoming'
                 />
@@ -129,7 +134,7 @@ const ExportProject = ({
                 data-cy='export-button'
             >
                 <Icon name='download' />
-                    Export project for Rasa or Botfront
+                    {t('ep')}
             </Button>
             
            

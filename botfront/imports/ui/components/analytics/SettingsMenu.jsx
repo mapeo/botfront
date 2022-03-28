@@ -4,6 +4,7 @@ import {
     Dropdown, Icon, Button, Popup,
 } from 'semantic-ui-react';
 import SettingsPortal from './SettingsPortal';
+import { useTranslation } from 'react-i18next';
 
 export const filters = ['includeActions', 'excludeAction', 'includeActions', 'excludeIntents', 'selectedSequence', 'conversationLength', 'limit', 'eventFilter'];
 export const conversationTypes = ['userInitiatedConversations', 'triggeredConversations'];
@@ -18,6 +19,8 @@ const SettingsMenu = (props) => {
         exportData,
         canExport,
     } = props;
+
+    const { t } = useTranslation();
 
     const displayTypeHeader = useMemo(() => (
         displayConfigs.some(setting => conversationTypes.includes(setting))
@@ -44,30 +47,30 @@ const SettingsMenu = (props) => {
         const valueText = `(${values.length})`;
         switch (setting) {
         case 'includeActions':
-            return { text: 'Included actions', valueText, values };
+            return { text: t('ia'), valueText, values };
         case 'excludeActions':
-            return { text: 'Excluded actions', valueText, values };
+            return { text: t('ea'), valueText, values };
         case 'includeIntents':
-            return { text: 'Included intents', valueText, values };
+            return { text: t('ii'), valueText, values };
         case 'excludeIntents':
-            return { text: 'Excluded intents', valueText, values };
+            return { text: t('ei'), valueText, values };
         case 'selectedSequence':
-            return { text: 'Selected sequence', valueText, values };
+            return { text: t('selecseq'), valueText, values };
         case 'conversationLength':
             return {
-                text: 'Minimum number of utterances',
+                text: t('mnu'),
                 valueText: settings[setting] ? `: ${settings[setting]}` : '',
                 values,
             };
         case 'limit':
             return {
-                text: 'Display limit',
+                text: t('dl'),
                 valueText: settings[setting] ? `: ${settings[setting]}` : '',
                 values: settings[setting],
             };
         case 'eventFilter':
             return {
-                text: 'Filter conversation events',
+                text: t('fce'),
                 valueText,
                 values: { selection: settings[setting] || [], operator: settings.eventFilterOperator || 'or' },
             };
@@ -118,41 +121,41 @@ const SettingsMenu = (props) => {
             basic
         >
             <Dropdown.Menu>
-                <Dropdown.Header content='Appearance' onClick={e => e.stopPropagation()} />
+                <Dropdown.Header content={t('appea')} onClick={e => e.stopPropagation()} />
                 <Dropdown.Item
-                    text={settings.wide ? 'Shrink to half width' : 'Expand to full width'}
+                    text={settings.wide ? t('shw') : t('efw')}
                     data-cy='toggle-wide'
                     onClick={() => onChangeSettings({ wide: !settings.wide })}
                 />
                 <React.Fragment key='edit-description'>
                     <SettingsPortal
-                        text='Edit description'
+                        text={t('ed')}
                         onClose={() => setSettingsOpen(false)}
                         open={settingsOpen === 'description'}
                         values={titleDescription}
                         onChange={newVal => onChangeSettings({ description: newVal })}
                     />
                     <Dropdown.Item
-                        text='Edit description'
+                        text={t('ed')}
                         data-cy='edit-description'
                         onClick={() => setSettingsOpen('description')}
                     />
                 </React.Fragment>
                 {denominatorLine && (
                     <Dropdown.Item
-                        text={settings.showDenominator ? 'Hide total conversations' : 'Show total conversations'}
+                        text={settings.showDenominator ? t('hc') : t('sc')}
                         data-cy='toggle-denominator'
                         onClick={() => onChangeSettings({ showDenominator: !settings.showDenominator })}
                     />
                 )}
-                {displayTypeHeader && <Dropdown.Header content='Types of conversations' onClick={e => e.stopPropagation()} /> }
-                {displayConfigs.includes('userInitiatedConversations') && renderCheckOption('User initiated conversations', 'userInitiatedConversations', settings.userInitiatedConversations)}
-                {displayConfigs.includes('triggerConversations') && renderCheckOption('Triggered conversations', 'triggerConversations', settings.triggerConversations)}
-                {displayFiltersHeader && <Dropdown.Header content='Filters' onClick={e => e.stopPropagation()} />}
+                {displayTypeHeader && <Dropdown.Header content={t('tc')} onClick={e => e.stopPropagation()} /> }
+                {displayConfigs.includes('userInitiatedConversations') && renderCheckOption(t('uic'), 'userInitiatedConversations', settings.userInitiatedConversations)}
+                {displayConfigs.includes('triggerConversations') && renderCheckOption(t('trc'), 'triggerConversations', settings.triggerConversations)}
+                {displayFiltersHeader && <Dropdown.Header content={t('filters')} onClick={e => e.stopPropagation()} />}
                 {(displayConfigs || []).map(renderExtraOptionsLink)}
                 <Dropdown.Header content='Extras' onClick={e => e.stopPropagation()} />
                 <Popup
-                    content='There is no data in this card to download'
+                    content={t('popcard')}
                     inverted
                     disabled={canExport}
                     trigger={(
@@ -161,7 +164,7 @@ const SettingsMenu = (props) => {
                             className={!canExport ? 'disabled-popup-item' : ''}
                             data-cy='export-card'
                         >
-                            Export this card (.csv)
+                            {t('etc')} (.csv)
                         </Dropdown.Item>
                     )}
                 />

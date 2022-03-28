@@ -7,6 +7,7 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
+import { useTranslation } from 'react-i18next';
 
 function DatePicker({
     startDate, endDate, onConfirm, onConfirmForAll, position, placeholder,
@@ -17,6 +18,7 @@ function DatePicker({
     const [popupOpen, setPopupOpen] = useState(false);
     const [selectedRangeType, setSelectedRangeType] = useState(0);
     const [customRange, setCustomRange] = useState({ startDate: null, endDate: null });
+    const { t } = useTranslation();
 
     function setNewDates(start, end) {
         setNewStartDate(start);
@@ -38,9 +40,9 @@ function DatePicker({
 
     const getCustomRangeText = () => {
         if ((customRange.startDate || startDate) || (customRange.endDate || endDate)) {
-            return `Custom: ${getDateString(customRange.startDate || startDate, customRange.endDate || endDate)}`;
+            return `${t('custom')} ${getDateString(customRange.startDate || startDate, customRange.endDate || endDate)}`;
         }
-        return 'Pick a range';
+        return t('pickr');
     };
     const DateOptions = [
         {
@@ -51,19 +53,19 @@ function DatePicker({
         },
         {
             key: 'seven',
-            text: 'Last 7 days',
+            text: t('l7'),
             value: 1,
             data: { startDate: moment().subtract(6, 'days').startOf('day'), endDate: moment().endOf('day') },
         },
         {
             key: 'thirty',
-            text: 'Last 30 days',
+            text: t('l30'),
             value: 2,
             data: { startDate: moment().subtract(29, 'days').startOf('day'), endDate: moment().endOf('day') },
         },
         {
             key: 'ninety',
-            text: 'Last 90 days',
+            text: t('l90'),
             value: 3,
             data: { startDate: moment().subtract(89, 'days').startOf('day'), endDate: moment().endOf('day') },
         },
@@ -107,7 +109,7 @@ function DatePicker({
             style={{ height: '450px' }}
             trigger={(
                 <Button icon labelPosition='left' onClick={() => handlePopupState()} className='date-picker-button'>
-                    {startDate ? getDateString(startDate, endDate, 'DD/MM/YYYY') : placeholder || 'Pick a range'}
+                    {startDate ? getDateString(startDate, endDate, 'DD/MM/YYYY') : placeholder || t('pickr')}
                     <Icon name='calendar alternate' />
                 </Button>
             )}
@@ -115,7 +117,7 @@ function DatePicker({
 
             <Form>
                 <Form.Dropdown
-                    label='Date range'
+                    label={t('dr')}
                     value={selectedRangeType}
                     fluid
                     selection
@@ -143,13 +145,13 @@ function DatePicker({
 
             <Menu secondary>
                 <Menu.Item>
-                    <Button content='Cancel' onClick={() => handlePopupState()} />
+                    <Button content={t('cancel')} onClick={() => handlePopupState()} />
                 </Menu.Item>
 
                 <Menu.Menu position='right'>
                     <Menu.Item>
                         <Button.Group primary>
-                            <Button data-cy='apply-new-dates' content='Apply' onClick={() => sendNewDates()} />
+                            <Button data-cy='apply-new-dates' content={t('apply')} onClick={() => sendNewDates()} />
                             {onConfirmForAll && (
                                 <Dropdown
                                     className='button icon'
@@ -157,7 +159,7 @@ function DatePicker({
                                     options={[{
                                         key: 'apply-new-dates-to-all',
                                         'data-cy': 'apply-new-dates-to-all',
-                                        text: 'Apply to all cards',
+                                        text: t('aac'),
                                         onClick: () => sendNewDates(true),
                                     }]}
                                     trigger={<React.Fragment />}

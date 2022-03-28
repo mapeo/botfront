@@ -273,59 +273,61 @@ const ImportRasaFiles = () => {
         fallbackImportLanguage,
     ]);
 
-    const renderImportSection = () => (
-        <Segment
-            className={`import-box ${
-                canDrop && isOver && !filesImporting ? 'upload-target' : ''
-            }`}
-        >
-            <div
-                {...(!filesImporting ? { ref: drop } : {})}
-                data-cy='drop-zone-data'
-                className='drop-zone-data'
+    const renderImportSection = () => {
+        const { t } = useTranslation();
+        return (
+            <Segment
+                className={`import-box ${canDrop && isOver && !filesImporting ? 'upload-target' : ''
+                    }`}
             >
-                {filesImporting ? (
-                    <div className='data-import-loader'>
-                        <Loader active>Importing data...</Loader>
-                    </div>
-                ) : (
-                    <>
-                        <input
-                            type='file'
-                            ref={fileField}
-                            style={{ display: 'none' }}
-                            multiple
-                            onChange={e => handleFileDrop(e.target.files, fileReader)}
-                        />
-                        {fileList.length ? (
-                            renderFileList(fileReader)
-                        ) : (
-                            <>
-                                <div className='align-center'>
-                                    <Icon
-                                        name='database'
-                                        size='huge'
-                                        color='grey'
-                                        style={{ marginBottom: '8px' }}
-                                    />
-                                    <Button
-                                        primary
-                                        basic
-                                        content='Open File Browser'
-                                        size='small'
-                                        onClick={() => fileField.current.click()}
-                                    />
-                                    <span className='small grey'>
-                                        or drop files to upload
-                                    </span>
-                                </div>
-                            </>
-                        )}
-                    </>
-                )}
-            </div>
-        </Segment>
-    );
+                <div
+                    {...(!filesImporting ? { ref: drop } : {})}
+                    data-cy='drop-zone-data'
+                    className='drop-zone-data'
+                >
+                    {filesImporting ? (
+                        <div className='data-import-loader'>
+                            <Loader active>Importing data...</Loader>
+                        </div>
+                    ) : (
+                        <>
+                            <input
+                                type='file'
+                                ref={fileField}
+                                style={{ display: 'none' }}
+                                multiple
+                                onChange={e => handleFileDrop(e.target.files, fileReader)}
+                            />
+                            {fileList.length ? (
+                                renderFileList(fileReader)
+                            ) : (
+                                <>
+                                    <div className='align-center'>
+                                        <Icon
+                                            name='database'
+                                            size='huge'
+                                            color='grey'
+                                            style={{ marginBottom: '8px' }}
+                                        />
+                                        <Button
+                                            primary
+                                            basic
+                                            content={t('ofb')}
+                                            size='small'
+                                            onClick={() => fileField.current.click()}
+                                        />
+                                        <span className='small grey'>
+                                            {t('dfu')}
+                                        </span>
+                                    </div>
+                                </>
+                            )}
+                        </>
+                    )}
+                </div>
+            </Segment>
+        )
+    };
 
     const warnWipe = () => {
         let message = null;
@@ -389,79 +391,77 @@ const ImportRasaFiles = () => {
         return <></>;
     };
 
-    const renderKnobs = () => (
-        <Segment className='import-box'>
-            <div className='side-by-side narrow left middle'>
-                <Popup
-                    content={(
-                        <>
-                            <p>
-                                Bot responses found in domain files will use the
-                                &apos;language&apos; attribute if it exists; if not, the
-                                fallback import language will be used.
-                            </p>
+    const renderKnobs = () => {
+        const { t } = useTranslation();
+        return (
+            <Segment className='import-box'>
+                <div className='side-by-side narrow left middle'>
+                    <Popup
+                        content={(
+                            <>
+                                <p>
+                                    {t('filinfo')}
+                                </p>
 
-                            <p>
-                                Likewise, the language of a NLU file can be specified in
-                                its first line; if it isn&apos;t, the fallback import
-                                language will be used.
-                            </p>
+                                <p>
+                                    {t('filinfo1')}
+                                </p>
 
-                            <p>For more information, read the docs.</p>
-                        </>
+                                <p>{t('filinfo2')}</p>
+                            </>
+                        )}
+                        inverted
+                        trigger={(
+                            <div>
+                                <Icon name='question circle' />
+                                <strong>{t('fil')}: </strong>
+                            </div>
+                        )}
+                    />
+                    <Dropdown
+                        className='export-option'
+                        options={projectLanguages}
+                        selection
+                        value={fallbackImportLanguage}
+                        onChange={(_e, { value }) => setFallbackImportLanguage(value)}
+                    />
+                </div>
+
+                <div className='wipes side-by-side left'>
+                    {tooltipWrapper(
+                        <Checkbox
+                            toggle
+                            checked={wipeInvolvedCollections}
+                            onChange={() => {
+                                if (wipeInvolvedCollections === false) {
+                                    setWipeProject(false);
+                                }
+                                setwipeInvolvedCollections(!wipeInvolvedCollections);
+                            }}
+                            label={t('fillabel')}
+                            data-cy='wipe-data'
+                        />,
+                        `${t('fillabelinfo')}`,
                     )}
-                    inverted
-                    trigger={(
-                        <div>
-                            <Icon name='question circle' />
-                            <strong>Fallback import language: </strong>
-                        </div>
+                    {tooltipWrapper(
+                        <Checkbox
+                            toggle
+                            checked={wipeProject}
+                            onChange={() => {
+                                if (wipeProject === false) {
+                                    setwipeInvolvedCollections(false);
+                                }
+                                setWipeProject(!wipeProject);
+                            }}
+                            label={t('fillabel1')}
+                            data-cy='wipe-project'
+                        />,
+                        `${t('fillabel1info')}`,
                     )}
-                />
-                <Dropdown
-                    className='export-option'
-                    options={projectLanguages}
-                    selection
-                    value={fallbackImportLanguage}
-                    onChange={(_e, { value }) => setFallbackImportLanguage(value)}
-                />
-            </div>
-
-            <div className='wipes side-by-side left'>
-                {tooltipWrapper(
-                    <Checkbox
-                        toggle
-                        checked={wipeInvolvedCollections}
-                        onChange={() => {
-                            if (wipeInvolvedCollections === false) {
-                                setWipeProject(false);
-                            }
-                            setwipeInvolvedCollections(!wipeInvolvedCollections);
-                        }}
-                        label='Delete existing data'
-                        data-cy='wipe-data'
-                    />,
-                    `This will clear the existing data for the type of data you are importing.
-                e.g : importing stories with this switch on will remove the previous stories, but keep everything else, NLU, responses, etc`,
-                )}
-                {tooltipWrapper(
-                    <Checkbox
-                        toggle
-                        checked={wipeProject}
-                        onChange={() => {
-                            if (wipeProject === false) {
-                                setwipeInvolvedCollections(false);
-                            }
-                            setWipeProject(!wipeProject);
-                        }}
-                        label='Reset project'
-                        data-cy='wipe-project'
-                    />,
-                    'this will remove ALL project\'s data - including conversations - before importing',
-                )}
-            </div>
-        </Segment>
-    );
+                </div>
+            </Segment>
+        )
+    };
 
     return (
         <>

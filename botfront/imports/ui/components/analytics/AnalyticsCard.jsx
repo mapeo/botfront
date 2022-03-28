@@ -20,6 +20,7 @@ import { ProjectContext } from '../../layouts/context';
 import { queryifyFilter } from '../../../lib/conversationFilters.utils';
 import { clearTypenameField } from '../../../lib/client.safe.utils';
 import SettingsMenu from './SettingsMenu';
+import { useTranslation } from 'react-i18next';
 
 function AnalyticsCard(props) {
     const {
@@ -43,6 +44,8 @@ function AnalyticsCard(props) {
         onChangeSettings,
         onReorder,
     } = props;
+
+    const { t } = useTranslation();
 
     const {
         project: {
@@ -230,7 +233,7 @@ function AnalyticsCard(props) {
             data, queryParams, graphParams, nTicks, valueType, bucketSize, projectTimezoneOffset, wide, showDenominator,
         });
         
-        if (!dataToDisplay.length) return <Message color='yellow'><Icon name='calendar times' data-cy='no-data-message' />No data to show for selected period!</Message>;
+        if (!dataToDisplay.length) return <Message color='yellow'><Icon name='calendar times' data-cy='no-data-message' />{t('cardmes')}</Message>;
         if (chartType === 'pie') return <PieChart {...paramsToUse} data={dataToDisplay} linkToConversations={linkToConversations} />;
         if (chartType === 'bar') return <BarChart {...paramsToUse} data={dataToDisplay} linkToConversations={linkToConversations} />;
         if (chartType === 'line') return <LineChart {...paramsToUse} data={dataToDisplay} linkToConversations={linkToConversations} />;
