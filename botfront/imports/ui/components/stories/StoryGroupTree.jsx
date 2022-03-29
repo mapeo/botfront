@@ -15,6 +15,7 @@ import StoryGroupTreeNode from './StoryGroupTreeNode';
 import { useEventListener } from '../utils/hooks';
 import { ProjectContext } from '../../layouts/context';
 import { can } from '../../../lib/scopes';
+import { useTranslation } from 'react-i18next';
 
 const openFirstStoryIfNoneSelected = (
     storyMenuSelection,
@@ -58,6 +59,8 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
     const [deletionModalVisible, setDeletionModalVisible] = useState(false);
     const [renamingModalPosition, setRenamingModalPosition] = useState(null);
     const [mouseDown, setMouseDown] = useState(false);
+
+    const { t } = useTranslation();
 
     const {
         language,
@@ -119,7 +122,7 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
                 order updates to a child and its parent are recieved.
             */
             const safeChildren = children.filter(childId => (Object.keys(newTree.items).includes(childId)
-            && (!!n.smartGroup || newTree.items[childId].type !== 'test_case' || newTree.items[childId].language === language)));
+                && (!!n.smartGroup || newTree.items[childId].type !== 'test_case' || newTree.items[childId].language === language)));
             newTree.items[_id] = {
                 ...n,
                 children: safeChildren,
@@ -183,9 +186,9 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
                 return (
                     Math.abs(
                         children.findIndex(id => id === s)
-                            - children.findIndex(
-                                id => id === a[Math.min(i + 1, a.length - 1)],
-                            ),
+                        - children.findIndex(
+                            id => id === a[Math.min(i + 1, a.length - 1)],
+                        ),
                     ) > 1
                 );
             }),
@@ -269,8 +272,8 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
                 }
                 if (
                     menuRef.current.clientHeight
-                        + getTreeContainer().scrollTop
-                        - target.offsetTop
+                    + getTreeContainer().scrollTop
+                    - target.offsetTop
                     < 100
                 ) {
                     getTreeContainer().scrollTop += 100;
@@ -335,8 +338,8 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
             <Confirm
                 open={!!deletionModalVisible}
                 className='warning'
-                header='Warning!'
-                confirmButton='Delete'
+                header={t('warn')}
+                confirmButton={t('del')}
                 content={deletionModalMessage}
                 onCancel={() => setDeletionModalVisible(false)}
                 {...(deletionIsPossible
@@ -360,10 +363,10 @@ const StoryGroupTree = React.forwardRef((props, ref) => {
                     'active',
                 )
                 && storyMenuSelection.length > 1 && (
-                <Portal open mountNode={draggingHandle.current}>
-                    <div className='count-tooltip'>{storyMenuSelection.length}</div>
-                </Portal>
-            )}
+                    <Portal open mountNode={draggingHandle.current}>
+                        <div className='count-tooltip'>{storyMenuSelection.length}</div>
+                    </Portal>
+                )}
             <Menu
                 pointing
                 secondary

@@ -4,6 +4,7 @@ import {
     Dropdown, Modal, Button,
 } from 'semantic-ui-react';
 import PayloadEditor from './PayloadEditor';
+import { useTranslation } from 'react-i18next';
 
 const UserUtterancePopupContent = (props) => {
     const {
@@ -12,6 +13,8 @@ const UserUtterancePopupContent = (props) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [payload, setPayload] = useState({ intent: null, entities: [] });
     const [menuOpen, setMenuOpen] = useState();
+
+    const { t } = useTranslation();
 
     const payloadValid = () => {
         if (!payload.intent) return false;
@@ -32,7 +35,7 @@ const UserUtterancePopupContent = (props) => {
                 </Modal.Content>
                 <Modal.Actions>
                     <Button
-                        content='Save'
+                        content={t('save')}
                         color='green'
                         disabled={!payloadValid()}
                         onClick={(e) => {
@@ -43,7 +46,7 @@ const UserUtterancePopupContent = (props) => {
                         data-cy='save-user-utterance'
                     />
                     <Button
-                        content='Cancel'
+                        content={t('cancel')}
                         color='red'
                         basic
                         onClick={(e) => { e.preventDefault(); setModalOpen(false); }}
@@ -61,8 +64,8 @@ const UserUtterancePopupContent = (props) => {
                 onClose={() => setMenuOpen(false)}
             >
                 <Dropdown.Menu className='first-column'>
-                    <Dropdown.Item onClick={() => onCreateFromInput()} data-cy='user-line-from-input'>Text</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setModalOpen(true)} data-cy='user-line-from-payload'>Payload</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreateFromInput()} data-cy='user-line-from-input'>{t('txt')}</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setModalOpen(true)} data-cy='user-line-from-payload'>{t('payload')}</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         </>

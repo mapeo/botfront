@@ -10,7 +10,7 @@ import 'brace/theme/github';
 import 'brace/mode/text';
 import StoryPlayButton from './StoryPlayButton';
 import ConfirmPopup from '../common/ConfirmPopup';
-import StoryVisualEditor from './common/StoryVisualEditor';
+import TranslatedStoryVisualEditor from './common/StoryVisualEditor';
 import { ConversationOptionsContext } from './Context';
 import StoryRulesEditor from './rules/StoryRulesEditor';
 import { can } from '../../../lib/scopes';
@@ -160,7 +160,7 @@ const StoryTopMenu = ({
             {storyMode !== 'visual'
                 ? renderAceEditor()
                 : (
-                    <StoryVisualEditor
+                    <TranslatedStoryVisualEditor
                         onSave={c => updateStory({ _id, condition: c })}
                         story={condition}
                         getResponseLocations={getResponseLocations}

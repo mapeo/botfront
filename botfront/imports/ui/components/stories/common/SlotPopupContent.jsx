@@ -7,6 +7,7 @@ import { groupBy } from 'lodash';
 import { ProjectContext } from '../../../layouts/context';
 import { ConversationOptionsContext } from '../Context';
 import { slotValueToLabel } from '../SlotLabel';
+import { useTranslation } from 'react-i18next';
 
 const SlotPopupContent = (props) => {
     const {
@@ -35,6 +36,8 @@ const SlotPopupContent = (props) => {
         'categorical',
         ...(chooseSlotWithoutValue ? ['unfeaturized'] : []),
     ].filter(type => !excludeSlotsOfType.includes(type));
+
+    const { t } = useTranslation();
 
     const hasFeaturizedSlots = useMemo(() => slotsToUse.filter(s => allowedTypes.includes(s.type)).length > 0, [slotsToUse, allowedTypes]);
 
@@ -71,7 +74,7 @@ const SlotPopupContent = (props) => {
             onClose={() => setMenuOpen(false)}
         >
             <Dropdown.Menu>
-                <Dropdown.Header>Select a slot</Dropdown.Header>
+                <Dropdown.Header>{t('sas')}</Dropdown.Header>
                 {cats.map(c => (
                     <Dropdown.Item
                         data-cy={`slot-category-${c}`}
@@ -119,7 +122,7 @@ const SlotPopupContent = (props) => {
                                                 {chooseSlotWithoutValue ? (
                                                     <Dropdown.Item
                                                         data-cy={`confirm-select-${s.name}`}
-                                                        text='Choose this slot'
+                                                        text={t('cts')}
                                                         onClick={() => onSelect({ ...s })}
                                                     />
                                                 ) : getSlotValue(s).map(content => (
@@ -163,13 +166,13 @@ const SlotPopupContent = (props) => {
             disabled={hasFeaturizedSlots}
         >
             <p>
-            No featurized slot found to insert.
+            {t('nofeat')}
             </p>
             <div>
                 <Button
                     fluid
                     color='orange'
-                    content='Edit slots'
+                    content={t('es')}
                     onClick={() => {
                         setPopupOpen(false);
                         browseToSlots();

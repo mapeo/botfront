@@ -7,6 +7,7 @@ import { formNameIsValid } from '../../../lib/client.safe.utils';
 import { tooltipWrapper } from '../utils/Utils';
 import { storyTypeCustomizations } from '../../../lib/story.types';
 import StoryPrefix from './common/StoryPrefix';
+import { useTranslation } from 'react-i18next';
 
 const StoryGroupTreeNode = (props) => {
     const {
@@ -35,6 +36,7 @@ const StoryGroupTreeNode = (props) => {
     const [newTitle, setNewTitle] = useState('');
     const [selectAllNext, setSelectAllNext] = useState(false);
     const renamerRef = useRef();
+    const { t } = useTranslation();
 
     const isSmartNode = !!item.id.match(/^.*_SMART_/);
 
@@ -171,7 +173,7 @@ const StoryGroupTreeNode = (props) => {
                                         }
                                         : {})}
                                 />,
-                                'Focus story group',
+                                t('fsg'),
                             )}
                             {tooltipWrapper(
                                 <Dropdown
@@ -186,7 +188,7 @@ const StoryGroupTreeNode = (props) => {
                                         {addStoryOrRule('rule')}
                                         <Dropdown.Item
                                             icon='wpforms'
-                                            content='Form'
+                                            content={t('form')}
                                             data-cy='add-form'
                                             className='add-form-item'
                                             {...(!somethingIsMutating
@@ -204,7 +206,7 @@ const StoryGroupTreeNode = (props) => {
                                         />
                                     </Dropdown.Menu>
                                 </Dropdown>,
-                                'Add story or form',
+                                t('asf'),
                             )}
                         </>
                     )}

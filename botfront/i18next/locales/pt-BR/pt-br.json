@@ -325,6 +325,27 @@
         "l30": "Últimos 30 dias",
         "l90": "Últimos 90 dias",
         "aac": "Aplicar em todos os cards",
-        "dr": "Intervalo de data"
+        "dr": "Intervalo de data",
+        "fsg": "Focar grupo de históricos",
+        "asf": "Adicionar histórico ou formulário",
+        "form": "Formulário",
+        "rules": "Regras",
+        "warn": "Atenção!",
+        "cg": "Criar grupo",
+        "ms": "Gerenciar slots",
+        "editp": "Editar políticas",
+        "polices": "Políticas",
+        "syaml": "Trocar para modo de edição YAML",
+        "svisual": "Trocar para modo de edição visual",
+        "cgn": "Escolha o nome do grupo",
+        "formspan": "Nomes de formulários devem terminar com _form e não conter caracteres especiais.",
+        "txt": "Texto",
+        "payload": "Carga útil",
+        "cst": "Escolha um tipo de slot",
+        "adds": "Adicionar slot",
+        "sas": "Selecione um slot",
+        "cts": "Selecionar esse slot",
+        "nofeat": "Não foi encontrado nenhum slot para ser inserido.",
+        "es": "Editar slots"
     }
 }

@@ -23,7 +23,7 @@ import { stepsToYaml, storyReducer } from '../../../lib/story.utils';
 import { DialogueFragmentValidator } from '../../../lib/dialogue_fragment_validator';
 import { ConversationOptionsContext } from './Context';
 import { setStoryPath } from '../../store/actions/actions';
-import StoryVisualEditor from './common/StoryVisualEditor';
+import TranslatedStoryVisualEditor from './common/StoryVisualEditor';
 import StoryErrorBoundary from './StoryErrorBoundary';
 import BranchTabLabel from './BranchTabLabel';
 import StoryTopMenu from './StoryTopMenu';
@@ -246,7 +246,7 @@ const StoryEditorContainer = ({
         if (story.type === 'test_case' && story.success === false) {
             return (
                 <StoryErrorBoundary>
-                    <StoryVisualEditor
+                    <TranslatedStoryVisualEditor
                         onSave={steps => saveStory(path, { steps })}
                         story={story.testResults}
                         getResponseLocations={getResponseLocations}
@@ -257,7 +257,7 @@ const StoryEditorContainer = ({
         }
         return (
             <StoryErrorBoundary>
-                <StoryVisualEditor
+                <TranslatedStoryVisualEditor
                     onSave={steps => saveStory(path, { steps })}
                     story={branches[path.join()]?.steps || []}
                     getResponseLocations={getResponseLocations}

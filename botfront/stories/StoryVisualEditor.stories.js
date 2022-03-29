@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { withBackground, slots } from '../.storybook/decorators';
 import { StoryController } from '../imports/lib/story_controller';
-import StoryVisualEditor from '../imports/ui/components/stories/common/StoryVisualEditor';
+import TranslatedStoryVisualEditor from '../imports/ui/components/stories/common/StoryVisualEditor';
 
 const storyOne = `    - action_bebe
     - slot{"catSlot1": "c1"}
@@ -24,7 +24,7 @@ const StoryVisualEditorWrapped = ({ story: s }) => {
     );
 
     return (
-        <StoryVisualEditor story={story} />
+        <TranslatedStoryVisualEditor story={story} />
     );
 };
 

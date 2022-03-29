@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const StoryPrefix = (props) => {
     const {
@@ -15,9 +16,9 @@ const StoryPrefix = (props) => {
             }
             return '✔✔';
         case 'story':
-            return '##';
+            return "##";
         case 'rule':
-            return '>>';
+            return ">>";
         default: return '';
         }
     };

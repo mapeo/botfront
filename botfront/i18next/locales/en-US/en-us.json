@@ -325,6 +325,27 @@
         "l30": "Last 30 days",
         "l90": "Last 90 days",
         "aac": "Apply to all cards",
-        "dr": "Date range"
+        "dr": "Date range",
+        "fsg": "Focus story group",
+        "asf": "Add story or form",
+        "form": "Form",
+        "rules": "Rules",
+        "warn": "Warning!",
+        "cg": "Create group",
+        "ms": "Manage slots",
+        "editp": "Edit Policies",
+        "polices": "Polices",
+        "syaml": "Switch to YAML edit mode",
+        "svisual": "Switch to visual edit mode",
+        "cgn": "Choose a group name",
+        "formspan": "Form names must end with _form and have no special characters.",
+        "txt": "Text",
+        "payload": "Payload",
+        "cst": "Choose a slot type",
+        "adds": "Add slot",
+        "sas": "Select a slot",
+        "cts": "Choose this slot",
+        "nofeat": "No featurized slot found to insert.",
+        "es": "Edit slots"
     }
 }

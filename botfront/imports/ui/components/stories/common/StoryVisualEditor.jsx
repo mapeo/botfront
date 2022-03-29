@@ -18,10 +18,11 @@ import GenericLabel from '../GenericLabel';
 import { can } from '../../../../lib/scopes';
 import { defaultTemplate } from '../../../../lib/botResponse.utils';
 import { USER_LINE_EDIT_MODE } from '../../../../lib/story.utils';
+import { withTranslation } from 'react-i18next';
 
 const variationIndex = 0;
 
-export default class StoryVisualEditor extends React.Component {
+class StoryVisualEditor extends React.Component {
     state = {
         lineInsertIndex: null,
         responseLocations: [],
@@ -368,3 +369,7 @@ StoryVisualEditor.defaultProps = {
     mode: 'story',
     className: '',
 };
+
+const TranslatedStoryVisualEditor = withTranslation()(StoryVisualEditor)
+
+export default TranslatedStoryVisualEditor;
