@@ -86,8 +86,8 @@ class Settings extends React.Component {
                         </>
                     )}
                 />
-                <AutoField name='settings.public.reCatpchaSiteKey' />
-                <AutoField name='settings.private.reCatpchaSecretServerKey' />
+                <AutoField name='settings.public.reCatpchaSiteKey' label={t('recat')} />
+                <AutoField name='settings.private.reCatpchaSecretServerKey' label={t('recatser')} />
                 {this.renderSubmitButton()}
             </Tab.Pane>
         );
@@ -231,9 +231,9 @@ class Settings extends React.Component {
                     icon='question circle'
                     content={t('appeacontent')}
                 />
-                <AutoField name='settings.public.backgroundImages' />
-                <AutoField name='settings.public.logoUrl' />
-                <AutoField name='settings.public.smallLogoUrl' />
+                <AutoField name='settings.public.backgroundImages' label={t('bi')} />
+                <AutoField name='settings.public.logoUrl' label={t('lu')} />
+                <AutoField name='settings.public.smallLogoUrl' label={t('su')} />
                 {this.renderSubmitButton()}
             </Tab.Pane>
         );

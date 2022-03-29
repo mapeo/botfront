@@ -24,10 +24,12 @@ import DisplayIf from '../DisplayIf';
 import {
     basicSchemaString, defaultModel, schemaData, AutoFormMetadata, panes,
 } from './MetadataForm';
+import { useTranslation } from 'react-i18next';
 
 function ResponseMetadataForm({
     responseMetadata, onChange, editable, projectId,
 }) {
+    const { t } = useTranslation();
     const pageEventOptions = [
         {
             text: 'click',
@@ -191,23 +193,23 @@ function ResponseMetadataForm({
     const readOnlyClass = editable ? '' : 'read-only';
     const panesAdvanced = [
         {
-            menuItem: 'General',
+            menuItem: t('general'),
             render: () => (
                 <div className={readOnlyClass}> {panes[0].render()}
-                    <ToggleField name='domHighlight.enabled' className='toggle' label='Highlight element on page' />
+                    <ToggleField name='domHighlight.enabled' className='toggle' label={t('hep')} />
                     <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.enabled}>
                         <>
-                            <InfoField name='domHighlight.selector' label='CSS selector' info='The CSS selector of the DOM element to highlight' />
+                            <InfoField name='domHighlight.selector' label={t('csselec')} info={t('csselecinfo')} />
                             <ButtonSelectField name='domHighlight.style' />
                             
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.style === 'class'}>
-                                <AutoField name='domHighlight.css' label='Class name' />
+                                <AutoField name='domHighlight.css' label={t('cn')} />
                             </DisplayIf>
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.style === 'custom'}>
-                                <LongTextField className='monospaced' name='domHighlight.css' label='Custom css' />
+                                <LongTextField className='monospaced' name='domHighlight.css' label={t('cc')} />
                             </DisplayIf>
                             <ButtonSelectField name='domHighlight.tooltipPlacement' />
-                            <ToggleField name='domHighlight.tooltipCloseEnabled' className='toggle' label='Send intent on tooltip close' />
+                            <ToggleField name='domHighlight.tooltipCloseEnabled' className='toggle' label={t('sendtool')} />
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.tooltipCloseEnabled}>
                                 <IntentField  name='domHighlight.tooltipClose' />
                             </DisplayIf>
@@ -217,7 +219,7 @@ function ResponseMetadataForm({
             ),
         },
         {
-            menuItem: 'Observe',
+            menuItem: t('obs'),
             render: () => (
                 <div className={readOnlyClass}>
                     <ToggleField name='pageChangeCallbacks.enabled' className='toggle' label='Observe page changes' />

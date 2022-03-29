@@ -89,7 +89,7 @@ class ChitChat extends React.Component {
 
                         <Dropdown
                             data-cy='select-chit-chat'
-                            placeholder='Select chit chat intents'
+                            placeholder={t('scci')}
                             multiple
                             selection
                             fluid
@@ -103,13 +103,13 @@ class ChitChat extends React.Component {
                         <Button
                             primary
                             disabled={selectedIntents.length === 0}
-                            content='Add to training data'
+                            content={t('adtd')}
                             onClick={this.open}
                             data-cy='add-chit-chat'
                         />
                         <Confirm
-                            header='Add to training data?'
-                            content={`This will add chitchat examples to your training data matching the following intents: ${selectedIntents.join(' ')}`}
+                            header={`${t('adtd')}?`}
+                            content={`${t('adtdmes')} ${selectedIntents.join(' ')}`}
                             open={confirmOpen}
                             onCancel={this.close}
                             onConfirm={this.addToTrainingData}

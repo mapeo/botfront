@@ -18,6 +18,7 @@ import { useEventListener } from '../../utils/hooks';
 import getColor from '../../../../lib/getColors';
 import { can } from '../../../../lib/scopes';
 import { clearTypenameField } from '../../../../lib/client.safe.utils';
+import { useTranslation } from 'react-i18next';
 
 const NluTable = React.forwardRef((props, forwardedRef) => {
     const {
@@ -37,6 +38,7 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
         additionalIntentOption,
     } = props;
 
+    const { t } = useTranslation();
     const { intents, entities, project: { _id: projectId } } = useContext(ProjectContext);
     const [editExampleId, setEditExampleId] = useState([]);
     const canEdit = can('nlu-data:w', projectId);
@@ -75,9 +77,9 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
                 postion='left'
                 content={(
                     <>
-                        Remove canonical &#x27E8;
+                        {t('rc')} &#x27E8;
                         <Icon name='gem' style={{ margin: 0 }} />
-                        &#x27E9; status to edit
+                        &#x27E9; {t('ste')}
                     </>
                 )}
             />
@@ -183,18 +185,17 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
             );
         }
         if (!canEdit) return null;
-        let tooltip = <div>Mark as canonical</div>;
+        let tooltip = <div>{t('mac')}</div>;
         if (canonical) {
             tooltip = (
                 <>
-                    <Popup.Header>Canonical Example</Popup.Header>
+                    <Popup.Header>{t('ce')}</Popup.Header>
                     <Popup.Content className='popup-canonical'>
-                        This example is canonical for the intent
+                        {t('ceinfo')}
                         <span className='intent-name'> {datum.intent}</span>
                         {datum.entities && datum.entities.length > 0 ? (
                             <>
-                                &nbsp; and for the following entity - entity value
-                                combinations: <br />
+                                &nbsp; {t('ceinfo1')} <br />
                                 {datum.entities.map(entity => (
                                     <span>
                                         <strong
@@ -432,7 +433,7 @@ const NluTable = React.forwardRef((props, forwardedRef) => {
                                 color={filters.onlyCanonicals ? 'black' : 'grey'}
                             />
                         )}
-                        content='Only show canonicals examples'
+                        content={t('osce')}
                         position='top center'
                         inverted
                     />

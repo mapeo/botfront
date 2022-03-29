@@ -17,6 +17,7 @@ import { languages } from '../../../../lib/languages';
 import { can } from '../../../../lib/scopes';
 import BotResponseEditor from './BotResponseEditor';
 import { ProjectContext } from '../../../layouts/context';
+import { withTranslation } from 'react-i18next';
 
 class TemplatesTable extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class TemplatesTable extends React.Component {
     getTemplateLanguages = () => sortBy(this.props.nluLanguages);
 
     getColumns = (lang) => {
-        const { projectId } = this.props;
+        const { projectId, t } = this.props;
         const { dialogueActions } = this.context;
         const columns = [
             {
@@ -93,7 +94,7 @@ class TemplatesTable extends React.Component {
                                     disabled={isInStory || !can('responses:w', projectId)}
                                 />
                             )}
-                            content='This response cannot be deleted because it is used in a story'
+                            content={t('colres')}
                             disabled={!isInStory}
                         />
                     );
@@ -105,7 +106,7 @@ class TemplatesTable extends React.Component {
         columns.unshift({
             id: 'key',
             accessor: t => t.key,
-            Header: 'Key',
+            Header: t('key'),
             filterable: true,
             filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['key'] }),
             Cell: props => <div data-cy='template-intent'><Label horizontal basic size='tiny'>{props.value}</Label></div>,
@@ -154,31 +155,36 @@ class TemplatesTable extends React.Component {
         }
     };
 
-    renderNoLanguagesAvailable = () => (
-        <Message
-            info
-            icon='warning'
-            header='Create a NLU model first'
-            content='Templates are multilingual and Botfront determines available languages from NLU models.
-            Before adding templates, you must create one NLU model for every language your want to handle'
-        />
-    );
+    renderNoLanguagesAvailable = () => {
+        const { t } = this.props;
+        return (
+            <Message
+                info
+                icon='warning'
+                header={t('cnlu')}
+                content={t('cnluinfo')}
+            />
+        )
+    };
 
-    renderNoTemplate = () => (
-        <Message
-            info
-            icon='warning'
-            header='You haven&#39;t created bot responses yet'
-            content={(
-                <div>
-                    Click on the&nbsp;
-                    <strong>Add Bot Response</strong>
-                    &nbsp;button to create your first bot response.
-                </div>
-            )}
-            data-cy='no-responses'
-        />
-    );
+    renderNoTemplate = () => {
+        const { t } = this.props;
+        return (
+            <Message
+                info
+                icon='warning'
+                header={t('yhcbot')}
+                content={(
+                    <div>
+                        {t('clickon')}&nbsp;
+                        <strong>{t('adb')}</strong>
+                        &nbsp;{t('but')}
+                    </div>
+                )}
+                data-cy='no-responses'
+            />
+        )
+    };
 
     renderTable = (lang) => {
         const {
@@ -249,14 +255,14 @@ class TemplatesTable extends React.Component {
                 {nluLanguages.length === 0 && this.renderNoLanguagesAvailable()}
                 {nluLanguages.length > 0 && templates.length === 0 && this.renderNoTemplate()}
                 {nluLanguages.length > 0 && templates.length > 0
-                && (
-                    <Tab
-                        activeIndex={activeIndex}
-                        menu={{ pointing: true, secondary: true }}
-                        panes={this.getPanes(templates)}
-                        onTabChange={this.onTabChange}
-                    />
-                )}
+                    && (
+                        <Tab
+                            activeIndex={activeIndex}
+                            menu={{ pointing: true, secondary: true }}
+                            panes={this.getPanes(templates)}
+                            onTabChange={this.onTabChange}
+                        />
+                    )}
                 {newResponse.open && (
                     <BotResponseEditor
                         trigger={<div />}
@@ -306,7 +312,8 @@ const mapDispatchToProps = {
     toggleMatch: toggleMatchingTemplatesTable,
 };
 
+const TranslatedTemplatesTable = withTranslation()(TemplatesTable)
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(TemplatesTable);
+)(TranslatedTemplatesTable);

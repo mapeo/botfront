@@ -22,6 +22,7 @@ import { ProjectContext } from '../../layouts/context';
 import { can, Can } from '../../../lib/scopes';
 import { languages } from '../../../lib/languages';
 import { runTestCaseStories } from './runTestCaseStories';
+import { withTranslation } from 'react-i18next';
 
 class TrainButton extends React.Component {
     constructor(props) {
@@ -306,7 +307,7 @@ class TrainButton extends React.Component {
 
     renderButton = () => {
         const { instance } = this.context;
-        const { popupContent, status, partialTrainning } = this.props;
+        const { popupContent, status, partialTrainning, t } = this.props;
         return (
             <Popup
                 content={popupContent}
@@ -314,7 +315,7 @@ class TrainButton extends React.Component {
                     <Button.Group color={partialTrainning ? 'yellow' : 'blue'}>
                         <Button
                             icon={partialTrainning ? 'eye' : 'grid layout'}
-                            content='Train'
+                            content={t('train')}
                             labelPosition='left'
                             disabled={
                                 status === 'training'
@@ -343,7 +344,7 @@ class TrainButton extends React.Component {
             project: { gitSettings: { gitString } = {} },
             instance,
         } = this.context;
-        const { status } = this.props;
+        const { status, t } = this.props;
         const rasaDown = !instance || status === 'notReachable';
         const { modalOpen, gitWorking } = this.state;
         if (!gitString) return null;
@@ -388,7 +389,7 @@ class TrainButton extends React.Component {
                 size='tiny'
                 trigger={<div>{button}</div>}
                 inverted
-                content='Rasa instance not reachable'
+                content={t('traininfo')}
             />
         );
     };
@@ -397,6 +398,7 @@ class TrainButton extends React.Component {
         const {
             project: { enableSharing, _id: projectId },
         } = this.context;
+        const {  t } = this.props;
         return (
             <Popup
                 trigger={(
@@ -423,7 +425,7 @@ class TrainButton extends React.Component {
                                 !enableSharing,
                             )
                             }
-                            label={enableSharing ? 'Sharing enabled' : 'Sharing disabled'}
+                            label={enableSharing ? t('sharinge') : t('sharingd')}
                         />
                         {enableSharing && (
                             <p>
@@ -434,7 +436,7 @@ class TrainButton extends React.Component {
                                     data-cy='copy-sharing-link'
                                     onClick={this.copyToClipboard}
                                 >
-                                    <Icon name='linkify' /> Copy link
+                                    <Icon name='linkify' /> {t('clink')}
                                 </button>
                             </p>
                         )}
@@ -473,6 +475,8 @@ TrainButton.defaultProps = {
     partialTrainning: false,
 };
 
+const TranslatedTrainButton = withTranslation()(TrainButton)
+
 export default withTracker((props) => {
     // Gets the required number of selected storygroups and sets the content and popup for the train button
     const { projectId } = props;
@@ -509,4 +513,4 @@ export default withTracker((props) => {
         status,
         partialTrainning,
     };
-})(TrainButton);
+})(TranslatedTrainButton);

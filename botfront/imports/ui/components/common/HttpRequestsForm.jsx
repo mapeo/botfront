@@ -9,11 +9,13 @@ import { Divider } from 'semantic-ui-react';
 import SelectField from '../form_fields/SelectField';
 import TranslatedSaveButton from '../utils/SaveButton';
 import { wrapMeteorCallback } from '../utils/Errors';
+import { useTranslation } from 'react-i18next';
 
 function HttpRequestsForm(props) {
     const {
         onSave, urls, editable, disableMethodField, path,
     } = props;
+    const { t } = useTranslation();
     const [saved, setSaved] = useState(null);
     const [saving, setSaving] = useState(null);
     const schema = buildASTSchema(
@@ -36,7 +38,7 @@ function HttpRequestsForm(props) {
             label: 'URL',
         },
         method: {
-            label: 'HTTP method',
+            label: t('httpm'),
             allowedValues: [
                 'GET',
                 'HEAD',

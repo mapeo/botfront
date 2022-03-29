@@ -29,6 +29,7 @@ import {
 import { clearTypenameField } from '../../../../lib/client.safe.utils';
 import { Loading } from '../../utils/Utils';
 import { can } from '../../../../lib/scopes';
+import { useTranslation } from 'react-i18next';
 
 
 /*
@@ -50,6 +51,7 @@ const BotResponseEditor = (props) => {
         renameable,
     } = props;
 
+    const { t } = useTranslation();
     const { resetResponseInCache, setResponseInCache } = useContext(ProjectContext); // using the upsert function from the project context ensures the visual story is updated
     const { reloadStories } = useContext(ConversationOptionsContext);
     const [upsertWholeBotResponse] = useMutation(UPSERT__FULL_BOT_RESPONSE);
@@ -261,13 +263,13 @@ const BotResponseEditor = (props) => {
                             saveResponseName={handleChangeKey}
                             errorMessage={renameError}
                             responseName={responseKey}
-                            disabledMessage='Responses in forms cannot be renamed.'
+                            disabledMessage={t('rfc')}
                         />
                     </div>
                     <div className='response-editor-topbar-section'>
                         <Menu pointing secondary activeIndex={activeTab}>
-                            <MenuItem onClick={() => { setActiveTab(0); }} active={activeTab === 0} className='response-variations' data-cy='variations-tab'>Variations</MenuItem>
-                            <MenuItem onClick={() => { setActiveTab(1); }} active={activeTab === 1} className='metadata' data-cy='metadata-tab'>Behaviour</MenuItem>
+                            <MenuItem onClick={() => { setActiveTab(0); }} active={activeTab === 0} className='response-variations' data-cy='variations-tab'>{t('var')}</MenuItem>
+                            <MenuItem onClick={() => { setActiveTab(1); }} active={activeTab === 1} className='metadata' data-cy='metadata-tab'>{t('beh')}</MenuItem>
                         </Menu>
                     </div>
                     <div className='response-editor-topbar-section' />
