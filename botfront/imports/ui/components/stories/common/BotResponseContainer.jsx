@@ -8,12 +8,14 @@ import TextareaAutosize from 'react-autosize-textarea';
 import ImageThumbnail from './ImageThumbnail';
 import CarouselEditor from './CarouselEditor';
 import QuickReplies from './QuickReplies';
+import { useTranslation } from 'react-i18next';
 
 const BotResponseContainer = (props) => {
     const {
         value, onDelete, onChange, focus, onFocus, editCustom, tag, hasMetadata, metadata, editable, disableEnterKey,
     } = props;
 
+    const { t } = useTranslation();
     const [input, setInput] = useState();
     const focusGrabber = useRef();
     const focusHasBeenSet = useRef(false);
@@ -68,7 +70,7 @@ const BotResponseContainer = (props) => {
     const renderText = () => (
         <TextareaAutosize
             ref={focusGrabber}
-            placeholder='Type a message'
+            placeholder={t('tm')}
             role='button'
             tabIndex={0}
             value={input}

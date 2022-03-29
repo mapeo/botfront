@@ -15,6 +15,7 @@ import { ConversationOptionsContext } from './Context';
 import StoryRulesEditor from './rules/StoryRulesEditor';
 import { can } from '../../../lib/scopes';
 import StoryPrefix from './common/StoryPrefix';
+import { useTranslation } from 'react-i18next';
 
 const StoryTopMenu = ({
     fragment,
@@ -34,6 +35,7 @@ const StoryTopMenu = ({
         conversation_start: convStart,
         status,
     } = fragment;
+    const { t } = useTranslation();
     const [newTitle, setNewTitle] = useState(title);
     const [triggerEditorOpen, setTriggerEditorOpen] = useState(false);
     const [confirmPopupOpen, setConfirmPopupOpen] = useState(false);
@@ -140,7 +142,7 @@ const StoryTopMenu = ({
                     <Checkbox
                         toggle
                         disabled={!can('stories:w', projectId)}
-                        label='conversation start'
+                        label={t('cstart')}
                         className='story-box-toggle'
                         checked={convStart}
                         data-cy='toggle-conversation-start'

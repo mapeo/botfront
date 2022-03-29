@@ -34,6 +34,7 @@
         "lngsupported": "Languages supported",
         "disabled": "disabled",
         "cancel": "Cancel",
+        "confirm": "Confirm",
         "del": "Delete",
         "delpro": "Delete project",
         "deluser": "Delete user",
@@ -388,6 +389,13 @@
         "sharinge": "Sharing enabled",
         "sharingd": "Sharing disabled",
         "clink": "Copy link",
-        "key": "Key"
+        "cfrom": "Copy from",
+        "key": "Key",
+        "cstart": "conversation start",
+        "waitin": "wait for user input",
+        "tm": "Type a message",
+        "dres": "Delete response?",
+        "dres1": "Remove this response from the current fragment",
+        "dres2": "Remove this response from the current fragment and delete it"
     }
 }

@@ -33,6 +33,7 @@
         "al": "Todos os idiomas",
         "seleclng": "Selecione o idioma padrão do seu projeto",
         "cancel":"Cancelar",
+        "confirm": "Confirmar",
         "del": "Excluir",
         "delpro": "Excluir projeto",
         "deluser": "Excluir usuário",
@@ -388,6 +389,13 @@
         "sharinge": "Compartilhamento ativado",
         "sharingd": "Compartilhamento desativado",
         "clink": "Copiar link",
-        "key": "Chave"
+        "cfrom": "Copiar de",
+        "key": "Chave",
+        "cstart": "iniciar conversa",
+        "waitin": "esperar pela entrada do usuário",
+        "tm": "Insira uma mensagem",
+        "dres": "Deletar resposta?",
+        "dres1": "Excluir esta resposta do fragmento atual",
+        "dres2": "Excluir esta resposta do fragmento atual e deletá-la"
     }
 }

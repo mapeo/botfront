@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import StoryPathPopup from './StoryPathPopup.jsx';
 import { ConversationOptionsContext } from './Context';
 import { can } from '../../../lib/scopes';
+import { withTranslation } from 'react-i18next';
 
 class StoryFooter extends React.Component {
     constructor(props) {
@@ -139,7 +140,7 @@ class StoryFooter extends React.Component {
     }
 
     renderWaitForUserInputToggle = () => {
-        const { fragment, projectId } = this.props;
+        const { fragment, projectId, t } = this.props;
         const { updateStory } = this.context;
         const { _id, type, wait_for_user_input: waitInput = true } = fragment;
         if (type !== 'rule') return null;
@@ -148,7 +149,7 @@ class StoryFooter extends React.Component {
                 <Checkbox
                     disabled={!can('stories:w', projectId)}
                     toggle
-                    label='wait for user input'
+                    label={t('waitin')}
                     className='story-box-toggle'
                     checked={waitInput}
                     onChange={() => updateStory({ _id, wait_for_user_input: !waitInput })}
@@ -249,4 +250,6 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(StoryFooter);
+const TranslatedStoryFooter = withTranslation()(StoryFooter)
+
+export default connect(mapStateToProps)(TranslatedStoryFooter);

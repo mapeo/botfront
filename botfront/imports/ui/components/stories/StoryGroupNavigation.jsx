@@ -103,7 +103,7 @@ class StoryGroupNavigation extends React.Component {
                     )}
                     {tooltipWrapper(
                         <Button
-                            content={t('policies')}
+                            content={t('polices')}
                             onClick={() => modals.setPoliciesModal(true)}
                             data-cy='policies-modal'
                         />,
