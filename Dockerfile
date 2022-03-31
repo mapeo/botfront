@@ -1,10 +1,11 @@
 # The tag here should match the Meteor version of your app, per .meteor/release
-FROM geoffreybooth/meteor-base:2.0
+FROM geoffreybooth/meteor-base:2.6.1
 
 # Copy app package.json and package-lock.json into container
 COPY ./botfront/package*.json $APP_SOURCE_FOLDER/
 COPY ./botfront/postinstall.sh $APP_SOURCE_FOLDER/
 ARG ARG_NODE_ENV=production
+ENV METEOR_ALLOW_SUPERUSER 1
 ENV NODE_ENV $ARG_NODE_ENV
 ENV DISABLE_CLIENT_STATS 1
 # Increase Node memory for build
@@ -19,7 +20,9 @@ RUN bash $SCRIPTS_FOLDER/build-meteor-bundle.sh
 
 # Use Debian, because nodegit is too hard to get to work with
 # Alpine >=3.8
-FROM node:12-buster-slim
+# FROM node:12-buster-slim
+FROM node:12-bullseye-slim
+ENV METEOR_ALLOW_SUPERUSER 1
 RUN apt-get update && apt-get install -y python g++ build-essential
 
 ENV APP_BUNDLE_FOLDER /opt/bundle

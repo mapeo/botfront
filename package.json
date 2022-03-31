@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "p-wait-for": "^4.1.0"
+  }
+}
