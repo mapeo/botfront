@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "p-wait-for": "^4.1.0"
+    "core-util-is": "^1.0.3",
+    "once": "^1.4.0",
+    "p-wait-for": "^4.1.0",
+    "semver": "^7.3.5"
   }
 }
