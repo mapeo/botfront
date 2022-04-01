@@ -11,6 +11,7 @@ import IntentLabel from '../common/IntentLabel';
 import DataTable from '../../common/DataTable';
 import { ProjectContext } from '../../../layouts/context';
 import { GET_INTENT_STATISTICS, GET_EXAMPLE_COUNT } from './graphql';
+import { useTranslation } from 'react-i18next';
 
 
 const Statistics = (props) => {
@@ -18,6 +19,7 @@ const Statistics = (props) => {
         examples, synonyms, gazettes, intents, entities, storyCount, ready, projectId, workingLanguage,
     } = props;
 
+    const { t } = useTranslation();
     const { projectLanguages } = useContext(ProjectContext);
     const { data, loading, refetch } = useQuery(
         GET_INTENT_STATISTICS, { variables: { projectId, language: workingLanguage } },
@@ -51,12 +53,12 @@ const Statistics = (props) => {
 
     const renderCards = () => {
         const cards = [
-            { label: 'Examples', value: examples },
-            { label: 'Intents', value: intents.length },
-            { label: 'Entities', value: entities.length },
-            { label: 'Synonyms', value: synonyms },
+            { label: t('ex'), value: examples },
+            { label: t('intents'), value: intents.length },
+            { label: t('entities'), value: entities.length },
+            { label: t('synonyms'), value: synonyms },
             { label: 'Gazettes', value: gazettes },
-            { label: 'Stories', value: storyCount },
+            { label: t('stories'), value: storyCount },
         ];
 
         return cards.map(d => (
@@ -82,7 +84,7 @@ const Statistics = (props) => {
 
     const renderExample = (row) => {
         const { datum } = row;
-        if (!datum.example) return <i>No example defined.</i>;
+        if (!datum.example) return <i>{t('ned')}</i>;
         return datum.example;
     };
 
@@ -94,10 +96,10 @@ const Statistics = (props) => {
 
     const columns = [
         {
-            key: 'intent', header: 'Intent', style: { width: '200px', minWidth: '200px', overflow: 'hidden' }, render: renderIntent,
+            key: 'intent', header: t('intent'), style: { width: '200px', minWidth: '200px', overflow: 'hidden' }, render: renderIntent,
         },
         {
-            key: 'example', header: 'Example', style: { width: '100%' }, render: renderExample,
+            key: 'example', header: t('ex'), style: { width: '100%' }, render: renderExample,
         },
         ...countColumns,
     ];
@@ -110,7 +112,7 @@ const Statistics = (props) => {
                 ? (
                     <div className='glow-box extra-padding'>
                         <div className='side-by-side'>
-                            <h3>Examples per intent</h3>
+                            <h3>{t('epi')}</h3>
                             <Button onClick={downloadData} disabled={!(dataToDisplay || []).length} icon='download' basic />
                         </div>
                         <br />

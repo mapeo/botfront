@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import React from 'react';
+import React, { useState } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import 'react-s-alert/dist/s-alert-default.css';
 import {
@@ -20,6 +20,8 @@ import HttpRequestsForm from '../../common/HttpRequestsForm';
 import { can } from '../../../../lib/scopes';
 import MigrationControl from './MigrationControl';
 import { useTranslation, withTranslation } from 'react-i18next';
+import SelectField from '../../form_fields/SelectField';
+import i18n from './../../../../../i18next/index';
 
 class Settings extends React.Component {
     constructor(props) {
@@ -42,6 +44,7 @@ class Settings extends React.Component {
     };
 
     onSave = (settings, callback = () => { }) => {
+        const { t } = this.props;
         this.setState({ saving: true });
         Meteor.call(
             'settings.save',
@@ -49,7 +52,7 @@ class Settings extends React.Component {
             wrapMeteorCallback((...args) => {
                 this.setState({ saving: false });
                 callback(...args);
-            }, 'Settings saved'),
+            }, t('sv')),
         );
     };
 
@@ -284,10 +287,40 @@ class Settings extends React.Component {
         );
     }
 
+    renderLNG = () => {
+        const { t } = this.props;
+        return (
+            <>
+                <Tab.Pane>
+                    <SelectField
+                        name='settings.public.language'
+                        placeholder={t('sl')}
+                        label={t('slplace')}
+                        options={[
+                            {
+                                text: t('english'),
+                                value: 'en',
+                                key: 'en',
+                            },
+                            {
+                                text: t('pt'),
+                                value: 'ptBr',
+                                key: 'pt',
+                            },
+                        ]}
+                    />
+                    {this.renderSubmitButton()}
+                </Tab.Pane>
+            </>
+        );
+
+    }
+
 
     getSettingsPanes = () => {
         const { settings, t } = this.props;
         const panes = [
+            { name: 'lng', menuItem: t('sl'), render: this.renderLNG },
             { name: 'default-nlu-pipeline', menuItem: t('defnlu'), render: this.renderDefaultNLUPipeline },
             { name: 'default-policies', menuItem: t('dp'), render: this.renderDefaultPolicies },
             { name: 'default-credentials', menuItem: t('dc'), render: this.renderDefaultCredentials },

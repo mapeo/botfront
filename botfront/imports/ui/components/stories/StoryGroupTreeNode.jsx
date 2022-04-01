@@ -230,8 +230,7 @@ const StoryGroupTreeNode = (props) => {
                 <Popup
                     content={(
                         <p>
-                            This story is unpublished and is only trained in the
-                            development environment
+                            {t('popupmes')}
                         </p>
                     )}
                     trigger={(
@@ -293,7 +292,7 @@ const StoryGroupTreeNode = (props) => {
                     {isBeingRenamed ? (
                         <>
                             <Popup
-                                content='Form names must end with _form and may not contain any special characters'
+                                content={t('formspan')}
                                 trigger={(
                                     <Input
                                         onChange={(_, { value }) => setNewTitle(value)}

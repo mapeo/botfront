@@ -10,6 +10,7 @@ import {
     setChatInitPayload,
     setShouldRefreshChat,
 } from '../../store/actions/actions';
+import { useTranslation } from 'react-i18next';
 
 const StoryPlayButton = (props) => {
     const {
@@ -22,6 +23,8 @@ const StoryPlayButton = (props) => {
         storyId,
         projectId,
     } = props;
+
+    const { t } = useTranslation();
 
     const getInitialPayload = () => {
         const { steps: bonifiedSteps } = insertSmartPayloads({
@@ -45,7 +48,7 @@ const StoryPlayButton = (props) => {
     };
 
     const runTestCase = () => {
-        if (!storyId) throw new Error('a storyId is required to run a single test');
+        if (!storyId) throw new Error(t('runtesterro'));
         runTestCaseStories(projectId, { ids: [storyId] });
     };
 
@@ -67,12 +70,11 @@ const StoryPlayButton = (props) => {
             )}
             content={type === 'test_case' ? (
                 <>
-                    Run this test
+                    {t('runthistest')}
                 </>
             ) : (
                 <>
-                    To start a conversation from the story editor, the story must start
-                    with a user utterance.
+                    {t('runthistestmes')}
                 </>
             )}
             disabled={disabled}

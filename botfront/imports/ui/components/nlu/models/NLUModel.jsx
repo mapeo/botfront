@@ -20,7 +20,7 @@ import TranslatedChitChat from './ChitChat';
 import Synonyms from '../../synonyms/Synonyms';
 import Gazette from '../../synonyms/Gazette';
 import RegexFeatures from '../../synonyms/RegexFeatures';
-import NLUPipeline from './settings/NLUPipeline';
+import TranslatedNLUPipeline from './settings/NLUPipeline';
 import Statistics from './Statistics';
 import OutOfScope from './OutOfScope';
 import DeleteModel from './DeleteModel';
@@ -129,7 +129,7 @@ function NLUModel(props) {
 
     const handleMenuItemClick = (e, { name }) => setActiveItem(name);
 
-    const renderWarningMessageIntents = ({ t } = useTranslation()) => {
+    const renderWarningMessageIntents = () => {
         if (!loadingExamples && intents.length < 2) {
             return (
                 <Message
@@ -171,21 +171,24 @@ function NLUModel(props) {
         </Menu.Item>
     ));
 
-    const topMenuItems = [
-        ['Training Data', 'database', true],
-        ['Evaluation', 'percent', can('nlu-data:x', projectId)],
-        ['Statistics', 'pie graph', true],
-        ['Settings', 'setting', true],
-    ];
+    
 
-    const renderTopMenu = () => (
-        <PageMenu withTraining>
-            <Menu.Item header>
-                <LanguageDropdown handleLanguageChange={handleLanguageChange} />
-            </Menu.Item>
-            {topMenuItems.map(([...params]) => renderTopMenuItem(...params))}
-        </PageMenu>
-    );
+    const renderTopMenu = () => {
+        const topMenuItems = [
+            [t('td'), 'database', true],
+            [t('evaluation'), 'percent', can('nlu-data:x', projectId)],
+            [t('stat'), 'pie graph', true],
+            [t('settings'), 'setting', true],
+        ];
+        return (
+            <PageMenu withTraining>
+                <Menu.Item header>
+                    <LanguageDropdown handleLanguageChange={handleLanguageChange} />
+                </Menu.Item>
+                {topMenuItems.map(([...params]) => renderTopMenuItem(...params))}
+            </PageMenu>
+        )
+    };
 
     if (!project) return null;
     if (!model) return null;
@@ -202,7 +205,7 @@ function NLUModel(props) {
                     </>
                 )}
                 <br />
-                {activeItem === 'Training Data' && (
+                {activeItem === t('td') && (
                     <Tab
                         menu={{ pointing: true, secondary: true }}
                         // activeIndex === 0 is the example tab, we want to refetch data everytime we land on it
@@ -273,10 +276,10 @@ function NLUModel(props) {
                         ]}
                     />
                 )}
-                {activeItem === 'Evaluation' && (
+                {activeItem === t('evaluation') && (
                     <Evaluation validationRender={validationRender} />
                 )}
-                {activeItem === 'Statistics' && (
+                {activeItem === t('stat') && (
                     <Statistics
                         synonyms={model.training_data.entity_synonyms.length}
                         gazettes={model.training_data.fuzzy_gazette.length}
@@ -284,14 +287,14 @@ function NLUModel(props) {
                         entities={entities}
                     />
                 )}
-                {activeItem === 'Settings' && (
+                {activeItem === t('settings') && (
                     <Tab
                         menu={{ pointing: true, secondary: true }}
                         panes={[
                             {
                                 menuItem: 'Pipeline',
                                 render: () => (
-                                    <NLUPipeline model={model} projectId={projectId} />
+                                    <TranslatedNLUPipeline model={model} projectId={projectId} />
                                 ),
                             },
                             ...(can('projects:w', projectId) ? ([{

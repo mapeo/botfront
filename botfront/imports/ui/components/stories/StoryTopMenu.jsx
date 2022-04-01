@@ -83,7 +83,7 @@ const StoryTopMenu = ({
                 data-cy='top-menu-warning-alert'
             >
                 <Icon name='exclamation circle' />
-                {warnings} Warning{pluralize}
+                {warnings} {t('warn')}{pluralize}
             </Label>
         );
     };
@@ -130,7 +130,7 @@ const StoryTopMenu = ({
                 onClose={() => setConfirmPopupOpen(false)}
                 content={(
                     <ConfirmPopup
-                        title='Conditions will be deleted!'
+                        title={t('conditionsmes')}
                         onYes={() => {
                             setConfirmPopupOpen(false);
                             updateStory({ _id, conversation_start: !convStart, condition: [] });
@@ -158,7 +158,7 @@ const StoryTopMenu = ({
 
     const renderConditionSection = () => (
         <>
-            <Header as='h5' dividing>&nbsp;&nbsp;Conditions</Header>
+            <Header as='h5' dividing>&nbsp;&nbsp;{t('conditions')}</Header>
             {storyMode !== 'visual'
                 ? renderAceEditor()
                 : (
@@ -180,7 +180,7 @@ const StoryTopMenu = ({
                 className='overwrite-expected-button'
                 basic
                 color='green'
-                content='Set actual as expected'
+                content={t('setmes')}
                 icon='check'
                 labelPosition='right'
                 size='mini'
@@ -191,7 +191,7 @@ const StoryTopMenu = ({
                 className='remove-test-button'
                 basic
                 color='red'
-                content='Remove test case'
+                content={t('removetest')}
                 icon='trash'
                 labelPosition='right'
                 size='mini'
@@ -202,11 +202,11 @@ const StoryTopMenu = ({
 
     const renderConfirmOverwrite = () => (
         <Confirm
-            header='Warning'
+            header={t('warn')}
             className='warning'
-            content='The current expected results will be overwritten. This action cannot be undone.'
-            cancelButton='Cancel'
-            confirmButton='Overwrite'
+            content={t('confirmcont')}
+            cancelButton={t('cancel')}
+            confirmButton={t('over')}
             open={confirmOverwriteOpen && testCaseFailing}
             onCancel={() => setConfirmOverwriteOpen(false)}
             onConfirm={() => {
@@ -286,8 +286,7 @@ const StoryTopMenu = ({
                             data-cy='connected-to'
                         >
                             <Icon name='info circle' />
-                            There are one or more stories linked to this story. You can
-                            only delete it after unlinking all stories.
+                            {t('icomes')}
                         </Message>
                     )}
                 >
@@ -303,7 +302,7 @@ const StoryTopMenu = ({
                     onClick={() => setTriggerEditorOpen(true)}
                 >
                     <Icon name='info circle' />
-                    This story will be triggered automatically when the conditions set with the stopwatch icon are met.
+                    {t('iconmes1')}
                 </Message>
             )}
             {type === 'rule' && !convStart && (
@@ -325,7 +324,7 @@ const StoryTopMenu = ({
                     data-cy='connected-to'
                 >
                     <span className='test-failure-message'>
-                        The most recent run of this test failed.
+                        {t('spanmes')}
                     </span>
                 </Message>
             )}
