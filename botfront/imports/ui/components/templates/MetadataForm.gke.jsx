@@ -145,32 +145,32 @@ function ResponseMetadataForm({
             allowedValues: ['default', 'class', 'custom'],
             options: [
                 {
-                    text: 'Default style',
+                    text: t('dstyle'),
                     value: 'default',
-                    description: 'Use the default highlight appearance',
+                    description: t('dstyledes'),
                 },
                 {
-                    text: 'Existing class',
+                    text: t('eclass'),
                     value: 'class',
-                    description: 'Specify a CSS class to apply to the element when it is highlighted',
+                    description: t('eclassdes'),
                 },
                 {
-                    text: 'Custom style',
+                    text: t('cstyle'),
                     value: 'custom',
-                    description: 'Create a custom style for this highlight',
+                    description: t('cstyledes'),
                 },
             ],
         },
         'domHighlight.tooltipPlacement': {
-            label: 'where should the tooltip be placed in relation to the highlighted element',
+            label: t('tooltipplace'),
             initialValue: 'auto',
             allowedValues: ['left', 'right', 'top', 'bottom', 'auto'],
             options: [
-                { text: 'auto', value: 'auto' },
-                { text: 'left', value: 'left' },
-                { text: 'right', value: 'right' },
-                { text: 'top', value: 'top' },
-                { text: 'bottom', value: 'bottom' },
+                { text: t('auto'), value: 'auto' },
+                { text: t('left'), value: 'left' },
+                { text: t('right'), value: 'right' },
+                { text: t('top'), value: 'top' },
+                { text: t('bottom'), value: 'bottom' },
             ],
         },
         'customCss.style': {
@@ -178,14 +178,14 @@ function ResponseMetadataForm({
             allowedValues: ['class', 'custom'],
             options: [
                 {
-                    text: 'Existing class',
+                    text: t('eclass'),
                     value: 'class',
-                    description: 'Apply a CSS class to this response',
+                    description: t('eclassmes'),
                 },
                 {
-                    text: 'Custom style',
+                    text: t('cstyle'),
                     value: 'custom',
-                    description: 'Create a custom style for this response',
+                    description: t('cstylemes'),
                 },
             ],
         },
@@ -222,52 +222,47 @@ function ResponseMetadataForm({
             menuItem: t('obs'),
             render: () => (
                 <div className={readOnlyClass}>
-                    <ToggleField name='pageChangeCallbacks.enabled' className='toggle' label='Observe page changes' />
+                    <ToggleField name='pageChangeCallbacks.enabled' className='toggle' label={t('opc')} />
                     <DisplayIf condition={context => context.model.pageChangeCallbacks && context.model.pageChangeCallbacks.enabled}>
                         <>
                             <Message
                                 info
                                 content={(
                                     <>
-                                        In each <strong>Page change</strong> you can defined a <strong>URL</strong> to be matched against the next URL visited by the user.<br />
-                                        The <strong>Callback intent</strong> will be sent by the chat widget if this page is visited.<br />
-                                        <strong>Only the paths will be compared</strong>, and the host will be ignored.
-                                        Which means that if you specify an url like http://localhost:5005/aaa/bbb it will also work for  https://yoursite.com/aaa/bbb<br />
-                                        If none of the pages are visited, the <strong>Error intent</strong> will be triggered.
+                                        {t('opcmes')}
                                     </>
                                 )}
                             />
 
-                            <ListField name='pageChangeCallbacks.pageChanges'>
+                            <ListField name='pageChangeCallbacks.pageChanges' label={t('pchanges')}>
                                 <ListItemField name='$'>
                                     <NestField name=''>
                                         <BoolField name='regex' options={pageEventOptions} />
                                         <AutoField name='url' />
-                                        <IntentField name='callbackIntent' />
+                                        <IntentField name='callbackIntent' label={t('calint')}/>
                                     </NestField>
                                 </ListItemField>
                             </ListField>
-                            <IntentField name='pageChangeCallbacks.errorIntent' label='Error intent' />
+                            <IntentField name='pageChangeCallbacks.errorIntent' label={t('eint')} />
                         </>
                     </DisplayIf>
-                    <ToggleField name='pageEventCallbacks.enabled' className='toggle' label='Observe interactions' />
+                    <ToggleField name='pageEventCallbacks.enabled' className='toggle' label={t('obsint')} />
                     <DisplayIf condition={context => context.model.pageEventCallbacks && context.model.pageEventCallbacks.enabled}>
                         <>
                             <Message
                                 info
                                 content={(
                                     <>
-                                        In each <strong>Page Event</strong> you can defined a <strong>event</strong> to be added to the elements matching the selector<br />
-                                        The <strong>payload</strong> will be sent by the chat widget as the event is triggered<br />
+                                        {t('obsintmes')}
                                     </>
                                 )}
                             />
-                            <ListField name='pageEventCallbacks.pageEvents'>
+                            <ListField name='pageEventCallbacks.pageEvents' label={t('pevents')}>
                                 <ListItemField name='$'>
                                     <NestField name=''>
-                                        <SelectField name='event' options={pageEventOptions} />
-                                        <AutoField name='selector' />
-                                        <IntentField name='payload' label='Callback intent' />
+                                        <SelectField name='event' label={t('event')} options={pageEventOptions} />
+                                        <AutoField name='selector' label={t('selecto')}/>
+                                        <IntentField name='payload' label={t('calint')} />
                                     </NestField>
                                 </ListItemField>
                             </ListField>
@@ -277,18 +272,18 @@ function ResponseMetadataForm({
             ),
         },
         {
-            menuItem: 'Message appearance',
+            menuItem: t('ma'),
             render: () => (
                 <div className={readOnlyClass}>
-                    <ToggleField name='customCss.enabled' className='toggle' label='Enable custom message style' />
+                    <ToggleField name='customCss.enabled' className='toggle' label={t('malabel')} />
                     <DisplayIf condition={context => context.model.customCss && context.model.customCss.enabled}>
                         <>
                             <ButtonSelectField name='customCss.style' data-cy='style-dropdown' />
                             <DisplayIf condition={context => context.model.customCss && context.model.customCss.style === 'custom'}>
-                                <LongTextField className='monospaced' name='customCss.css' label='Custom CSS' data-cy='custom-message-css' />
+                                <LongTextField className='monospaced' name='customCss.css' label={t('cc')} data-cy='custom-message-css' />
                             </DisplayIf>
                             <DisplayIf condition={context => context.model.customCss && context.model.customCss.style === 'class'}>
-                                <AutoField name='customCss.css' label='Custom class' data-cy='custom-message-css' />
+                                <AutoField name='customCss.css' label={t('cclass')} data-cy='custom-message-css' />
                             </DisplayIf>
                         </>
                     </DisplayIf>
@@ -343,7 +338,7 @@ function ResponseMetadataForm({
         const errors = [];
         if (pageChangeCallbacks && pageChangeCallbacks.enabled) {
             if (!pageChangeCallbacks || !pageChangeCallbacks.pageChanges || pageChangeCallbacks.pageChanges.length < 1) {
-                errors.push({ name: 'pageChangeCallback.pageChanges', message: 'If you enable page changes you should at least have one' });
+                errors.push({ name: 'pageChangeCallback.pageChanges', message: t('erromes') });
             }
         }
 
@@ -353,11 +348,11 @@ function ResponseMetadataForm({
                 if (!i.url || !i.url.length < 0 || !i.callbackIntent || !i.callbackIntent.length < 0) { missing.push(i); }
             });
             if (missing.length) {
-                errors.push({ name: 'pageChangeCallback.pageChanges', message: 'One of your Page Changes listener has a URL or an Intent Callback missing' });
+                errors.push({ name: 'pageChangeCallback.pageChanges', message: t('erromes1') });
             }
 
             if (!pageChangeCallbacks.errorIntent || pageChangeCallbacks.length < 1) {
-                errors.push({ name: 'pageChangeCallback.pageChanges.errorIntent', message: 'You are listening to page changes but the Error Intent is missing.' });
+                errors.push({ name: 'pageChangeCallback.pageChanges.errorIntent', message: t('erromes2') });
             }
         }
         return errors;
@@ -367,7 +362,7 @@ function ResponseMetadataForm({
         const errors = [];
         if (pageEventCallbacks && pageEventCallbacks.enabled) {
             if (!pageEventCallbacks || !pageEventCallbacks.pageEvents || pageEventCallbacks.pageEvents.length < 1) {
-                errors.push({ name: 'pageEventCallback.pageEvents', message: 'If you enable page Events you should at least have one' });
+                errors.push({ name: 'pageEventCallback.pageEvents', message: t('erromes3') });
             }
         }
 
@@ -377,7 +372,7 @@ function ResponseMetadataForm({
                 if (!i.event || !i.event.length < 0 || !i.payload || !i.payload.length < 0 || !i.selector || !i.selector.length < 0) { missing.push(i); }
             });
             if (missing.length) {
-                errors.push({ name: 'pageEventCallback.pageEvents', message: 'One of your Page Events listener has a selector, an event or a payload missing' });
+                errors.push({ name: 'pageEventCallback.pageEvents', message: t('erromes4') });
             }
         }
         return errors;
@@ -387,7 +382,7 @@ function ResponseMetadataForm({
         const errors = [...getPageChangeErrors(model), ...getPageEventErrors(model)];
 
         if (model.customCss && model.customCss.enabled && !model.customCss.css) {
-            errors.push({ name: 'customCss', message: 'You enabled Custom CSS but you did not set the css property' });
+            errors.push({ name: 'customCss', message: t('erromes5') });
         }
 
         if (model.domHighlight
@@ -396,7 +391,7 @@ function ResponseMetadataForm({
                 !model.domHighlight.selector || !model.domHighlight.selector.length
             )
         ) {
-            errors.push({ name: 'domHighlight', message: 'When enabling highlighting of elements on page, selector must be set.' });
+            errors.push({ name: 'domHighlight', message: t('erromes6') });
         }
 
         if (errors.length) {

@@ -1,5 +1,6 @@
 /* THIS FILE SHOULD NOT BE EDITED ON EE */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
     AutoForm,
 } from 'uniforms-semantic';
