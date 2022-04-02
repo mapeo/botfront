@@ -6,11 +6,13 @@ import { useDrop } from 'react-dnd-cjs';
 import CarouselSlide from './CarouselSlide';
 import { useEventListener } from '../../utils/hooks';
 import { defaultCarouselSlide } from '../../../../lib/botResponse.utils';
+import { useTranslation } from 'react-i18next';
 
 export default function CarouselEditor(props) {
     const {
         min, max, value, onChange,
     } = props;
+    const { t } = useTranslation();
     const { elements = [] } = value;
 
     const carouselRef = useRef();
@@ -60,7 +62,7 @@ export default function CarouselEditor(props) {
                     <Popup
                         size='mini'
                         inverted
-                        content='Add a slide'
+                        content={t('addslide')}
                         trigger={(
                             <Icon name='add' size='huge' color='grey' link onClick={createSlide} data-cy='add-slide' />
                         )}

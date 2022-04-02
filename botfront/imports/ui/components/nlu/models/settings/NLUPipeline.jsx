@@ -73,7 +73,7 @@ class NLUPipeline extends React.Component {
                             }
                             content={(
                                 <p>
-                                    You need to <b>re-train</b> your model to deploy them
+                                    {t('nlucontent')}
                                 </p>
                             )}
                         />
@@ -93,4 +93,4 @@ NLUPipeline.propTypes = {
 };
 
 const TranslatedNLUPipeline = withTranslation()(NLUPipeline)
-export default NLUPipeline;
+export default TranslatedNLUPipeline;

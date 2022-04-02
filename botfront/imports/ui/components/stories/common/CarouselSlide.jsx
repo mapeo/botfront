@@ -6,12 +6,13 @@ import TextareaAutosize from 'react-autosize-textarea';
 import QuickReplies from './QuickReplies';
 import ImageThumbnail from './ImageThumbnail';
 import ResponseButtonEditor from './ResponseButtonEditor';
+import { useTranslation } from 'react-i18next';
 
 export default function CarouselSlide(props) {
     const {
         parentId, slideIndex, onDelete, onReorder, value, onChange,
     } = props;
-
+    const { t } = useTranslation();
     const [newValue, doSetNewValue] = useState(value);
     const {
         buttons = [],
@@ -46,7 +47,7 @@ export default function CarouselSlide(props) {
             {(defaultAction || { type: 'web_url' }).type !== 'web_url' && (
                 <Message
                     warning
-                    content='Facebook Messenger only supports default actions with a Web URL payload. Carousels that have slides with Postback default actions will not render.'
+                    content={t('carmes')}
                 />
             )}
             <ResponseButtonEditor
@@ -73,12 +74,12 @@ export default function CarouselSlide(props) {
                 onChange={url => setValue({ image_url: url })}
                 otherActions={[
                     [
-                        'Set default action',
+                        t('sda'),
                         () => setModalOpen(true),
                         'set-default-action',
                     ],
                     ...(onDelete
-                        ? [['Delete card', onDelete, 'delete-slide', 'red-text']]
+                        ? [[t('dcard'), onDelete, 'delete-slide', 'red-text']]
                         : []),
                 ]}
                 className={hasUrlOrPayload ? 'highlight' : ''}
@@ -87,7 +88,7 @@ export default function CarouselSlide(props) {
                 <Modal
                     open
                     size='tiny'
-                    header='Change default action'
+                    header={t('cda')}
                     onClose={() => {
                         setValue();
                         setModalOpen(false);
@@ -97,14 +98,14 @@ export default function CarouselSlide(props) {
             )}
             <Header as='h3'>
                 <TextareaAutosize
-                    placeholder='Title'
+                    placeholder={t('title')}
                     value={newValue.title}
                     onChange={event => setNewValue({ title: event.target.value })}
                     onBlur={() => setValue()}
                 />
                 <Header.Subheader>
                     <TextareaAutosize
-                        placeholder='Description'
+                        placeholder={t('description')}
                         value={newValue.subtitle}
                         onChange={event => setNewValue({ subtitle: event.target.value })}
                         onBlur={() => setValue()}

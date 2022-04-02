@@ -8,6 +8,7 @@ import {
     stringPayloadToObject,
     objectPayloadToString,
 } from '../../../../lib/story.utils';
+import { useTranslation } from 'react-i18next';
 
 function ResponseButtonEditor({
     value: {
@@ -23,6 +24,7 @@ function ResponseButtonEditor({
     valid,
     noButtonTitle,
 }) {
+    const { t } = useTranslation();
     const options = [
         { text: 'Postback', value: 'postback' },
         { text: 'Web URL', value: 'web_url' },
@@ -34,10 +36,10 @@ function ResponseButtonEditor({
                     {!noButtonTitle && (
                         <Grid.Column width={12}>
                             <Form.Input
-                                label='Button title'
+                                label={t('titleb')}
                                 data-cy='enter-button-title'
                                 autoFocus
-                                placeholder='Button title'
+                                placeholder={t('titleb')}
                                 onChange={(_event, { value }) => {
                                     const updatedVal = { title: value, type };
                                     if (type === 'web_url') updatedVal.url = url;
@@ -50,7 +52,7 @@ function ResponseButtonEditor({
                     )}
                     <Grid.Column width={noButtonTitle ? 6 : 4}>
                         <Form.Select
-                            label={noButtonTitle ? 'Type' : 'Button type'}
+                            label={noButtonTitle ? t('type') : t('btype')}
                             onChange={(event, { value }) => {
                                 const updatedVal = { title, type: value };
                                 updatedVal.payload = '';
@@ -94,14 +96,14 @@ function ResponseButtonEditor({
                                 basic
                                 color='red'
                                 icon='trash'
-                                content='Delete button'
+                                content={t('delb')}
                                 type='button'
                                 onClick={onDelete}
                             />
                         )}
                         <Button
                             primary
-                            content='Save'
+                            content={t('save')}
                             data-cy='save-button'
                             disabled={!valid}
                             onClick={onClose}

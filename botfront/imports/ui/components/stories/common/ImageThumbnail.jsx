@@ -10,11 +10,13 @@ import { useDrop } from 'react-dnd-cjs';
 import { ResponseContext } from './BotResponsesContainer';
 import { ProjectContext } from '../../../layouts/context';
 import { wrapMeteorCallback } from '../../utils/Errors';
+import { useTranslation } from 'react-i18next';
 
 export default function ImageThumbnail(props) {
     const {
         value, editable, onChange, otherActions, className,
     } = props;
+    const { t } = useTranslation();
     const [newValue, setNewValue] = useState(value);
     const [modalOpen, setModalOpen] = useState(false);
     const { uploadImage, name } = useContext(ResponseContext) || {};
@@ -62,7 +64,7 @@ export default function ImageThumbnail(props) {
     });
 
     const actions = [
-        ['Set image', () => setModalOpen(true), 'set-image'],
+        [t('si'), () => setModalOpen(true), 'set-image'],
         ...otherActions,
     ];
 
@@ -81,16 +83,16 @@ export default function ImageThumbnail(props) {
                     <Button
                         primary
                         basic
-                        content='Upload image'
+                        content={t('ui')}
                         size='small'
                         onClick={() => fileField.current.click()}
                     />
-                    <span className='small grey'>or drop an image file to upload</span>
+                    <span className='small grey'>{t('odif')}</span>
                 </div>
-                <div className='or'> or </div>
+                <div className='or'> {t('or')} </div>
             </>
             )}
-            <b>Insert image from URL</b>
+            <b>{t('insertimg')}</b>
             <br />
             <div className='side-by-side middle'>
                 <Input
@@ -104,7 +106,7 @@ export default function ImageThumbnail(props) {
                     data-cy='image-url-input'
                     className='image-url-input'
                 />
-                <Button primary onClick={setImageFromUrlBox} size='small' content='Save' />
+                <Button primary onClick={setImageFromUrlBox} size='small' content={t('save')} />
             </div>
         </div>
     );
@@ -131,7 +133,7 @@ export default function ImageThumbnail(props) {
                 : (
                     <Dimmer active inverted>
                         <Loader inverted size='small'>
-                            <span className='small grey'>Uploading</span>
+                            <span className='small grey'>{t('uploading')}</span>
                         </Loader>
                     </Dimmer>
                 )

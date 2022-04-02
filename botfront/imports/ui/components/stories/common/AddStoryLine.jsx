@@ -7,6 +7,7 @@ import SlotPopupContent from './SlotPopupContent';
 import DashedButton from './DashedButton';
 import UserUtterancePopupContent from './UserUtterancePopupContent';
 import { ConversationOptionsContext } from '../Context';
+import { useTranslation } from 'react-i18next';
 
 const AddStoryLine = React.forwardRef((props, ref) => {
     const {
@@ -28,6 +29,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
         onBlur,
         trackOpenMenu,
     } = props;
+    const { t } = useTranslation();
     const [loopMenuOpen, setLoopMenuOpen] = useState(false);
     const [actionName, setActionName] = useState('');
     const { forms = [] } = useContext(ConversationOptionsContext);
@@ -47,11 +49,11 @@ const AddStoryLine = React.forwardRef((props, ref) => {
 
     const renderLoopNameMenu = activate => (
         <Dropdown.Menu data-cy='loop-selection-menu'>
-            <Dropdown.Header>By name</Dropdown.Header>
+            <Dropdown.Header>{t('bn')}</Dropdown.Header>
             <Dropdown.Item>
                 <Input
                     autoFocus
-                    placeholder='Type in loop action name...'
+                    placeholder={t('bnlabel')}
                     data-cy='enter-loop-name'
                     onClick={e => e.stopPropagation()}
                     value={actionName}
@@ -61,7 +63,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
             {!!forms.length && (
                 <>
                     <Dropdown.Divider />
-                    <Dropdown.Header>Or select a form</Dropdown.Header>
+                    <Dropdown.Header>{t('osf')}</Dropdown.Header>
                     {forms.map(f => (
                         <Dropdown.Item
                             key={`formname-${f.name}`}
@@ -81,7 +83,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                     <Dropdown
                         open={loopMenuOpen === 'activate'}
                         onOpen={() => setLoopMenuOpen('activate')}
-                        text='Activate loop'
+                        text={t('actl')}
                         fluid
                         data-cy='activate-loop'
                         closeOnBlur={false}
@@ -95,7 +97,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                 <Dropdown
                     open={loopMenuOpen === 'active'}
                     onOpen={() => setLoopMenuOpen('active')}
-                    text='Active loop'
+                    text={t('activel')}
                     fluid
                     data-cy='active-loop'
                     closeOnBlur={false}
@@ -105,7 +107,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                 </Dropdown>
             </Dropdown.Item>
             <Dropdown.Item
-                content='No active loop'
+                content={t('noactivel')}
                 onClick={() => handleCreateLoopLines()}
                 data-cy='no-active-loop'
             />
@@ -124,7 +126,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                 <UserUtterancePopupContent
                     trigger={(
                         <DashedButton color='blue' size={size} data-cy='add-user-line'>
-                            User
+                            {t('uSer')}
                         </DashedButton>
                     )}
                     onCreateFromInput={onCreateUtteranceFromInput}
@@ -152,7 +154,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                     onSelect={a => onCreateGenericLine({ action: a })}
                     trigger={(
                         <DashedButton color='pink' size={size} data-cy='add-action-line'>
-                            Action
+                            {t('actions')}
                         </DashedButton>
                     )}
                     trackOpenMenu={trackOpenMenu}
@@ -179,7 +181,7 @@ const AddStoryLine = React.forwardRef((props, ref) => {
                             size={size}
                             data-cy='add-loop-line'
                         >
-                            Loop
+                            {t('loop')}
                         </DashedButton>
                     )}
                     className='dropdown-button-trigger'

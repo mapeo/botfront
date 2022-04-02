@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {
     Dropdown, Search,
 } from 'semantic-ui-react';
+import { useTranslation } from 'react-i18next';
 
 const BotResponsePopupContent = (props) => {
     const {
         onCreate, trigger, noButtonResponse, limitedSelection, defaultOpen, onClose, disableExisting, trackOpenMenu,
     } = props;
+    const { t } = useTranslation();
     const [modalOpen, setModalOpen] = useState(false);
     const [closeNext, setCloseNext] = useState(false);
     const [menuOpen, setMenuOpen] = useState();
@@ -55,25 +57,25 @@ const BotResponsePopupContent = (props) => {
                     { !disableExisting
                         && (
                             <>
-                                <Dropdown.Header>Select from existing</Dropdown.Header>
+                                <Dropdown.Header>{t('sfe')}</Dropdown.Header>
                                 <Dropdown.Item onClick={() => setModalOpen(true)}>
-                                    <Search fluid placeholder='Search responses...' />
+                                    <Search fluid placeholder={t('searchres')} />
                                 </Dropdown.Item>
                                 <Dropdown.Divider />
-                                <Dropdown.Header>Or use a template</Dropdown.Header>
+                                <Dropdown.Header>{t('out')}</Dropdown.Header>
                             </>
                         )
                     }
-                    <Dropdown.Item onClick={() => onCreate('TextPayload')} data-cy='from-text-template'>Text</Dropdown.Item>
-                    <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('QuickRepliesPayload')} data-cy='from-qr-template'>Buttons and quick replies</Dropdown.Item>
-                    <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('CarouselPayload')} data-cy='from-carousel-template'>Carousel</Dropdown.Item>
-                    <Dropdown.Item onClick={() => onCreate('ImagePayload')} data-cy='from-image-template'>Image</Dropdown.Item>
-                    <Dropdown.Item onClick={() => onCreate('CustomPayload')} data-cy='from-custom-template'>Custom</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreate('TextPayload')} data-cy='from-text-template'>{t('txt')}</Dropdown.Item>
+                    <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('QuickRepliesPayload')} data-cy='from-qr-template'>{t('bqr')}</Dropdown.Item>
+                    <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('CarouselPayload')} data-cy='from-carousel-template'>{t('carousel')}</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreate('ImagePayload')} data-cy='from-image-template'>{t('img')}</Dropdown.Item>
+                    <Dropdown.Item onClick={() => onCreate('CustomPayload')} data-cy='from-custom-template'>{t('cust')}</Dropdown.Item>
                     {!limitedSelection
                         && (
                         <>
-                            <Dropdown.Item onClick={() => onCreate('VideoPayload')} data-cy='from-video-template'>Video</Dropdown.Item>
-                            <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('ButtonPayload')} data-cy='from-button-template'>Button template</Dropdown.Item>
+                            <Dropdown.Item onClick={() => onCreate('VideoPayload')} data-cy='from-video-template'>{t('vid')}</Dropdown.Item>
+                            <Dropdown.Item disabled={noButtonResponse} onClick={() => onCreate('ButtonPayload')} data-cy='from-button-template'>{t('bt')}</Dropdown.Item>
                         </>
                         )
                     }

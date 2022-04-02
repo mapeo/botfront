@@ -6,6 +6,7 @@ import EntityDropdown from '../../nlu/common/EntityDropdown';
 import DashedButton from './DashedButton';
 import EntityValueEditor from './EntityValueEditor';
 import { ProjectContext } from '../../../layouts/context';
+import { useTranslation } from 'react-i18next';
 
 const PayloadEditor = (props) => {
     const {
@@ -14,6 +15,7 @@ const PayloadEditor = (props) => {
         disallowAdvancedEditing,
     } = props;
 
+    const { t } = useTranslation();
     const handleChangeIntent = value => onChange({ intent: value, entities });
 
     const handleChangeEntityAtIndex = (value, index) => onChange({
@@ -78,7 +80,7 @@ const PayloadEditor = (props) => {
                         })}
                     >
                         <Icon name='plus' />
-                        Add entity
+                        {t('addentity')}
                     </DashedButton>
                 </div>
             ) : (

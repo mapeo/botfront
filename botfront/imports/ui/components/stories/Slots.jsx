@@ -88,7 +88,7 @@ class Slots extends React.Component {
     static contextType = ConversationOptionsContext;
 
     render() {
-        const { slots, projectId } = this.props;
+        const { slots, projectId, t } = this.props;
         const { newSlot, slotsUsedInForms } = this.state;
         const canEditSlots = can('stories:w', projectId);
         return (
@@ -132,7 +132,7 @@ class Slots extends React.Component {
                                         data-cy='add-slot'
                                     >
                                         <Dropdown.Menu>
-                                            <Dropdown.Header content='Choose a slot type' />
+                                            <Dropdown.Header content={t('cslot')} />
                                             {this.getSlotOptions().map(
                                                 option => (
                                                     <Dropdown.Item
@@ -149,7 +149,7 @@ class Slots extends React.Component {
                                     </Dropdown>
                                 </Button.Group>
                             )}
-                            content='Add slot'
+                            content={t('adds')}
                         />
                     </Container>
                 )}
@@ -167,5 +167,5 @@ Slots.defaultProps = {
     slots: [],
 };
 
-
-export default Slots;
+const Slotss = withTranslation()(Slots)
+export default Slotss;
