@@ -287,28 +287,24 @@ class Settings extends React.Component {
         );
     }
 
+    ChangeLang = () => {
+        const select = document.querySelector('#field');
+        const value = select.options[select.selectedIndex].value;
+        console.log(value)
+        i18n.changeLanguage(value)
+    }
+
     renderLNG = () => {
         const { t } = this.props;
         return (
             <>
                 <Tab.Pane>
-                    <SelectField
-                        name='settings.public.language'
-                        placeholder={t('sl')}
-                        label={t('slplace')}
-                        options={[
-                            {
-                                text: t('english'),
-                                value: 'en',
-                                key: 'en',
-                            },
-                            {
-                                text: t('pt'),
-                                value: 'ptBr',
-                                key: 'pt',
-                            },
-                        ]}
-                    />
+                    <label htmlFor='field'>{t('sl')}</label>
+                    <select id='field' name='settings.public.language' onChange={this.ChangeLang}>
+                        <option value='en'>{t('eng')}</option>
+                        <option value='ptBr'>{t('pt')}</option>
+                    </select>
+                    <br />
                     {this.renderSubmitButton()}
                 </Tab.Pane>
             </>

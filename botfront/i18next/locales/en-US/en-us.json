@@ -70,7 +70,7 @@
         "savechanges": "Save Changes",
         "change": "Change",
         "changesaved": "Changes saved",
-        "defnlu": "'Default NLU Pipeline'",
+        "defnlu": "Default NLU Pipeline",
         "defnlucontent": "Default NLU pipeline for new NLU models",
         "dp": "Default policies",
         "dpcontent": "Default policies for new projects",
