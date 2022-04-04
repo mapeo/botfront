@@ -17,6 +17,7 @@ import { ProjectContext } from '../../../layouts/context';
 
 import Can from '../../roles/Can';
 import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 class Templates extends React.Component {
     constructor(props) {
@@ -30,55 +31,61 @@ class Templates extends React.Component {
         this.setState({ activeEditor: responseKey });
     };
 
-    renderAddResponse = () => (
-        <Dropdown
-            text='Add bot response'
-            icon='plus'
-            floating
-            labeled
-            button
-            className='icon'
-            data-cy='create-response'
-        >
-            <Dropdown.Menu>
-                <Dropdown.Item
-                    text='Text'
-                    onClick={() => this.setState({ newResponse: { open: true, type: 'TextPayload' } })}
-                    data-cy='add-text-response'
-                />
-                <Dropdown.Item
-                    text='Buttons and quick replies'
-                    onClick={() => this.setState({ newResponse: { open: true, type: 'QuickRepliesPayload' } })}
-                    data-cy='add-quickreply-response'
-                />
-                <Dropdown.Item
-                    text='Carousel'
-                    onClick={() => this.setState({ newResponse: { open: true, type: 'CarouselPayload' } })}
-                    data-cy='add-carousel-response'
-                />
-                <Dropdown.Item
-                    text='Image'
-                    onClick={() => this.setState({ newResponse: { open: true, type: 'ImagePayload' } })}
-                    data-cy='add-image-response'
-                />
-                <Dropdown.Item
-                    text='Custom'
-                    onClick={() => this.setState({ newResponse: { open: true, type: 'CustomPayload' } })}
-                    data-cy='add-custom-response'
-                />
-            </Dropdown.Menu>
-        </Dropdown>
-    );
+    renderAddResponse = () => {
+        const { t } = this.props;
+        return (
+            <Dropdown
+                text={t('adbot')}
+                icon='plus'
+                floating
+                labeled
+                button
+                className='icon'
+                data-cy='create-response'
+            >
+                <Dropdown.Menu>
+                    <Dropdown.Item
+                        text={t('txt')}
+                        onClick={() => this.setState({ newResponse: { open: true, type: 'TextPayload' } })}
+                        data-cy='add-text-response'
+                    />
+                    <Dropdown.Item
+                        text={t('bqr')}
+                        onClick={() => this.setState({ newResponse: { open: true, type: 'QuickRepliesPayload' } })}
+                        data-cy='add-quickreply-response'
+                    />
+                    <Dropdown.Item
+                        text={t('carousel')}
+                        onClick={() => this.setState({ newResponse: { open: true, type: 'CarouselPayload' } })}
+                        data-cy='add-carousel-response'
+                    />
+                    <Dropdown.Item
+                        text={t('img')}
+                        onClick={() => this.setState({ newResponse: { open: true, type: 'ImagePayload' } })}
+                        data-cy='add-image-response'
+                    />
+                    <Dropdown.Item
+                        text={t('cust')}
+                        onClick={() => this.setState({ newResponse: { open: true, type: 'CustomPayload' } })}
+                        data-cy='add-custom-response'
+                    />
+                </Dropdown.Menu>
+            </Dropdown>
+        )
+    };
 
-    renderMenu = projectId => (
-        <PageMenu title='Bot responses' icon='comment alternate'>
-            <Can I='responses:w' projectId={projectId}>
-                <Menu.Menu position='right'>
-                    <Menu.Item>{this.renderAddResponse()}</Menu.Item>
-                </Menu.Menu>
-            </Can>
-        </PageMenu>
-    );
+    renderMenu = projectId => {
+        const { t } = this.props;
+        return (
+            <PageMenu title={t('br')} icon='comment alternate'>
+                <Can I='responses:w' projectId={projectId}>
+                    <Menu.Menu position='right'>
+                        <Menu.Item>{this.renderAddResponse()}</Menu.Item>
+                    </Menu.Menu>
+                </Can>
+            </PageMenu>
+        )
+    };
 
     render() {
         const { activeEditor, newResponse } = this.state;
@@ -116,6 +123,8 @@ Templates.propTypes = {
 
 const TemplatesContainer = ({ params, ready }) => {
     const [templates, setTemplates] = useState([]);
+
+    const { t } = useTranslation();
 
     const { insertResponse } = useContext(ProjectContext);
 
@@ -184,6 +193,7 @@ const TemplatesContainer = ({ params, ready }) => {
 
     return (
         <Templates
+            t={t}
             loading={!ready && loading}
             templates={templates}
             deleteBotResponse={deleteBotResponse}

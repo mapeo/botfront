@@ -63,7 +63,7 @@ class SaveButton extends React.PureComponent {
                         data-cy='save-button'
                         style={buttonStyle}
                         icon={saved ? 'check' : null}
-                        content={saved ? t('saved') : saveText}
+                        content={saved ? t('saved') : t('save')}
                     />
 
                     <Confirm
@@ -85,7 +85,7 @@ class SaveButton extends React.PureComponent {
                 data-cy='save-button'
                 style={buttonStyle}
                 icon={saved ? 'check' : null}
-                content={saved ? t('saved') : saveText}
+                content={saved ? t('saved') : t('save')}
             />
 
         );
@@ -107,7 +107,7 @@ SaveButton.defaultProps = {
     saved: false,
     disabled: false,
     onSave: () => { },
-    saveText:'Save',
+    saveText:'',
     confirmText: '',
 };
 

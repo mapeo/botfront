@@ -10,6 +10,8 @@ import BotResponsesContainer from '../../stories/common/BotResponsesContainer';
 import CustomResponseEditor from '../common/CustomResponseEditor';
 import IconButton from '../../common/IconButton';
 import ButtonTypeToggle from '../common/ButtonTypeToggle';
+import { useTranslation } from 'react-i18next';
+
 
 import { addContentType, defaultTemplate } from '../../../../lib/botResponse.utils';
 
@@ -18,6 +20,7 @@ const SequenceEditor = (props) => {
         name, sequence, onChange, onDeleteVariation, editable, onChangePayloadType,
     } = props;
 
+    const { t } = useTranslation();
     const [editorKey, setEditorKey] = useState(uuidv4());
 
     const getContent = (variation) => {
@@ -97,9 +100,7 @@ const SequenceEditor = (props) => {
                     style={{ margin: '10px' }}
                     content={(
                         <>
-                            The <b className='monospace'>custom</b> key must be an <b className='monospace'>object</b> and will be dispatched by rasa as is.
-                            Content under other top-level keys may be formatted according to rules
-                            specific to the output channel.
+                            {t('custommes')}
                         </>
                     )}
                 />

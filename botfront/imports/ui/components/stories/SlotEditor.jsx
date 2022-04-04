@@ -6,12 +6,14 @@ import PropTypes from 'prop-types';
 import { slotSchemas } from '../../../api/slots/slots.schema';
 import ConfirmPopup from '../common/ConfirmPopup';
 import TranslatedSaveButton from '../utils/SaveButton';
+import { useTranslation } from 'react-i18next';
 
 function SlotEditor(props) {
     const {
         slot, onSave, projectId, onDelete, newSlot, deletable, canEditSlots,
     } = props;
     const { type } = slot;
+    const { t } = useTranslation();
     const [saved, setSaved] = useState(false);
     const [deletePopupOpen, setDeletePopup] = useState(false);
     const [hover, setHover] = useState(false);
@@ -49,17 +51,18 @@ function SlotEditor(props) {
                 }
                 disabled={!canEditSlots}
             >
-                <AutoField name='name' data-cy='slot-name' disabled={!deletable || !canEditSlots} />
+                <AutoField name='name' data-cy='slot-name' disabled={!deletable || !canEditSlots} label = {t('nome')}/>
                 {type !== 'unfeaturized' && (
                     <AutoField
                         name='initialValue'
-                        placeholder='Leave empty for no initial value'
+                        placeholder={t('slotlabel')}
+                        label={t('iv')}
                     />
                 )}
                 {type === 'float' && (
                     <>
-                        <AutoField name='minValue' placeholder='0.0' />
-                        <AutoField name='maxValue' placeholder='1.0' />
+                        <AutoField name='minValue' placeholder='0.0' label = {t('mv')}/>
+                        <AutoField name='maxValue' placeholder='1.0' label = {t('maxv')}/>
                     </>
                 )}
                 {type === 'categorical' && <AutoField name='categories' />}
@@ -69,13 +72,13 @@ function SlotEditor(props) {
                     label={false}
                     hidden
                 />
-                <b>{`Type:  ${type}`}</b>
+                <b>{`${t('type')}:  ${type}`}</b>
                 <br />
                 <ErrorsField data-cy='errors-field' />
                 { canEditSlots && (
                     <TranslatedSaveButton
                         saved={saved}
-                        saveText={newSlot ? 'Add Slot' : 'Save'}
+                        saveText={newSlot ? t('adds') : t('save')}
                     />
                 )}
                 {hover && canEditSlots && (
@@ -92,7 +95,7 @@ function SlotEditor(props) {
                             )}
                             content={(
                                 <ConfirmPopup
-                                    title='Delete Slot ?'
+                                    title={t('dslot')}
                                     onYes={() => onDelete(slot)}
                                     onNo={() => setDeletePopup(false)}
                                 />
@@ -102,7 +105,7 @@ function SlotEditor(props) {
                             onOpen={() => setDeletePopup(true)}
                             disabled={!deletable}
                         />
-                        {!deletable && <span className='grey'>This slot cannot be deleted as it is used in forms.</span>}
+                        {!deletable && <span className='grey'>{t('dslotmes')}</span>}
                     </>
                 )}
             </AutoForm>

@@ -139,7 +139,33 @@ function ResponseMetadataForm({
     };
 
     const schemaDataAdvanced = {
-        ...schemaData,
+        linkTarget: {
+            label: t('linklabel'),
+            defaultValue: '_blank',
+            allowedValues: ['_blank', '_self'],
+            options: [
+                { text: t('linklabelopenct'), value: '_self', description: t('linklabelopenctdesc') },
+                { text: t('linklabelopennt'), value: '_blank', description: t('linklabelopenntdesc') },
+            ],
+        },
+        userInput: {
+            label: t('inputlabel'),
+            defaultValue: 'show',
+            allowedValues: ['show', 'hide', 'disable'],
+            options: [
+                { text: t('inputlabelshow'), value: 'show', description: t('inputlabelshowdesc') },
+                { text: t('inputlabelhide'), value: 'hide', description: t('inputlabelhidedesc') },
+                { text: t('inputlabeldisable'), value: 'disable', description: t('inputlabeldisabledesc') },
+            ],
+        },
+        forceOpen: {
+            label: t('folabel'),
+            defaultValue: false,
+        },
+        forceClose: {
+            label: t('fclabel'),
+            defaultValue: false,
+        },
         'domHighlight.style': {
             initialValue: 'default',
             allowedValues: ['default', 'class', 'custom'],
@@ -201,7 +227,7 @@ function ResponseMetadataForm({
                         <>
                             <InfoField name='domHighlight.selector' label={t('csselec')} info={t('csselecinfo')} />
                             <ButtonSelectField name='domHighlight.style' />
-                            
+
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.style === 'class'}>
                                 <AutoField name='domHighlight.css' label={t('cn')} />
                             </DisplayIf>
@@ -211,7 +237,7 @@ function ResponseMetadataForm({
                             <ButtonSelectField name='domHighlight.tooltipPlacement' />
                             <ToggleField name='domHighlight.tooltipCloseEnabled' className='toggle' label={t('sendtool')} />
                             <DisplayIf condition={context => context.model.domHighlight && context.model.domHighlight.tooltipCloseEnabled}>
-                                <IntentField  name='domHighlight.tooltipClose' />
+                                <IntentField name='domHighlight.tooltipClose' />
                             </DisplayIf>
                         </>
                     </DisplayIf>
@@ -239,7 +265,7 @@ function ResponseMetadataForm({
                                     <NestField name=''>
                                         <BoolField name='regex' options={pageEventOptions} />
                                         <AutoField name='url' />
-                                        <IntentField name='callbackIntent' label={t('calint')}/>
+                                        <IntentField name='callbackIntent' label={t('calint')} />
                                     </NestField>
                                 </ListItemField>
                             </ListField>
@@ -261,7 +287,7 @@ function ResponseMetadataForm({
                                 <ListItemField name='$'>
                                     <NestField name=''>
                                         <SelectField name='event' label={t('event')} options={pageEventOptions} />
-                                        <AutoField name='selector' label={t('selecto')}/>
+                                        <AutoField name='selector' label={t('selecto')} />
                                         <IntentField name='payload' label={t('calint')} />
                                     </NestField>
                                 </ListItemField>
@@ -312,14 +338,14 @@ function ResponseMetadataForm({
         if (newModel.pageEventCallbacks && !newModel.pageEventCallbacks.enabled) delete newModel.pageEventCallbacks;
         // Remove enabled fields
         if (newModel.domHighlight && newModel.domHighlight.enabled) delete newModel.domHighlight.enabled;
-        
+
         if (newModel.domHighlight && !newModel.domHighlight.tooltipCloseEnabled) {
             delete newModel.domHighlight.tooltipClose
         }
         if (newModel.domHighlight) {
             delete newModel.domHighlight.tooltipCloseEnabled
         }
-        
+
         if (newModel.customCss && newModel.customCss.enabled) delete newModel.customCss.enabled;
         if (newModel.pageChangeCallbacks && newModel.pageChangeCallbacks.enabled) {
             delete newModel.pageChangeCallbacks.enabled;
