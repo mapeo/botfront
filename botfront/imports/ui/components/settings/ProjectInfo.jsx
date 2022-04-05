@@ -73,11 +73,12 @@ class ProjectInfo extends React.Component {
     onSave = (project) => {
         const { value } = this.state;
         const { projectLanguages } = this.context;
+        const { t } = this.props;
         const {
             name,
             _id,
             defaultLanguage,
-           
+
             nluThreshold,
             deploymentEnvironments,
             timezoneOffset,
@@ -95,7 +96,7 @@ class ProjectInfo extends React.Component {
                 name,
                 _id,
                 defaultLanguage,
-              
+
                 nluThreshold,
                 deploymentEnvironments,
                 timezoneOffset,
@@ -104,22 +105,25 @@ class ProjectInfo extends React.Component {
                 if (!err) {
                     this.createNLUModels(notInprojectLanguages, _id);
                 }
-            }, 'Changes saved'),
+            }, t('changesaved')),
         );
     };
 
-    renderDeleteprojectLanguages = () => (
-        <Message
-            size='tiny'
-            info
-            content={(
-                <>
-                    To remove a language from the project, go to{' '}
-                    <strong> NLU &gt; Settings &gt; Delete </strong>.
-                </>
-            )}
-        />
-    );
+    renderDeleteprojectLanguages = () => {
+        const { t } = this.props;
+        return (
+            <Message
+                size='tiny'
+                info
+                content={(
+                    <>
+                        {t('removelang')}{' '}
+                        <strong> NLU &gt; {t('settings')} &gt; {t('del')} </strong>.
+                    </>
+                )}
+            />
+        )
+    };
 
     static contextType = ProjectContext;
 
@@ -181,7 +185,7 @@ class ProjectInfo extends React.Component {
                             data-cy='default-langauge-selection'
                         />
                     )}
-                   
+
                     <InfoField
                         name='nluThreshold'
                         label={t('NLUth')}

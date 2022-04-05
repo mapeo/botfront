@@ -540,6 +540,7 @@
         "clickhere": "Clique aqui",
         "clickheremessage": "para obter mais informações sobre esta configuração (se deixado em branco, o padrão será 20)",
         "retrainmodel": "Você precisa tratar novamente seu modelo",
-        "changessaved": "Alterações foram salvas."
+        "changessaved": "Alterações foram salvas.",
+        "removelang": "Para remover um idioma do projeto, vá em"
     }
 }

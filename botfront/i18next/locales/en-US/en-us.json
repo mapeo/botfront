@@ -540,6 +540,7 @@
         "clickhere": "Click here",
         "clickheremessage": "for more information on this setting (if left empty, this will default to 20)",
         "retrainmodel": "You need to retrain your model",
-        "changessaved": "Your changes have been saved."
+        "changessaved": "Your changes have been saved.",
+        "removelang": "To remove a language from the project, go to"
     }
 }
