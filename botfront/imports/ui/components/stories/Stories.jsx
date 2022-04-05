@@ -30,6 +30,7 @@ import { UPSERT_FORM, GET_FORMS, DELETE_FORMS } from './graphql/queries';
 import { FORMS_MODIFIED, FORMS_DELETED, FORMS_CREATED } from './graphql/subscriptions';
 import FormEditors from '../forms/FormEditors';
 import { clearTypenameField } from '../../../lib/client.safe.utils';
+import { useTranslation } from 'react-i18next';
 
 const callbackCaller = (args, afterAll = () => {}) => async (res) => {
     const callback = args[args.length - 1];
@@ -79,6 +80,8 @@ function Stories(props) {
         storyMenuSelection,
         setStoryMenuSelection: doSetStoryMenuSelection,
     } = props;
+
+    const { t } = useTranslation();
 
     const { slots } = useContext(ProjectContext);
 
@@ -323,7 +326,7 @@ function Stories(props) {
                     'Slots',
                     <SlotsEditor slots={slots} projectId={projectId} />,
                 )}
-                {modalWrapper(policiesModal, 'Policies', <PoliciesEditor />, false)}
+                {modalWrapper(policiesModal, t('polices'), <PoliciesEditor />, false)}
                 <SplitPane
                     split='vertical'
                     minSize={200}

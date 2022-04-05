@@ -12,6 +12,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import PropTypes from 'prop-types';
 import { GlobalSettings } from '../../../api/globalSettings/globalSettings.collection';
 import { wrapMeteorCallback } from '../utils/Errors';
+import { withTranslation } from 'react-i18next';
 
 class ForgotPassword extends React.Component {
     forgotPasswordFormSchema = new SimpleSchema(
@@ -41,10 +42,11 @@ class ForgotPassword extends React.Component {
         const reCaptchaRef = (el) => {
             this.reCaptchaRef = el;
         };
+        const { t } = this.props;
         return (
             <Segment>
                 <AutoForm model={{}} schema={this.forgotPasswordFormSchemaBridge} onSubmit={this.handlePasswordLost} className='ui large' disabled={loading}>
-                    <TextField name='email' iconLeft='user' placeholder='Email' label={null} />
+                    <TextField name='email' iconLeft='user' placeholder={t('eemail')} label={null} />
                     <ErrorsField />
                     {reCatpchaSiteKey && (
                         <div>
@@ -55,14 +57,18 @@ class ForgotPassword extends React.Component {
                     <SubmitField value='Continue' className='black large basic fluid' disabled={reCatpchaSiteKey && !reCaptcha} />
                     <br />
                     <Link style={{ color: '#000' }} to='/login'>
-                        Back to Sign in
+                        {t('backtosign')}
                     </Link>
                 </AutoForm>
             </Segment>
         );
     };
 
-    renderSent = () => <Message positive header='Check your email inbox' content='If you have an account with us, you will find the instructions to reset your password in your inbox' />;
+    renderSent = () => {
+        const { t } = this.props;
+        return (
+            <Message positive header={t('ceb')} content={t('cebmessage')} />)
+    }
 
     onCaptcha = (reCaptcha) => {
         Meteor.call(
@@ -96,9 +102,10 @@ ForgotPassword.defaultProps = {
     settings: {},
 };
 
+const TranslatedForgotPassword = withTranslation()(ForgotPassword)
 export default withTracker(() => {
     const settings = GlobalSettings.findOne({}, { fields: { 'settings.public.reCatpchaSiteKey': 1 } });
     return {
         settings,
     };
-})(ForgotPassword);
+})(TranslatedForgotPassword);

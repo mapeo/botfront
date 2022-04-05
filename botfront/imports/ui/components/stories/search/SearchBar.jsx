@@ -25,7 +25,7 @@ const SearchBar = (props) => {
         activeStories,
     } = props;
 
-    
+    const { t } = useTranslation();
 
     const [queryString, setQueryString] = useState('');
     const [open, setOpen] = useState(false);
@@ -164,9 +164,8 @@ const SearchBar = (props) => {
                 <span className='story-name'>{name || title}</span>
                 <span className='story-group-name'>{storyGroup && storyGroup.name}</span>
                 <Icon
-                    className={`push-story-icon ${
-                        isOpen ? 'story-open' : 'story-closed'
-                    }`}
+                    className={`push-story-icon ${isOpen ? 'story-open' : 'story-closed'
+                        }`}
                     floating='right'
                     name='eye'
                     id='push-story-icon'
@@ -214,15 +213,17 @@ const SearchBar = (props) => {
         </span>
     );
 
-    const renderShortcuts = () => (
-        <div className='search-shortcuts'>
-            <Shortcut value='with:triggers' text='Stories with triggers' />
-            <Shortcut value='with:custom_style' text='Stories with custom styles' />
-            <Shortcut value='with:observe_events' text='Stories with user interactions callback' />
-            <Shortcut value='status:unpublished' text='Unpublished stories' />
-            <Shortcut value='status:published' text='Published stories' />
-        </div>
-    );
+    const renderShortcuts = () => {
+        return (
+            <div className='search-shortcuts'>
+                <Shortcut value='with:triggers' text={t('storiestriggers')} />
+                <Shortcut value='with:custom_style' text={t('storiescustom')} />
+                <Shortcut value='with:observe_events' text={t('storiescallback')} />
+                <Shortcut value='status:unpublished' text={t('unpustories')} />
+                <Shortcut value='status:published' text={t('pubstories')} />
+            </div>
+        )
+    };
 
     return (
         <>

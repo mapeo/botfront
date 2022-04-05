@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { passwordComplexityRegex } from '../../../api/user/user.methods';
 import { wrapMeteorCallback } from '../utils/Errors';
 import { GlobalSettings } from '../../../api/globalSettings/globalSettings.collection';
+import { withTranslation } from 'react-i18next';
 
 const resetPasswordSchema = new SimpleSchema(
     {
@@ -92,20 +93,20 @@ class ResetPassword extends React.Component {
             this.reCaptchaRef = el;
         };
         const { loading, reCaptcha } = this.state;
-        const { settings: { settings: { public: { reCatpchaSiteKey } = { reCatpchaSiteKey: null } } = {} } = {} } = this.props;
+        const { t, settings: { settings: { public: { reCatpchaSiteKey } = { reCatpchaSiteKey: null } } = {} } = {} } = this.props;
         return (
             <Segment>
                 <AutoForm model={{}} schema={resetPasswordSchemaBridge} onSubmit={this.handleResetPassword} className='ui large' disabled={loading}>
                     <ErrorsField />
-                    <TextField name='password' iconLeft='lock' placeholder='Password' type='password' label={null} />
-                    <TextField name='passwordVerify' iconLeft='lock' placeholder='Repeat password' type='password' label={null} />
+                    <TextField name='password' iconLeft='lock' placeholder={t('password')} type='password' label={null} />
+                    <TextField name='passwordVerify' iconLeft='lock' placeholder={t('rp')} type='password' label={null} />
                     {reCatpchaSiteKey && (
                         <div>
                             <ReCAPTCHA sitekey={reCatpchaSiteKey} onChange={this.onCaptcha} ref={reCaptchaRef} />
                             <br />
                         </div>
                     )}
-                    <SubmitField value='RESET YOUR PASSWORD' className='black large basic fluid' disabled={reCatpchaSiteKey && !reCaptcha} />
+                    <SubmitField value={t('resetpassword')} className='black large basic fluid' disabled={reCatpchaSiteKey && !reCaptcha} />
                 </AutoForm>
             </Segment>
         );
@@ -120,9 +121,11 @@ ResetPassword.defaultProps = {
     settings: {},
 };
 
+const TranslatedResetPassword = withTranslation()(ResetPassword)
+
 export default withTracker(() => {
     const settings = GlobalSettings.findOne({}, { fields: { 'settings.public.reCatpchaSiteKey': 1 } });
     return {
         settings,
     };
-})(ResetPassword);
+})(TranslatedResetPassword);

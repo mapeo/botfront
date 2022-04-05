@@ -23,6 +23,7 @@ import { can, Can } from '../../../lib/scopes';
 import { languages } from '../../../lib/languages';
 import { runTestCaseStories } from './runTestCaseStories';
 import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 class TrainButton extends React.Component {
     constructor(props) {
@@ -480,6 +481,7 @@ const TranslatedTrainButton = withTranslation()(TrainButton)
 export default withTracker((props) => {
     // Gets the required number of selected storygroups and sets the content and popup for the train button
     const { projectId } = props;
+    const { t } = useTranslation();
     const trainingStatusHandler = Meteor.subscribe('training.status', projectId);
     const storyGroupHandler = Meteor.subscribe('storiesGroup', projectId);
     const ready = storyGroupHandler.ready() && trainingStatusHandler.ready();
@@ -499,11 +501,11 @@ export default withTracker((props) => {
         selectedStoryGroups = storyGroups.filter(storyGroup => storyGroup.selected);
         partialTrainning = selectedStoryGroups.length > 0;
         if (partialTrainning && selectedStoryGroups.length > 1) {
-            popupContent = `Train NLU and stories from ${selectedStoryGroups.length} focused story groups.`;
+            popupContent = `${t('trainpopupone')} ${selectedStoryGroups.length} ${t('trainpopuptwo')}`;
         } else if (selectedStoryGroups && selectedStoryGroups.length === 1) {
-            popupContent = 'Train NLU and stories from 1 focused story group.';
+            popupContent = t('trainpopup');
         } else if (status === 'notReachable') {
-            popupContent = 'Rasa instance not reachable';
+            popupContent = t('traininfo');
         }
     }
 

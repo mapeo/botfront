@@ -12,6 +12,7 @@ import {
 } from 'uniforms-semantic';
 import { wrapMeteorCallback } from '../utils/Errors';
 import { GlobalSettings } from '../../../api/globalSettings/globalSettings.collection';
+import { withTranslation } from 'react-i18next';
 
 class LoginComponent extends React.Component {
     loginFormSchema = new SimpleSchema(
@@ -89,15 +90,15 @@ class LoginComponent extends React.Component {
             this.reCaptchaRef = el;
         };
         const { loggingIn, reCaptcha, loggedOut } = this.state;
-        const { settings: { settings: { public: { reCatpchaSiteKey } = { reCatpchaSiteKey: null } } = {} } = {} } = this.props;
+        const { t, settings: { settings: { public: { reCatpchaSiteKey } = { reCatpchaSiteKey: null } } = {} } = {} } = this.props;
         return (
             <>
                 {loggedOut && (
                     <Segment className='account-block'>
                         <AutoForm model={{}} schema={this.loginFormSchemaBridge} onSubmit={this.handleLogin} className='ui large account-form' disabled={loggingIn}>
                             <ErrorsField />
-                            <TextField name='email' iconLeft='user' placeholder='Email' type='email' label={null} data-cy='login-field' />
-                            <TextField name='password' iconLeft='lock' placeholder='Password' type='password' label={null} data-cy='password-field' />
+                            <TextField name='email' iconLeft='user' placeholder={t('eemail')} type='email' label={null} data-cy='login-field' />
+                            <TextField name='password' iconLeft='lock' placeholder={t('password')} type='password' label={null} data-cy='password-field' />
                             {reCatpchaSiteKey && (
                                 <div>
                                     <ReCAPTCHA sitekey={reCatpchaSiteKey} onChange={this.onCaptcha} ref={reCaptchaRef} />
@@ -107,7 +108,7 @@ class LoginComponent extends React.Component {
                             <SubmitField value='LOGIN' className='black large basic fluid' disabled={reCatpchaSiteKey && !reCaptcha} data-cy='login-button' />
                             <br />
                             <Link style={{ color: '#000' }} to='/forgot-password'>
-                                Forgot your password?
+                                {t('fyp')}
                             </Link>
                         </AutoForm>
                     </Segment>
@@ -138,4 +139,6 @@ const LoginContainer = withTracker(() => {
         settings,
     };
 })(LoginComponent);
-export default LoginContainer;
+
+const TranslatedLoginContainer = withTranslation()(LoginContainer)
+export default TranslatedLoginContainer;

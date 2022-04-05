@@ -14,6 +14,7 @@ import ChangesSaved from '../utils/ChangesSaved';
 import TranslatedSaveButton from '../utils/SaveButton';
 import AceField from '../utils/AceField';
 import { Can, can } from '../../../lib/scopes';
+import { withTranslation } from 'react-i18next';
 
 class CorePolicy extends React.Component {
     constructor(props) {
@@ -44,7 +45,7 @@ class CorePolicy extends React.Component {
     };
 
     renderPolicies = () => {
-        const { policies, projectId } = this.props;
+        const { t, policies, projectId } = this.props;
         const { saved, showConfirmation, saving } = this.state;
         return (
             <AutoForm
@@ -66,7 +67,7 @@ class CorePolicy extends React.Component {
                         <NumField
                             data-cy='augmentation-factor'
                             name='augmentationFactor'
-                            label='Augmentation factor'
+                            label={t('augfac')}
                             disabled={!can('stories:w', projectId)}
                             defaultF
                         />
@@ -79,9 +80,9 @@ class CorePolicy extends React.Component {
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
-                                Click here
+                                {t('clickhere')}
                             </a>
-                            <span> for more information on this setting (if left empty, this will default to 20)</span>
+                            <span> {t('clickheremessage')}</span>
                         </>
                     )}
                 />
@@ -92,7 +93,7 @@ class CorePolicy extends React.Component {
                         onDismiss={() => this.setState({ saved: false, showConfirmation: false })}
                         content={(
                             <p>
-                                You need to retrain your model
+                                {t('retrainmodel')}
                             </p>
                         )}
                     />
@@ -137,4 +138,6 @@ const mapStateToProps = state => ({
     projectId: state.settings.get('projectId'),
 });
 
-export default connect(mapStateToProps)(PolicyContainer);
+const TranslatedPolicyContainer = withTranslation()(PolicyContainer)
+
+export default connect(mapStateToProps)(TranslatedPolicyContainer);
