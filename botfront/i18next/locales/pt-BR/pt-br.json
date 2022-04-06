@@ -541,6 +541,14 @@
         "clickheremessage": "para obter mais informações sobre esta configuração (se deixado em branco, o padrão será 20)",
         "retrainmodel": "Você precisa tratar novamente seu modelo",
         "changessaved": "Alterações foram salvas.",
-        "removelang": "Para remover um idioma do projeto, vá em"
+        "removelang": "Para remover um idioma do projeto, vá em",
+        "and": "E",
+        "oor": "Ou",
+        "inorder": "Em ordem",
+        "slotevents": "Eventos de slot",
+        "validatemes": "You cannot have two exclusion next to each other",
+        "validatemesone": "The sequence cannot start with an exclusion",
+        "passwordmes": "A senha não é a mesma. Verifique se você digitou a mesma senha nos dois campos.",
+        "passwordmesone": "A sua senha deve conter pelo menos 9 caracteres e ter letra maiúscula, minúscula, dígitos e caracteres especiais."
     }
 }

@@ -541,6 +541,14 @@
         "clickheremessage": "for more information on this setting (if left empty, this will default to 20)",
         "retrainmodel": "You need to retrain your model",
         "changessaved": "Your changes have been saved.",
-        "removelang": "To remove a language from the project, go to"
+        "removelang": "To remove a language from the project, go to",
+        "and": "And",
+        "oor": "Or",
+        "inorder": "In order",
+        "slotevents": "Slot events",
+        "validatemes": "Você não pode ter duas exclusões próximas uma da outra",
+        "validatemesone": "A sequência não pode inciar com uma exclusão",
+        "passwordmes": "The passwords are not matching. Make sure you enter the same password in both fields",
+        "passwordmesone": "Your password should contain at least 9 characters and have uppercase, lowercase, digit and special characters"
     }
 }

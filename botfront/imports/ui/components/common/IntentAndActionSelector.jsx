@@ -8,6 +8,7 @@ import {
 
 } from 'semantic-ui-react';
 import SequenceSelector from './SequenceSelector';
+import { useTranslation } from 'react-i18next';
 
 const IntentAndActionSelector = ({
     operatorValue,
@@ -18,16 +19,17 @@ const IntentAndActionSelector = ({
     sequence,
     allowedOperators,
 }) => {
+    const { t } = useTranslation();
     const getOperatorOptions = () => {
         const allOptions = [
             {
-                key: 'and', value: 'and', text: 'And',
+                key: 'and', value: 'and', text: t('and'),
             },
             {
-                key: 'or', value: 'or', text: 'Or',
+                key: 'or', value: 'or', text: t('oor'),
             },
             {
-                key: 'inOrder', value: 'inOrder', text: 'In order',
+                key: 'inOrder', value: 'inOrder', text: t('inorder'),
             },
         ];
         return allOptions.filter(({ key }) => allowedOperators.includes(key));

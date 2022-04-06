@@ -5,10 +5,13 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import SequenceSelector from './SequenceSelector';
+import { useTranslation } from 'react-i18next';
 
 function ValidatedSequenceSelector({
     sequence, onChange, actionOptions, slotOptions,
 }) {
+
+    const { t } = useTranslation();
     const [errorMessages, setErrorMessages] = useState([]);
     const [pendingSequence, setPendingSequence] = useState([]);
 
@@ -24,8 +27,8 @@ function ValidatedSequenceSelector({
             if (previousExcluded && step.excluded) isNewSequenceValid = false;
             previousExcluded = step.excluded;
         });
-        if (!isNewSequenceValid) errors.push('You cannot have two exclusion next to each other');
-        if (newSequence.length > 0 && newSequence[0].excluded) errors.push('The sequence cannot start with an exclusion');
+        if (!isNewSequenceValid) errors.push(t('validatemes'));
+        if (newSequence.length > 0 && newSequence[0].excluded) errors.push(t('validatemesone'));
 
         return errors;
     }

@@ -5,12 +5,14 @@ import {
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import IntentLabel from '../nlu/common/IntentLabel';
+import { useTranslation } from 'react-i18next';
 
 
 function SequenceSelector({
     sequence, onChange, actionOptions, slotOptions, allowedEventTypes, bordered, enableExclusions, width, direction,
 }) {
     const [search, setSearch] = useState('');
+    const { t } = useTranslation();
     const [mainDropdownOpen, setMainDropdownOpen] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(null);
     const rootRef = useRef(null);
@@ -128,14 +130,14 @@ function SequenceSelector({
         <Dropdown.Menu>
             {allowedEventTypes.includes('action') && (
                 <Dropdown.Item className='dropdown-step' key='actions-dropdown-item'>
-                    <Dropdown scrolling open={dropdownOpen === 'action'} text='Actions' fluid className='sequence-addition' onClick={() => setDropdownOpen('action')} data-cy='action-event-dropdown'>
+                    <Dropdown scrolling open={dropdownOpen === 'action'} text={t('actions')} fluid className='sequence-addition' onClick={() => setDropdownOpen('action')} data-cy='action-event-dropdown'>
                         {renderContent('action')}
                     </Dropdown>
                 </Dropdown.Item>
             )}
             {allowedEventTypes.includes('intent') && (
                 <Dropdown.Item className='dropdown-step' key='intents-dropdown-item'>
-                    <Dropdown open={dropdownOpen === 'intent'} text='Intents' fluid className='sequence-addition' onClick={() => setDropdownOpen('intent')} data-cy='intent-event-dropdown'>
+                    <Dropdown open={dropdownOpen === 'intent'} text={t('intents')} fluid className='sequence-addition' onClick={() => setDropdownOpen('intent')} data-cy='intent-event-dropdown'>
                         <Dropdown.Menu>
                             <IntentLabel
                                 value={null}
@@ -152,7 +154,7 @@ function SequenceSelector({
             )}
             {allowedEventTypes.includes('slot') && (
                 <Dropdown.Item className='dropdown-step' key='slots-dropdown-item'>
-                    <Dropdown scrolling open={dropdownOpen === 'slot'} text='Slot events' fluid className='sequence-addition' onClick={() => setDropdownOpen('slot')} data-cy='slot-event-dropdown'>
+                    <Dropdown scrolling open={dropdownOpen === 'slot'} text={t('slotevents')} fluid className='sequence-addition' onClick={() => setDropdownOpen('slot')} data-cy='slot-event-dropdown'>
                         {renderContent('slot')}
                     </Dropdown>
                 </Dropdown.Item>
