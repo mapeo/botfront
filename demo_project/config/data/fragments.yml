@@ -1,0 +1,40 @@
+version: '3.1'
+stories:
+  - story: AskName
+    steps:
+      - intent: chitchat.what_is_your_name
+        user: 你叫什么名字？
+      - action: utter_pKLg9_TcW
+      - intent: chitchat.tell_my_name
+        user: 我叫王尼玛
+        entities:
+          - PERSON: 王尼玛
+      - action: utter_lfRJAFPJJ
+      - action: action_my_action
+    metadata:
+      group: Example group
+rules:
+  - rule: Farewells
+    condition: []
+    steps:
+      - intent: chitchat.bye
+      - action: utter_bye
+    metadata:
+      group: Example group
+  - rule: GetStarted
+    condition: []
+    steps:
+      - intent: get_started
+        user: get_started
+        entities: []
+      - action: utter_get_started
+    metadata:
+      group: Example group
+  - rule: Greetings
+    condition: []
+    steps:
+      - intent: chitchat.greet
+      - action: utter_hi
+    wait_for_user_input: false
+    metadata:
+      group: Example group

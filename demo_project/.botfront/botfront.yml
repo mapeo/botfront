@@ -1,0 +1,20 @@
+images:
+  default:
+    botfront: 'bf-for-rasa3:v0.1'
+    rasa: 'rasa3-for-bf:v0.1'
+    duckling: 'botfront/duckling:latest'
+    mongo: 'mongo:6.0.1'
+    actions: 'rasa/rasa-sdk:3.2.1'
+  current:
+    botfront: 'bf-for-rasa3:v0.1'
+    rasa: 'rasa3-for-bf:v0.1'
+    duckling: 'botfront/duckling:latest'
+    mongo: 'mongo:6.0.1'
+    actions: 'rasa/rasa-sdk:3.2.1'
+env:
+  bf_project_id: chitchat-5v7YtAmFF
+  bf_url: 'http://botfront:3000/graphql'
+  root_url: 'http://localhost:8888'
+  augmentation_factor: 50
+  mongo_url: 'mongodb://mongo:27017/bf'
+version: 1.0.5
