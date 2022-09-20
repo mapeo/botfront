@@ -288,7 +288,7 @@ export const newGetBotResponses = async ({
             $project: {
                 _id: false,
                 key: '$key',
-                language: '$values.lang',
+                // language: '$values.lang', // djypanda
                 channel: '$values.channel',
                 payload: '$values.sequence.content',
                 metadata: '$metadata',

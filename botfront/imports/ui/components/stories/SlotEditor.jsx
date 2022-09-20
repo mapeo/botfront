@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { slotSchemas } from '../../../api/slots/slots.schema';
 import ConfirmPopup from '../common/ConfirmPopup';
 import SaveButton from '../utils/SaveButton';
+import AceField from '../utils/AceField';
 
 function SlotEditor(props) {
     const {
@@ -63,6 +64,7 @@ function SlotEditor(props) {
                     </>
                 )}
                 {type === 'categorical' && <AutoField name='categories' />}
+                <AceField name='mappings' minLines={3} maxLines={5} label='Mappings' mode='yaml' data-cy='ace-field' />
                 <AutoField
                     name='projectId'
                     value={projectId}

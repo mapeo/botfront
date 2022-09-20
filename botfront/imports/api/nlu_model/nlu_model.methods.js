@@ -393,7 +393,9 @@ if (Meteor.isServer) {
             checkIfCan('projects:w');
             try {
                 const data = {
-                    fr: JSON.parse(Assets.getText('nlu/nlu-chitchat-fr.json')),
+                    // djypanda
+                    // fr: JSON.parse(Assets.getText('nlu/nlu-chitchat-fr.json')),
+                    zh: JSON.parse(Assets.getText('nlu/nlu-chitchat-zh.json')),
                     en: JSON.parse(Assets.getText('nlu/nlu-chitchat-en.json')),
                 };
                 const projectId = await Meteor.callWithPromise('project.insert', {
@@ -425,6 +427,33 @@ if (Meteor.isServer) {
                 GlobalSettings.update(
                     { _id: 'SETTINGS' },
                     { $set: { 'settings.public.chitChatProjectId': projectId } },
+                );
+            } catch (e) {
+                throw formatError(e);
+            }
+        },
+
+        // djypanda, test method to load examples from file to db
+        async 'nlu.chitChatLoadJsonFiles'() {
+            try {
+                const data = {
+                    // djypanda
+                    zh: JSON.parse(Assets.getText('nlu/nlu-chitchat-zh.json')),
+                    en: JSON.parse(Assets.getText('nlu/nlu-chitchat-en.json')),
+                };
+                const projectId = 'chitchat-p-mDlOnM6';
+
+                await Promise.all(
+                    Object.keys(data).map(
+                        lang => new Promise(async (resolve) => {
+                            await insertExamples({
+                                examples: data[lang],
+                                language: lang,
+                                projectId,
+                            });
+                            resolve();
+                        }),
+                    ),
                 );
             } catch (e) {
                 throw formatError(e);

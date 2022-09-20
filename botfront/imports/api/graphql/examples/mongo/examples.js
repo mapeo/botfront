@@ -48,12 +48,16 @@ const createFilterObject = (
             $in: entities,
         };
     }
-    if (matchEntityName) {
+    // djypanda add && entities.lengt
+    if (matchEntityName && entities.length) {
         // match all entities in the entities array by their name
         filters.entities = { $size: entities.length };
         if (entities.length) {
-            filters.entities.$all = entities.map(({ entity, value }) => ({
-                $elemMatch: { entity, value },
+            // filters.entities.$all = entities.map(({ entity, value }) => ({
+            //     $elemMatch: { entity, value },
+            // djypanda changed to match entity name only
+            filters.entities.$all = entities.map(({ entity }) => ({
+                $elemMatch: { entity },
             }));
         }
     }

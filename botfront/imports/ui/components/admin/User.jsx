@@ -96,10 +96,11 @@ class User extends React.Component {
                     value: 'en',
                     key: 'en',
                 },
+                // djypanda changed
                 {
-                    text: 'French',
-                    value: 'fr',
-                    key: 'fr',
+                    text: 'Chinese',
+                    value: 'zh',
+                    key: 'zh',
                 },
             ]}
         />

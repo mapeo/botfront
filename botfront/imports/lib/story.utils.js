@@ -28,6 +28,7 @@ const getSlotsInRasaFormat = (slots = []) => {
         if (slot.categories) options.values = slot.categories;
         slotsToAdd[slot.name] = {
             type: slot.type,
+            mappings: yaml.safeLoad(slot.mappings), // djypanda
             ...options,
         };
     });
@@ -185,6 +186,7 @@ export const extractDomain = ({
     domain.actions = Array.from(domain.actions).sort();
     domain.intents = Array.from(domain.intents).sort();
     domain.entities = Array.from(domain.entities).sort();
+    domain.version = '3.1'; // djypanda add
     return domain;
 };
 
@@ -240,9 +242,10 @@ export const getFragmentsAndDomain = async (projectId, language, env = 'developm
     appMethodLogger.debug('Retrieving default domain');
     const { defaultDomain, defaultLanguage } = getDefaultDomainAndLanguage(projectId);
 
+    // djypanda add custom
     defaultDomain.slots = {
         ...(defaultDomain.slots || {}),
-        fallback_language: { type: 'unfeaturized', initial_value: defaultLanguage },
+        fallback_language: { type: 'any', initial_value: defaultLanguage, mappings: [{ type: 'custom' }] },
     };
     appMethodLogger.debug('Selecting fragment groups');
     const groups = StoryGroups.find(

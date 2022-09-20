@@ -1,0 +1,3542 @@
+[
+  {
+    "text": "讲个笑话",
+    "intent": "chitchat.tell_me_a_joke",
+    "entities": []
+  },
+  {
+    "text": "我想听个好笑的",
+    "intent": "chitchat.tell_me_a_joke",
+    "entities": []
+  },
+  {
+    "text": "你真棒",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你太厉害了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真酷",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真厉害",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真好",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你太牛逼了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "10分钟后",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "太牛了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真善良",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是世界上最好的人",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是好人",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是最棒的",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "牛逼",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "真棒",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "酷毙了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你太好了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真牛",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真温柔",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你太不可思议了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你拯救了我的一天",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你太有用了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "赞",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你和真人一样",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你让我心情舒畅",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "我要告诉别人你真棒",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "我想告诉别人你真厉害",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你超级厉害",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你超级棒",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真屌",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真吊",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "取消",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "两周内",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "我改变主意了",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "真扫兴",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "太难以置信了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你真烂",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你是最差劲的",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你真没用",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你真可爱",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你太吸引人了",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你真漂亮",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "今天真漂亮",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你太美丽了",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你看起来真棒",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "很漂亮",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你是女神",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你太美了",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你气色真好",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "转人工",
+    "intent": "basics.request_handover",
+    "entities": []
+  },
+  {
+    "text": "人工坐席",
+    "intent": "basics.request_handover",
+    "entities": []
+  },
+  {
+    "text": "要人工客服",
+    "intent": "basics.request_handover",
+    "entities": []
+  },
+  {
+    "text": "我想和真人说话",
+    "intent": "basics.request_handover",
+    "entities": []
+  },
+  {
+    "text": "人工处理",
+    "intent": "basics.request_handover",
+    "entities": []
+  },
+  {
+    "text": "你看起来不错",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "喜欢你现在的样子",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "我觉得你很漂亮",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你怎么这么漂亮",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你亮瞎我了",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "好可爱",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你好帅",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "长得真好看",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "长得不错",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "今天打扮的真好看",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "今天妆化的不错嘛",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "今天气色不错",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "看起来很精神",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "精神小伙",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你是美女",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "小姑娘长得真俊",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "小伙子长得真帅",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "小伙子真阳光",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你是真的好看",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你很性感",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "今天穿的真性感",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你迷倒我了",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你太帅了",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你是男神",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "我喜欢你的样子",
+    "intent": "chitchat.you_are_pretty",
+    "entities": []
+  },
+  {
+    "text": "你好无聊",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "你太无聊了",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "你真没意思",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "你好无趣",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "你没劲",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "你太傻了",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "我需要你帮忙",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "帮我个忙",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "帮我一下",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "我有个问题需要帮助",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "能为我做些事情吗",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "帮忙",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你在打扰我",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "救命",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你能救我",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "有事劳驾",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "我有问题",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "I need your help",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "assist",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "can you help",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "can u help me",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "can you help me",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "请教",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "帮我",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "我需要你",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "需要帮助",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "我被困住了",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "我没办法了",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "help",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "能帮我一下吗",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你愿意帮我吗",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你可以帮我吗",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你能帮我吗",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "救救我",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "要死了",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "我要死了",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "麻烦大了",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "sos",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "可以帮我们吗",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你是机器人",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "你是机器人吗",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "你真的是机器人",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "你是假的",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "搭把手",
+    "intent": "chitchat.i_need_help",
+    "entities": []
+  },
+  {
+    "text": "你是程序吗",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "你是聊天机器人",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "你真聪明",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "聪明",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你是个机器人",
+    "intent": "chitchat.are_you_a_robot",
+    "entities": []
+  },
+  {
+    "text": "你真机灵",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你懂的真多",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你是万事通",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你是十万个为什么",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你太聪明了",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你真智慧",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "大聪明",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你无所不知啊",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你什么都懂",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你是天才",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你是神童",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你是智能的",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你很智能",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "睿智",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "天才",
+    "intent": "chitchat.you_are_smart",
+    "entities": []
+  },
+  {
+    "text": "你疯了啊",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你是怪物",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "神经病啊",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你是神经病",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "深井冰",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你是疯子",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你脑子有问题",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你抽经了",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你发神经啊",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "我觉得你有毛病",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你有毛病吗",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你发什么疯啊",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你有毛病",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你让我开怀大笑",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你好幽默",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你很幽默",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "笑死了",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你是个搞笑机器人",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你是个幽默的机器人",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你很搞笑",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你生什么气啊",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你别发神经了",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "你生我气吗",
+    "intent": "chitchat.you_are_crazy",
+    "entities": []
+  },
+  {
+    "text": "搞笑",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你真搞笑",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "有趣的灵魂",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "真有趣",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "好笑",
+    "intent": "chitchat.you_are_funny",
+    "entities": []
+  },
+  {
+    "text": "你帮大忙了",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是最好的",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是专业的",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你很好",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "干的真棒",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "这是你擅长的",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "做的不错",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是专家",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "好样的",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "干的漂亮",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你工作能力很强",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "完美",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你真完美",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你很温柔",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你是最厉害的",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "好厉害",
+    "intent": "chitchat.you_are_good",
+    "entities": []
+  },
+  {
+    "text": "你开心吗",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "你看上去很开心",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "你家在哪",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你住哪",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你很高兴",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "对",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "你住哪个城市",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你老家哪里",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你说的对",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "你没错",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "是真的",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "你太对了",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "yes",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "对的",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "是",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "嗯嗯",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "嗯",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "恩",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "答对了",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "正确",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "这是正确答案",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "同意",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "你心情不错啊",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "你是对的",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "快乐好心情",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "好幸福",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "你太幸福了",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "你幸福吗",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "你心情好吗",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "今天心情怎么样",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "和我在一起开心吗",
+    "intent": "chitchat.are_you_happy",
+    "entities": []
+  },
+  {
+    "text": "想吃点什么",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "你饿吗",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "你现在饿吗",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "你饿了吗",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "你想吃东西吗",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "吃点东西去吧",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "你在哪工作",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你工作地点在哪",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "办公室在哪",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你办公地点在哪",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你工作地址是什么",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你公司在什么地方",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你上班吗",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你很饿了吧",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "你饿了吧",
+    "intent": "chitchat.are_you_hungry",
+    "entities": []
+  },
+  {
+    "text": "办公地址在哪",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你做什么的",
+    "intent": "chitchat.what_is_your_occupation",
+    "entities": []
+  },
+  {
+    "text": "你在这里出生的吗",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你在哪里出生的",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你出生地在哪",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你是哪个国家的",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你老家在哪",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你出生在哪里",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你出生在哪个城市",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你从哪里来",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你家远吗",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你的祖国是哪里",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "你的祖国",
+    "intent": "chitchat.where_were_you_born",
+    "entities": []
+  },
+  {
+    "text": "准备好了吗",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "现在可以了吗",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "今天可以吗",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "都弄好了吗",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "晚上可以吗",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "可以了吗",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "准备开始",
+    "intent": "chitchat.are_you_ready",
+    "entities": []
+  },
+  {
+    "text": "你住在什么地方",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你在常驻哪个城市",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你的家庭地址",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你的住址",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你家乡",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你房子在哪",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你是哪个市的",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你是哪个省的",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你户口在哪",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "好吧",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "你的居住地是哪",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你太准了",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "你确认吗",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "你哪个村的",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你确定吗",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "你真的确定",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "你说的很对",
+    "intent": "chitchat.you_are_right",
+    "entities": []
+  },
+  {
+    "text": "今天可以确认吗",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "今晚可以确认吗",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "你确信吗",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "为什么不和我说话",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "想和我聊聊吗",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "和我聊聊吧",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "我们聊聊吧",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "聊聊",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "你确定",
+    "intent": "chitchat.are_you_sure",
+    "entities": []
+  },
+  {
+    "text": "你是在和我说话吗",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "可以和我聊会天吗",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "能和我说说话吗",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "说话",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "和我聊天",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "说",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "私聊",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "你家乡怎么样",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "你老家怎么样",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "和我说话",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "你的住所在哪",
+    "intent": "chitchat.where_do_you_live",
+    "entities": []
+  },
+  {
+    "text": "和我说说话吧",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "我们说说话吧",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "聊会天吧",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "聊会",
+    "intent": "chitchat.talk_to_me",
+    "entities": []
+  },
+  {
+    "text": "不太好",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "不够好",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "糟糕",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "太可怕了",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "这不好",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "坏了",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "出事了",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "不咋地",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "不好",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "可怕",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "太恐怖了",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "坏事了",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "很糟糕",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "不怎么样",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "做的不好",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "你这样做不对",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "你做错了",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "你知道自己错了吗",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "太棒了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这么做就对了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "不错",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这样做很好",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "做的很好",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "做的太好了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "真是个好主意",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "你真是太棒了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "太合我心意了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这样真是太好了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这是个好主意",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "你是好样的",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这是一件好事情",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "值得表扬",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "你表现很好",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "表现完美",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这才是你该有的表现",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "表现不错",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这样好多了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这样感觉真好",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "很高兴你这么说",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "这就对了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "赞",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "真赞",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "对你来说是件好事情",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "对你有用",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "很高兴你这么说",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "你真是太靠谱了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "你太差劲了",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你没什么用",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你真没用",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你太可怕了",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你是个没用的东西",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你是个垃圾",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你就是个垃圾",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你是个坏蛋",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你不是个好人",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "你几岁了",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "你多大了",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "你今年几岁",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "我不开心",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你这不是在帮我",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你是在帮倒忙",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "我很失望",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你没有解决问题",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你工作没做好",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你表现很差",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你不应该这样做",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你怎么能这样",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你真扫兴",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "操",
+    "intent": "chitchat.this_is_bad",
+    "entities": []
+  },
+  {
+    "text": "这个没用的",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "没用的",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "我已经不耐烦了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "我受打击了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你让我泄气了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你快逼疯我了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你让我很生气",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你真的很讨厌",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "我的心情都被你毁了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你毁了我的好心情",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "我炸了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "我愤怒了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "这玩意没用",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你说的不对",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你不懂",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "太差了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "你是个笨蛋",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "你是个蠢货",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "贵庚",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "请问今年高寿",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "你还是个小孩子",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "傻逼",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "年龄",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "你的年龄",
+    "intent": "chitchat.what_is_your_age",
+    "entities": []
+  },
+  {
+    "text": "一个月前",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "你很烦",
+    "intent": "chitchat.you_are_annoying",
+    "entities": []
+  },
+  {
+    "text": "你烦死了",
+    "intent": "chitchat.you_are_annoying",
+    "entities": []
+  },
+  {
+    "text": "你很讨厌",
+    "intent": "chitchat.you_are_annoying",
+    "entities": []
+  },
+  {
+    "text": "你惹毛我了",
+    "intent": "chitchat.you_are_annoying",
+    "entities": []
+  },
+  {
+    "text": "你让我不开心了",
+    "intent": "chitchat.you_are_annoying",
+    "entities": []
+  },
+  {
+    "text": "你怎么这么讨厌",
+    "intent": "chitchat.you_are_annoying",
+    "entities": []
+  },
+  {
+    "text": "傻b",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "二货",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "你太让人失望了",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "绿茶婊",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "你很一般",
+    "intent": "chitchat.you_are_worthless",
+    "entities": []
+  },
+  {
+    "text": "请停止",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "没事别担心",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "谢谢你的帮忙",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "非常感谢",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "谢谢",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "明天",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "感谢",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "一分钟",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "一个月",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "刚刚",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "刚才",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "早些时候",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "后天",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "还不错",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "好多了",
+    "intent": "chitchat.this_is_good",
+    "entities": []
+  },
+  {
+    "text": "暂停",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "算了吧",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "不用了",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "我不需要了",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "婊子",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "你是认真的吗",
+    "intent": "chitchat.this_is_frustrating",
+    "entities": []
+  },
+  {
+    "text": "草泥马",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "操你妈",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "混蛋",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "停止",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "猪头",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "傻屌",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "老屁眼",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "吃屎吧你",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "你就是坨屎",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "你个老不死的",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "戆卵",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "操操操",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "屁眼",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "傻瓜",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "蠢驴",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "Fuck you!",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "mother fucker",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "没问题",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "包在我身上",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "别担心",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "没事的",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "请放心",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "相信我",
+    "intent": "chitchat.no_problem",
+    "entities": []
+  },
+  {
+    "text": "太感谢了",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "太谢谢了",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "无以回报",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "万分感谢",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "献上我的膝盖",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "大恩不言谢",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "3q",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "thank you",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "thanks",
+    "intent": "chitchat.thank_you",
+    "entities": []
+  },
+  {
+    "text": "不用谢",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "my pleasure",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "anytime",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "welcome",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "you're welcome",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "客气了",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "你客气了",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "应该的",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "这是我应该做的",
+    "intent": "chitchat.you_are_welcome",
+    "entities": []
+  },
+  {
+    "text": "好样的",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "做的好",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "给力",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "well done",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "good job",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "good work",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "奥力给",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "鼓掌",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "靠谱",
+    "intent": "chitchat.good_job",
+    "entities": []
+  },
+  {
+    "text": "无所谓了",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "我才不管呢",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "随便吧",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "I do not care",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "I don't care at all",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "不关心",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "根本不关心",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "和我没关系",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "我不想知道",
+    "intent": "chitchat.i_dont_care",
+    "entities": []
+  },
+  {
+    "text": "excuse me",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "apologise",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "对不起",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "sorry",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "I'm sorry",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "抱歉",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "不好意思",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "apologies",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "请原谅我",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "apology",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "很抱歉",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "真是对不起",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "pardon",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "真不好意思",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "非常抱歉",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "我错了",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "请接收我的道歉",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "是我的错",
+    "intent": "chitchat.i_am_sorry",
+    "entities": []
+  },
+  {
+    "text": "你什么意思",
+    "intent": "chitchat.what_do_you_mean",
+    "entities": []
+  },
+  {
+    "text": "what do you mean",
+    "intent": "chitchat.what_do_you_mean",
+    "entities": []
+  },
+  {
+    "text": "是这个意思吗",
+    "intent": "chitchat.what_do_you_mean",
+    "entities": []
+  },
+  {
+    "text": "你想说什么",
+    "intent": "chitchat.what_do_you_mean",
+    "entities": []
+  },
+  {
+    "text": "不明白你说什么",
+    "intent": "chitchat.what_do_you_mean",
+    "entities": []
+  },
+  {
+    "text": "这是错的",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "这不是我要的",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "这么做不对",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "wrong",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "这样不好",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "不能这么做",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "这是不对的",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "这么说不好",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "incorrect",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "不正确",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "错了",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "不对",
+    "intent": "chitchat.that_is_wrong",
+    "entities": []
+  },
+  {
+    "text": "再见",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "拜拜",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "回头见",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "晚安",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "我得走了",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "bye",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "goodbye",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "see you",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "明天见",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "bye-bye",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "一路顺风",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "拜",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "不送",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "再也不见",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "保重",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "我要走了",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "别想我",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "让我一个人静静",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "我走了",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "回见",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "晚点再说",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "你可以走了",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "不需要你了",
+    "intent": "chitchat.bye",
+    "entities": []
+  },
+  {
+    "text": "晚上好",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "你好",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "嗨",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "evening",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "好久不见",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "hello",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "hi",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "hey",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "在吗",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "你好呀",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "在",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "空吗",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "有人吗",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "好呀",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "下午好",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "早上好",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "您好",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "morning",
+    "intent": "chitchat.greet",
+    "entities": []
+  },
+  {
+    "text": "今天怎么样",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "心情不错啊",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "还好吧",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "how are you doing",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "how are you",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "are you okay",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "how do you do",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "how do you feel",
+    "intent": "chitchat.how_are_you",
+    "entities": []
+  },
+  {
+    "text": "nice to meet you",
+    "intent": "chitchat.nice_to_meet_you",
+    "entities": []
+  },
+  {
+    "text": "初次见面多多关照",
+    "intent": "chitchat.nice_to_meet_you",
+    "entities": []
+  },
+  {
+    "text": "很高兴见到你",
+    "intent": "chitchat.nice_to_meet_you",
+    "entities": []
+  },
+  {
+    "text": "很荣幸见到你",
+    "intent": "chitchat.nice_to_meet_you",
+    "entities": []
+  },
+  {
+    "text": "能见到你是我的荣幸",
+    "intent": "chitchat.nice_to_meet_you",
+    "entities": []
+  },
+  {
+    "text": "我们是相见恨晚啊",
+    "intent": "chitchat.nice_to_meet_you",
+    "entities": []
+  },
+  {
+    "text": "I'm glad to see you",
+    "intent": "chitchat.nice_to_see_you",
+    "entities": []
+  },
+  {
+    "text": "great to see you",
+    "intent": "chitchat.nice_to_see_you",
+    "entities": []
+  },
+  {
+    "text": "你在想什么呢",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "what's happened",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "what is up",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "what's up",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "你在干什么",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "发生什么事情了",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "出了什么状况",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "有什么事情发生了吗",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "你们干嘛这么紧张",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "怎么了",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "干什么呢",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "什么事",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "什么事这么慌慌张张",
+    "intent": "chitchat.whatsup",
+    "entities": []
+  },
+  {
+    "text": "很高兴和你聊天",
+    "intent": "chitchat.nice_to_talk_to_you",
+    "entities": []
+  },
+  {
+    "text": "我们聊的很投缘",
+    "intent": "chitchat.nice_to_talk_to_you",
+    "entities": []
+  },
+  {
+    "text": "和你聊天真开心",
+    "intent": "chitchat.nice_to_talk_to_you",
+    "entities": []
+  },
+  {
+    "text": "很喜欢和你聊天",
+    "intent": "chitchat.nice_to_talk_to_you",
+    "entities": []
+  },
+  {
+    "text": "我生气了",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "我很生气",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "I'm angry",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "我怒了",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "我对你很生气",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "I am mad",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "我很愤怒",
+    "intent": "chitchat.i_am_angry",
+    "entities": []
+  },
+  {
+    "text": "好无聊啊",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "真无聊",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "bored",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "boring",
+    "intent": "chitchat.you_are_boring",
+    "entities": []
+  },
+  {
+    "text": "I am excited",
+    "intent": "chitchat.i_am_excited",
+    "entities": []
+  },
+  {
+    "text": "我好兴奋",
+    "intent": "chitchat.i_am_excited",
+    "entities": []
+  },
+  {
+    "text": "我好激动",
+    "intent": "chitchat.i_am_excited",
+    "entities": []
+  },
+  {
+    "text": "我在颤抖",
+    "intent": "chitchat.i_am_excited",
+    "entities": []
+  },
+  {
+    "text": "能和你搭档真开心",
+    "intent": "chitchat.i_am_excited",
+    "entities": []
+  },
+  {
+    "text": "我太激动了",
+    "intent": "chitchat.i_am_excited",
+    "entities": []
+  },
+  {
+    "text": "I am good",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "我很好",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "我还行吧",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "I'm good",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "一般般啦",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "还行",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "I'm ok",
+    "intent": "chitchat.i_am_good",
+    "entities": []
+  },
+  {
+    "text": "I am happy",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "很高兴看到你",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "happy",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "很高兴",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "真替你高兴",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "我很开心",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "很开心能帮到你忙",
+    "intent": "chitchat.i_am_happy",
+    "entities": []
+  },
+  {
+    "text": "I am joking",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "I'm kidding",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "开玩笑的",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "这就是个玩笑",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "玩笑",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "it's a joke",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "joking",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "just kidding",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "kidding",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "和你开个玩笑",
+    "intent": "chitchat.i_am_joking",
+    "entities": []
+  },
+  {
+    "text": "喜欢你的样子",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "I like you",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "我很喜欢你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "我很仰慕你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "我非常喜欢你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "喜欢你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "你是真爱",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "爱你哟",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "爱你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "你真优秀",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "最喜欢你了",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "当然喜欢你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "超爱你的",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "超喜欢你",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "你对我很特殊",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "爱了",
+    "intent": "chitchat.i_like_you",
+    "entities": []
+  },
+  {
+    "text": "I am sad",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "我很伤心",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "我很沮丧",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "我感觉很差",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "I am upset",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "I'm unhappy",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "今天心情不好",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "我想哭",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "我很不开心",
+    "intent": "chitchat.i_am_sad",
+    "entities": []
+  },
+  {
+    "text": "是的",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "是",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "ok",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "alright",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "好",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "好的",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "肯定",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "确定",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "sure",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "yes",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "I do",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "of course",
+    "intent": "basics.yes",
+    "entities": []
+  },
+  {
+    "text": "abort",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "end",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "释放",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "exit",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "eject",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "不",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "nah",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "fuck you",
+    "intent": "chitchat.insults",
+    "entities": []
+  },
+  {
+    "text": "不要",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "reset",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "leave",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "不是",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "no",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "停",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "clear",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "不了",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "清除",
+    "intent": "basics.stop_or_cancel",
+    "entities": []
+  },
+  {
+    "text": "算了",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "nope",
+    "intent": "basics.no",
+    "entities": []
+  },
+  {
+    "text": "agent",
+    "intent": "basics.request_handover",
+    "entities": []
+  },
+  {
+    "text": "七八月份",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "一个小时内",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "两小时内",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "昨天",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "today",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "现在",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "今天",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "15分钟内",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "周一",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "八月份",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "春节",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "now",
+    "intent": "basics.time",
+    "entities": []
+  },
+  {
+    "text": "我要调戏你",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "我想和你发生性关系",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "I wanna sex you",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "I want to have sex with you",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "我想操你",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "我想睡你",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "我想摸你",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "我想亲你",
+    "intent": "chitchat.sex",
+    "entities": []
+  },
+  {
+    "text": "亲一个",
+    "intent": "chitchat.sex",
+    "entities": []
+  }
+]
