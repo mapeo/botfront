@@ -22,8 +22,8 @@ class RegexFeatures extends React.Component {
         return (
             <LookupTable
                 data={model.training_data.regex_features}
-                keyAttribute={t('nome')}
-                keyHeader={t('nome')}
+                keyAttribute='name'
+                keyHeader={t('name')}
                 listHeader='Regex'
                 listAttribute='pattern'
                 onItemChanged={this.onItemChanged}
