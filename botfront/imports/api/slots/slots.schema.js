@@ -1,4 +1,5 @@
 import SimpleSchema from 'simpl-schema';
+import { validateYaml } from '../../lib/utils';
 
 function validateMinMaxValue() {
     if (
@@ -34,6 +35,11 @@ export const SlotSchema = new SimpleSchema({
         type: Date,
         optional: true,
         autoValue: () => new Date(),
+    },
+    // djypanda add
+    mappings: {
+        type: String,
+        custom: validateYaml,
     },
 });
 

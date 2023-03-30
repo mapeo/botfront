@@ -225,9 +225,21 @@ if (Meteor.isServer) {
                 : undefined;
             let languages = [language];
             if (!language) {
-                const project = Projects.findOne({ _id: projectId }, { languages: 1 });
+                const project = Projects.findOne({ _id: projectId }, { languages: 1, defaultLanguage: 1 });
                 languages = project ? project.languages : [];
+                const defaultLanguage = project ? project.defaultLanguage : language;
+                // djypanda add
+                // eslint-disable-next-line no-console
+                console.log(`Before filter languages: ${languages}`);
+                if (languages.includes(defaultLanguage)) {
+                    languages = [defaultLanguage];
+                } else {
+                    languages = languages.slice(0, 1);
+                }
+                // eslint-disable-next-line no-console
+                console.log(`After filter languages: ${languages}`);
             }
+
             for (const lang of languages) {
                 const {
                     rasa_nlu_data,
@@ -282,8 +294,9 @@ if (Meteor.isServer) {
                     rules = [],
                     ...payload
                 } = await Meteor.call('rasa.getTrainingPayload', projectId, { env });
+                const version = '3.1'; // djypanda add
                 payload.fragments = yaml.safeDump(
-                    { stories, rules },
+                    { version, stories, rules },
                     { skipInvalid: true },
                 );
                 payload.load_model_after = true;
@@ -362,8 +375,7 @@ if (Meteor.isServer) {
 
                 results = replaceMongoReservedChars({
                     intent_evaluation: results.data.intent_evaluation || {},
-                    entity_evaluation:
-                        results.data.entity_evaluation.DIETClassifier || {},
+                    entity_evaluation: results.data.entity_evaluation || {},
                 });
 
                 const evaluations = Evaluations.findOne(

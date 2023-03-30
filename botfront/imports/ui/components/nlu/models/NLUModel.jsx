@@ -252,10 +252,11 @@ function NLUModel(props) {
                                 menuItem: t('synonyms'),
                                 render: () => <Synonyms model={model} />,
                             },
-                            {
-                                menuItem: 'Gazette',
-                                render: () => <Gazette model={model} />,
-                            },
+                            // djypanda commented, No rasa implementation
+                            // {
+                            //     menuItem: 'Gazette',
+                            //     render: () => <Gazette model={model} />,
+                            // },
                             {
                                 menuItem: t('os'),
                                 render: () => <OutOfScope />,

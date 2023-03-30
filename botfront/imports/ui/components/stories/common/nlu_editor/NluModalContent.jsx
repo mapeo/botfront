@@ -48,7 +48,8 @@ const NLUModalContent = React.forwardRef((props, forwardedRef) => {
         language,
         pageSize: -1,
         intents: [payload.intent],
-        entities: payload.entities,
+        // entities: payload.entities, // djypanda commented, don't match entity name
+        entities: [],
         matchEntityName: true,
     });
     const canEdit = can('nlu-data:w', projectId);
@@ -63,11 +64,19 @@ const NLUModalContent = React.forwardRef((props, forwardedRef) => {
         }
     }, [refetch]);
 
+    // djypanda changed match condition: do not check intent if example.entity is empty
+    // const checkPayloadsMatch = example => example.intent === payload.intent
+    //     && (example.entities || []).length === (payload.entities || []).length
+    //     && (example.entities || []).every(entity => (payload.entities || []).find(
+    //         payloadEntity => payloadEntity.entity === entity.entity,
+    //     ));
     const checkPayloadsMatch = example => example.intent === payload.intent
-        && (example.entities || []).length === (payload.entities || []).length
+        && (
+            (example.entities && example.entities.length) ? (example.entities.length === (payload.entities || []).length
         && (example.entities || []).every(entity => (payload.entities || []).find(
             payloadEntity => payloadEntity.entity === entity.entity,
-        ));
+            ))) : true
+        );
 
     const canonicalizeExample = (newExample, currentExamples) => {
         const exists = currentExamples.some(

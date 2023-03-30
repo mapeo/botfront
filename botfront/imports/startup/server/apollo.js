@@ -47,8 +47,11 @@ export const runAppolloServer = () => {
         },
     });
 
+    // djypanda
+    const corsOptions = { origin: true, credentials: true };
     server.applyMiddleware({
         app: WebApp.connectHandlers,
+        cors: corsOptions,
         path: '/graphql',
         bodyParserConfig: { limit: process.env.GRAPHQL_REQUEST_SIZE_LIMIT || '200kb' },
     });

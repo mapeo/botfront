@@ -33,24 +33,24 @@ class ProjectSidebar extends React.Component {
                         <Menu.Header style={{ marginBottom: '20px' }}>{t('projec')}</Menu.Header>
                         <ProjectsDropdown currentProjectId={projectId} onProjectChange={handleChangeProject} />
                     </Menu.Item>
-                    <Can I='stories:r' projectId={projectId}>
-                        <Link to={`/project/${projectId}/dialogue`}>
-                            <Menu.Item name={t('dialogue')} icon='book' data-cy='dialogue-sidebar-link' />
-                        </Link>
-                    </Can>
                     <Can I='nlu-data:r' projectId={projectId}>
                         <Link to={`/project/${projectId}/nlu/models`}>
                             <Menu.Item name='NLU' icon='grid layout' data-cy='nlu-sidebar-link' />
                         </Link>
                     </Can>
-                    <Can I='incoming:r' projectId={projectId}>
-                        <Link to={`/project/${projectId}/incoming`}>
-                            <Menu.Item name={t('incoming')} icon='inbox' data-cy='incoming-sidebar-link' />
+                    <Can I='stories:r' projectId={projectId}>
+                        <Link to={`/project/${projectId}/dialogue`}>
+                            <Menu.Item name='Dialogue' icon='book' data-cy='dialogue-sidebar-link' />
                         </Link>
                     </Can>
                     <Can I='responses:r' projectId={projectId}>
                         <Link to={`/project/${projectId}/responses`}>
                             <Menu.Item name={t('responses')} icon='comment' />
+                        </Link>
+                    </Can>
+                    <Can I='incoming:r' projectId={projectId}>
+                        <Link to={`/project/${projectId}/incoming`}>
+                            <Menu.Item name='Incoming' icon='inbox' data-cy='incoming-sidebar-link' />
                         </Link>
                     </Can>
                     <Can I='analytics:r' projectId={projectId}>
@@ -63,9 +63,9 @@ class ProjectSidebar extends React.Component {
                             <Menu.Item name={t('settings')} icon='setting' data-cy='settings-sidebar-link' />
                         </Link>
                     )}
-                    <a href={settingsReady ? settings.settings.public.docUrl : ''} target='_blank' rel='noopener noreferrer'>
-                        <Menu.Item name={t('documentation')} icon='question' />
-                    </a>
+                    {/* <a href={settingsReady ? settings.settings.public.docUrl : ''} target='_blank' rel='noopener noreferrer'>
+                        <Menu.Item name='documentation' icon='question' />
+                    </a> */}
                     <Divider inverted />
                     {(can('roles:r', { anyScope: true })
                     || can('users:r', { anyScope: true })

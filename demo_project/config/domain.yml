@@ -1,0 +1,72 @@
+actions:
+  - action_botfront_disambiguation
+  - action_botfront_disambiguation_followup
+  - action_botfront_fallback
+  - action_botfront_mapping
+  - action_my_action
+  - utter_bye
+  - utter_default
+  - utter_get_started
+  - utter_hi
+  - utter_lfRJAFPJJ
+  - utter_pKLg9_TcW
+entities:
+  - PERSON
+forms: {}
+intents:
+  - chitchat.bye
+  - chitchat.greet
+  - chitchat.tell_my_name
+  - chitchat.what_is_your_name
+  - get_started
+responses:
+  utter_bye:
+    - metadata: null
+      text: 回头见
+    - metadata: null
+      text: 拜拜
+  utter_default:
+    - text: 听不懂！
+  utter_get_started:
+    - metadata: null
+      text: 你好啊，有什么可以帮你的？
+  utter_hi:
+    - metadata:
+        forceClose: false
+        forceOpen: false
+        linkTarget: _blank
+        pageChangeCallbacks: null
+        pageEventCallbacks: null
+        userInput: show
+      text: 你也好
+    - metadata:
+        forceClose: false
+        forceOpen: false
+        linkTarget: _blank
+        pageChangeCallbacks: null
+        pageEventCallbacks: null
+        userInput: show
+      text: 哈喽
+  utter_lfRJAFPJJ:
+    - metadata: null
+      text: '你好呀 {slot_person} ！'
+  utter_pKLg9_TcW:
+    - text: 我叫卡卡，你呢？
+session_config: {}
+slots:
+  disambiguation_message:
+    mappings:
+      - type: custom
+    type: any
+  fallback_language:
+    initial_value: zh
+    mappings:
+      - type: custom
+    type: any
+  slot_person:
+    initial_value: 阿三
+    mappings:
+      - entity: PERSON
+        type: from_entity
+    type: text
+version: '3.1'

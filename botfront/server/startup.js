@@ -14,6 +14,7 @@ const fileAppLogger = getAppLoggerForFile(__filename);
 
 Meteor.startup(function() {
     if (Meteor.isServer) {
+        // eslint-disable-next-line global-require
         const packageInfo = require('./../package.json');
         const schema = makeExecutableSchema({
             typeDefs: typeDefsWithUpload, // makeExecutableSchema need to define upload when working with files
@@ -63,6 +64,8 @@ Meteor.startup(function() {
                         instanceState = get(data, 'data.num_active_training_jobs', -1);
                     } catch (e) {
                         instanceState = -1;
+                        // eslint-disable-next-line no-console
+                        console.log(e.message);
                     }
                     if (instanceState >= 1) return { status: 'training', projectId: instance.projectId };
                     if (instanceState === 0) return { status: 'notTraining', projectId: instance.projectId };
@@ -78,5 +81,10 @@ Meteor.startup(function() {
                 console.log('Something went wrong while trying to get the rasa status');
             }
         }, 10000); // run every 10 seconds == 10000 msec
+
+        // djypanda for development
+        // Meteor.callWithPromise(
+        //     'nlu.chitChatLoadJsonFiles',
+        // );
     }
 });

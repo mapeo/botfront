@@ -265,7 +265,7 @@ function Project(props) {
                     )}
                 </SplitPane>
             </div>
-            <Alert stack={{ limit: 3 }} html={true} />
+            <Alert stack={{ limit: 3 }} html />
         </div>
     );
 }

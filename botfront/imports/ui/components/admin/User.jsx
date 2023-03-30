@@ -101,10 +101,11 @@ class User extends React.Component {
                     value: 'en',
                     key: 'en',
                 },
+                // djypanda changed
                 {
-                    text: t('fren'),
-                    value: 'fr',
-                    key: 'fr',
+                    text: 'Chinese',
+                    value: 'zh',
+                    key: 'zh',
                 },
             ]}
         />

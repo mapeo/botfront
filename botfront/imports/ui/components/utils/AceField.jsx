@@ -40,6 +40,7 @@ const AceField = ({
     showInlineError,
     value,
     convertYaml,
+    minLines,
     ...props
 }) => (
     <div
@@ -52,7 +53,8 @@ const AceField = ({
         <AceEditor
             readOnly={readOnly}
             width='100%'
-            minLines={25}
+            // djypanda, original minLines = 25
+            minLines={minLines < 3 ? 25 : minLines}
             /* when a scroll bar appears, ace remove from htlm the lines that are not displayed,
             so when testing you want to access the whole text to check its value you can't , that's why were setting 200 lines max when using cypress */
             maxLines={window.Cypress ? 200 : 25}
